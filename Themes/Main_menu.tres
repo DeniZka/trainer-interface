@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b6jr4gnfb8ktl"]
+
+[ext_resource type="Texture2D" uid="uid://c7wmffn023vtr" path="res://Icons/Right_menu/empty.png" id="1_h5cfn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjt6o"]
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+HBoxContainer/constants/separation = 0
+HSplitContainer/constants/autohide = 1
+HSplitContainer/constants/separation = 55
+HSplitContainer/icons/grabber = ExtResource("1_h5cfn")
+Label/colors/font_color = Color(0.101961, 0.160784, 0.211765, 1)
+Label/font_sizes/font_size = 13
+Panel/styles/panel = SubResource("StyleBoxFlat_gjt6o")
+VBoxContainer/constants/separation = 0

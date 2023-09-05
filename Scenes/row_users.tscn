@@ -1,0 +1,174 @@
+[gd_scene load_steps=14 format=3 uid="uid://dh4dsh7oq5vli"]
+
+[ext_resource type="Theme" uid="uid://uutd23aoncs6" path="res://Themes/row_main_menu.tres" id="1_dc5l6"]
+[ext_resource type="Theme" uid="uid://b6jr4gnfb8ktl" path="res://Themes/Main_menu.tres" id="2_2qgjv"]
+[ext_resource type="Theme" uid="uid://dfwkw8xl52v18" path="res://Themes/for_buttons_main_menu.tres" id="2_25ypg"]
+[ext_resource type="Theme" uid="uid://dq1jgc5b6rq5f" path="res://Themes/select.tres" id="2_y3kll"]
+[ext_resource type="Theme" uid="uid://dh2o6rx5pg8h3" path="res://Themes/edit.tres" id="3_3sbkw"]
+[ext_resource type="ButtonGroup" uid="uid://c68ntmlqufm8x" path="res://Button_groups/rows.tres" id="4_fwqms"]
+[ext_resource type="Theme" uid="uid://dyok0oqwxp5mk" path="res://Themes/delete.tres" id="4_h8jnr"]
+[ext_resource type="Theme" uid="uid://bl5a3rcyon5ke" path="res://Themes/for_icons_and_state_row.tres" id="5_oqc4a"]
+[ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://Icons/Animals/Orca_62.png" id="7_kreol"]
+[ext_resource type="Texture2D" uid="uid://creuf4xgbse4p" path="res://Icons/Right_menu/On-line.png" id="8_um0bq"]
+[ext_resource type="Texture2D" uid="uid://bwm8tbhaf7eoy" path="res://Icons/Right_menu/Lock_active.png" id="9_ps6vo"]
+[ext_resource type="FontFile" uid="uid://bwr8s7ldbolmf" path="res://Fonts/Roboto/Roboto-Light.ttf" id="10_qep08"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv2bq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_bottom = 2
+border_color = Color(0.54902, 0.576471, 0.603922, 1)
+expand_margin_left = 10.0
+expand_margin_top = 70.0
+expand_margin_right = 15.0
+
+[node name="Row" type="HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(1536, 80)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_dc5l6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+theme = ExtResource("2_25ypg")
+
+[node name="Container" type="Container" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="For_buttons" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("1_dc5l6")
+alignment = 1
+
+[node name="Select" type="CheckButton" parent="HBoxContainer/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_y3kll")
+button_group = ExtResource("4_fwqms")
+
+[node name="Edit" type="CheckButton" parent="HBoxContainer/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_3sbkw")
+button_group = ExtResource("4_fwqms")
+
+[node name="Delete" type="CheckButton" parent="HBoxContainer/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_h8jnr")
+button_group = ExtResource("4_fwqms")
+
+[node name="For_icons_and_state" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_oqc4a")
+
+[node name="For_icon" type="HBoxContainer" parent="HBoxContainer/For_icons_and_state"]
+layout_mode = 2
+theme = ExtResource("5_oqc4a")
+
+[node name="Icon" type="Button" parent="HBoxContainer/For_icons_and_state/For_icon"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme = ExtResource("1_dc5l6")
+icon = ExtResource("7_kreol")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="For_state" type="VBoxContainer" parent="HBoxContainer/For_icons_and_state/For_icon"]
+layout_mode = 2
+theme = ExtResource("5_oqc4a")
+
+[node name="For_state1" type="HBoxContainer" parent="HBoxContainer/For_icons_and_state/For_icon/For_state"]
+layout_mode = 2
+theme = ExtResource("5_oqc4a")
+
+[node name="On_off" type="Button" parent="HBoxContainer/For_icons_and_state/For_icon/For_state/For_state1"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+icon = ExtResource("8_um0bq")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="Blocked" type="Button" parent="HBoxContainer/For_icons_and_state/For_icon/For_state/For_state1"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+theme = ExtResource("1_dc5l6")
+icon = ExtResource("9_ps6vo")
+vertical_icon_alignment = 2
+
+[node name="ID" type="Label" parent="HBoxContainer/For_icons_and_state"]
+layout_mode = 2
+theme = ExtResource("1_dc5l6")
+theme_override_fonts/font = ExtResource("10_qep08")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_xv2bq")
+text = "ID: 12345"
+vertical_alignment = 2
+
+[node name="Split1" type="HSplitContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_2qgjv")
+
+[node name="Name" type="HFlowContainer" parent="Split1"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_dc5l6")
+alignment = 2
+
+[node name="Name" type="Label" parent="Split1/Name"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_dc5l6")
+text = "Константинопольский Константин Константинович"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Split2" type="HSplitContainer" parent="Split1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Login" type="HFlowContainer" parent="Split1/Split2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Login" type="Label" parent="Split1/Split2/Login"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_dc5l6")
+text = "Константин 777"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Role" type="HFlowContainer" parent="Split1/Split2"]
+custom_minimum_size = Vector2(146, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Role" type="Label" parent="Split1/Split2/Role"]
+custom_minimum_size = Vector2(100, 80)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_dc5l6")
+text = "Преподаватель"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 2

@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dv6ioot76u5ta"]
+
+[ext_resource type="Texture2D" uid="uid://b4qk7dolumdse" path="res://Icons/Left_menu/Open_menu.png" id="1_qcl04"]
+[ext_resource type="Texture2D" uid="uid://dhpvktndlstvy" path="res://Icons/Left_menu/Close_menu.png" id="2_at1cq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ghsgy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1qivj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygodq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bvc6y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dl6tf"]
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_ghsgy")
+Button/styles/focus = SubResource("StyleBoxEmpty_1qivj")
+Button/styles/hover = SubResource("StyleBoxEmpty_ygodq")
+Button/styles/normal = SubResource("StyleBoxEmpty_bvc6y")
+Button/styles/pressed = SubResource("StyleBoxEmpty_dl6tf")
+CheckButton/icons/checked = ExtResource("1_qcl04")
+CheckButton/icons/unchecked = ExtResource("2_at1cq")

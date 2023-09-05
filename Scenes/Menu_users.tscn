@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnp5x7pmnuyff"]
+
+[ext_resource type="Theme" uid="uid://b6jr4gnfb8ktl" path="res://Themes/Main_menu.tres" id="2_d3k7q"]
+[ext_resource type="PackedScene" uid="uid://dh4dsh7oq5vli" path="res://Scenes/row_users.tscn" id="3_86vcw"]
+
+[node name="Menu_users" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_horizontal_guides_ = [33.7843]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 1536.0
+offset_bottom = 948.0
+theme = ExtResource("2_d3k7q")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+custom_minimum_size = Vector2(0, 862)
+layout_mode = 2
+anchor_top = -0.004
+anchor_bottom = -0.004
+offset_top = 37.792
+offset_right = 1536.0
+offset_bottom = 951.792
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+custom_minimum_size = Vector2(1536, 896)
+layout_mode = 2
+theme = ExtResource("2_d3k7q")
+
+[node name="ColorRect15" type="ColorRect" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+color = Color(0, 1, 1, 1)
+
+[node name="Row" parent="Panel/ScrollContainer/VBoxContainer" instance=ExtResource("3_86vcw")]
+layout_mode = 2
