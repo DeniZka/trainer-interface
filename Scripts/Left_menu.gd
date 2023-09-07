@@ -33,6 +33,7 @@ extends Control
 @onready var SerHconn = $Back/MainV/SettingsH/Left_menu/Servers/Servers_button/SerH
 @onready var SysVconn = $Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button/SysV
 @onready var SysHconn = $Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button/SysH
+@onready var Users_button = $Back/MainV/SettingsH/Left_menu/Users/Users_button
 
 func _ready():
 	pass # Replace with function body.
@@ -59,9 +60,14 @@ func _on_users_button_mouse_entered():
 	pass # Replace with function body.
 
 func _on_users_button_mouse_exited():
-	setconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
-	UVconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
-	UHconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
+	if (Users_button.button_pressed):
+		setconn.color = Color(1, 1, 1)
+		UVconn.color = Color(1, 1, 1)
+		UHconn.color = Color(1, 1, 1)
+	else:
+		setconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
+		UVconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
+		UHconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
 	pass # Replace with function body.
 
 
@@ -72,16 +78,3 @@ func _on_users_button_pressed():
 	UHconn.color = Color(1, 1, 1)
 	pass # Replace with function body.
 	
-	
-
-
-func _on_users_button_toggled(button_pressed):
-	if(button_pressed):
-		setconn.color = Color(1, 1, 1)
-		UVconn.color = Color(1, 1, 1)
-		UHconn.color = Color(1, 1, 1)
-	else:
-		setconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
-		UVconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
-		UHconn.color = Color(0.4, 0.4862745098039216, 0.5568627450980392)
-	pass # Replace with function body.
