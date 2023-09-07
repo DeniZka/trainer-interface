@@ -1,0 +1,1059 @@
+[gd_scene load_steps=17 format=3 uid="uid://dvrltj50b2ya"]
+
+[ext_resource type="Script" path="res://Scripts/Left_menu.gd" id="1_3ngb4"]
+[ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu.tres" id="1_acjhc"]
+[ext_resource type="Texture2D" uid="uid://bf18q6y2s4ee2" path="res://Icons/Left_menu/User_icon_left_menu.png" id="2_a6cjb"]
+[ext_resource type="Texture2D" uid="uid://b8wmhvbb4j1df" path="res://Icons/Left_menu/Role_icon_left_menu.png" id="3_dx1ur"]
+[ext_resource type="Theme" uid="uid://b35ov6xi55eal" path="res://Themes/Left_menu_long_connection.tres" id="3_xw8rp"]
+[ext_resource type="Texture2D" uid="uid://b0g4eavkk3ojd" path="res://Icons/Left_menu/Model_icon_left_menu.png" id="4_ih2mb"]
+[ext_resource type="Texture2D" uid="uid://c5tepj1j2wbrg" path="res://Icons/Left_menu/Restart_icon_left_menu.png" id="6_xoapi"]
+[ext_resource type="Texture2D" uid="uid://cxqigfijyfj76" path="res://Icons/Left_menu/Videoframe_icon_left_menu.png" id="7_35yax"]
+[ext_resource type="Texture2D" uid="uid://dl684yhxqd6un" path="res://Icons/Left_menu/Scenario_icon_left_menu.png" id="8_5lpbq"]
+[ext_resource type="Texture2D" uid="uid://d3dcn5o464vtu" path="res://Icons/Left_menu/Logo.png" id="8_nrh5t"]
+[ext_resource type="Texture2D" uid="uid://cr4e5b5x854my" path="res://Icons/Left_menu/ServerS_icon_left_menu.png" id="9_j68ef"]
+[ext_resource type="Texture2D" uid="uid://7i6c4se4j7us" path="res://Icons/Left_menu/System_condition_icon_left_menu.png" id="10_deo8d"]
+[ext_resource type="Texture2D" uid="uid://cruhip4lopqgq" path="res://Icons/Left_menu/Server_icon_left_menu.png" id="12_lwxft"]
+[ext_resource type="Theme" uid="uid://0vmbqplst53s" path="res://Themes/Button_in_button.tres" id="12_w1oct"]
+[ext_resource type="Texture2D" uid="uid://dq4sf5jkliia4" path="res://Icons/Left_menu/Log_out.png" id="13_im6iq"]
+[ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://Icons/Animals/Orca_62.png" id="13_j8dkb"]
+
+[node name="Left_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.31104
+offset_top = -10.8627
+offset_right = 1.31104
+offset_bottom = -10.8628
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3ngb4")
+metadata/_edit_vertical_guides_ = [557.717]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.2
+anchor_bottom = 1.0
+theme = ExtResource("1_acjhc")
+
+[node name="Connection_menu" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 35.0
+offset_top = 178.0
+offset_right = -48.0
+offset_bottom = 180.0
+grow_horizontal = 2
+theme = ExtResource("1_acjhc")
+
+[node name="Connection_Servers" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 35.0
+offset_top = 590.0
+offset_right = -48.0
+offset_bottom = 902.0
+grow_horizontal = 2
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_user" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 207.0
+offset_right = 57.0
+offset_bottom = 209.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_role" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 250.0
+offset_right = 57.0
+offset_bottom = 252.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_model" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 293.0
+offset_right = 57.0
+offset_bottom = 295.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_server" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 465.0
+offset_right = 57.0
+offset_bottom = 467.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_server A" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 660.0
+offset_right = 57.0
+offset_bottom = 662.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_server B" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 780.0
+offset_right = 57.0
+offset_bottom = 782.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_server V" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 900.0
+offset_right = 57.0
+offset_bottom = 902.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_system" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 37.0
+offset_top = 508.0
+offset_right = 57.0
+offset_bottom = 510.0
+grow_horizontal = 2
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_restart" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 336.0
+offset_right = 78.0
+offset_bottom = 338.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_videoframe" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 379.0
+offset_right = 78.0
+offset_bottom = 381.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_scenario" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 422.0
+offset_right = 78.0
+offset_bottom = 424.0
+theme = ExtResource("1_acjhc")
+
+[node name="HConnection_login" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.955
+anchor_bottom = 0.956
+offset_top = -0.400024
+offset_right = 57.0
+offset_bottom = 0.52002
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_acjhc")
+
+[node name="VConnection_user" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 180.0
+offset_right = 66.0
+offset_bottom = 182.0
+rotation = 1.5708
+theme = ExtResource("3_xw8rp")
+
+[node name="VConnection_role" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 180.0
+offset_right = 109.0
+offset_bottom = 182.0
+rotation = 1.5708
+theme = ExtResource("3_xw8rp")
+
+[node name="VConnection_model" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 181.0
+offset_right = 151.0
+offset_bottom = 183.0
+rotation = 1.5708
+theme = ExtResource("3_xw8rp")
+
+[node name="VConnection_restart" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 180.0
+offset_right = 194.0
+offset_bottom = 182.0
+rotation = 1.5708
+theme = ExtResource("3_xw8rp")
+
+[node name="VConnection_videoframe" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 180.0
+offset_right = 238.0
+offset_bottom = 182.0
+rotation = 1.5708
+theme = ExtResource("3_xw8rp")
+
+[node name="VConnection_scenario" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 180.0
+offset_right = 281.0
+offset_bottom = 182.0
+rotation = 1.5708
+theme = ExtResource("3_xw8rp")
+
+[node name="VConnection_server" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 180.0
+offset_right = 324.0
+offset_bottom = 182.0
+rotation = 1.5708
+theme = ExtResource("3_xw8rp")
+
+[node name="VConnection_system" type="PanelContainer" parent="Panel"]
+layout_mode = 2
+offset_left = 37.0
+offset_top = 180.0
+offset_right = 367.0
+offset_bottom = 182.0
+grow_horizontal = 2
+rotation = 1.5708
+theme = ExtResource("3_xw8rp")
+
+[node name="Users_button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 67.0
+offset_top = 194.0
+offset_right = -110.0
+offset_bottom = 217.0
+theme = ExtResource("1_acjhc")
+icon = ExtResource("2_a6cjb")
+alignment = 0
+
+[node name="Users" type="Label" parent="Panel/Users_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Пользователи"
+
+[node name="Roles_button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 67.0
+offset_top = 237.0
+offset_right = -110.0
+offset_bottom = 260.0
+theme = ExtResource("1_acjhc")
+icon = ExtResource("3_dx1ur")
+alignment = 0
+
+[node name="Roles" type="Label" parent="Panel/Roles_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Роли"
+
+[node name="Models_button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 67.0
+offset_top = 280.0
+offset_right = -110.0
+offset_bottom = 303.0
+theme = ExtResource("1_acjhc")
+icon = ExtResource("4_ih2mb")
+alignment = 0
+
+[node name="Models" type="Label" parent="Panel/Models_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Модели"
+
+[node name="Restarts_button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 88.0
+offset_top = 323.0
+offset_right = -110.0
+offset_bottom = 346.0
+theme = ExtResource("1_acjhc")
+icon = ExtResource("6_xoapi")
+alignment = 0
+
+[node name="Restarts" type="Label" parent="Panel/Restarts_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Рестарты"
+
+[node name="Videoframe_button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 88.0
+offset_top = 366.0
+offset_right = -110.0
+offset_bottom = 389.0
+theme = ExtResource("1_acjhc")
+icon = ExtResource("7_35yax")
+alignment = 0
+
+[node name="Videoframe" type="Label" parent="Panel/Videoframe_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Видеокадры
+"
+
+[node name="Scenarios_button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 88.0
+offset_top = 409.0
+offset_right = -110.0
+offset_bottom = 432.0
+theme = ExtResource("1_acjhc")
+icon = ExtResource("8_5lpbq")
+alignment = 0
+
+[node name="Scenarios" type="Label" parent="Panel/Scenarios_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Сценарии"
+
+[node name="Servers_button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 67.0
+offset_top = 452.0
+offset_right = -110.0
+offset_bottom = 475.0
+theme = ExtResource("1_acjhc")
+icon = ExtResource("9_j68ef")
+alignment = 0
+
+[node name="Servers" type="Label" parent="Panel/Servers_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Серверы"
+
+[node name="System_condition_button" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+offset_left = 67.0
+offset_top = 495.0
+offset_right = -110.0
+offset_bottom = 519.0
+theme = ExtResource("1_acjhc")
+icon = ExtResource("10_deo8d")
+alignment = 0
+
+[node name="System_condition" type="Label" parent="Panel/System_condition_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Состояние системы
+"
+
+[node name="Login" type="Button" parent="Panel"]
+layout_mode = 2
+anchor_top = 0.946
+anchor_right = 1.0
+anchor_bottom = 0.976
+offset_left = 67.0
+offset_top = -10.6801
+offset_right = -48.0
+offset_bottom = -7.08008
+theme = ExtResource("1_acjhc")
+icon = ExtResource("2_a6cjb")
+alignment = 0
+
+[node name="Login" type="Label" parent="Panel/Login"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 205.0
+offset_bottom = 53.0
+theme = ExtResource("1_acjhc")
+theme_override_font_sizes/font_size = 12
+text = "Каменьщикова Екатерина Владимировна
+"
+autowrap_mode = 2
+
+[node name="Settings" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 145.0
+offset_right = 181.0
+offset_bottom = 181.0
+theme = ExtResource("1_acjhc")
+theme_override_font_sizes/font_size = 28
+text = "Настройки"
+
+[node name="Servers" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 556.0
+offset_right = 181.0
+offset_bottom = 592.0
+theme = ExtResource("1_acjhc")
+theme_override_font_sizes/font_size = 28
+text = "Серверы"
+
+[node name="Server_A" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 67.0
+offset_top = 610.0
+offset_right = -48.0
+offset_bottom = 714.0
+grow_horizontal = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("12_lwxft")
+vertical_icon_alignment = 0
+
+[node name="Label" type="Label" parent="Panel/Server_A"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 72.0
+offset_bottom = 21.0
+theme = ExtResource("1_acjhc")
+text = "Сервер А"
+
+[node name="Orca68" type="Sprite2D" parent="Panel/Server_A"]
+position = Vector2(161, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca67" type="Sprite2D" parent="Panel/Server_A"]
+position = Vector2(139, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca66" type="Sprite2D" parent="Panel/Server_A"]
+position = Vector2(117, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca65" type="Sprite2D" parent="Panel/Server_A"]
+position = Vector2(95, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca64" type="Sprite2D" parent="Panel/Server_A"]
+position = Vector2(73, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca63" type="Sprite2D" parent="Panel/Server_A"]
+position = Vector2(52, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca62" type="Sprite2D" parent="Panel/Server_A"]
+position = Vector2(32, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Server_B" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 67.0
+offset_top = 730.0
+offset_right = -48.0
+offset_bottom = 834.0
+grow_horizontal = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("12_lwxft")
+vertical_icon_alignment = 0
+
+[node name="Label" type="Label" parent="Panel/Server_B"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 72.0
+offset_bottom = 21.0
+theme = ExtResource("1_acjhc")
+text = "Сервер Б
+"
+
+[node name="Orca68" type="Sprite2D" parent="Panel/Server_B"]
+position = Vector2(161, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca67" type="Sprite2D" parent="Panel/Server_B"]
+position = Vector2(139, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca66" type="Sprite2D" parent="Panel/Server_B"]
+position = Vector2(117, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca65" type="Sprite2D" parent="Panel/Server_B"]
+position = Vector2(95, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca64" type="Sprite2D" parent="Panel/Server_B"]
+position = Vector2(73, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca63" type="Sprite2D" parent="Panel/Server_B"]
+position = Vector2(52, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca62" type="Sprite2D" parent="Panel/Server_B"]
+position = Vector2(32, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Server_V" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 67.0
+offset_top = 850.0
+offset_right = -48.0
+offset_bottom = 954.0
+grow_horizontal = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("12_lwxft")
+vertical_icon_alignment = 0
+
+[node name="Label" type="Label" parent="Panel/Server_V"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 72.0
+offset_bottom = 21.0
+theme = ExtResource("1_acjhc")
+text = "Сервер В
+"
+
+[node name="Orca68" type="Sprite2D" parent="Panel/Server_V"]
+position = Vector2(161, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca67" type="Sprite2D" parent="Panel/Server_V"]
+position = Vector2(139, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca66" type="Sprite2D" parent="Panel/Server_V"]
+position = Vector2(117, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca65" type="Sprite2D" parent="Panel/Server_V"]
+position = Vector2(95, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca64" type="Sprite2D" parent="Panel/Server_V"]
+position = Vector2(73, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca63" type="Sprite2D" parent="Panel/Server_V"]
+position = Vector2(52, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Orca62" type="Sprite2D" parent="Panel/Server_V"]
+position = Vector2(32, 64)
+texture = ExtResource("13_j8dkb")
+
+[node name="Panel_for_logo" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_right = 192.0
+offset_bottom = 125.0
+grow_horizontal = 2
+
+[node name="Logo" type="Sprite2D" parent="Panel/Panel_for_logo"]
+position = Vector2(195, 62)
+scale = Vector2(1.34375, 1.34375)
+texture = ExtResource("8_nrh5t")
+
+[node name="Project_name" type="Label" parent="Panel/Panel_for_logo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 103.0
+offset_right = 72.0
+offset_bottom = 127.0
+grow_horizontal = 2
+text = "Название проекта"
+
+[node name="Panel2" type="VBoxContainer" parent="."]
+layout_mode = 2
+anchor_left = 0.253
+anchor_top = 0.003
+anchor_right = 0.253
+anchor_bottom = 0.003
+offset_left = 144.24
+offset_top = -0.24
+offset_right = 356.24
+offset_bottom = 396.76
+theme = ExtResource("1_acjhc")
+
+[node name="Settings" type="Label" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+theme_override_font_sizes/font_size = 28
+text = "Настройки"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+
+[node name="Users_button" type="Button" parent="Panel2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_acjhc")
+icon = ExtResource("2_a6cjb")
+
+[node name="Users" type="Label" parent="Panel2/HBoxContainer2/Users_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Пользователи"
+
+[node name="ColorRect" type="ColorRect" parent="Panel2/HBoxContainer2/Users_button"]
+layout_mode = 0
+offset_left = -32.2873
+offset_top = -31.1105
+offset_right = -30.2873
+offset_bottom = 13.8895
+
+[node name="ColorRect2" type="ColorRect" parent="Panel2/HBoxContainer2/Users_button"]
+layout_mode = 0
+offset_left = -10.3035
+offset_top = 11.8651
+offset_right = -8.30353
+offset_bottom = 31.8651
+rotation = 1.5708
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+
+[node name="Users_button_1" type="Button" parent="Panel2/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_acjhc")
+icon = ExtResource("2_a6cjb")
+
+[node name="Users" type="Label" parent="Panel2/HBoxContainer3/Users_button_1"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Пользователи"
+
+[node name="ColorRect_1" type="ColorRect" parent="Panel2/HBoxContainer3/Users_button_1"]
+layout_mode = 0
+offset_left = -32.2873
+offset_top = -31.1105
+offset_right = -30.2873
+offset_bottom = 13.8895
+
+[node name="ColorRect_2" type="ColorRect" parent="Panel2/HBoxContainer3/Users_button_1"]
+layout_mode = 0
+offset_left = -10.3035
+offset_top = 11.8651
+offset_right = -8.30353
+offset_bottom = 31.8651
+rotation = 1.5708
+
+[node name="Roles_button" type="Button" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("3_dx1ur")
+alignment = 0
+
+[node name="Roles" type="Label" parent="Panel2/Roles_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Роли"
+
+[node name="Models_button" type="Button" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("4_ih2mb")
+alignment = 0
+
+[node name="Models" type="Label" parent="Panel2/Models_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Модели"
+
+[node name="Restarts_button" type="Button" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("6_xoapi")
+alignment = 0
+
+[node name="Restarts" type="Label" parent="Panel2/Restarts_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Рестарты"
+
+[node name="Videoframe_button" type="Button" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("7_35yax")
+alignment = 0
+
+[node name="Videoframe" type="Label" parent="Panel2/Videoframe_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Видеокадры
+"
+
+[node name="Scenarios_button" type="Button" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("8_5lpbq")
+alignment = 0
+
+[node name="Scenarios" type="Label" parent="Panel2/Scenarios_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Сценарии"
+
+[node name="Servers_button" type="Button" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("9_j68ef")
+alignment = 0
+
+[node name="Servers" type="Label" parent="Panel2/Servers_button"]
+layout_mode = 2
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 174.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Серверы"
+
+[node name="System_condition_button" type="Button" parent="Panel2"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("10_deo8d")
+alignment = 0
+
+[node name="System_condition" type="Label" parent="Panel2/System_condition_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Состояние системы
+"
+
+[node name="Log_out" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.201
+anchor_top = 0.955
+anchor_right = 0.201
+anchor_bottom = 0.955
+offset_left = -81.92
+offset_top = -16.4
+offset_right = -49.92
+offset_bottom = 15.6
+theme = ExtResource("12_w1oct")
+icon = ExtResource("13_im6iq")
+
+[node name="Panel3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.253
+anchor_top = 0.003
+anchor_right = 0.253
+anchor_bottom = 0.003
+offset_left = 816.186
+offset_top = 180.259
+offset_right = 1028.19
+offset_bottom = 622.259
+theme = ExtResource("1_acjhc")
+
+[node name="Settings" type="Label" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+theme_override_font_sizes/font_size = 28
+text = "Настройки"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/Settings"]
+position = Vector2(868.794, 33.8523)
+scale = Vector2(14.6905, 1)
+points = PackedVector2Array(-39.699, 3.36415, -61.1752, 3.3595)
+width = 2.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+
+[node name="Users_button" type="Button" parent="Panel3/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_acjhc")
+icon = ExtResource("2_a6cjb")
+
+[node name="Users" type="Label" parent="Panel3/HBoxContainer2/Users_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Пользователи"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/HBoxContainer2/Users_button"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9119, -13.2518, -59.9181, -29.8088)
+width = 2.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+
+[node name="Users_button_1" type="Button" parent="Panel3/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_acjhc")
+icon = ExtResource("2_a6cjb")
+
+[node name="Users" type="Label" parent="Panel3/HBoxContainer3/Users_button_1"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Пользователи"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/HBoxContainer3/Users_button_1"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9216, -40.7152)
+width = 2.0
+
+[node name="Roles_button" type="Button" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("3_dx1ur")
+alignment = 0
+
+[node name="Roles" type="Label" parent="Panel3/Roles_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Роли"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/Roles_button"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9216, -40.7152)
+width = 2.0
+
+[node name="Models_button" type="Button" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("4_ih2mb")
+alignment = 0
+
+[node name="Models" type="Label" parent="Panel3/Models_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Модели"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/Models_button"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9216, -40.7152)
+width = 2.0
+
+[node name="Restarts_button" type="Button" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("6_xoapi")
+alignment = 0
+
+[node name="Restarts" type="Label" parent="Panel3/Restarts_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Рестарты"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/Restarts_button"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9216, -40.7152)
+width = 2.0
+
+[node name="Videoframe_button" type="Button" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("7_35yax")
+alignment = 0
+
+[node name="Videoframe" type="Label" parent="Panel3/Videoframe_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Видеокадры
+"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/Videoframe_button"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9216, -40.7152)
+width = 2.0
+
+[node name="Scenarios_button" type="Button" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("8_5lpbq")
+alignment = 0
+
+[node name="Scenarios" type="Label" parent="Panel3/Scenarios_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Сценарии"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/Scenarios_button"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9216, -40.7152)
+width = 2.0
+
+[node name="Servers_button" type="Button" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("9_j68ef")
+alignment = 0
+
+[node name="Servers" type="Label" parent="Panel3/Servers_button"]
+layout_mode = 2
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 174.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Серверы"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/Servers_button"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9216, -40.7152)
+width = 2.0
+
+[node name="System_condition_button" type="Button" parent="Panel3"]
+layout_mode = 2
+theme = ExtResource("1_acjhc")
+icon = ExtResource("10_deo8d")
+alignment = 0
+
+[node name="System_condition" type="Label" parent="Panel3/System_condition_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_acjhc")
+text = "Состояние системы
+"
+
+[node name="ColorRect" type="Line2D" parent="Panel3/System_condition_button"]
+position = Vector2(31.0903, 10)
+scale = Vector2(1.03571, 1)
+points = PackedVector2Array(-39.699, 3.36415, -59.906, 3.35509, -59.9216, -40.7152)
+width = 2.0
+
+[connection signal="mouse_entered" from="Panel2/HBoxContainer2/Users_button" to="." method="_on_users_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel2/HBoxContainer2/Users_button" to="." method="_on_users_button_mouse_exited"]
+[connection signal="mouse_entered" from="Panel2/HBoxContainer3/Users_button_1" to="." method="_on_users_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="Panel2/HBoxContainer3/Users_button_1" to="." method="_on_users_button_1_mouse_exited"]
+[connection signal="mouse_entered" from="Panel3/HBoxContainer2/Users_button" to="." method="_on_users_button_mouse_entered"]
+[connection signal="mouse_exited" from="Panel3/HBoxContainer2/Users_button" to="." method="_on_users_button_mouse_exited"]
+[connection signal="mouse_entered" from="Panel3/HBoxContainer3/Users_button_1" to="." method="_on_users_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="Panel3/HBoxContainer3/Users_button_1" to="." method="_on_users_button_1_mouse_exited"]
