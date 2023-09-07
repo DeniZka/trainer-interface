@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ifmqn0lgngl"]
+
+[ext_resource type="PackedScene" uid="uid://dvrltj50b2ya" path="res://Scenes/Left_menu_my_button.tscn" id="1_y0but"]
+[ext_resource type="PackedScene" uid="uid://c4li1lquxvfxu" path="res://Scenes/Right_menu_user.tscn" id="2_8cvtt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left_menu" parent="." instance=ExtResource("1_y0but")]
+layout_mode = 1
+
+[node name="Right_menu" parent="." instance=ExtResource("2_8cvtt")]
+visible = false
+layout_mode = 1

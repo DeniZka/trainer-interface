@@ -1,0 +1,42 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b35ov6xi55eal"]
+
+[ext_resource type="Texture2D" uid="uid://bghi5671i0q62" path="res://Icons/Left_menu/Connections/Connection_long.png" id="1_1on2v"]
+[ext_resource type="Texture2D" uid="uid://o5x1yr6xka0f" path="res://Icons/Left_menu/Connections/Connection_hover_long.png" id="1_b3dkr"]
+[ext_resource type="Texture2D" uid="uid://c7vimj2q474tx" path="res://Icons/Left_menu/Connections/Connection_active_long.png" id="3_hat4w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo5md"]
+texture = ExtResource("3_hat4w")
+expand_margin_left = 51.0
+expand_margin_top = 12.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ekfnf"]
+texture = ExtResource("1_b3dkr")
+expand_margin_left = 51.0
+expand_margin_top = 12.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hmlnd"]
+texture = ExtResource("1_1on2v")
+expand_margin_left = 51.0
+expand_margin_top = 12.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rdmg1"]
+texture = ExtResource("3_hat4w")
+expand_margin_left = 51.0
+expand_margin_top = 12.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrd2m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.4, 0.486275, 0.556863, 1)
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxTexture_oo5md")
+Button/styles/hover = SubResource("StyleBoxTexture_ekfnf")
+Button/styles/normal = SubResource("StyleBoxTexture_hmlnd")
+Button/styles/pressed = SubResource("StyleBoxTexture_rdmg1")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_mrd2m")

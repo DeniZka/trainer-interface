@@ -1,0 +1,89 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr5bli6vteqdh"]
+
+[sub_resource type="GDScript" id="GDScript_s6ktl"]
+script/source = "extends Control
+
+@onready var st : Tree = $\"servers-tree\"
+@onready var icons : Dictionary = {
+	\"initialization\" : \"\"
+	\"play\" : \"res://Icons/Left_menu/Model_icon_left_menu.png\",
+	\"step\" : \"\"
+	\"pause\" : \"res://Icons/Left_menu/Restart_icon_left_menu.png\"
+	\"stop\" : \"\"
+	}
+@onready var servernames : Array = [
+	\"Сервер Васьки\",
+	\"Сервер отличный\",
+	\"Сервер необычный\"
+]
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#setup column with servername expanding
+	#st.set_column_expand(0, true)
+	#st.set_column_expand_ratio(0, 0)
+	#setup column with user list expanding
+	st.set_column_expand (1, true)
+	st.set_column_expand_ratio(1, 100)
+	
+	var n1: TreeItem = st.create_item()
+	n1.set_text(0, \"Серверы\")
+	n1.set_selectable(0, false)
+	n1.disable_folding = true
+	n1.set_custom_font_size(0, 25)
+	
+	var n2 : TreeItem 
+	for i in range(3):
+		n2 = n1.create_child() #create child node in main node (named as sub_node)
+		n2.set_cell_mode(0, TreeItem.CELL_MODE_ICON)
+		n2.set_icon(0, load(\"res://Icons/Left_menu/ServerS_icon_left_menu.png\")) #set icon from texture
+		n2.set_text(1, servernames[i] )
+		
+		#create sub icons for status showing
+		n2.set_cell_mode(2, TreeItem.CELL_MODE_ICON)
+		n2.set_cell_mode(3, TreeItem.CELL_MODE_ICON)
+		n2.set_cell_mode(4, TreeItem.CELL_MODE_ICON)
+		n2.set_cell_mode(5, TreeItem.CELL_MODE_ICON)
+		n2.set_selectable(2, false)
+		n2.set_icon( 2, load(icons[\"play\"]))
+		n2.set_selectable(3, false)
+		n2.set_icon(3, load(\"res://Icons/Left_menu/Restart_icon_left_menu.png\"))
+		n2.set_selectable(4, false)
+		n2.set_icon(4, load(\"res://Icons/Left_menu/Role_icon_left_menu.png\"))
+		n2.set_selectable(5, false)
+		n2.set_icon(5, load(\"res://Icons/Left_menu/Restart_icon_left_menu.png\"))
+				
+		#create connected users in loop
+		var users: TreeItem = null;
+		for j in range(6):
+			users = n2.create_child()
+			users.set_selectable(0, false)
+			users.set_icon(0, load(\"res://Icons/Animals/Orca_62.png\"))
+			users.set_selectable(1, false)
+			users.set_text(1, \"User Userovich Userovsky \" + str(j))
+				
+	pass # Replace with function body.
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Servers" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_s6ktl")
+
+[node name="servers-tree" type="Tree" parent="."]
+layout_mode = 0
+offset_right = 702.0
+offset_bottom = 466.0
+columns = 7
+scroll_horizontal_enabled = false
