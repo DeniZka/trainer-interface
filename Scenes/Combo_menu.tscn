@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://5ifmqn0lgngl"]
+[gd_scene load_steps=5 format=3 uid="uid://5ifmqn0lgngl"]
 
-[ext_resource type="PackedScene" uid="uid://dvrltj50b2ya" path="res://Scenes/Left_menu_my_button.tscn" id="1_y0but"]
-[ext_resource type="PackedScene" uid="uid://c4li1lquxvfxu" path="res://Scenes/Right_menu_user.tscn" id="2_8cvtt"]
+[ext_resource type="PackedScene" uid="uid://dvrltj50b2ya" path="res://Scenes/Left_menu.tscn" id="1_y0but"]
+[ext_resource type="PackedScene" uid="uid://c4li1lquxvfxu" path="res://Scenes/Right_menu_user_add.tscn" id="2_8cvtt"]
+[ext_resource type="Theme" uid="uid://ye8p72kwosj7" path="res://Themes/Combo_menu/Combo_main.tres" id="2_bbvy8"]
+[ext_resource type="PackedScene" uid="uid://kmmtwmskn68e" path="res://Scenes/Upper_menu.tscn" id="3_og25b"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,8 +13,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Left_menu" parent="." instance=ExtResource("1_y0but")]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bbvy8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bbvy8")
+
+[node name="Left_menu" parent="HBoxContainer" instance=ExtResource("1_y0but")]
+layout_mode = 2
+
+[node name="Upper_menu" parent="HBoxContainer" instance=ExtResource("3_og25b")]
+layout_mode = 2
 
 [node name="Right_menu" parent="." instance=ExtResource("2_8cvtt")]
 visible = false
