@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://djuo54pavaq3o"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://djuo54pavaq3o"]
 
 [ext_resource type="FontFile" uid="uid://bwr8s7ldbolmf" path="res://Fonts/Roboto/Roboto-Light.ttf" id="1_kirs8"]
 [ext_resource type="FontFile" uid="uid://dcw2c2tpem8b0" path="res://Fonts/Roboto/Roboto-Regular.ttf" id="2_p7ygq"]
@@ -106,6 +106,34 @@ border_width_left = 2
 border_width_bottom = 2
 border_color = Color(0.54902, 0.576471, 0.603922, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd4yc"]
+bg_color = Color(0.490196, 0.556863, 0.615686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.101961, 0.160784, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6e5h"]
+bg_color = Color(0.490196, 0.556863, 0.615686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.101961, 0.160784, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14qbo"]
+bg_color = Color(0.490196, 0.556863, 0.615686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.101961, 0.160784, 0.211765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dolef"]
+bg_color = Color(0.937255, 0.94902, 0.956863, 1)
+border_width_left = 10
+
 [resource]
 Button/colors/font_color = Color(0.101961, 0.160784, 0.211765, 1)
 Button/colors/font_focus_color = Color(0.101961, 0.160784, 0.211765, 1)
@@ -158,3 +186,7 @@ LineEdit/styles/normal = SubResource("StyleBoxFlat_55bnj")
 Panel/styles/panel = SubResource("StyleBoxFlat_3nq1t")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_uffgh")
 VBoxContainer/constants/separation = 0
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_yd4yc")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_e6e5h")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_14qbo")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_dolef")

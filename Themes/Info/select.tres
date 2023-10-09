@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dq7gtnuof4q8k"]
+
+[ext_resource type="Texture2D" uid="uid://r8wo1e24dfbo" path="res://Icons/Info/Select_checked.png" id="1_jfrda"]
+[ext_resource type="Texture2D" uid="uid://db2lhfcktnpg5" path="res://Icons/Info/Select_unchecked.png" id="2_x8pro"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4uv5u"]
+
+[resource]
+CheckButton/icons/checked = ExtResource("1_jfrda")
+CheckButton/icons/unchecked = ExtResource("2_x8pro")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_4uv5u")

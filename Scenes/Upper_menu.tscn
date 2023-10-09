@@ -22,17 +22,17 @@ script = ExtResource("1_xbki7")
 metadata/_edit_horizontal_guides_ = [117.093]
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(1536, 132)
+custom_minimum_size = Vector2(1521, 132)
 layout_mode = 1
 anchors_preset = -1
-offset_right = 1536.0
+offset_right = 1521.0
 offset_bottom = 132.0
 grow_horizontal = 2
 theme = ExtResource("2_cky6j")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 85.0
+offset_left = 86.0
 offset_top = 62.0
 offset_right = 1506.0
 offset_bottom = 122.0
@@ -63,9 +63,9 @@ anchor_left = -0.113
 anchor_top = -1.043
 anchor_right = -0.113
 anchor_bottom = -1.043
-offset_left = 16.645
+offset_left = 17.419
 offset_top = 92.58
-offset_right = 51.645
+offset_right = 51.419
 offset_bottom = 94.58
 theme = ExtResource("2_cky6j")
 color = Color(0.54902, 0.576471, 0.603922, 1)
@@ -77,9 +77,9 @@ anchor_left = -0.112
 anchor_top = -1.033
 anchor_right = -0.112
 anchor_bottom = -1.033
-offset_left = 15.48
+offset_left = 17.048
 offset_top = -0.0200005
-offset_right = 109.48
+offset_right = 111.048
 offset_bottom = 1.98
 rotation = 1.5708
 theme = ExtResource("2_cky6j")

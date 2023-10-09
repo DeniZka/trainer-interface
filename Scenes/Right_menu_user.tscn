@@ -11,7 +11,7 @@
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://Themes/Right_menu/Shadow.tres" id="7_6w43y"]
 [ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://Themes/Button_groups/save_cancel_delete_right.tres" id="7_ypciu"]
 
-[node name="Right_menu" type="Control"]
+[node name="Right_menu_user" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,6 +59,7 @@ custom_minimum_size = Vector2(308, 36)
 layout_mode = 2
 theme = ExtResource("1_ljgst")
 text = "Карточка пользователя"
+horizontal_alignment = 1
 
 [node name="Name_H" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
 custom_minimum_size = Vector2(0, 2)
