@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5ifmqn0lgngl"]
+[gd_scene load_steps=8 format=3 uid="uid://5ifmqn0lgngl"]
 
 [ext_resource type="Script" path="res://Scripts/Combo_menu.gd" id="1_xit0w"]
 [ext_resource type="PackedScene" uid="uid://dvrltj50b2ya" path="res://Scenes/Left_menu.tscn" id="1_y0but"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://ye8p72kwosj7" path="res://Themes/Combo_menu/Combo_main.tres" id="2_bbvy8"]
 [ext_resource type="PackedScene" uid="uid://kmmtwmskn68e" path="res://Scenes/Upper_menu.tscn" id="3_og25b"]
 [ext_resource type="PackedScene" uid="uid://cs48tfm0iy8v3" path="res://Scenes/Info/Users_info.tscn" id="5_bbovn"]
+[ext_resource type="PackedScene" uid="uid://d0811yvrjuopc" path="res://Scenes/Info/Roles_info.tscn" id="6_1oa14"]
 
 [node name="ComboMenu" type="Control"]
 layout_mode = 3
@@ -44,7 +45,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(1521, 132)
 layout_mode = 2
 
+[node name="Roles_info" parent="HBoxContainer/VBoxContainer" instance=ExtResource("6_1oa14")]
+layout_mode = 2
+
 [node name="Users_info" parent="HBoxContainer/VBoxContainer" instance=ExtResource("5_bbovn")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 

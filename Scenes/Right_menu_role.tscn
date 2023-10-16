@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3boevepdw6h3"]
+[gd_scene load_steps=11 format=3 uid="uid://c3boevepdw6h3"]
 
+[ext_resource type="Script" path="res://Scripts/Right_menus/Right_menu_roles.gd" id="1_gcden"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="1_y4rkh"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="2_jvje7"]
 [ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://Themes/Right_menu/Right_block_button.tres" id="3_5amp2"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gcden")
 
 [node name="Right_menu" type="Panel" parent="."]
 custom_minimum_size = Vector2(643, 1080)
@@ -185,16 +187,16 @@ custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("2_jvje7")
 
-[node name="User_name" type="HBoxContainer" parent="Right_menu/Main"]
+[node name="Role_name" type="HBoxContainer" parent="Right_menu/Main"]
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
 
-[node name="Space" type="Panel" parent="Right_menu/Main/User_name"]
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_name"]
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 theme = ExtResource("2_jvje7")
 
-[node name="Name_user_text" type="Label" parent="Right_menu/Main/User_name"]
+[node name="Name_role_text" type="Label" parent="Right_menu/Main/Role_name"]
 custom_minimum_size = Vector2(28, 20)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
@@ -278,6 +280,7 @@ text = "ПРАВА РОЛИ"
 
 [node name="HL_role" type="ColorRect" parent="Right_menu/Main/Role_rights/Role_rights"]
 custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
 offset_left = -21.0
 offset_top = 19.0
 offset_right = 562.0
@@ -287,6 +290,7 @@ color = Color(0.54902, 0.576471, 0.603922, 1)
 
 [node name="V_role" type="ColorRect" parent="Right_menu/Main/Role_rights/Role_rights"]
 custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
 offset_left = -21.0
 offset_top = 19.0
 offset_right = -8.0
@@ -337,6 +341,17 @@ offset_bottom = 15.0
 theme = ExtResource("1_y4rkh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
+[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -48.0
+offset_top = -185.0
+offset_right = 150.0
+offset_bottom = -183.0
+rotation = 1.5708
+theme = ExtResource("1_y4rkh")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
 [node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
@@ -354,16 +369,6 @@ offset_left = -13.0
 offset_top = 30.0
 offset_right = 13.0
 offset_bottom = 32.0
-rotation = 1.5708
-theme = ExtResource("1_y4rkh")
-color = Color(0.54902, 0.576471, 0.603922, 1)
-
-[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name"]
-custom_minimum_size = Vector2(0, 2)
-offset_left = -48.0
-offset_top = -185.0
-offset_right = 150.0
-offset_bottom = -183.0
 rotation = 1.5708
 theme = ExtResource("1_y4rkh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
@@ -435,14 +440,14 @@ theme = ExtResource("2_jvje7")
 [node name="Group_of_rights2" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights"]
 layout_mode = 2
 
-[node name="Group_of_rights_name" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2"]
+[node name="Group_of_rights2_name" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2"]
 custom_minimum_size = Vector2(84, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
 keep_pressed_outside = true
 text = "Группа прав 2"
 
-[node name="H_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights_name"]
+[node name="H_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights2_name"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -50.0
@@ -452,7 +457,7 @@ offset_bottom = 15.0
 theme = ExtResource("1_y4rkh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights_name"]
+[node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights2_name"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -13.0
@@ -462,7 +467,7 @@ offset_bottom = 56.0
 theme = ExtResource("1_y4rkh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="V_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights_name"]
+[node name="V_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights2_name"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -13.0
@@ -473,8 +478,9 @@ rotation = 1.5708
 theme = ExtResource("1_y4rkh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights_name"]
+[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights2_name"]
 custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
 offset_left = -48.0
 offset_top = -185.0
 offset_right = 150.0
@@ -504,14 +510,14 @@ theme = ExtResource("2_jvje7")
 [node name="Rights" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent"]
 layout_mode = 2
 
-[node name="Right1" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+[node name="Right21" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(84, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
 keep_pressed_outside = true
 text = "Право 1"
 
-[node name="Right2" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+[node name="Right22" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(153, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
@@ -519,14 +525,14 @@ keep_pressed_outside = true
 text = "Право 2
 "
 
-[node name="Right3" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+[node name="Right23" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
 keep_pressed_outside = true
 text = "Право 3"
 
-[node name="Right4" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+[node name="Right24" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
@@ -534,7 +540,7 @@ keep_pressed_outside = true
 text = "Право 4
 "
 
-[node name="Right5" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+[node name="Right25" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
@@ -550,14 +556,14 @@ theme = ExtResource("2_jvje7")
 [node name="Group_of_rights3" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights"]
 layout_mode = 2
 
-[node name="Group_of_rights_name" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3"]
+[node name="Group_of_rights3_name" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3"]
 custom_minimum_size = Vector2(84, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
 keep_pressed_outside = true
 text = "Группа прав 3"
 
-[node name="H_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights_name"]
+[node name="H_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights3_name"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -50.0
@@ -567,7 +573,7 @@ offset_bottom = 15.0
 theme = ExtResource("1_y4rkh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights_name"]
+[node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights3_name"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -13.0
@@ -577,7 +583,7 @@ offset_bottom = 56.0
 theme = ExtResource("1_y4rkh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="V_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights_name"]
+[node name="V_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights3_name"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -13.0
@@ -588,8 +594,9 @@ rotation = 1.5708
 theme = ExtResource("1_y4rkh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights_name"]
+[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights3_name"]
 custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
 offset_left = -48.0
 offset_top = -185.0
 offset_right = 150.0
@@ -619,14 +626,14 @@ theme = ExtResource("2_jvje7")
 [node name="Rights" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent"]
 layout_mode = 2
 
-[node name="Right1" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+[node name="Right31" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(84, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
 keep_pressed_outside = true
 text = "Право 1"
 
-[node name="Right2" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+[node name="Right32" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(153, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
@@ -634,14 +641,14 @@ keep_pressed_outside = true
 text = "Право 2
 "
 
-[node name="Right3" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+[node name="Right33" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
 keep_pressed_outside = true
 text = "Право 3"
 
-[node name="Right4" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+[node name="Right34" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
@@ -649,7 +656,7 @@ keep_pressed_outside = true
 text = "Право 4
 "
 
-[node name="Right5" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+[node name="Right35" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
 theme = ExtResource("1_y4rkh")
@@ -705,6 +712,7 @@ color = Color(0.54902, 0.576471, 0.603922, 1)
 
 [node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights_name"]
 custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
 offset_left = -48.0
 offset_top = -185.0
 offset_right = 150.0
@@ -922,3 +930,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_c05dc")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="Right_menu/Main/Avatar/Avatar/Avatar/Drop" to="." method="_on_drop_toggled"]
+[connection signal="focus_entered" from="Right_menu/Main/Role_name_placeholder/Name_edit" to="." method="_on_name_edit_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Role_name_placeholder/Name_edit" to="." method="_on_name_edit_focus_exited"]
+[connection signal="toggled" from="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name" to="." method="_on_group_of_rights_name_toggled"]
+[connection signal="toggled" from="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights/Right1" to="." method="_on_right_1_toggled"]

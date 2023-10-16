@@ -1,0 +1,699 @@
+[gd_scene load_steps=11 format=3 uid="uid://hbh0ukjwqqt7"]
+
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="1_x5rov"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="2_ch26p"]
+[ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://Themes/Right_menu/Right_block_button.tres" id="3_i2a4b"]
+[ext_resource type="Texture2D" uid="uid://cbtj4jyyeporh" path="res://Icons/Right_menu/Right_menu_scenarios/Scenario.png" id="4_bhqwg"]
+[ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://Icons/Info/Load.png" id="5_26rbt"]
+[ext_resource type="ButtonGroup" uid="uid://2ldf1dqeuahq" path="res://Themes/Button_groups/connected_models.tres" id="6_a6qhm"]
+[ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://Themes/Button_groups/save_cancel_delete_right.tres" id="7_ylk7x"]
+[ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://Themes/Right_menu/Right_delete.tres" id="8_4502j"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://Icons/Right_menu/Close.png" id="9_d6aiq"]
+[ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://Themes/Right_menu/Shadow.tres" id="10_q1f1n"]
+
+[node name="Right_menu_scenarios" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Right_menu" type="Panel" parent="."]
+custom_minimum_size = Vector2(643, 1080)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.665104
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x5rov")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main" type="VBoxContainer" parent="Right_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 52.0
+offset_right = -29.0004
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Menu_name" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Name" type="Label" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(308, 36)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+text = "Карточка рестарта"
+horizontal_alignment = 1
+
+[node name="Name_H" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -37.0
+offset_top = 39.0
+offset_right = 352.0
+offset_bottom = 41.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Name_V" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -37.0
+offset_right = 4.0
+offset_bottom = 2.0
+rotation = 1.5708
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Name" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -71.0
+offset_top = -52.0
+offset_right = 2.0
+offset_bottom = -50.0
+rotation = 1.5708
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="H_Name" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -71.0
+offset_top = 19.0
+offset_right = -39.0
+offset_bottom = 21.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Space" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Block_Avatar" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Block" type="VBoxContainer" parent="Right_menu/Main/Block_Avatar"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar/Block"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Block_text" type="Label" parent="Right_menu/Main/Block_Avatar/Block"]
+custom_minimum_size = Vector2(108, 20)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+theme_override_font_sizes/font_size = 13
+text = "МАСТЕР-СЦЕНАРИЙ"
+
+[node name="Avatar_H" type="ColorRect" parent="Right_menu/Main/Block_Avatar/Block/Block_text"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 344.0
+offset_top = 21.0
+offset_right = 566.0
+offset_bottom = 23.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Block_H" type="ColorRect" parent="Right_menu/Main/Block_Avatar/Block/Block_text"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -20.0
+offset_top = 21.0
+offset_right = 204.0
+offset_bottom = 23.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Block_Avatar/Block"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Block_button" type="CheckButton" parent="Right_menu/Main/Block_Avatar/Block"]
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_i2a4b")
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Block_Avatar"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Panel_for_icon" type="Panel" parent="Right_menu/Main/Block_Avatar"]
+custom_minimum_size = Vector2(141, 143)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="UserRightMenu" type="Sprite2D" parent="Right_menu/Main/Block_Avatar/Panel_for_icon"]
+position = Vector2(70.677, 71.4219)
+texture = ExtResource("4_bhqwg")
+
+[node name="Space3" type="Panel" parent="Right_menu/Main/Block_Avatar"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Load" type="VBoxContainer" parent="Right_menu/Main/Block_Avatar"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar/Load"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Load_text" type="HBoxContainer" parent="Right_menu/Main/Block_Avatar/Load"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar/Load/Load_text"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Avatar_text" type="Label" parent="Right_menu/Main/Block_Avatar/Load/Load_text"]
+custom_minimum_size = Vector2(47, 20)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+theme_override_font_sizes/font_size = 13
+text = "ЗАГРУЗИТЬ"
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Block_Avatar/Load"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Load" type="HBoxContainer" parent="Right_menu/Main/Block_Avatar/Load"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar/Load/Load"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Load" type="Button" parent="Right_menu/Main/Block_Avatar/Load/Load"]
+custom_minimum_size = Vector2(27, 24)
+layout_mode = 2
+theme = ExtResource("3_i2a4b")
+icon = ExtResource("5_26rbt")
+icon_alignment = 1
+
+[node name="Space2" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Scenario_name" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Scenario_name"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Name_scenario_text" type="Label" parent="Right_menu/Main/Scenario_name"]
+custom_minimum_size = Vector2(28, 20)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+theme_override_font_sizes/font_size = 13
+text = "НАЗВАНИЕ СЦЕНАРИЯ"
+
+[node name="Space3" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Scenario_name_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Scenario_name_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Name_edit" type="LineEdit" parent="Right_menu/Main/Scenario_name_placeholder"]
+custom_minimum_size = Vector2(112, 31)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+placeholder_text = "Введите название сценария"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+
+[node name="Hs_Scenario_name" type="ColorRect" parent="Right_menu/Main/Scenario_name_placeholder/Name_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Scenario_name" type="ColorRect" parent="Right_menu/Main/Scenario_name_placeholder/Name_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -10.0
+offset_right = -33.0
+offset_bottom = -8.0
+rotation = 1.5708
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_Scenario_name" type="ColorRect" parent="Right_menu/Main/Scenario_name_placeholder/Name_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -12.0
+offset_right = 527.0
+offset_bottom = -10.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space4" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Connected_model" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Connected_model"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Connacted_model_text" type="Label" parent="Right_menu/Main/Connected_model"]
+custom_minimum_size = Vector2(34, 20)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+theme_override_font_sizes/font_size = 13
+text = "СВЯЗАННАЯ МОДЕЛЬ"
+
+[node name="Space5" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Connacted_model_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Connacted_model_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Models" type="VBoxContainer" parent="Right_menu/Main/Connacted_model_placeholder"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Model1" type="CheckBox" parent="Right_menu/Main/Connacted_model_placeholder/Models"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+keep_pressed_outside = true
+button_group = ExtResource("6_a6qhm")
+text = "Модель 1"
+
+[node name="Hs_model" type="ColorRect" parent="Right_menu/Main/Connacted_model_placeholder/Models/Model1"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 17.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_model" type="ColorRect" parent="Right_menu/Main/Connacted_model_placeholder/Models/Model1"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0001
+offset_top = -8.0
+offset_right = -33.0001
+offset_bottom = -6.0
+rotation = 1.5708
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_model" type="ColorRect" parent="Right_menu/Main/Connacted_model_placeholder/Models/Model1"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -10.0
+offset_right = 527.0
+offset_bottom = -8.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Model2" type="CheckBox" parent="Right_menu/Main/Connacted_model_placeholder/Models"]
+custom_minimum_size = Vector2(153, 30)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+keep_pressed_outside = true
+button_group = ExtResource("6_a6qhm")
+text = "Модель 2
+"
+
+[node name="Model3" type="CheckBox" parent="Right_menu/Main/Connacted_model_placeholder/Models"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+keep_pressed_outside = true
+button_group = ExtResource("6_a6qhm")
+text = "Модель 3
+"
+
+[node name="Space6" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Author" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Author"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Author_text" type="Label" parent="Right_menu/Main/Author"]
+custom_minimum_size = Vector2(44, 20)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+theme_override_font_sizes/font_size = 13
+text = "АВТОР"
+
+[node name="Space7" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Author_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Author_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Author_edit" type="LineEdit" parent="Right_menu/Main/Author_placeholder"]
+custom_minimum_size = Vector2(121, 31)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+placeholder_text = "Введите имя автора"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+
+[node name="Hs_author" type="ColorRect" parent="Right_menu/Main/Author_placeholder/Author_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_author" type="ColorRect" parent="Right_menu/Main/Author_placeholder/Author_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0001
+offset_top = -10.0
+offset_right = -33.0001
+offset_bottom = -8.0
+rotation = 1.5708
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_author" type="ColorRect" parent="Right_menu/Main/Author_placeholder/Author_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -12.0
+offset_right = 527.0
+offset_bottom = -10.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space8" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Load_date" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_date"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Load_date_text" type="Label" parent="Right_menu/Main/Load_date"]
+custom_minimum_size = Vector2(51, 20)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+theme_override_font_sizes/font_size = 13
+text = "ДАТА ЗАГРУЗКИ"
+
+[node name="Space9" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Load_date_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_date_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("2_ch26p")
+
+[node name="Load_date_edit" type="LineEdit" parent="Right_menu/Main/Load_date_placeholder"]
+custom_minimum_size = Vector2(132, 31)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+placeholder_text = "Введите дату загрузки"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+
+[node name="Hs_load_date" type="ColorRect" parent="Right_menu/Main/Load_date_placeholder/Load_date_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 17.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_load_date" type="ColorRect" parent="Right_menu/Main/Load_date_placeholder/Load_date_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0001
+offset_top = -8.0
+offset_right = -33.0001
+offset_bottom = -6.0
+rotation = 1.5708
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_load_date" type="ColorRect" parent="Right_menu/Main/Load_date_placeholder/Load_date_edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -10.0
+offset_right = 527.0
+offset_bottom = -8.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space10" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_ch26p")
+
+[node name="Save_Cancel_Delete" type="HBoxContainer" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+toggle_mode = true
+button_group = ExtResource("7_ylk7x")
+text = "Сохранить"
+
+[node name="H_Save" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Save"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Save" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Save"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_ch26p")
+
+[node name="Cancel" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("1_x5rov")
+toggle_mode = true
+button_group = ExtResource("7_ylk7x")
+text = "Отменить"
+
+[node name="H_Cancel" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Cancel"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Cancel" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Cancel"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("1_x5rov")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space3" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_ch26p")
+
+[node name="Delete" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("8_4502j")
+toggle_mode = true
+button_group = ExtResource("7_ylk7x")
+text = "Удалить"
+
+[node name="H_Delete" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Delete"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("8_4502j")
+color = Color(0.619608, 0.498039, 0.498039, 1)
+
+[node name="V_Delete" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Delete"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("8_4502j")
+color = Color(0.619608, 0.498039, 0.498039, 1)
+
+[node name="Space11" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_ch26p")
+
+[node name="Close_button" type="Button" parent="Right_menu"]
+custom_minimum_size = Vector2(34, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.8562
+offset_top = 17.0121
+offset_right = -17.8562
+offset_bottom = 49.0121
+grow_horizontal = 0
+theme = ExtResource("3_i2a4b")
+icon = ExtResource("9_d6aiq")
+icon_alignment = 1
+
+[node name="Shadow" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.665104
+anchor_bottom = 1.00093
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_q1f1n")
+metadata/_edit_use_anchors_ = true

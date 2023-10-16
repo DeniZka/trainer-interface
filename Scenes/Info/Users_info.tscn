@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs48tfm0iy8v3"]
+[gd_scene load_steps=6 format=3 uid="uid://cs48tfm0iy8v3"]
 
 [ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://Themes/Info/Info_main.tres" id="1_j3jit"]
-[ext_resource type="Script" path="res://Scripts/Service/UsersInfoService.gd" id="2_n0saf"]
+[ext_resource type="Script" path="res://Scripts/Service/RightMenusInfoService/UsersInfoService.gd" id="2_lg4n3"]
 [ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://Themes/Info/title.tres" id="2_qcqej"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="3_2cr81"]
 [ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://Themes/Info/for_icons_and_state.tres" id="7_lt1xe"]
 
 [node name="Users_info" type="Control"]
@@ -13,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_lt1xe")
-script = ExtResource("2_n0saf")
+script = ExtResource("2_lg4n3")
 
 [node name="Table" type="ScrollContainer" parent="."]
 layout_mode = 2
@@ -24,6 +25,7 @@ size_flags_vertical = 3
 
 [node name="Users_info_lines" type="VBoxContainer" parent="Table"]
 layout_mode = 2
+theme = ExtResource("3_2cr81")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 80)

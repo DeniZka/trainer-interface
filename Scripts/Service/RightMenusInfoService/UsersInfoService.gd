@@ -13,7 +13,7 @@ func _on_split_0_sort_children():
 		var line : Node = infoTable.get_child(i)
 		line.set_column_width(colIcon, colName, colLogin, colRole)
 
-func add_line(buttonPressedCounter):
+func add_user_line(buttonPressedCounter):
 	var uil = usersInfoLine.instantiate()
 	uil.set_data(buttonPressedCounter)
 	infoTable.add_child(uil)

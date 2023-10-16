@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c4li1lquxvfxu"]
 
-[ext_resource type="Script" path="res://Scripts/Right_menu.gd" id="1_183tv"]
+[ext_resource type="Script" path="res://Scripts/Right_menus/Right_menu_user.gd" id="1_64nh5"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="1_ljgst"]
 [ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://Themes/Right_menu/Right_block_button.tres" id="2_1dtjw"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="2_7dub1"]
@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_183tv")
+script = ExtResource("1_64nh5")
 metadata/_edit_horizontal_guides_ = [1001.85]
 
 [node name="Right_menu" type="Panel" parent="."]

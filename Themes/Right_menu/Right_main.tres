@@ -1,10 +1,12 @@
-[gd_resource type="Theme" load_steps=24 format=3 uid="uid://djuo54pavaq3o"]
+[gd_resource type="Theme" load_steps=26 format=3 uid="uid://djuo54pavaq3o"]
 
 [ext_resource type="FontFile" uid="uid://bwr8s7ldbolmf" path="res://Fonts/Roboto/Roboto-Light.ttf" id="1_kirs8"]
 [ext_resource type="FontFile" uid="uid://dcw2c2tpem8b0" path="res://Fonts/Roboto/Roboto-Regular.ttf" id="2_p7ygq"]
 [ext_resource type="Texture2D" uid="uid://b7orhsw7vypl2" path="res://Icons/Right_menu/Checkbox.png" id="3_3t3oq"]
 [ext_resource type="Texture2D" uid="uid://1wq8qfmabpi3" path="res://Icons/Right_menu/Right_menu_user/Block_checked.png" id="4_ahrln"]
+[ext_resource type="Texture2D" uid="uid://b5ivpq54ga0y0" path="res://Icons/Right_menu/Round_checked.png" id="4_diylr"]
 [ext_resource type="Texture2D" uid="uid://cnsy4dy3qr005" path="res://Icons/Right_menu/Checkbox_unchecked.png" id="4_yvhwc"]
+[ext_resource type="Texture2D" uid="uid://f7oi142sgwtn" path="res://Icons/Right_menu/Round_unchecked.png" id="5_c2m4q"]
 [ext_resource type="Texture2D" uid="uid://c4gh1qy3retwg" path="res://Icons/Right_menu/Right_menu_user/Block_unchecked.png" id="5_d022j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgf22"]
@@ -156,6 +158,8 @@ CheckBox/constants/h_separation = 4
 CheckBox/font_sizes/font_size = 17
 CheckBox/fonts/font = ExtResource("2_p7ygq")
 CheckBox/icons/checked = ExtResource("3_3t3oq")
+CheckBox/icons/radio_checked = ExtResource("4_diylr")
+CheckBox/icons/radio_unchecked = ExtResource("5_c2m4q")
 CheckBox/icons/unchecked = ExtResource("4_yvhwc")
 CheckBox/styles/focus = SubResource("StyleBoxFlat_oxjj0")
 CheckBox/styles/hover = SubResource("StyleBoxFlat_3rdmr")
