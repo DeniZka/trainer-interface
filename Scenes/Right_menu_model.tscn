@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnmrhetgl7m1k"]
+[gd_scene load_steps=11 format=3 uid="uid://bnmrhetgl7m1k"]
 
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="1_ivjal"]
+[ext_resource type="Script" path="res://Scripts/Right_menus/Right_menu_models.gd" id="1_j6t30"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="2_4io77"]
 [ext_resource type="Texture2D" uid="uid://5cgc26diyh17" path="res://Icons/Right_menu/Right_menu_model/Model_icon_right_menu.png" id="3_1c3qb"]
 [ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://Themes/Right_menu/Right_block_button.tres" id="4_nopp8"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_j6t30")
 
 [node name="Right_menu" type="Panel" parent="."]
 custom_minimum_size = Vector2(643, 1080)
@@ -185,6 +187,7 @@ theme = ExtResource("2_4io77")
 custom_minimum_size = Vector2(27, 24)
 layout_mode = 2
 theme = ExtResource("4_nopp8")
+toggle_mode = true
 icon = ExtResource("5_cd6ky")
 icon_alignment = 1
 
@@ -232,7 +235,7 @@ max_length = 52
 expand_to_text_length = true
 caret_blink = true
 
-[node name="Hs_Role_name" type="ColorRect" parent="Right_menu/Main/Model_name_placeholder/Name_edit"]
+[node name="Hs_model_name" type="ColorRect" parent="Right_menu/Main/Model_name_placeholder/Name_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -56.0
@@ -242,7 +245,7 @@ offset_bottom = 15.0
 theme = ExtResource("1_ivjal")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="V_Role_name" type="ColorRect" parent="Right_menu/Main/Model_name_placeholder/Name_edit"]
+[node name="V_model_name" type="ColorRect" parent="Right_menu/Main/Model_name_placeholder/Name_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -56.0
@@ -253,7 +256,7 @@ rotation = 1.5708
 theme = ExtResource("1_ivjal")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="HL_Role_name" type="ColorRect" parent="Right_menu/Main/Model_name_placeholder/Name_edit"]
+[node name="HL_model_name" type="ColorRect" parent="Right_menu/Main/Model_name_placeholder/Name_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -58.0
@@ -307,7 +310,7 @@ max_length = 52
 expand_to_text_length = true
 caret_blink = true
 
-[node name="Hs_Role_name" type="ColorRect" parent="Right_menu/Main/Model_control_sum_placeholder/Control_sum_edit"]
+[node name="Hs_Control_sum" type="ColorRect" parent="Right_menu/Main/Model_control_sum_placeholder/Control_sum_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -56.0
@@ -317,7 +320,7 @@ offset_bottom = 15.0
 theme = ExtResource("1_ivjal")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="V_Role_name" type="ColorRect" parent="Right_menu/Main/Model_control_sum_placeholder/Control_sum_edit"]
+[node name="V_Control_sum" type="ColorRect" parent="Right_menu/Main/Model_control_sum_placeholder/Control_sum_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -56.0
@@ -328,7 +331,7 @@ rotation = 1.5708
 theme = ExtResource("1_ivjal")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="HL_Role_name" type="ColorRect" parent="Right_menu/Main/Model_control_sum_placeholder/Control_sum_edit"]
+[node name="HL_Control_sum" type="ColorRect" parent="Right_menu/Main/Model_control_sum_placeholder/Control_sum_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -58.0
@@ -382,7 +385,7 @@ max_length = 52
 expand_to_text_length = true
 caret_blink = true
 
-[node name="Hs_Role_name" type="ColorRect" parent="Right_menu/Main/Model_author_placeholder/author_edit"]
+[node name="Hs_model_author" type="ColorRect" parent="Right_menu/Main/Model_author_placeholder/author_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -56.0
@@ -392,7 +395,7 @@ offset_bottom = 15.0
 theme = ExtResource("1_ivjal")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="V_Role_name" type="ColorRect" parent="Right_menu/Main/Model_author_placeholder/author_edit"]
+[node name="V_model_author" type="ColorRect" parent="Right_menu/Main/Model_author_placeholder/author_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -56.0
@@ -403,7 +406,7 @@ rotation = 1.5708
 theme = ExtResource("1_ivjal")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="HL_Role_name" type="ColorRect" parent="Right_menu/Main/Model_author_placeholder/author_edit"]
+[node name="HL_model_author" type="ColorRect" parent="Right_menu/Main/Model_author_placeholder/author_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -58.0
@@ -457,7 +460,7 @@ max_length = 52
 expand_to_text_length = true
 caret_blink = true
 
-[node name="Hs_Role_name" type="ColorRect" parent="Right_menu/Main/Model_load_date_placeholder/Load_date_edit"]
+[node name="Hs_Load_date" type="ColorRect" parent="Right_menu/Main/Model_load_date_placeholder/Load_date_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -56.0
@@ -467,7 +470,7 @@ offset_bottom = 15.0
 theme = ExtResource("1_ivjal")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="V_Role_name" type="ColorRect" parent="Right_menu/Main/Model_load_date_placeholder/Load_date_edit"]
+[node name="V_Load_date" type="ColorRect" parent="Right_menu/Main/Model_load_date_placeholder/Load_date_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -56.0
@@ -478,7 +481,7 @@ rotation = 1.5708
 theme = ExtResource("1_ivjal")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="HL_Role_name" type="ColorRect" parent="Right_menu/Main/Model_load_date_placeholder/Load_date_edit"]
+[node name="HL_Load_date" type="ColorRect" parent="Right_menu/Main/Model_load_date_placeholder/Load_date_edit"]
 custom_minimum_size = Vector2(0, 2)
 layout_mode = 0
 offset_left = -58.0
@@ -638,3 +641,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_am6s6")
 metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="Right_menu/Main/Load/Load/Load/Load" to="." method="_on_load_toggled"]
+[connection signal="focus_entered" from="Right_menu/Main/Model_name_placeholder/Name_edit" to="." method="_on_name_edit_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Model_name_placeholder/Name_edit" to="." method="_on_name_edit_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Model_control_sum_placeholder/Control_sum_edit" to="." method="_on_control_sum_edit_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Model_control_sum_placeholder/Control_sum_edit" to="." method="_on_control_sum_edit_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Model_author_placeholder/author_edit" to="." method="_on_author_edit_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Model_author_placeholder/author_edit" to="." method="_on_author_edit_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Model_load_date_placeholder/Load_date_edit" to="." method="_on_load_date_edit_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Model_load_date_placeholder/Load_date_edit" to="." method="_on_load_date_edit_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Save_Cancel_Delete/Save" to="." method="_on_save_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Save_Cancel_Delete/Save" to="." method="_on_save_focus_exited"]
+[connection signal="mouse_entered" from="Right_menu/Main/Save_Cancel_Delete/Save" to="." method="_on_save_mouse_entered"]
+[connection signal="mouse_exited" from="Right_menu/Main/Save_Cancel_Delete/Save" to="." method="_on_save_mouse_exited"]
+[connection signal="pressed" from="Right_menu/Main/Save_Cancel_Delete/Save" to="." method="_on_save_pressed"]
+[connection signal="focus_entered" from="Right_menu/Main/Save_Cancel_Delete/Cancel" to="." method="_on_cancel_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Save_Cancel_Delete/Cancel" to="." method="_on_cancel_focus_exited"]
+[connection signal="mouse_entered" from="Right_menu/Main/Save_Cancel_Delete/Cancel" to="." method="_on_cancel_mouse_entered"]
+[connection signal="mouse_exited" from="Right_menu/Main/Save_Cancel_Delete/Cancel" to="." method="_on_cancel_mouse_exited"]
+[connection signal="pressed" from="Right_menu/Main/Save_Cancel_Delete/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="focus_entered" from="Right_menu/Main/Save_Cancel_Delete/Delete" to="." method="_on_delete_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Save_Cancel_Delete/Delete" to="." method="_on_delete_focus_exited"]
+[connection signal="mouse_entered" from="Right_menu/Main/Save_Cancel_Delete/Delete" to="." method="_on_delete_mouse_entered"]
+[connection signal="mouse_exited" from="Right_menu/Main/Save_Cancel_Delete/Delete" to="." method="_on_delete_mouse_exited"]
+[connection signal="pressed" from="Right_menu/Main/Save_Cancel_Delete/Delete" to="." method="_on_delete_pressed"]

@@ -46,10 +46,10 @@ custom_minimum_size = Vector2(1521, 132)
 layout_mode = 2
 
 [node name="Roles_info" parent="HBoxContainer/VBoxContainer" instance=ExtResource("6_1oa14")]
+visible = false
 layout_mode = 2
 
 [node name="Users_info" parent="HBoxContainer/VBoxContainer" instance=ExtResource("5_bbovn")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 

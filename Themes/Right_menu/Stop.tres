@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c03mmw0uj44dj"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://c03mmw0uj44dj"]
 
+[ext_resource type="Texture2D" uid="uid://cgnm8wwf7oe8q" path="res://Icons/Right_menu/Right_menu_servers/Stop_checked.png" id="1_0u2bl"]
 [ext_resource type="Texture2D" uid="uid://dpe00v44hqajv" path="res://Icons/Right_menu/Right_menu_servers/Stop_unchecked.png" id="2_7iv72"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_abu70"]
@@ -15,7 +16,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_71nw6"]
 
 [resource]
-CheckButton/icons/checked = null
+CheckButton/icons/checked = ExtResource("1_0u2bl")
 CheckButton/icons/unchecked = ExtResource("2_7iv72")
 CheckButton/styles/disabled = SubResource("StyleBoxEmpty_abu70")
 CheckButton/styles/focus = SubResource("StyleBoxEmpty_ok8o1")
