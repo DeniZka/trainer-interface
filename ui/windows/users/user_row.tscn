@@ -125,7 +125,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme = ExtResource("12_fj6e4")
-text = "ID: 12345"
+text = "ID: [ID]"
 vertical_alignment = 2
 
 [node name="Split0" type="HSplitContainer" parent="."]
@@ -149,8 +149,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("1_pk8dv")
-text = "Константинович Константин
-"
+text = "[USERNAME]"
 vertical_alignment = 2
 autowrap_mode = 3
 
@@ -173,7 +172,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("1_pk8dv")
-text = "Константинович"
+text = "[LOGIN]"
 vertical_alignment = 2
 autowrap_mode = 3
 
@@ -196,6 +195,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("1_pk8dv")
-text = "Константинович"
+text = "[ROLE]"
 vertical_alignment = 2
 autowrap_mode = 3
