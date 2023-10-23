@@ -1,11 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwmd8h1svh7jq"]
+[gd_scene load_steps=20 format=3 uid="uid://cwmd8h1svh7jq"]
 
 [ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu/Left_main.tres" id="1_scg07"]
-[ext_resource type="Script" path="res://ui/components/line_menu_group.gd" id="2_kvy1i"]
-[ext_resource type="Script" path="res://ui/components/line_menu.gd" id="3_l61wq"]
+[ext_resource type="Script" path="res://ui/components/base/line_menu_group.gd" id="2_uwme8"]
+[ext_resource type="Script" path="res://ui/components/base/line_menu.gd" id="3_73fes"]
+[ext_resource type="Resource" uid="uid://073bco0mefks" path="res://ui/themes/left_menu_colors.tres" id="4_2blrh"]
 [ext_resource type="Texture2D" uid="uid://d3dcn5o464vtu" path="res://Icons/Left_menu/Logo.png" id="4_jl5o0"]
-[ext_resource type="Script" path="res://ui/components/line_item.gd" id="5_7l2qv"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="6_rb0pa"]
+[ext_resource type="Script" path="res://ui/components/base/line_item.gd" id="6_wam10"]
 [ext_resource type="ButtonGroup" uid="uid://du6n17rmehtbj" path="res://Themes/Button_groups/settings_left_menu.tres" id="7_7idfv"]
 [ext_resource type="Texture2D" uid="uid://bf18q6y2s4ee2" path="res://Icons/Left_menu/User_icon_left_menu.png" id="8_oopkr"]
 [ext_resource type="Texture2D" uid="uid://b8wmhvbb4j1df" path="res://Icons/Left_menu/Role_icon_left_menu.png" id="9_sucy1"]
@@ -26,7 +27,7 @@ anchors_preset = 0
 offset_right = 385.0
 offset_bottom = 1080.0
 theme = ExtResource("1_scg07")
-script = ExtResource("2_kvy1i")
+script = ExtResource("2_uwme8")
 menus = [NodePath("Back"), NodePath("Back/MainV/Servers_HBox")]
 metadata/_edit_horizontal_guides_ = [640.186]
 metadata/_edit_vertical_guides_ = [340.12]
@@ -42,8 +43,9 @@ offset_top = -9.72
 offset_right = 1.0
 offset_bottom = -9.71985
 theme = ExtResource("1_scg07")
-script = ExtResource("3_l61wq")
+script = ExtResource("3_73fes")
 menu_items = [NodePath("Settings"), NodePath("MainV/SettingsH/Left_menu/Users/Users_button"), NodePath("MainV/SettingsH/Left_menu/Roles/Roles_button"), NodePath("MainV/SettingsH/Left_menu/Models/Models_button"), NodePath("MainV/SettingsH/Left_menu/Restarts/Restarts_button"), NodePath("MainV/SettingsH/Left_menu/Screens/Screens_button"), NodePath("MainV/SettingsH/Left_menu/Scenarios/Scenarios_button"), NodePath("MainV/SettingsH/Left_menu/Servers/Servers_button"), NodePath("MainV/SettingsH/Left_menu/System_condition/System_condition_button")]
+colors = ExtResource("4_2blrh")
 
 [node name="Panel_for_logo" type="Panel" parent="Back"]
 layout_mode = 1
@@ -84,7 +86,7 @@ offset_bottom = 169.0
 theme = ExtResource("1_scg07")
 theme_override_font_sizes/font_size = 28
 text = "Настройки"
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "Settings"
 horizontal_lines = [NodePath("SetH")]
 
@@ -133,7 +135,7 @@ theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("8_oopkr")
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "Users"
 vertical_lines = [NodePath("UV")]
 horizontal_lines = [NodePath("UH")]
@@ -177,7 +179,7 @@ theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("9_sucy1")
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "Roles"
 vertical_lines = [NodePath("RV")]
 horizontal_lines = [NodePath("RH")]
@@ -221,7 +223,7 @@ theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("10_qyy74")
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "Models"
 vertical_lines = [NodePath("MV")]
 horizontal_lines = [NodePath("MH")]
@@ -270,7 +272,7 @@ theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("11_5py4q")
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "Restarts"
 vertical_lines = [NodePath("ResV")]
 horizontal_lines = [NodePath("ResH")]
@@ -319,7 +321,7 @@ theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("12_dirfy")
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "Screens"
 vertical_lines = [NodePath("SV")]
 horizontal_lines = [NodePath("SH")]
@@ -368,7 +370,7 @@ theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("13_c1tgd")
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "Scenarios"
 vertical_lines = [NodePath("ScV")]
 horizontal_lines = [NodePath("ScH")]
@@ -412,7 +414,7 @@ theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("14_411cc")
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "Servers"
 vertical_lines = [NodePath("SerV")]
 horizontal_lines = [NodePath("SerH")]
@@ -456,7 +458,7 @@ theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("14_411cc")
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "System"
 vertical_lines = [NodePath("SysV")]
 horizontal_lines = [NodePath("SysH")]
@@ -508,7 +510,8 @@ layout_mode = 2
 theme = ExtResource("1_scg07")
 theme_override_font_sizes/font_size = 28
 text = "Серверы"
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
+tag = null
 vertical_lines = [NodePath("ServersV")]
 horizontal_lines = [NodePath("ServersH")]
 
@@ -537,8 +540,9 @@ theme = ExtResource("6_rb0pa")
 [node name="Servers_HBox" type="HBoxContainer" parent="Back/MainV" node_paths=PackedStringArray("menu_items")]
 layout_mode = 2
 theme = ExtResource("1_scg07")
-script = ExtResource("3_l61wq")
+script = ExtResource("3_73fes")
 menu_items = [NodePath("../Servers_name/Servers"), NodePath("Servers_ScrollBox/Servers/Server A/Server Button"), NodePath("Servers_ScrollBox/Servers/Server B/Server Button"), NodePath("Servers_ScrollBox/Servers/Server C/Server Button"), NodePath("Servers_ScrollBox/Servers/Server D/Server Button")]
+colors = ExtResource("4_2blrh")
 
 [node name="Servers_ScrollBox" type="ScrollContainer" parent="Back/MainV/Servers_HBox"]
 custom_minimum_size = Vector2(320, 350)
@@ -567,7 +571,7 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("15_jgvw3")
 vertical_icon_alignment = 0
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "ServerA"
 vertical_lines = [NodePath("Label/SerVV")]
 horizontal_lines = [NodePath("Label/SerVH")]
@@ -659,7 +663,7 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("15_jgvw3")
 vertical_icon_alignment = 0
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "ServerA"
 vertical_lines = [NodePath("Label/SerVV")]
 horizontal_lines = [NodePath("Label/SerVH")]
@@ -751,7 +755,7 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("15_jgvw3")
 vertical_icon_alignment = 0
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "ServerA"
 vertical_lines = [NodePath("Label/SerVV")]
 horizontal_lines = [NodePath("Label/SerVH")]
@@ -843,7 +847,7 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("15_jgvw3")
 vertical_icon_alignment = 0
-script = ExtResource("5_7l2qv")
+script = ExtResource("6_wam10")
 tag = "ServerA"
 vertical_lines = [NodePath("Label/SerVV")]
 horizontal_lines = [NodePath("Label/SerVH")]
