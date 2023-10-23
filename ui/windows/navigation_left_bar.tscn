@@ -1,0 +1,1046 @@
+[gd_scene load_steps=19 format=3 uid="uid://cwmd8h1svh7jq"]
+
+[ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu/Left_main.tres" id="1_scg07"]
+[ext_resource type="Script" path="res://ui/components/line_menu_group.gd" id="2_kvy1i"]
+[ext_resource type="Script" path="res://ui/components/line_menu.gd" id="3_l61wq"]
+[ext_resource type="Texture2D" uid="uid://d3dcn5o464vtu" path="res://Icons/Left_menu/Logo.png" id="4_jl5o0"]
+[ext_resource type="Script" path="res://ui/components/line_item.gd" id="5_7l2qv"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="6_rb0pa"]
+[ext_resource type="ButtonGroup" uid="uid://du6n17rmehtbj" path="res://Themes/Button_groups/settings_left_menu.tres" id="7_7idfv"]
+[ext_resource type="Texture2D" uid="uid://bf18q6y2s4ee2" path="res://Icons/Left_menu/User_icon_left_menu.png" id="8_oopkr"]
+[ext_resource type="Texture2D" uid="uid://b8wmhvbb4j1df" path="res://Icons/Left_menu/Role_icon_left_menu.png" id="9_sucy1"]
+[ext_resource type="Texture2D" uid="uid://b0g4eavkk3ojd" path="res://Icons/Left_menu/Model_icon_left_menu.png" id="10_qyy74"]
+[ext_resource type="Texture2D" uid="uid://c5tepj1j2wbrg" path="res://Icons/Left_menu/Restart_icon_left_menu.png" id="11_5py4q"]
+[ext_resource type="Texture2D" uid="uid://cxqigfijyfj76" path="res://Icons/Left_menu/Videoframe_icon_left_menu.png" id="12_dirfy"]
+[ext_resource type="Texture2D" uid="uid://dl684yhxqd6un" path="res://Icons/Left_menu/Scenario_icon_left_menu.png" id="13_c1tgd"]
+[ext_resource type="Texture2D" uid="uid://cr4e5b5x854my" path="res://Icons/Left_menu/ServerS_icon_left_menu.png" id="14_411cc"]
+[ext_resource type="Texture2D" uid="uid://cruhip4lopqgq" path="res://Icons/Left_menu/Server_icon_left_menu.png" id="15_jgvw3"]
+[ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://Icons/Animals/Orca_62.png" id="16_huipu"]
+[ext_resource type="Theme" uid="uid://n1wc11n0cx2r" path="res://Themes/Left_menu/Left_log_out_button.tres" id="17_vorxe"]
+[ext_resource type="Texture2D" uid="uid://dq4sf5jkliia4" path="res://Icons/Left_menu/Log_out.png" id="18_hjdb4"]
+
+[node name="Navigation Left Bar" type="Control" node_paths=PackedStringArray("menus")]
+custom_minimum_size = Vector2(385, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 385.0
+offset_bottom = 1080.0
+theme = ExtResource("1_scg07")
+script = ExtResource("2_kvy1i")
+menus = [NodePath("Back"), NodePath("Back/MainV/Servers_HBox")]
+metadata/_edit_horizontal_guides_ = [640.186]
+metadata/_edit_vertical_guides_ = [340.12]
+
+[node name="Back" type="Panel" parent="." node_paths=PackedStringArray("menu_items")]
+custom_minimum_size = Vector2(385, 1080)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.009
+anchor_right = 0.2
+anchor_bottom = 1.009
+offset_top = -9.72
+offset_right = 1.0
+offset_bottom = -9.71985
+theme = ExtResource("1_scg07")
+script = ExtResource("3_l61wq")
+menu_items = [NodePath("Settings"), NodePath("MainV/SettingsH/Left_menu/Users/Users_button"), NodePath("MainV/SettingsH/Left_menu/Roles/Roles_button"), NodePath("MainV/SettingsH/Left_menu/Models/Models_button"), NodePath("MainV/SettingsH/Left_menu/Restarts/Restarts_button"), NodePath("MainV/SettingsH/Left_menu/Screens/Screens_button"), NodePath("MainV/SettingsH/Left_menu/Scenarios/Scenarios_button"), NodePath("MainV/SettingsH/Left_menu/Servers/Servers_button"), NodePath("MainV/SettingsH/Left_menu/System_condition/System_condition_button")]
+
+[node name="Panel_for_logo" type="Panel" parent="Back"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.526
+offset_top = 0.000564575
+offset_right = 191.474
+offset_bottom = 125.001
+grow_horizontal = 2
+theme = ExtResource("1_scg07")
+
+[node name="Logo" type="Sprite2D" parent="Back/Panel_for_logo"]
+position = Vector2(195, 62)
+scale = Vector2(1.34375, 1.34375)
+texture = ExtResource("4_jl5o0")
+
+[node name="Project_name" type="Label" parent="Back/Panel_for_logo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 95.0
+offset_right = 72.0
+offset_bottom = 119.0
+grow_horizontal = 2
+theme = ExtResource("1_scg07")
+text = "Название проекта"
+
+[node name="Settings" type="Label" parent="Back" node_paths=PackedStringArray("horizontal_lines")]
+layout_mode = 2
+offset_left = 32.8916
+offset_top = 133.0
+offset_right = 244.892
+offset_bottom = 169.0
+theme = ExtResource("1_scg07")
+theme_override_font_sizes/font_size = 28
+text = "Настройки"
+script = ExtResource("5_7l2qv")
+tag = "Settings"
+horizontal_lines = [NodePath("SetH")]
+
+[node name="SetH" type="ColorRect" parent="Back/Settings"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 34.0
+offset_right = 307.0
+offset_bottom = 36.0
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="MainV" type="VBoxContainer" parent="Back"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 199.0
+offset_right = 385.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_scg07")
+
+[node name="SettingsH" type="HBoxContainer" parent="Back/MainV"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/SettingsH"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("6_rb0pa")
+
+[node name="Left_menu" type="VBoxContainer" parent="Back/MainV/SettingsH"]
+custom_minimum_size = Vector2(212, 342)
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Users" type="HBoxContainer" parent="Back/MainV/SettingsH/Left_menu"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Users_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Users" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("8_oopkr")
+script = ExtResource("5_7l2qv")
+tag = "Users"
+vertical_lines = [NodePath("UV")]
+horizontal_lines = [NodePath("UH")]
+
+[node name="Users" type="Label" parent="Back/MainV/SettingsH/Left_menu/Users/Users_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_scg07")
+text = "Пользователи"
+
+[node name="UV" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Users/Users_button"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -31.0
+offset_right = -30.0
+offset_bottom = 14.0
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="UH" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Users/Users_button"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 13.0
+offset_right = -8.0
+offset_bottom = 33.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Roles" type="HBoxContainer" parent="Back/MainV/SettingsH/Left_menu"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Roles_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Roles" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("9_sucy1")
+script = ExtResource("5_7l2qv")
+tag = "Roles"
+vertical_lines = [NodePath("RV")]
+horizontal_lines = [NodePath("RH")]
+
+[node name="Roles" type="Label" parent="Back/MainV/SettingsH/Left_menu/Roles/Roles_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_scg07")
+text = "Роли"
+
+[node name="RV" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Roles/Roles_button"]
+layout_mode = 0
+offset_left = -32.2873
+offset_top = -31.1105
+offset_right = -30.2873
+offset_bottom = 13.8895
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="RH" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Roles/Roles_button"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 13.0
+offset_right = -8.0
+offset_bottom = 33.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Models" type="HBoxContainer" parent="Back/MainV/SettingsH/Left_menu"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Models_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Models" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("10_qyy74")
+script = ExtResource("5_7l2qv")
+tag = "Models"
+vertical_lines = [NodePath("MV")]
+horizontal_lines = [NodePath("MH")]
+
+[node name="Models" type="Label" parent="Back/MainV/SettingsH/Left_menu/Models/Models_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_scg07")
+text = "Модели"
+
+[node name="MV" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Models/Models_button"]
+layout_mode = 0
+offset_left = -32.2873
+offset_top = -31.1105
+offset_right = -30.2873
+offset_bottom = 13.8895
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="MH" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Models/Models_button"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 13.0
+offset_right = -8.0
+offset_bottom = 33.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Restarts" type="HBoxContainer" parent="Back/MainV/SettingsH/Left_menu"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/SettingsH/Left_menu/Restarts"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Restarts_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Restarts" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("11_5py4q")
+script = ExtResource("5_7l2qv")
+tag = "Restarts"
+vertical_lines = [NodePath("ResV")]
+horizontal_lines = [NodePath("ResH")]
+
+[node name="Restarts" type="Label" parent="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 5.0
+offset_right = 179.0
+offset_bottom = 29.0
+theme = ExtResource("1_scg07")
+text = "Рестарты"
+
+[node name="ResV" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button"]
+layout_mode = 0
+offset_left = -54.2873
+offset_top = -31.1105
+offset_right = -52.2873
+offset_bottom = 13.8895
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="ResH" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 13.0
+offset_right = -8.0
+offset_bottom = 55.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Screens" type="HBoxContainer" parent="Back/MainV/SettingsH/Left_menu"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/SettingsH/Left_menu/Screens"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Screens_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Screens" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("12_dirfy")
+script = ExtResource("5_7l2qv")
+tag = "Screens"
+vertical_lines = [NodePath("SV")]
+horizontal_lines = [NodePath("SH")]
+
+[node name="Screens" type="Label" parent="Back/MainV/SettingsH/Left_menu/Screens/Screens_button"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 5.0
+offset_right = 179.0
+offset_bottom = 29.0
+theme = ExtResource("1_scg07")
+text = "Видеокадры"
+
+[node name="SV" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Screens/Screens_button"]
+layout_mode = 0
+offset_left = -54.2873
+offset_top = -31.1105
+offset_right = -52.2873
+offset_bottom = 13.8895
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="SH" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Screens/Screens_button"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 13.0
+offset_right = -8.0
+offset_bottom = 55.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Scenarios" type="HBoxContainer" parent="Back/MainV/SettingsH/Left_menu"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/SettingsH/Left_menu/Scenarios"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Scenarios_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Scenarios" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("13_c1tgd")
+script = ExtResource("5_7l2qv")
+tag = "Scenarios"
+vertical_lines = [NodePath("ScV")]
+horizontal_lines = [NodePath("ScH")]
+
+[node name="Scenarios" type="Label" parent="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 5.0
+offset_right = 179.0
+offset_bottom = 29.0
+theme = ExtResource("1_scg07")
+text = "Сценарии"
+
+[node name="ScV" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button"]
+layout_mode = 0
+offset_left = -54.2873
+offset_top = -31.1105
+offset_right = -52.2873
+offset_bottom = 13.8895
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="ScH" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 13.0
+offset_right = -8.0
+offset_bottom = 55.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Servers" type="HBoxContainer" parent="Back/MainV/SettingsH/Left_menu"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Servers_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Servers" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("14_411cc")
+script = ExtResource("5_7l2qv")
+tag = "Servers"
+vertical_lines = [NodePath("SerV")]
+horizontal_lines = [NodePath("SerH")]
+
+[node name="Servers" type="Label" parent="Back/MainV/SettingsH/Left_menu/Servers/Servers_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_scg07")
+text = "Серверы"
+
+[node name="SerV" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Servers/Servers_button"]
+layout_mode = 0
+offset_left = -32.2873
+offset_top = -31.1105
+offset_right = -30.2873
+offset_bottom = 13.8895
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="SerH" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/Servers/Servers_button"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 13.0
+offset_right = -8.0
+offset_bottom = 33.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="System_condition" type="HBoxContainer" parent="Back/MainV/SettingsH/Left_menu"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="System_condition_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/System_condition" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("14_411cc")
+script = ExtResource("5_7l2qv")
+tag = "System"
+vertical_lines = [NodePath("SysV")]
+horizontal_lines = [NodePath("SysH")]
+
+[node name="System_condition" type="Label" parent="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 29.0
+theme = ExtResource("1_scg07")
+text = "Состояние системы"
+
+[node name="SysV" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button"]
+layout_mode = 0
+offset_left = -32.2873
+offset_top = -31.1105
+offset_right = -30.2873
+offset_bottom = 13.8895
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="SysH" type="ColorRect" parent="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 12.0
+offset_right = -8.0
+offset_bottom = 32.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Space2" type="Panel" parent="Back/MainV/SettingsH"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Servers_name" type="HBoxContainer" parent="Back/MainV"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/Servers_name"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Servers" type="Label" parent="Back/MainV/Servers_name" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+theme_override_font_sizes/font_size = 28
+text = "Серверы"
+script = ExtResource("5_7l2qv")
+vertical_lines = [NodePath("ServersV")]
+horizontal_lines = [NodePath("ServersH")]
+
+[node name="ServersH" type="ColorRect" parent="Back/MainV/Servers_name/Servers"]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 306.0
+offset_bottom = 37.0
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="ServersV" type="ColorRect" parent="Back/MainV/Servers_name/Servers"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 37.0
+offset_right = 21.0
+offset_bottom = 39.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Space2" type="Panel" parent="Back/MainV/Servers_name"]
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Servers_HBox" type="HBoxContainer" parent="Back/MainV" node_paths=PackedStringArray("menu_items")]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+script = ExtResource("3_l61wq")
+menu_items = [NodePath("../Servers_name/Servers"), NodePath("Servers_ScrollBox/Servers/Server A/Server Button"), NodePath("Servers_ScrollBox/Servers/Server B/Server Button"), NodePath("Servers_ScrollBox/Servers/Server C/Server Button"), NodePath("Servers_ScrollBox/Servers/Server D/Server Button")]
+
+[node name="Servers_ScrollBox" type="ScrollContainer" parent="Back/MainV/Servers_HBox"]
+custom_minimum_size = Vector2(320, 350)
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Servers" type="VBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox"]
+custom_minimum_size = Vector2(0, 340)
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Server A" type="HBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+custom_minimum_size = Vector2(212, 100)
+layout_mode = 2
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("15_jgvw3")
+vertical_icon_alignment = 0
+script = ExtResource("5_7l2qv")
+tag = "ServerA"
+vertical_lines = [NodePath("Label/SerVV")]
+horizontal_lines = [NodePath("Label/SerVH")]
+
+[node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 72.0
+offset_bottom = 21.0
+theme = ExtResource("1_scg07")
+text = "Сервер А
+"
+
+[node name="SerVH" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 51.0
+offset_right = -42.0
+offset_bottom = 53.0
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="SerVV" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -67.0
+offset_right = 60.0
+offset_bottom = -65.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Orca68" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+position = Vector2(161, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca67" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+position = Vector2(139, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca66" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+position = Vector2(117, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca65" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+position = Vector2(95, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca64" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+position = Vector2(73, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca63" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+position = Vector2(52, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca62" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+position = Vector2(32, 64)
+texture = ExtResource("16_huipu")
+
+[node name="State" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 251.101
+offset_top = -1.60706
+offset_right = 275.101
+offset_bottom = 22.3929
+theme = ExtResource("6_rb0pa")
+disabled = true
+
+[node name="Space2" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A"]
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Server B" type="HBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+custom_minimum_size = Vector2(212, 100)
+layout_mode = 2
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("15_jgvw3")
+vertical_icon_alignment = 0
+script = ExtResource("5_7l2qv")
+tag = "ServerA"
+vertical_lines = [NodePath("Label/SerVV")]
+horizontal_lines = [NodePath("Label/SerVH")]
+
+[node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 72.0
+offset_bottom = 21.0
+theme = ExtResource("1_scg07")
+text = "Сервер Б
+"
+
+[node name="SerVH" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 51.0
+offset_right = -42.0
+offset_bottom = 53.0
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="SerVV" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -67.0
+offset_right = 60.0
+offset_bottom = -65.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Orca68" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+position = Vector2(161, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca67" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+position = Vector2(139, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca66" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+position = Vector2(117, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca65" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+position = Vector2(95, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca64" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+position = Vector2(73, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca63" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+position = Vector2(52, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca62" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+position = Vector2(32, 64)
+texture = ExtResource("16_huipu")
+
+[node name="State" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 251.101
+offset_top = -1.60706
+offset_right = 275.101
+offset_bottom = 22.3929
+theme = ExtResource("6_rb0pa")
+disabled = true
+
+[node name="Space2" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B"]
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Server C" type="HBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+custom_minimum_size = Vector2(212, 100)
+layout_mode = 2
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("15_jgvw3")
+vertical_icon_alignment = 0
+script = ExtResource("5_7l2qv")
+tag = "ServerA"
+vertical_lines = [NodePath("Label/SerVV")]
+horizontal_lines = [NodePath("Label/SerVH")]
+
+[node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 72.0
+offset_bottom = 21.0
+theme = ExtResource("1_scg07")
+text = "Сервер В
+"
+
+[node name="SerVH" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 51.0
+offset_right = -42.0
+offset_bottom = 53.0
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="SerVV" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -67.0
+offset_right = 60.0
+offset_bottom = -65.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Orca68" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+position = Vector2(161, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca67" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+position = Vector2(139, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca66" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+position = Vector2(117, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca65" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+position = Vector2(95, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca64" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+position = Vector2(73, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca63" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+position = Vector2(52, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca62" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+position = Vector2(32, 64)
+texture = ExtResource("16_huipu")
+
+[node name="State" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 251.101
+offset_top = -1.60706
+offset_right = 275.101
+offset_bottom = 22.3929
+theme = ExtResource("6_rb0pa")
+disabled = true
+
+[node name="Space2" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C"]
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Server D" type="HBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers"]
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Space" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+custom_minimum_size = Vector2(212, 100)
+layout_mode = 2
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("15_jgvw3")
+vertical_icon_alignment = 0
+script = ExtResource("5_7l2qv")
+tag = "ServerA"
+vertical_lines = [NodePath("Label/SerVV")]
+horizontal_lines = [NodePath("Label/SerVH")]
+
+[node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 72.0
+offset_bottom = 21.0
+theme = ExtResource("1_scg07")
+text = "Сервер Г
+"
+
+[node name="SerVH" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 51.0
+offset_right = -42.0
+offset_bottom = 53.0
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="SerVV" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -67.0
+offset_right = 60.0
+offset_bottom = -65.0
+rotation = 1.5708
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Orca68" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+position = Vector2(161, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca67" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+position = Vector2(139, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca66" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+position = Vector2(117, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca65" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+position = Vector2(95, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca64" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+position = Vector2(73, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca63" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+position = Vector2(52, 64)
+texture = ExtResource("16_huipu")
+
+[node name="Orca62" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+position = Vector2(32, 64)
+texture = ExtResource("16_huipu")
+
+[node name="State" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 251.101
+offset_top = -1.60706
+offset_right = 275.101
+offset_bottom = 22.3929
+theme = ExtResource("6_rb0pa")
+disabled = true
+
+[node name="Space2" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D"]
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Space" type="Panel" parent="Back/MainV"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("6_rb0pa")
+
+[node name="Panel_for_login" type="Panel" parent="Back/MainV"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme = ExtResource("1_scg07")
+
+[node name="Login" type="Button" parent="Back/MainV/Panel_for_login"]
+custom_minimum_size = Vector2(297, 35)
+layout_mode = 2
+anchor_top = 0.946
+anchor_right = 1.0
+anchor_bottom = 0.976
+offset_left = 43.0
+offset_top = -56.11
+offset_right = -45.0
+offset_bottom = -22.16
+theme = ExtResource("1_scg07")
+toggle_mode = true
+button_group = ExtResource("7_7idfv")
+icon = ExtResource("8_oopkr")
+alignment = 0
+
+[node name="Login" type="Label" parent="Back/MainV/Panel_for_login/Login"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 2.0
+offset_right = 249.0
+offset_bottom = 38.0
+theme = ExtResource("1_scg07")
+theme_override_font_sizes/font_size = 12
+text = "Каменьщикова Екатерина Владимировна
+"
+autowrap_mode = 2
+
+[node name="LogH" type="ColorRect" parent="Back/MainV/Panel_for_login/Login/Login"]
+layout_mode = 0
+offset_left = -76.0
+offset_top = 17.0
+offset_right = -43.0
+offset_bottom = 19.0
+theme = ExtResource("1_scg07")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Log_out" type="Button" parent="Back/MainV/Panel_for_login"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.201
+anchor_top = 0.955
+anchor_right = 0.201
+anchor_bottom = 0.955
+offset_left = 230.669
+offset_top = -53.2595
+offset_right = 262.669
+offset_bottom = -21.2596
+theme = ExtResource("17_vorxe")
+icon = ExtResource("18_hjdb4")
+
+[connection signal="focus_entered" from="Back/MainV/SettingsH/Left_menu/Users/Users_button" to="Back/MainV/SettingsH/Left_menu/Users/Users_button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/SettingsH/Left_menu/Users/Users_button" to="Back/MainV/SettingsH/Left_menu/Users/Users_button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/Users/Users_button" to="Back/MainV/SettingsH/Left_menu/Users/Users_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/Users/Users_button" to="Back/MainV/SettingsH/Left_menu/Users/Users_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/Users/Users_button" to="Back/MainV/SettingsH/Left_menu/Users/Users_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" to="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" to="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" to="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" to="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" to="Back/MainV/SettingsH/Left_menu/Roles/Roles_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/SettingsH/Left_menu/Models/Models_button" to="Back/MainV/SettingsH/Left_menu/Models/Models_button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/SettingsH/Left_menu/Models/Models_button" to="Back/MainV/SettingsH/Left_menu/Models/Models_button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/Models/Models_button" to="Back/MainV/SettingsH/Left_menu/Models/Models_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/Models/Models_button" to="Back/MainV/SettingsH/Left_menu/Models/Models_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/Models/Models_button" to="Back/MainV/SettingsH/Left_menu/Models/Models_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" to="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" to="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" to="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" to="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" to="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" to="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" to="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" to="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" to="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" to="Back/MainV/SettingsH/Left_menu/Screens/Screens_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" to="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" to="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" to="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" to="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" to="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" to="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" to="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" to="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" to="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" to="Back/MainV/SettingsH/Left_menu/Servers/Servers_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" to="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" to="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" to="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" to="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" to="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_pressed"]
+[connection signal="focus_entered" from="Back/MainV/Panel_for_login/Login" to="." method="_on_login_focus_entered"]
+[connection signal="focus_exited" from="Back/MainV/Panel_for_login/Login" to="." method="_on_login_focus_exited"]
+[connection signal="mouse_entered" from="Back/MainV/Panel_for_login/Login" to="." method="_on_login_mouse_entered"]
+[connection signal="mouse_exited" from="Back/MainV/Panel_for_login/Login" to="." method="_on_login_mouse_exited"]
+[connection signal="pressed" from="Back/MainV/Panel_for_login/Login" to="." method="_on_login_pressed"]
