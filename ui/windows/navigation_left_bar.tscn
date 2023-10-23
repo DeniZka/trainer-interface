@@ -1,12 +1,12 @@
 [gd_scene load_steps=20 format=3 uid="uid://cwmd8h1svh7jq"]
 
 [ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu/Left_main.tres" id="1_scg07"]
-[ext_resource type="Script" path="res://ui/components/base/line_menu_group.gd" id="2_uwme8"]
-[ext_resource type="Script" path="res://ui/components/base/line_menu.gd" id="3_73fes"]
+[ext_resource type="Script" path="res://ui/components/lines/line_menu_group.gd" id="2_x822k"]
+[ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="3_whnkn"]
 [ext_resource type="Resource" uid="uid://073bco0mefks" path="res://ui/themes/left_menu_colors.tres" id="4_2blrh"]
 [ext_resource type="Texture2D" uid="uid://d3dcn5o464vtu" path="res://Icons/Left_menu/Logo.png" id="4_jl5o0"]
+[ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="6_6xnlt"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="6_rb0pa"]
-[ext_resource type="Script" path="res://ui/components/base/line_item.gd" id="6_wam10"]
 [ext_resource type="ButtonGroup" uid="uid://du6n17rmehtbj" path="res://Themes/Button_groups/settings_left_menu.tres" id="7_7idfv"]
 [ext_resource type="Texture2D" uid="uid://bf18q6y2s4ee2" path="res://Icons/Left_menu/User_icon_left_menu.png" id="8_oopkr"]
 [ext_resource type="Texture2D" uid="uid://b8wmhvbb4j1df" path="res://Icons/Left_menu/Role_icon_left_menu.png" id="9_sucy1"]
@@ -27,7 +27,7 @@ anchors_preset = 0
 offset_right = 385.0
 offset_bottom = 1080.0
 theme = ExtResource("1_scg07")
-script = ExtResource("2_uwme8")
+script = ExtResource("2_x822k")
 menus = [NodePath("Back"), NodePath("Back/MainV/Servers_HBox")]
 metadata/_edit_horizontal_guides_ = [640.186]
 metadata/_edit_vertical_guides_ = [340.12]
@@ -43,7 +43,7 @@ offset_top = -9.72
 offset_right = 1.0
 offset_bottom = -9.71985
 theme = ExtResource("1_scg07")
-script = ExtResource("3_73fes")
+script = ExtResource("3_whnkn")
 menu_items = [NodePath("Settings"), NodePath("MainV/SettingsH/Left_menu/Users/Users_button"), NodePath("MainV/SettingsH/Left_menu/Roles/Roles_button"), NodePath("MainV/SettingsH/Left_menu/Models/Models_button"), NodePath("MainV/SettingsH/Left_menu/Restarts/Restarts_button"), NodePath("MainV/SettingsH/Left_menu/Screens/Screens_button"), NodePath("MainV/SettingsH/Left_menu/Scenarios/Scenarios_button"), NodePath("MainV/SettingsH/Left_menu/Servers/Servers_button"), NodePath("MainV/SettingsH/Left_menu/System_condition/System_condition_button")]
 colors = ExtResource("4_2blrh")
 
@@ -77,7 +77,7 @@ grow_horizontal = 2
 theme = ExtResource("1_scg07")
 text = "Название проекта"
 
-[node name="Settings" type="Label" parent="Back" node_paths=PackedStringArray("horizontal_lines")]
+[node name="Settings" type="Label" parent="Back"]
 layout_mode = 2
 offset_left = 32.8916
 offset_top = 133.0
@@ -86,9 +86,8 @@ offset_bottom = 169.0
 theme = ExtResource("1_scg07")
 theme_override_font_sizes/font_size = 28
 text = "Настройки"
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "Settings"
-horizontal_lines = [NodePath("SetH")]
 
 [node name="SetH" type="ColorRect" parent="Back/Settings"]
 layout_mode = 0
@@ -128,17 +127,15 @@ theme = ExtResource("1_scg07")
 layout_mode = 2
 theme = ExtResource("1_scg07")
 
-[node name="Users_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Users" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Users_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Users"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("8_oopkr")
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "Users"
-vertical_lines = [NodePath("UV")]
-horizontal_lines = [NodePath("UH")]
 
 [node name="Users" type="Label" parent="Back/MainV/SettingsH/Left_menu/Users/Users_button"]
 layout_mode = 0
@@ -172,17 +169,15 @@ color = Color(0.4, 0.486275, 0.556863, 1)
 layout_mode = 2
 theme = ExtResource("1_scg07")
 
-[node name="Roles_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Roles" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Roles_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Roles"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("9_sucy1")
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "Roles"
-vertical_lines = [NodePath("RV")]
-horizontal_lines = [NodePath("RH")]
 
 [node name="Roles" type="Label" parent="Back/MainV/SettingsH/Left_menu/Roles/Roles_button"]
 layout_mode = 0
@@ -216,17 +211,15 @@ color = Color(0.4, 0.486275, 0.556863, 1)
 layout_mode = 2
 theme = ExtResource("1_scg07")
 
-[node name="Models_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Models" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Models_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Models"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("10_qyy74")
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "Models"
-vertical_lines = [NodePath("MV")]
-horizontal_lines = [NodePath("MH")]
 
 [node name="Models" type="Label" parent="Back/MainV/SettingsH/Left_menu/Models/Models_button"]
 layout_mode = 0
@@ -265,17 +258,15 @@ custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Restarts_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Restarts" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Restarts_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Restarts"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("11_5py4q")
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "Restarts"
-vertical_lines = [NodePath("ResV")]
-horizontal_lines = [NodePath("ResH")]
 
 [node name="Restarts" type="Label" parent="Back/MainV/SettingsH/Left_menu/Restarts/Restarts_button"]
 layout_mode = 0
@@ -314,17 +305,15 @@ custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Screens_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Screens" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Screens_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Screens"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("12_dirfy")
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "Screens"
-vertical_lines = [NodePath("SV")]
-horizontal_lines = [NodePath("SH")]
 
 [node name="Screens" type="Label" parent="Back/MainV/SettingsH/Left_menu/Screens/Screens_button"]
 layout_mode = 0
@@ -363,17 +352,15 @@ custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Scenarios_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Scenarios" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Scenarios_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Scenarios"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("13_c1tgd")
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "Scenarios"
-vertical_lines = [NodePath("ScV")]
-horizontal_lines = [NodePath("ScH")]
 
 [node name="Scenarios" type="Label" parent="Back/MainV/SettingsH/Left_menu/Scenarios/Scenarios_button"]
 layout_mode = 0
@@ -407,17 +394,15 @@ color = Color(0.4, 0.486275, 0.556863, 1)
 layout_mode = 2
 theme = ExtResource("1_scg07")
 
-[node name="Servers_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Servers" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Servers_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/Servers"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("14_411cc")
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "Servers"
-vertical_lines = [NodePath("SerV")]
-horizontal_lines = [NodePath("SerH")]
 
 [node name="Servers" type="Label" parent="Back/MainV/SettingsH/Left_menu/Servers/Servers_button"]
 layout_mode = 0
@@ -451,17 +436,15 @@ color = Color(0.4, 0.486275, 0.556863, 1)
 layout_mode = 2
 theme = ExtResource("1_scg07")
 
-[node name="System_condition_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/System_condition" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="System_condition_button" type="Button" parent="Back/MainV/SettingsH/Left_menu/System_condition"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_scg07")
 toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("14_411cc")
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "System"
-vertical_lines = [NodePath("SysV")]
-horizontal_lines = [NodePath("SysH")]
 
 [node name="System_condition" type="Label" parent="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button"]
 layout_mode = 0
@@ -505,15 +488,13 @@ custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Servers" type="Label" parent="Back/MainV/Servers_name" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Servers" type="Label" parent="Back/MainV/Servers_name"]
 layout_mode = 2
 theme = ExtResource("1_scg07")
 theme_override_font_sizes/font_size = 28
 text = "Серверы"
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = null
-vertical_lines = [NodePath("ServersV")]
-horizontal_lines = [NodePath("ServersH")]
 
 [node name="ServersH" type="ColorRect" parent="Back/MainV/Servers_name/Servers"]
 layout_mode = 0
@@ -540,7 +521,7 @@ theme = ExtResource("6_rb0pa")
 [node name="Servers_HBox" type="HBoxContainer" parent="Back/MainV" node_paths=PackedStringArray("menu_items")]
 layout_mode = 2
 theme = ExtResource("1_scg07")
-script = ExtResource("3_73fes")
+script = ExtResource("3_whnkn")
 menu_items = [NodePath("../Servers_name/Servers"), NodePath("Servers_ScrollBox/Servers/Server A/Server Button"), NodePath("Servers_ScrollBox/Servers/Server B/Server Button"), NodePath("Servers_ScrollBox/Servers/Server C/Server Button"), NodePath("Servers_ScrollBox/Servers/Server D/Server Button")]
 colors = ExtResource("4_2blrh")
 
@@ -563,7 +544,7 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A"]
 custom_minimum_size = Vector2(212, 100)
 layout_mode = 2
 theme = ExtResource("1_scg07")
@@ -571,10 +552,8 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("15_jgvw3")
 vertical_icon_alignment = 0
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "ServerA"
-vertical_lines = [NodePath("Label/SerVV")]
-horizontal_lines = [NodePath("Label/SerVH")]
 
 [node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
 layout_mode = 0
@@ -655,7 +634,7 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B"]
 custom_minimum_size = Vector2(212, 100)
 layout_mode = 2
 theme = ExtResource("1_scg07")
@@ -663,10 +642,8 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("15_jgvw3")
 vertical_icon_alignment = 0
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "ServerA"
-vertical_lines = [NodePath("Label/SerVV")]
-horizontal_lines = [NodePath("Label/SerVH")]
 
 [node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
 layout_mode = 0
@@ -747,7 +724,7 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C"]
 custom_minimum_size = Vector2(212, 100)
 layout_mode = 2
 theme = ExtResource("1_scg07")
@@ -755,10 +732,8 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("15_jgvw3")
 vertical_icon_alignment = 0
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "ServerA"
-vertical_lines = [NodePath("Label/SerVV")]
-horizontal_lines = [NodePath("Label/SerVH")]
 
 [node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
 layout_mode = 0
@@ -839,7 +814,7 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D"]
 custom_minimum_size = Vector2(212, 100)
 layout_mode = 2
 theme = ExtResource("1_scg07")
@@ -847,10 +822,8 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("15_jgvw3")
 vertical_icon_alignment = 0
-script = ExtResource("6_wam10")
+script = ExtResource("6_6xnlt")
 tag = "ServerA"
-vertical_lines = [NodePath("Label/SerVV")]
-horizontal_lines = [NodePath("Label/SerVH")]
 
 [node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
 layout_mode = 0
