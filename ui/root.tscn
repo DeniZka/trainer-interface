@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjqyfuik734km"]
+
+[ext_resource type="Script" path="res://ui/root.gd" id="1_1y8dc"]
+[ext_resource type="Theme" uid="uid://ye8p72kwosj7" path="res://Themes/Combo_menu/Combo_main.tres" id="2_iwbhw"]
+[ext_resource type="PackedScene" uid="uid://cwmd8h1svh7jq" path="res://ui/windows/navigation_left_bar.tscn" id="2_qv4gq"]
+[ext_resource type="PackedScene" uid="uid://brxvc48v4dq7i" path="res://ui/windows/users/users_window.tscn" id="3_xgqvo"]
+[ext_resource type="PackedScene" uid="uid://c4li1lquxvfxu" path="res://Scenes/Right_menu_user.tscn" id="6_qb8gp"]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1y8dc")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_iwbhw")
+
+[node name="Content" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_iwbhw")
+
+[node name="Navigation Left Bar" parent="Content" instance=ExtResource("2_qv4gq")]
+layout_mode = 2
+
+[node name="Users Window" parent="Content" instance=ExtResource("3_xgqvo")]
+layout_mode = 2
+
+[node name="Right_menu" parent="." instance=ExtResource("6_qb8gp")]
+visible = false
+layout_mode = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 36.0
+offset_right = 1518.0
+offset_bottom = 124.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

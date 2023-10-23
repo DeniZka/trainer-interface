@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://cp3w3e52bwonw"]
+
+[ext_resource type="Theme" uid="uid://cjd5ih62jsh4b" path="res://Themes/Upper_menu/Upper_main.tres" id="1_kwgrw"]
+[ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="2_m0lfp"]
+[ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/search_bar_colors.tres" id="3_hy20t"]
+[ext_resource type="Texture2D" uid="uid://dd1uak0hw77lr" path="res://Icons/Upper_menu/Search.png" id="3_u8ltl"]
+[ext_resource type="Texture2D" uid="uid://ubg60ddi1k0v" path="res://Icons/Upper_menu/Add.png" id="4_37jyl"]
+[ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="5_kg0ui"]
+[ext_resource type="Texture2D" uid="uid://dbeiojwroum71" path="res://Icons/Upper_menu/Edit.png" id="5_plf0p"]
+[ext_resource type="Texture2D" uid="uid://bcih456ohwh6v" path="res://Icons/Upper_menu/Delete.png" id="6_kt680"]
+
+[node name="Search Bar" type="Control"]
+custom_minimum_size = Vector2(1536, 132)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -384.0
+offset_bottom = -948.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kwgrw")
+metadata/_edit_horizontal_guides_ = [117.093]
+
+[node name="Panel" type="Panel" parent="." node_paths=PackedStringArray("menu_items")]
+custom_minimum_size = Vector2(1521, 132)
+layout_mode = 1
+anchors_preset = -1
+offset_right = 1521.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme = ExtResource("1_kwgrw")
+script = ExtResource("2_m0lfp")
+menu_items = [NodePath("HBoxContainer/SearchPlace")]
+colors = ExtResource("3_hy20t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 62.0
+offset_right = 1506.0
+offset_bottom = 122.0
+theme = ExtResource("1_kwgrw")
+
+[node name="Search" type="Button" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_kwgrw")
+disabled = true
+icon = ExtResource("3_u8ltl")
+icon_alignment = 1
+
+[node name="SearchPlace" type="LineEdit" parent="Panel/HBoxContainer" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_kwgrw")
+placeholder_text = "Найти..."
+max_length = 60
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("5_kg0ui")
+vertical_lines = [NodePath("vSearch")]
+horizontal_lines = [NodePath("hSearch")]
+
+[node name="hSearch" type="ColorRect" parent="Panel/HBoxContainer/SearchPlace"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.113
+anchor_top = -1.043
+anchor_right = -0.113
+anchor_bottom = -1.043
+offset_left = 17.419
+offset_top = 92.58
+offset_right = 51.419
+offset_bottom = 94.58
+theme = ExtResource("1_kwgrw")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="vSearch" type="ColorRect" parent="Panel/HBoxContainer/SearchPlace"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.112
+anchor_top = -1.033
+anchor_right = -0.112
+anchor_bottom = -1.033
+offset_left = 17.048
+offset_top = -0.0200005
+offset_right = 111.048
+offset_bottom = 1.98
+rotation = 1.5708
+theme = ExtResource("1_kwgrw")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Add" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_kwgrw")
+icon = ExtResource("4_37jyl")
+icon_alignment = 1
+
+[node name="Edit" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_kwgrw")
+icon = ExtResource("5_plf0p")
+icon_alignment = 1
+
+[node name="Delete" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("1_kwgrw")
+icon = ExtResource("6_kt680")
+icon_alignment = 1
+
+[connection signal="focus_entered" from="Panel/HBoxContainer/SearchPlace" to="Panel/HBoxContainer/SearchPlace" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Panel/HBoxContainer/SearchPlace" to="Panel/HBoxContainer/SearchPlace" method="_on_focus_exited"]

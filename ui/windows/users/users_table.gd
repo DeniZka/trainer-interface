@@ -1,4 +1,4 @@
-class_name Users_Table
+class_name UsersTable
 extends Control
 
 @onready var container: Control = %Container
@@ -12,6 +12,7 @@ func _on_split_0_sort_children():
 func add_user(user: UserData) -> void:
 	var user_row: UserRow = user_row_prefab.instantiate() as UserRow
 	user_row.construct(user)
+	container.add_child(user_row)
 	align_row(user_row)
 
 func align_row(row: UserRow) -> void:

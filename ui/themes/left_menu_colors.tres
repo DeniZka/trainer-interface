@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="LineMenuColors1" load_steps=2 format=3 uid="uid://073bco0mefks"]
 
-[ext_resource type="Script" path="res://ui/components/lines/line_menu_colors.gd" id="1_4lcca"]
+[ext_resource type="Script" path="res://ui/components/lines/line_menu_colors.gd" id="1_kmt6d"]
 
 [resource]
-script = ExtResource("1_4lcca")
+script = ExtResource("1_kmt6d")
 select_color = Color(1, 1, 1, 1)
 hover_color = Color(0.6, 0.658824, 0.705882, 1)
 unhover_color = Color(0.4, 0.486275, 0.556863, 1)
