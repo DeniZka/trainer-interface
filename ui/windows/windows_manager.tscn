@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7x5p85fcidtb"]
+
+[ext_resource type="Script" path="res://ui/windows/windows_manager.gd" id="1_ophxf"]
+[ext_resource type="PackedScene" uid="uid://cwmd8h1svh7jq" path="res://ui/windows/navigation_left_bar.tscn" id="2_gcph1"]
+[ext_resource type="PackedScene" uid="uid://brxvc48v4dq7i" path="res://ui/windows/users/users_window.tscn" id="3_jgji5"]
+[ext_resource type="PackedScene" uid="uid://bubk6hx1iu30" path="res://ui/windows/menu_manager.tscn" id="4_4kwnt"]
+
+[node name="Windows Manager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ophxf")
+
+[node name="Windows Content" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Navigation Left Bar" parent="Windows Content" instance=ExtResource("2_gcph1")]
+custom_minimum_size = Vector2(386, 1080)
+layout_mode = 2
+
+[node name="Users Window" parent="Windows Content" instance=ExtResource("3_jgji5")]
+visible = false
+layout_mode = 2
+
+[node name="Menu Manager" parent="." instance=ExtResource("4_4kwnt")]
+layout_mode = 1
+offset_top = -2.0
+offset_bottom = -2.0
+mouse_filter = 2

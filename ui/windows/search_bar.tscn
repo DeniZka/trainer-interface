@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cp3w3e52bwonw"]
+[gd_scene load_steps=10 format=3 uid="uid://cp3w3e52bwonw"]
 
 [ext_resource type="Theme" uid="uid://cjd5ih62jsh4b" path="res://Themes/Upper_menu/Upper_main.tres" id="1_kwgrw"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="2_m0lfp"]
+[ext_resource type="Script" path="res://ui/windows/search_bar.gd" id="2_wunjq"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/search_bar_colors.tres" id="3_hy20t"]
 [ext_resource type="Texture2D" uid="uid://dd1uak0hw77lr" path="res://Icons/Upper_menu/Search.png" id="3_u8ltl"]
 [ext_resource type="Texture2D" uid="uid://ubg60ddi1k0v" path="res://Icons/Upper_menu/Add.png" id="4_37jyl"]
@@ -20,15 +21,17 @@ offset_bottom = -948.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_kwgrw")
+script = ExtResource("2_wunjq")
 metadata/_edit_horizontal_guides_ = [117.093]
 
 [node name="Panel" type="Panel" parent="." node_paths=PackedStringArray("menu_items")]
 custom_minimum_size = Vector2(1521, 132)
 layout_mode = 1
-anchors_preset = -1
-offset_right = 1521.0
-offset_bottom = 132.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_kwgrw")
 script = ExtResource("2_m0lfp")
 menu_items = [NodePath("HBoxContainer/SearchPlace")]
@@ -43,14 +46,15 @@ offset_bottom = 122.0
 theme = ExtResource("1_kwgrw")
 
 [node name="Search" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("1_kwgrw")
-disabled = true
 icon = ExtResource("3_u8ltl")
 icon_alignment = 1
 
 [node name="SearchPlace" type="LineEdit" parent="Panel/HBoxContainer" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -93,6 +97,7 @@ theme = ExtResource("1_kwgrw")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
 [node name="Add" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme = ExtResource("1_kwgrw")
@@ -100,6 +105,7 @@ icon = ExtResource("4_37jyl")
 icon_alignment = 1
 
 [node name="Edit" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme = ExtResource("1_kwgrw")
@@ -107,6 +113,7 @@ icon = ExtResource("5_plf0p")
 icon_alignment = 1
 
 [node name="Delete" type="Button" parent="Panel/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme = ExtResource("1_kwgrw")

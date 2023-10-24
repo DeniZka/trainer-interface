@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bubk6hx1iu30"]
+
+[ext_resource type="Script" path="res://ui/windows/menu_manager.gd" id="1_gavro"]
+[ext_resource type="PackedScene" uid="uid://cnvus38vai81p" path="res://ui/windows/users/user_menu.tscn" id="2_52gl6"]
+
+[node name="Menu Manager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gavro")
+
+[node name="User Menu" parent="." instance=ExtResource("2_52gl6")]
+visible = false
+layout_mode = 1

@@ -8,6 +8,8 @@
 script = ExtResource("1_p5aeq")
 
 [node name="Search Bar" parent="." instance=ExtResource("1_albl4")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1534, 132)
 layout_mode = 2
 
 [node name="Users Table" parent="." instance=ExtResource("2_4ajou")]

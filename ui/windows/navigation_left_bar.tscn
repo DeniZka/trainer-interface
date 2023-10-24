@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dq4sf5jkliia4" path="res://Icons/Left_menu/Log_out.png" id="18_hjdb4"]
 
 [node name="Navigation Left Bar" type="Control" node_paths=PackedStringArray("menus")]
-custom_minimum_size = Vector2(385, 1080)
+custom_minimum_size = Vector2(384, 1080)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 385.0

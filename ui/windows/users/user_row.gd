@@ -1,8 +1,6 @@
 class_name UserRow
 extends Control
 
-var LIGHT_THEME_LIGHT_BLUE = CustomRGBDto.new(0.9372549019607843, 0.9490196078431373, 0.9568627450980392)
-
 func align_column_width(iconColumn: Control, nameColumn: Control, loginColumn: Control, roleColumn: Control):
 	var col1: Control = $Buttons_and_icons
 	var col2: Control = $Split0/Name

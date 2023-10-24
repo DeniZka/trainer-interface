@@ -37,7 +37,8 @@ var icon: String = "res://Icons/Animals/Orca_62.png"
 var button_pressed_count: int = 0
 
 func _ready() -> void:
-	button.pressed.connect(_on_button_pressed)
+	#button.pressed.connect(_on_button_pressed)
+	pass
 
 func _on_button_pressed() -> void:
 	button_pressed_count += 1
