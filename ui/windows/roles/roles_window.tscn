@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg4wp573ha8su"]
+
+[ext_resource type="Script" path="res://ui/windows/roles/roles_window.gd" id="1_8u45n"]
+[ext_resource type="PackedScene" uid="uid://cp3w3e52bwonw" path="res://ui/windows/search_bar.tscn" id="2_3ytrm"]
+[ext_resource type="PackedScene" uid="uid://b7ktwjwqesvxy" path="res://ui/windows/roles/roles_table.tscn" id="3_repme"]
+
+[node name="Roles Window" type="VBoxContainer"]
+script = ExtResource("1_8u45n")
+
+[node name="Search Bar" parent="." instance=ExtResource("2_3ytrm")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Roles Table" parent="." instance=ExtResource("3_repme")]
+unique_name_in_owner = true
+layout_mode = 2

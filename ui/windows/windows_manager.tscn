@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7x5p85fcidtb"]
+[gd_scene load_steps=6 format=3 uid="uid://b7x5p85fcidtb"]
 
 [ext_resource type="Script" path="res://ui/windows/windows_manager.gd" id="1_ophxf"]
 [ext_resource type="PackedScene" uid="uid://cwmd8h1svh7jq" path="res://ui/windows/navigation_left_bar.tscn" id="2_gcph1"]
+[ext_resource type="PackedScene" uid="uid://bg4wp573ha8su" path="res://ui/windows/roles/roles_window.tscn" id="3_bo7ls"]
 [ext_resource type="PackedScene" uid="uid://brxvc48v4dq7i" path="res://ui/windows/users/users_window.tscn" id="3_jgji5"]
 [ext_resource type="PackedScene" uid="uid://bubk6hx1iu30" path="res://ui/windows/menu_manager.tscn" id="4_4kwnt"]
 
@@ -24,7 +25,10 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="Navigation Left Bar" parent="Windows Content" instance=ExtResource("2_gcph1")]
-custom_minimum_size = Vector2(386, 1080)
+layout_mode = 2
+
+[node name="Roles Window" parent="Windows Content" instance=ExtResource("3_bo7ls")]
+visible = false
 layout_mode = 2
 
 [node name="Users Window" parent="Windows Content" instance=ExtResource("3_jgji5")]

@@ -1,0 +1,962 @@
+[gd_scene load_steps=11 format=3 uid="uid://dq7r7kva4r3ye"]
+
+[ext_resource type="Script" path="res://ui/windows/roles/role_menu.gd" id="1_k51qb"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="2_s26ty"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="3_ok7rb"]
+[ext_resource type="Texture2D" uid="uid://und3xiie8216" path="res://Icons/Right_menu/Right_menu_role/Role_icon_right_menu.png" id="4_5pmlk"]
+[ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://Themes/Right_menu/Right_block_button.tres" id="5_ef81e"]
+[ext_resource type="Texture2D" uid="uid://vqh3aho542mu" path="res://Icons/Right_menu/Drop.png" id="6_5qwx8"]
+[ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://Themes/Button_groups/save_cancel_delete_right.tres" id="7_m28qv"]
+[ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://Themes/Right_menu/Right_delete.tres" id="8_dugsd"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://Icons/Right_menu/Close.png" id="9_ajgnr"]
+[ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://Themes/Right_menu/Shadow.tres" id="10_68q53"]
+
+[node name="Role Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k51qb")
+
+[node name="Right_menu" type="Panel" parent="."]
+custom_minimum_size = Vector2(643, 1080)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.665104
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_s26ty")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main" type="VBoxContainer" parent="Right_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 52.0
+offset_right = -29.0004
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Menu_name" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Name" type="Label" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(308, 36)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+text = "Карточка роли"
+horizontal_alignment = 1
+
+[node name="Name_H" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -37.0
+offset_top = 39.0
+offset_right = 352.0
+offset_bottom = 41.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Name_V" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -37.0
+offset_right = 4.0
+offset_bottom = 2.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Name" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -71.0
+offset_top = -52.0
+offset_right = 2.0
+offset_bottom = -50.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="H_Name" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -71.0
+offset_top = 19.0
+offset_right = -39.0
+offset_bottom = 21.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Space" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Avatar" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Avatar"]
+custom_minimum_size = Vector2(223, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Panel_for_icon" type="Panel" parent="Right_menu/Main/Avatar"]
+custom_minimum_size = Vector2(141, 143)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Avatar_H" type="ColorRect" parent="Right_menu/Main/Avatar/Panel_for_icon"]
+custom_minimum_size = Vector2(222, 2)
+layout_mode = 2
+offset_left = 140.0
+offset_top = 71.0
+offset_right = 362.0
+offset_bottom = 73.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="UserRightMenu" type="Sprite2D" parent="Right_menu/Main/Avatar/Panel_for_icon"]
+position = Vector2(70.677, 71.4219)
+texture = ExtResource("4_5pmlk")
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Avatar"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Avatar" type="VBoxContainer" parent="Right_menu/Main/Avatar"]
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Avatar/Avatar"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Avatar" type="HBoxContainer" parent="Right_menu/Main/Avatar/Avatar"]
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Avatar/Avatar/Avatar"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Avatar_text" type="Label" parent="Right_menu/Main/Avatar/Avatar/Avatar"]
+custom_minimum_size = Vector2(47, 20)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+theme_override_font_sizes/font_size = 13
+text = "АВАТАР"
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Avatar/Avatar/Avatar"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Drop" type="Button" parent="Right_menu/Main/Avatar/Avatar/Avatar"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("5_ef81e")
+toggle_mode = true
+icon = ExtResource("6_5qwx8")
+icon_alignment = 1
+
+[node name="Space2" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Role_name" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_name"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Name_role_text" type="Label" parent="Right_menu/Main/Role_name"]
+custom_minimum_size = Vector2(28, 20)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+theme_override_font_sizes/font_size = 13
+text = "НАЗВАНИЕ РОЛИ"
+
+[node name="Space3" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Role_name_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_name_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Rolename" type="LineEdit" parent="Right_menu/Main/Role_name_placeholder"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(112, 31)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+placeholder_text = "Введите название роли"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+
+[node name="Hs_Role_name" type="ColorRect" parent="Right_menu/Main/Role_name_placeholder/Rolename"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Role_name" type="ColorRect" parent="Right_menu/Main/Role_name_placeholder/Rolename"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -10.0
+offset_right = -31.0
+offset_bottom = -8.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_Role_name" type="ColorRect" parent="Right_menu/Main/Role_name_placeholder/Rolename"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -12.0
+offset_right = 527.0
+offset_bottom = -10.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space4" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Role_rights" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Role_rights" type="Label" parent="Right_menu/Main/Role_rights"]
+custom_minimum_size = Vector2(44, 20)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+theme_override_font_sizes/font_size = 13
+text = "ПРАВА РОЛИ"
+
+[node name="HL_role" type="ColorRect" parent="Right_menu/Main/Role_rights/Role_rights"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -21.0
+offset_top = 19.0
+offset_right = 562.0
+offset_bottom = 21.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_role" type="ColorRect" parent="Right_menu/Main/Role_rights/Role_rights"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -21.0
+offset_top = 19.0
+offset_right = -8.0
+offset_bottom = 21.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space5" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Role_rights_placeholder" type="ScrollContainer" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Rights_groups" type="HBoxContainer" parent="Right_menu/Main/Role_rights_placeholder"]
+layout_mode = 2
+
+[node name="Space5" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Groups_of_rights" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups"]
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Group_of_rights1" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights"]
+layout_mode = 2
+
+[node name="Group_of_rights_name" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Группа прав 1"
+
+[node name="H_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -50.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -48.0
+offset_top = -185.0
+offset_right = 150.0
+offset_bottom = -183.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 54.0
+offset_right = 23.0
+offset_bottom = 56.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 30.0
+offset_right = 13.0
+offset_bottom = 32.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Group_of_rights" type="ScrollContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1"]
+custom_minimum_size = Vector2(300, 140)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="For_indent" type="HBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights"]
+layout_mode = 2
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Rights" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent"]
+layout_mode = 2
+
+[node name="Right1" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 1"
+
+[node name="Right2" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(153, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 2
+"
+
+[node name="Right3" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 3"
+
+[node name="Right4" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 4
+"
+
+[node name="Right5" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 5
+"
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Group_of_rights2" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights"]
+layout_mode = 2
+
+[node name="Group_of_rights2_name" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Группа прав 2"
+
+[node name="H_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights2_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -50.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights2_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 54.0
+offset_right = 23.0
+offset_bottom = 56.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights2_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 30.0
+offset_right = 13.0
+offset_bottom = 32.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights2_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -48.0
+offset_top = -185.0
+offset_right = 150.0
+offset_bottom = -183.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Group_of_rights" type="ScrollContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2"]
+custom_minimum_size = Vector2(300, 140)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="For_indent" type="HBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights"]
+layout_mode = 2
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Rights" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent"]
+layout_mode = 2
+
+[node name="Right21" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 1"
+
+[node name="Right22" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(153, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 2
+"
+
+[node name="Right23" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 3"
+
+[node name="Right24" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 4
+"
+
+[node name="Right25" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 5
+"
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Group_of_rights3" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights"]
+layout_mode = 2
+
+[node name="Group_of_rights3_name" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Группа прав 3"
+
+[node name="H_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights3_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -50.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights3_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 54.0
+offset_right = 23.0
+offset_bottom = 56.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights3_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 30.0
+offset_right = 13.0
+offset_bottom = 32.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights3_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -48.0
+offset_top = -185.0
+offset_right = 150.0
+offset_bottom = -183.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Group_of_rights" type="ScrollContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3"]
+custom_minimum_size = Vector2(300, 140)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="For_indent" type="HBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights"]
+layout_mode = 2
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Rights" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent"]
+layout_mode = 2
+
+[node name="Right31" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 1"
+
+[node name="Right32" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(153, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 2
+"
+
+[node name="Right33" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 3"
+
+[node name="Right34" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 4
+"
+
+[node name="Right35" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 5
+"
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights3"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Group_of_rights4" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights"]
+layout_mode = 2
+
+[node name="Group_of_rights_name" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Группа прав 4"
+
+[node name="H_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -50.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="H_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 54.0
+offset_right = 23.0
+offset_bottom = 56.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_rights" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -13.0
+offset_top = 30.0
+offset_right = 13.0
+offset_bottom = 32.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_group_role" type="ColorRect" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights_name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -48.0
+offset_top = -185.0
+offset_right = 150.0
+offset_bottom = -183.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Group_of_rights" type="ScrollContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4"]
+custom_minimum_size = Vector2(300, 140)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="For_indent" type="HBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights"]
+layout_mode = 2
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights/For_indent"]
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Rights" type="VBoxContainer" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights/For_indent"]
+layout_mode = 2
+
+[node name="Right1" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 1"
+
+[node name="Right2" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(153, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 2
+"
+
+[node name="Right3" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 3"
+
+[node name="Right4" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 4
+"
+
+[node name="Right5" type="CheckBox" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4/Group_of_rights/For_indent/Rights"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+keep_pressed_outside = true
+text = "Право 5
+"
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights4"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("3_ok7rb")
+
+[node name="Space10" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_ok7rb")
+
+[node name="Save_Cancel_Delete" type="HBoxContainer" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+toggle_mode = true
+button_group = ExtResource("7_m28qv")
+text = "Сохранить"
+
+[node name="H_Save" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Save Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Save" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Save Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_ok7rb")
+
+[node name="Cancel Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("2_s26ty")
+toggle_mode = true
+button_group = ExtResource("7_m28qv")
+text = "Отменить"
+
+[node name="H_Cancel" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Cancel Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Cancel" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Cancel Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("2_s26ty")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space3" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_ok7rb")
+
+[node name="Delete Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("8_dugsd")
+toggle_mode = true
+button_group = ExtResource("7_m28qv")
+text = "Удалить"
+
+[node name="H_Delete" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Delete Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("8_dugsd")
+color = Color(0.619608, 0.498039, 0.498039, 1)
+
+[node name="V_Delete" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Delete Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("8_dugsd")
+color = Color(0.619608, 0.498039, 0.498039, 1)
+
+[node name="Space11" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("3_ok7rb")
+
+[node name="Close Button" type="Button" parent="Right_menu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(34, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.8562
+offset_top = 17.0121
+offset_right = -17.8562
+offset_bottom = 49.0121
+grow_horizontal = 0
+theme = ExtResource("5_ef81e")
+icon = ExtResource("9_ajgnr")
+icon_alignment = 1
+
+[node name="Shadow" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.665104
+anchor_bottom = 1.00093
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_68q53")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="Right_menu/Main/Avatar/Avatar/Avatar/Drop" to="." method="_on_drop_toggled"]
+[connection signal="focus_entered" from="Right_menu/Main/Role_name_placeholder/Rolename" to="." method="_on_name_edit_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Role_name_placeholder/Rolename" to="." method="_on_name_edit_focus_exited"]
+[connection signal="toggled" from="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights_name" to="." method="_on_group_of_rights_name_toggled"]
+[connection signal="toggled" from="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights/Right1" to="." method="_on_right_1_toggled"]
+[connection signal="toggled" from="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights/Right2" to="." method="_on_right_2_toggled"]
+[connection signal="toggled" from="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights/Right3" to="." method="_on_right_3_toggled"]
+[connection signal="toggled" from="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights/Right4" to="." method="_on_right_4_toggled"]
+[connection signal="toggled" from="Right_menu/Main/Role_rights_placeholder/Rights_groups/Groups_of_rights/Group_of_rights1/Group_of_rights/For_indent/Rights/Right5" to="." method="_on_right_5_toggled"]
+[connection signal="focus_entered" from="Right_menu/Main/Save_Cancel_Delete/Save Button" to="." method="_on_save_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Save_Cancel_Delete/Save Button" to="." method="_on_save_focus_exited"]
+[connection signal="mouse_entered" from="Right_menu/Main/Save_Cancel_Delete/Save Button" to="." method="_on_save_mouse_entered"]
+[connection signal="mouse_exited" from="Right_menu/Main/Save_Cancel_Delete/Save Button" to="." method="_on_save_mouse_exited"]
+[connection signal="pressed" from="Right_menu/Main/Save_Cancel_Delete/Save Button" to="." method="_on_save_pressed"]
+[connection signal="focus_entered" from="Right_menu/Main/Save_Cancel_Delete/Cancel Button" to="." method="_on_cancel_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Save_Cancel_Delete/Cancel Button" to="." method="_on_cancel_focus_exited"]
+[connection signal="mouse_entered" from="Right_menu/Main/Save_Cancel_Delete/Cancel Button" to="." method="_on_cancel_mouse_entered"]
+[connection signal="mouse_exited" from="Right_menu/Main/Save_Cancel_Delete/Cancel Button" to="." method="_on_cancel_mouse_exited"]
+[connection signal="pressed" from="Right_menu/Main/Save_Cancel_Delete/Cancel Button" to="." method="_on_cancel_pressed"]
+[connection signal="focus_entered" from="Right_menu/Main/Save_Cancel_Delete/Delete Button" to="." method="_on_delete_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Save_Cancel_Delete/Delete Button" to="." method="_on_delete_focus_exited"]
+[connection signal="mouse_entered" from="Right_menu/Main/Save_Cancel_Delete/Delete Button" to="." method="_on_delete_mouse_entered"]
+[connection signal="mouse_exited" from="Right_menu/Main/Save_Cancel_Delete/Delete Button" to="." method="_on_delete_mouse_exited"]
+[connection signal="pressed" from="Right_menu/Main/Save_Cancel_Delete/Delete Button" to="." method="_on_delete_pressed"]

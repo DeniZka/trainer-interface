@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bubk6hx1iu30"]
+[gd_scene load_steps=4 format=3 uid="uid://bubk6hx1iu30"]
 
 [ext_resource type="Script" path="res://ui/windows/menu_manager.gd" id="1_gavro"]
 [ext_resource type="PackedScene" uid="uid://cnvus38vai81p" path="res://ui/windows/users/user_menu.tscn" id="2_52gl6"]
+[ext_resource type="PackedScene" uid="uid://dq7r7kva4r3ye" path="res://ui/windows/roles/role_menu.tscn" id="3_ihigp"]
 
 [node name="Menu Manager" type="Control"]
 layout_mode = 3
@@ -13,5 +14,9 @@ grow_vertical = 2
 script = ExtResource("1_gavro")
 
 [node name="User Menu" parent="." instance=ExtResource("2_52gl6")]
+visible = false
+layout_mode = 1
+
+[node name="Role Menu" parent="." instance=ExtResource("3_ihigp")]
 visible = false
 layout_mode = 1
