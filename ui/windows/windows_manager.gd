@@ -16,7 +16,7 @@ extends Control
 var current: Control
 
 func _ready() -> void:
-	users_window.opened_add_user_menu.connect(_opened_add_user_menu)
+	users_window.opened_user_menu.connect(_opened_add_user_menu)
 	roles_window.opened_role_menu.connect(_on_opened_role_menu)
 	menu_manager.user_menu.saved.connect(_on_user_saved)
 	menu_manager.role_menu.saved.connect(_on_role_saved)
