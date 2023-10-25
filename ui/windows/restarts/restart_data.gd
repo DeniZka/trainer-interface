@@ -1,9 +1,9 @@
-class_name ModelData
+class_name RestartData
 extends RefCounted
 
 var id: String
 var iconPath: String
 var name: String
-var checksum: String
 var author: String
+var connected_model: String
 var upload_at: String

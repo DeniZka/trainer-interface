@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dsge3sc0y5ryw" path="res://ui/windows/models/models_table.tscn" id="2_btpp8"]
 
 [node name="Models Window" type="VBoxContainer"]
+offset_right = 1536.0
+offset_bottom = 136.0
 script = ExtResource("1_4vh44")
 
 [node name="Search Bar" parent="." instance=ExtResource("1_fhlae")]

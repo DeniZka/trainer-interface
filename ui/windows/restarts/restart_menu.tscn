@@ -1,0 +1,661 @@
+[gd_scene load_steps=14 format=3 uid="uid://cae61kmxhnqec"]
+
+[ext_resource type="Script" path="res://ui/windows/restarts/restart_menu.gd" id="1_5ba6p"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="2_lmmnt"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="3_qp8m7"]
+[ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://Themes/Right_menu/Right_block_button.tres" id="4_6nhkh"]
+[ext_resource type="Texture2D" uid="uid://dth3un1xwn770" path="res://Icons/Right_menu/Right_menu_restart/Restart_icon_right_menu.png" id="5_nt2pj"]
+[ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://Icons/Info/Load.png" id="6_1xyn2"]
+[ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="7_7jdrs"]
+[ext_resource type="ButtonGroup" uid="uid://2ldf1dqeuahq" path="res://Themes/Button_groups/connected_models.tres" id="7_fl7an"]
+[ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/search_bar_colors.tres" id="8_6csju"]
+[ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="8_flyaf"]
+[ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="8_opds0"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://Icons/Right_menu/Close.png" id="10_fcar1"]
+[ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://Themes/Right_menu/Shadow.tres" id="11_atlu0"]
+
+[node name="Restart Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ba6p")
+
+[node name="Right_menu" type="Panel" parent="."]
+custom_minimum_size = Vector2(643, 1080)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.665104
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_lmmnt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main" type="VBoxContainer" parent="Right_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 52.0
+offset_right = -29.0004
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Menu_name" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Name" type="Label" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(308, 36)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+text = "Карточка рестарта"
+horizontal_alignment = 1
+
+[node name="Name_H" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -37.0
+offset_top = 39.0
+offset_right = 352.0
+offset_bottom = 41.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Name_V" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -37.0
+offset_right = 4.0
+offset_bottom = 2.0
+rotation = 1.5708
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Name" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -71.0
+offset_top = -52.0
+offset_right = 2.0
+offset_bottom = -50.0
+rotation = 1.5708
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="H_Name" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -71.0
+offset_top = 19.0
+offset_right = -39.0
+offset_bottom = 21.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Space" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Load_Master" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_Master"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Master" type="VBoxContainer" parent="Right_menu/Main/Load_Master"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_Master/Master"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Master_text" type="Label" parent="Right_menu/Main/Load_Master/Master"]
+custom_minimum_size = Vector2(108, 20)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+theme_override_font_sizes/font_size = 13
+text = "МАСТЕР-РЕСТАРТ"
+
+[node name="Load_H" type="ColorRect" parent="Right_menu/Main/Load_Master/Master/Master_text"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 344.0
+offset_top = 21.0
+offset_right = 566.0
+offset_bottom = 23.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Master_H" type="ColorRect" parent="Right_menu/Main/Load_Master/Master/Master_text"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -20.0
+offset_top = 21.0
+offset_right = 204.0
+offset_bottom = 23.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Load_Master/Master"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Master" type="CheckButton" parent="Right_menu/Main/Load_Master/Master"]
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_6nhkh")
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Load_Master"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Panel_for_icon" type="Panel" parent="Right_menu/Main/Load_Master"]
+custom_minimum_size = Vector2(141, 143)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="UserRightMenu" type="Sprite2D" parent="Right_menu/Main/Load_Master/Panel_for_icon"]
+position = Vector2(70.677, 71.4219)
+texture = ExtResource("5_nt2pj")
+
+[node name="Space3" type="Panel" parent="Right_menu/Main/Load_Master"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Load" type="VBoxContainer" parent="Right_menu/Main/Load_Master"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_Master/Load"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Load_text" type="HBoxContainer" parent="Right_menu/Main/Load_Master/Load"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_Master/Load/Load_text"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Avatar_text" type="Label" parent="Right_menu/Main/Load_Master/Load/Load_text"]
+custom_minimum_size = Vector2(47, 20)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+theme_override_font_sizes/font_size = 13
+text = "ЗАГРУЗИТЬ"
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Load_Master/Load"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Load" type="HBoxContainer" parent="Right_menu/Main/Load_Master/Load"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_Master/Load/Load"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Load Button" type="Button" parent="Right_menu/Main/Load_Master/Load/Load"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(27, 24)
+layout_mode = 2
+theme = ExtResource("4_6nhkh")
+toggle_mode = true
+icon = ExtResource("6_1xyn2")
+icon_alignment = 1
+
+[node name="Space2" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Restart_name" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Restart_name"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Name_restart_text" type="Label" parent="Right_menu/Main/Restart_name"]
+custom_minimum_size = Vector2(28, 20)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+theme_override_font_sizes/font_size = 13
+text = "НАЗВАНИЕ РЕСТАРТА"
+
+[node name="Space3" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Restart_name_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Restart_name_placeholder" node_paths=PackedStringArray("menu_items")]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+script = ExtResource("7_7jdrs")
+menu_items = [NodePath("../Name")]
+colors = ExtResource("8_6csju")
+
+[node name="Name" type="LineEdit" parent="Right_menu/Main/Restart_name_placeholder" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(112, 31)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+placeholder_text = "Введите название рестарта"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("8_opds0")
+tag = "Restart Name"
+vertical_lines = [NodePath("V_restart_name")]
+horizontal_lines = [NodePath("Hs_restart_name"), NodePath("HL_restart_name")]
+
+[node name="Hs_restart_name" type="ColorRect" parent="Right_menu/Main/Restart_name_placeholder/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_restart_name" type="ColorRect" parent="Right_menu/Main/Restart_name_placeholder/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -10.0
+offset_right = -33.0
+offset_bottom = -8.0
+rotation = 1.5708
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_restart_name" type="ColorRect" parent="Right_menu/Main/Restart_name_placeholder/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -12.0
+offset_right = 527.0
+offset_bottom = -10.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space4" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Connected_model" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Connected_model"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Connected_model_text" type="Label" parent="Right_menu/Main/Connected_model"]
+custom_minimum_size = Vector2(34, 20)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+theme_override_font_sizes/font_size = 13
+text = "СВЯЗАННАЯ МОДЕЛЬ"
+
+[node name="Space5" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Connected_model_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Connected_model_placeholder"]
+custom_minimum_size = Vector2(43, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Hs_model" type="ColorRect" parent="Right_menu/Main/Connected_model_placeholder/Space"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_top = 15.0
+offset_right = 43.0
+offset_bottom = 17.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_model" type="ColorRect" parent="Right_menu/Main/Connected_model_placeholder/Space"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 1.99988
+offset_top = -8.0
+offset_right = 24.9999
+offset_bottom = -6.0
+rotation = 1.5708
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_model" type="ColorRect" parent="Right_menu/Main/Connected_model_placeholder/Space"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_top = -10.0
+offset_right = 585.0
+offset_bottom = -8.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Scroll" type="ScrollContainer" parent="Right_menu/Main/Connected_model_placeholder"]
+custom_minimum_size = Vector2(525, 100)
+layout_mode = 2
+
+[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Connected_model_placeholder/Scroll"]
+layout_mode = 2
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Models" type="VBoxContainer" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Model1" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+keep_pressed_outside = true
+button_group = ExtResource("7_fl7an")
+text = "Модель 1"
+
+[node name="Model2" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models"]
+custom_minimum_size = Vector2(153, 30)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+keep_pressed_outside = true
+button_group = ExtResource("7_fl7an")
+text = "Модель 2
+"
+
+[node name="Model3" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+keep_pressed_outside = true
+button_group = ExtResource("7_fl7an")
+text = "Модель 3
+"
+
+[node name="Model4" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+keep_pressed_outside = true
+button_group = ExtResource("7_fl7an")
+text = "Модель 4
+"
+
+[node name="Space6" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Author" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Author"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Author_text" type="Label" parent="Right_menu/Main/Author"]
+custom_minimum_size = Vector2(44, 20)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+theme_override_font_sizes/font_size = 13
+text = "АВТОР"
+
+[node name="Space7" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Author_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Author_placeholder" node_paths=PackedStringArray("menu_items")]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+script = ExtResource("7_7jdrs")
+menu_items = [NodePath("../Author")]
+colors = ExtResource("8_6csju")
+
+[node name="Author" type="LineEdit" parent="Right_menu/Main/Author_placeholder" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(121, 31)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+placeholder_text = "Введите имя автора"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("8_opds0")
+tag = "Author"
+vertical_lines = [NodePath("V_author")]
+horizontal_lines = [NodePath("Hs_author"), NodePath("HL_author")]
+
+[node name="Hs_author" type="ColorRect" parent="Right_menu/Main/Author_placeholder/Author"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_author" type="ColorRect" parent="Right_menu/Main/Author_placeholder/Author"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0001
+offset_top = -10.0
+offset_right = -33.0001
+offset_bottom = -8.0
+rotation = 1.5708
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_author" type="ColorRect" parent="Right_menu/Main/Author_placeholder/Author"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -12.0
+offset_right = 527.0
+offset_bottom = -10.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space8" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Load_date" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_date"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Load_date_text" type="Label" parent="Right_menu/Main/Load_date"]
+custom_minimum_size = Vector2(51, 20)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+theme_override_font_sizes/font_size = 13
+text = "ДАТА ЗАГРУЗКИ"
+
+[node name="Space9" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+
+[node name="Load_date_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Load_date_placeholder" node_paths=PackedStringArray("menu_items")]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("3_qp8m7")
+script = ExtResource("7_7jdrs")
+menu_items = [NodePath("../Upload Date")]
+colors = ExtResource("8_6csju")
+
+[node name="Upload Date" type="LineEdit" parent="Right_menu/Main/Load_date_placeholder" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(132, 31)
+layout_mode = 2
+theme = ExtResource("2_lmmnt")
+placeholder_text = "Введите дату загрузки"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("8_opds0")
+tag = "Upload Date"
+vertical_lines = [NodePath("V_load_date")]
+horizontal_lines = [NodePath("Hs_load_date"), NodePath("HL_load_date")]
+
+[node name="Hs_load_date" type="ColorRect" parent="Right_menu/Main/Load_date_placeholder/Upload Date"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 17.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_load_date" type="ColorRect" parent="Right_menu/Main/Load_date_placeholder/Upload Date"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0001
+offset_top = -8.0
+offset_right = -33.0001
+offset_bottom = -6.0
+rotation = 1.5708
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_load_date" type="ColorRect" parent="Right_menu/Main/Load_date_placeholder/Upload Date"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -10.0
+offset_right = 527.0
+offset_bottom = -8.0
+theme = ExtResource("2_lmmnt")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space10" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_qp8m7")
+
+[node name="Menu Buttom Control" parent="Right_menu/Main" instance=ExtResource("8_flyaf")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Space11" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("3_qp8m7")
+
+[node name="Close Button" type="Button" parent="Right_menu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(34, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.8562
+offset_top = 17.0121
+offset_right = -17.8562
+offset_bottom = 49.0121
+grow_horizontal = 0
+theme = ExtResource("4_6nhkh")
+icon = ExtResource("10_fcar1")
+icon_alignment = 1
+
+[node name="Shadow" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.665104
+anchor_bottom = 1.00093
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_atlu0")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="Right_menu/Main/Load_Master/Master/Master" to="." method="_on_master_toggled"]
+[connection signal="toggled" from="Right_menu/Main/Load_Master/Load/Load/Load Button" to="." method="_on_load_toggled"]
+[connection signal="focus_entered" from="Right_menu/Main/Restart_name_placeholder/Name" to="Right_menu/Main/Restart_name_placeholder/Name" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Restart_name_placeholder/Name" to="Right_menu/Main/Restart_name_placeholder/Name" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model1" to="." method="_on_model_1_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model1" to="." method="_on_model_1_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model2" to="." method="_on_model_2_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model2" to="." method="_on_model_2_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model3" to="." method="_on_model_3_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model3" to="." method="_on_model_3_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model4" to="." method="_on_model_4_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model4" to="." method="_on_model_4_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Author_placeholder/Author" to="Right_menu/Main/Author_placeholder/Author" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Author_placeholder/Author" to="Right_menu/Main/Author_placeholder/Author" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/Load_date_placeholder/Upload Date" to="Right_menu/Main/Load_date_placeholder/Upload Date" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/Load_date_placeholder/Upload Date" to="Right_menu/Main/Load_date_placeholder/Upload Date" method="_on_focus_exited"]
