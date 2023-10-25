@@ -16,6 +16,7 @@ signal item_mouse_exited(item: LineItem)
 var is_vertical_selected: bool = false
 var is_horizontal_selected: bool = false
 
+
 func _on_focus_entered() -> void:
 	item_focus_entered.emit(self)
 

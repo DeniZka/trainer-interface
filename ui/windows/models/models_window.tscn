@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqxtfnkpwbry2"]
+
+[ext_resource type="Script" path="res://ui/windows/models/models_window.gd" id="1_4vh44"]
+[ext_resource type="PackedScene" uid="uid://cp3w3e52bwonw" path="res://ui/windows/search_bar.tscn" id="1_fhlae"]
+[ext_resource type="PackedScene" uid="uid://dsge3sc0y5ryw" path="res://ui/windows/models/models_table.tscn" id="2_btpp8"]
+
+[node name="Models Window" type="VBoxContainer"]
+script = ExtResource("1_4vh44")
+
+[node name="Search Bar" parent="." instance=ExtResource("1_fhlae")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Models Table" parent="." instance=ExtResource("2_btpp8")]
+unique_name_in_owner = true
+layout_mode = 2

@@ -5,19 +5,23 @@ extends Control
 
 @onready var users_window: UsersWindow = $"Windows Content/Users Window" as UsersWindow
 @onready var roles_window: RolesWindow = $"Windows Content/Roles Window" as RolesWindow
+@onready var models_window: ModelsWindow = $"Windows Content/Models Window" as ModelsWindow
 
 @onready var menu_manager: MenuManager = $"Menu Manager" as MenuManager
 
 @onready var windows: Dictionary = {
 	"Users": users_window,
-	"Roles": roles_window
+	"Roles": roles_window,
+	"Models": models_window,
 }
 
 var current: Control
 
 func _ready() -> void:
-	users_window.opened_user_menu.connect(_opened_add_user_menu)
+	users_window.opened_user_menu.connect(_on_opened_user_menu)
 	roles_window.opened_role_menu.connect(_on_opened_role_menu)
+	models_window.opened_role_menu.connect(_on_opened_model_menu)
+	
 	menu_manager.user_menu.saved.connect(_on_user_saved)
 	menu_manager.role_menu.saved.connect(_on_role_saved)
 	navigation_bar.button_pressed.connect(_on_navigation_button_pressed)
@@ -25,8 +29,11 @@ func _ready() -> void:
 func _on_opened_role_menu() -> void:
 	menu_manager.open_role_menu()
 
-func _opened_add_user_menu() -> void:
+func _on_opened_user_menu() -> void:
 	menu_manager.open_user_menu()
+
+func _on_opened_model_menu() -> void:
+	menu_manager.open_model_menu()
 
 func _on_role_saved(data: RoleData) -> void:
 	roles_window.add_role(data)
