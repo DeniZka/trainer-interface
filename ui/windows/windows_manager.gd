@@ -11,22 +11,22 @@ extends Control
 @onready var menu_manager: MenuManager = $"Menu Manager" as MenuManager
 
 @onready var windows: Dictionary = {
-	"Users": users_window,
-	"Roles": roles_window,
-	"Models": models_window,
-	"Restarts": restarts_window,
+	WindowId.Users		: users_window,
+	WindowId.Roles		: roles_window,
+	WindowId.Models		: models_window,
+	WindowId.Restarts	: restarts_window,
 }
 
 var current: Control
 
 func _ready() -> void:
-	users_window.opened_user_menu.connect(func(): menu_manager.open_user_menu())
-	roles_window.opened_role_menu.connect(func(): menu_manager.open_role_menu())
-	models_window.opened_role_menu.connect(func(): menu_manager.open_model_menu())
-	restarts_window.opened_restart_menu.connect(func(): menu_manager.open_restart_menu())
+	users_window.opened_user_menu.connect(func(): menu_manager.open(WindowId.Users))
+	roles_window.opened_role_menu.connect(func(): menu_manager.open(WindowId.Roles))
+	models_window.opened_role_menu.connect(func(): menu_manager.open(WindowId.Models))
+	restarts_window.opened_restart_menu.connect(func(): menu_manager.open(WindowId.Restarts))
 	
-	menu_manager.user_menu.saved.connect(func(data: RoleData): roles_window.add_role(data))
-	menu_manager.role_menu.saved.connect(func(data: UserData): users_window.add_user(data))
+	menu_manager.user_menu.saved.connect(func(data: UserData): users_window.add_user(data))
+	menu_manager.role_menu.saved.connect(func(data: RoleData): roles_window.add_role(data))
 	menu_manager.model_menu.saved.connect(func(data: ModelData): models_window.add_model(data))
 	menu_manager.restart_menu.saved.connect(func(data: RestartData): restarts_window.add_restart(data))
 	
