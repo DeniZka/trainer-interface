@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7x5p85fcidtb"]
+[gd_scene load_steps=9 format=3 uid="uid://b7x5p85fcidtb"]
 
 [ext_resource type="Script" path="res://ui/windows/windows_manager.gd" id="1_ophxf"]
 [ext_resource type="PackedScene" uid="uid://cwmd8h1svh7jq" path="res://ui/windows/navigation_left_bar.tscn" id="2_gcph1"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bubk6hx1iu30" path="res://ui/windows/menu_manager.tscn" id="4_4kwnt"]
 [ext_resource type="PackedScene" uid="uid://cqxtfnkpwbry2" path="res://ui/windows/models/models_window.tscn" id="5_4iq1m"]
 [ext_resource type="PackedScene" uid="uid://dix2g581wjw1u" path="res://ui/windows/restarts/restarts_window.tscn" id="6_mrb51"]
+[ext_resource type="PackedScene" uid="uid://bxfxh0320pjud" path="res://ui/windows/screens/screens_window.tscn" id="7_8eukd"]
 
 [node name="Windows Manager" type="Control"]
 layout_mode = 3
@@ -42,6 +43,10 @@ visible = false
 layout_mode = 2
 
 [node name="Restarts Window" parent="Windows Content" instance=ExtResource("6_mrb51")]
+visible = false
+layout_mode = 2
+
+[node name="Screens Window" parent="Windows Content" instance=ExtResource("7_8eukd")]
 visible = false
 layout_mode = 2
 

@@ -7,6 +7,7 @@ extends Control
 @onready var roles_window: RolesWindow = $"Windows Content/Roles Window" as RolesWindow
 @onready var models_window: ModelsWindow = $"Windows Content/Models Window" as ModelsWindow
 @onready var restarts_window: RestartsWindow = $"Windows Content/Restarts Window" as RestartsWindow
+@onready var screens_window: ScreensWindow = $"Windows Content/Screens Window" as ScreensWindow
 
 @onready var menu_manager: MenuManager = $"Menu Manager" as MenuManager
 
@@ -15,6 +16,7 @@ extends Control
 	WindowId.Roles		: roles_window,
 	WindowId.Models		: models_window,
 	WindowId.Restarts	: restarts_window,
+	WindowId.Screens	: screens_window,
 }
 
 var current: Control
@@ -24,11 +26,13 @@ func _ready() -> void:
 	roles_window.opened_role_menu.connect(func(): menu_manager.open(WindowId.Roles))
 	models_window.opened_role_menu.connect(func(): menu_manager.open(WindowId.Models))
 	restarts_window.opened_restart_menu.connect(func(): menu_manager.open(WindowId.Restarts))
+	screens_window.opened_menu.connect(func(): menu_manager.open(WindowId.Screens))
 	
 	menu_manager.user_menu.saved.connect(func(data: UserData): users_window.add_user(data))
 	menu_manager.role_menu.saved.connect(func(data: RoleData): roles_window.add_role(data))
 	menu_manager.model_menu.saved.connect(func(data: ModelData): models_window.add_model(data))
 	menu_manager.restart_menu.saved.connect(func(data: RestartData): restarts_window.add_restart(data))
+	menu_manager.screen_menu.saved.connect(func(data: ScreenData): screens_window.add_screen(data))
 	
 	navigation_bar.button_pressed.connect(_on_navigation_button_pressed)
 
