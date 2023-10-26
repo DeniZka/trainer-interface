@@ -7,6 +7,7 @@ extends Control
 @onready var restart_menu: RestartMenu = $"Restart Menu" as RestartMenu
 @onready var screen_menu: ScreenMenu = $"Screen Menu" as ScreenMenu
 @onready var scenario_menu: ScenarioMenu = $"Scenario Menu" as ScenarioMenu
+@onready var server_menu: ServerMenu = $"Server Menu" as ServerMenu
 
 @onready var menus = {
 	WindowId.Users		: user_menu,
@@ -15,6 +16,7 @@ extends Control
 	WindowId.Restarts	: restart_menu,
 	WindowId.Screens	: screen_menu,
 	WindowId.Scenarios	: scenario_menu,
+	WindowId.Servers	: server_menu,
 }
 
 var opened_menu: Control

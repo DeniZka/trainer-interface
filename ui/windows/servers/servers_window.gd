@@ -1,16 +1,16 @@
-class_name ScenariosWindow
+class_name ServersWindow
 extends Control
 
 signal opened_menu(tag: String)
 
 @onready var search_bar: SearchBar = %"Search Bar" as SearchBar
-@onready var table: ScenariosTable = %"Scenarios Table" as ScenariosTable
+@onready var table: ServersTable = %"Servers Table" as ServersTable
 
 func _ready() -> void:
 	search_bar.add_button_pressed.connect(_on_add_button_pressed)
 
-func add(scenario: ScenarioData) -> void:
-	table.add_scenario(scenario)
+func add(server: ServerData) -> void:
+	table.add_server(server)
 
 func _on_add_button_pressed() -> void:
-	opened_menu.emit(WindowId.Scenarios)
+	opened_menu.emit(WindowId.Servers)

@@ -9,6 +9,7 @@ extends Control
 @onready var restarts_window: RestartsWindow = $"Windows Content/Restarts Window" as RestartsWindow
 @onready var screens_window: ScreensWindow = $"Windows Content/Screens Window" as ScreensWindow
 @onready var scenarios_window: ScenariosWindow = $"Windows Content/Scenarios Window" as ScenariosWindow
+@onready var servers_window: ServersWindow = $"Windows Content/Servers Window" as ServersWindow
 
 @onready var menu_manager: MenuManager = $"Menu Manager" as MenuManager
 
@@ -19,6 +20,7 @@ extends Control
 	WindowId.Restarts	: restarts_window,
 	WindowId.Screens	: screens_window,
 	WindowId.Scenarios	: scenarios_window,
+	WindowId.Servers	: servers_window,
 }
 
 var current: Control
