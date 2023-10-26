@@ -24,19 +24,11 @@ extends Control
 var current: Control
 
 func _ready() -> void:
-	users_window.opened_user_menu.connect(func(): menu_manager.open(WindowId.Users))
-	roles_window.opened_role_menu.connect(func(): menu_manager.open(WindowId.Roles))
-	models_window.opened_role_menu.connect(func(): menu_manager.open(WindowId.Models))
-	restarts_window.opened_restart_menu.connect(func(): menu_manager.open(WindowId.Restarts))
-	screens_window.opened_menu.connect(func(): menu_manager.open(WindowId.Screens))
-	scenarios_window.opened_menu.connect(func(tag: String): menu_manager.open(tag))
+	for window_id in windows:
+		windows[window_id].opened_menu.connect(func(tag: String): menu_manager.open(tag))
 	
-	menu_manager.user_menu.saved.connect(func(data: UserData): users_window.add_user(data))
-	menu_manager.role_menu.saved.connect(func(data: RoleData): roles_window.add_role(data))
-	menu_manager.model_menu.saved.connect(func(data: ModelData): models_window.add_model(data))
-	menu_manager.restart_menu.saved.connect(func(data: RestartData): restarts_window.add_restart(data))
-	menu_manager.screen_menu.saved.connect(func(data: ScreenData): screens_window.add_screen(data))
-	menu_manager.scenario_menu.saved.connect(func(data: ScenarioData): scenarios_window.add(data))
+	for menu_id in menu_manager.menus:
+		menu_manager.menus[menu_id].saved.connect(func(data): windows[menu_id].add(data))
 	
 	navigation_bar.button_pressed.connect(_on_navigation_button_pressed)
 
