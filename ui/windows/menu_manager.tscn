@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bubk6hx1iu30"]
+[gd_scene load_steps=8 format=3 uid="uid://bubk6hx1iu30"]
 
 [ext_resource type="Script" path="res://ui/windows/menu_manager.gd" id="1_gavro"]
 [ext_resource type="PackedScene" uid="uid://cnvus38vai81p" path="res://ui/windows/users/user_menu.tscn" id="2_52gl6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddoccrx3dp5ro" path="res://ui/windows/models/model_menu.tscn" id="4_83jb6"]
 [ext_resource type="PackedScene" uid="uid://cae61kmxhnqec" path="res://ui/windows/restarts/restart_menu.tscn" id="5_euad2"]
 [ext_resource type="PackedScene" uid="uid://u3ut51jn0w7k" path="res://ui/windows/screens/screen_menu.tscn" id="6_62fmo"]
+[ext_resource type="PackedScene" uid="uid://n5vj81dmeis5" path="res://ui/windows/scenarios/scenario_menu.tscn" id="7_vpfb1"]
 
 [node name="Menu Manager" type="Control"]
 layout_mode = 3
@@ -33,5 +34,9 @@ visible = false
 layout_mode = 1
 
 [node name="Screen Menu" parent="." instance=ExtResource("6_62fmo")]
+visible = false
+layout_mode = 1
+
+[node name="Scenario Menu" parent="." instance=ExtResource("7_vpfb1")]
 visible = false
 layout_mode = 1
