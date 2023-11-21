@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://brxvc48v4dq7i"]
+
+[ext_resource type="PackedScene" uid="uid://cp3w3e52bwonw" path="res://ui/windows/search_bar.tscn" id="1_albl4"]
+[ext_resource type="Script" path="res://ui/windows/users/users_window.gd" id="1_p5aeq"]
+[ext_resource type="PackedScene" uid="uid://ch7e4u4qkirgo" path="res://ui/windows/users/users_table.tscn" id="2_4ajou"]
+
+[node name="Users Window" type="VBoxContainer"]
+script = ExtResource("1_p5aeq")
+
+[node name="Search Bar" parent="." instance=ExtResource("1_albl4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Users Table" parent="." instance=ExtResource("2_4ajou")]
+unique_name_in_owner = true
+layout_mode = 2

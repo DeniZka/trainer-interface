@@ -1,0 +1,169 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsaq7mubnduwc"]
+
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="1_rgon0"]
+[ext_resource type="Script" path="res://ui/components/menu_bottom_control.gd" id="2_6fun0"]
+[ext_resource type="Script" path="res://ui/components/lines/line_menu_group.gd" id="2_7waer"]
+[ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="3_ndn7m"]
+[ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="4_adgax"]
+[ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://ui/themes/button_groups/save_cancel_delete_right.tres" id="5_3rcwt"]
+[ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="6_38ekw"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/Empty.tres" id="7_qpp06"]
+[ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://ui/themes/right_menu/right_delete.tres" id="8_4cgim"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mep8u"]
+draw_center = false
+
+[node name="Menu Buttom Control" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+theme = ExtResource("1_rgon0")
+script = ExtResource("2_6fun0")
+
+[node name="Menu Group" type="Control" parent="." node_paths=PackedStringArray("menus")]
+layout_mode = 2
+script = ExtResource("2_7waer")
+menus = [NodePath("../Save Button Menu And Space"), NodePath("../Cancel Button Menu And Space"), NodePath("../Delete Button Menu And Space")]
+
+[node name="Save Button Menu And Space" type="Panel" parent="." node_paths=PackedStringArray("menu_items")]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mep8u")
+script = ExtResource("3_ndn7m")
+menu_items = [NodePath("../Save Button")]
+colors = ExtResource("4_adgax")
+
+[node name="Save Button" type="Button" parent="." node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("1_rgon0")
+toggle_mode = true
+button_group = ExtResource("5_3rcwt")
+text = "Сохранить"
+script = ExtResource("6_38ekw")
+tag = "Save Button"
+vertical_lines = [NodePath("V_Save")]
+horizontal_lines = [NodePath("H_Save")]
+
+[node name="H_Save" type="ColorRect" parent="Save Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("1_rgon0")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Save" type="ColorRect" parent="Save Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("1_rgon0")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Cancel Button Menu And Space" type="Panel" parent="." node_paths=PackedStringArray("menu_items")]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_qpp06")
+script = ExtResource("3_ndn7m")
+menu_items = [NodePath("../Cancel Button")]
+colors = ExtResource("4_adgax")
+
+[node name="Cancel Button" type="Button" parent="." node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("1_rgon0")
+toggle_mode = true
+button_group = ExtResource("5_3rcwt")
+text = "Отменить"
+script = ExtResource("6_38ekw")
+tag = "Cancel Button"
+vertical_lines = [NodePath("V_Cancel")]
+horizontal_lines = [NodePath("H_Cancel")]
+
+[node name="H_Cancel" type="ColorRect" parent="Cancel Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("1_rgon0")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Cancel" type="ColorRect" parent="Cancel Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("1_rgon0")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Delete Button Menu And Space" type="Panel" parent="." node_paths=PackedStringArray("menu_items")]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_qpp06")
+script = ExtResource("3_ndn7m")
+menu_items = [NodePath("../Delete Button")]
+colors = ExtResource("4_adgax")
+
+[node name="Delete Button" type="Button" parent="." node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("8_4cgim")
+toggle_mode = true
+button_group = ExtResource("5_3rcwt")
+text = "Удалить"
+script = ExtResource("6_38ekw")
+tag = "Model Delete"
+vertical_lines = [NodePath("V_Delete")]
+horizontal_lines = [NodePath("H_Delete")]
+
+[node name="H_Delete" type="ColorRect" parent="Delete Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("8_4cgim")
+color = Color(0.619608, 0.498039, 0.498039, 1)
+
+[node name="V_Delete" type="ColorRect" parent="Delete Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("8_4cgim")
+color = Color(0.619608, 0.498039, 0.498039, 1)
+
+[connection signal="focus_entered" from="Save Button" to="Save Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Save Button" to="Save Button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Save Button" to="Save Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Save Button" to="Save Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Save Button" to="Save Button" method="_on_pressed"]
+[connection signal="focus_entered" from="Cancel Button" to="Cancel Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Cancel Button" to="Cancel Button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Cancel Button" to="Cancel Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Cancel Button" to="Cancel Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Cancel Button" to="Cancel Button" method="_on_pressed"]
+[connection signal="focus_entered" from="Delete Button" to="Delete Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Delete Button" to="Delete Button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Delete Button" to="Delete Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Delete Button" to="Delete Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Delete Button" to="Delete Button" method="_on_pressed"]

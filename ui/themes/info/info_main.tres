@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://b3rhwjl7yw6lu"]
+
+[ext_resource type="Texture2D" uid="uid://b7qgi44mignyg" path="res://icons/info/empty.png" id="1_gdhu0"]
+[ext_resource type="FontFile" uid="uid://djgaoaek3xday" path="res://fonts/Roboto/RobotoSerif_28pt_Condensed-SemiBold.ttf" id="2_6k85h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rfwa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4pr4q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvdng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8pudt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_seeqd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7twyg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_bottom = 2
+border_color = Color(0.54902, 0.576471, 0.603922, 1)
+expand_margin_left = 10.0
+expand_margin_right = 15.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xc2u7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_348xl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_bottom = 2
+border_color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_8rfwa")
+Button/styles/focus = SubResource("StyleBoxEmpty_4pr4q")
+Button/styles/hover = SubResource("StyleBoxEmpty_hvdng")
+Button/styles/normal = SubResource("StyleBoxEmpty_8pudt")
+Button/styles/pressed = SubResource("StyleBoxEmpty_seeqd")
+HBoxContainer/constants/separation = 40
+HSplitContainer/constants/autohide = 15
+HSplitContainer/constants/minimum_grab_thickness = 6
+HSplitContainer/constants/separation = 45
+HSplitContainer/icons/grabber = ExtResource("1_gdhu0")
+Label/colors/font_color = Color(0.101961, 0.160784, 0.211765, 1)
+Label/font_sizes/font_size = 17
+Label/fonts/font = ExtResource("2_6k85h")
+Label/styles/normal = SubResource("StyleBoxFlat_7twyg")
+Panel/styles/panel = SubResource("StyleBoxEmpty_xc2u7")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_348xl")
+VBoxContainer/constants/separation = 7

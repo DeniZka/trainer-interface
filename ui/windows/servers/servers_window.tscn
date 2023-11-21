@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ho1xues8vrd"]
+
+[ext_resource type="Script" path="res://ui/windows/servers/servers_window.gd" id="1_1cysb"]
+[ext_resource type="PackedScene" uid="uid://cp3w3e52bwonw" path="res://ui/windows/search_bar.tscn" id="1_84bbs"]
+[ext_resource type="PackedScene" uid="uid://dpxl3nxwkiu1i" path="res://ui/windows/servers/servers_table.tscn" id="3_uimjx"]
+
+[node name="Servers Window" type="VBoxContainer"]
+script = ExtResource("1_1cysb")
+
+[node name="Search Bar" parent="." instance=ExtResource("1_84bbs")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Servers Table" parent="." instance=ExtResource("3_uimjx")]
+unique_name_in_owner = true
+layout_mode = 2

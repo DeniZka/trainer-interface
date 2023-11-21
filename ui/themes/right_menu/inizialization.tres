@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://itqlca07sghr"]
+
+[ext_resource type="Texture2D" uid="uid://b5m7tal70j0kn" path="res://icons/right_menu/Right_menu_servers/initialization_ckecked.png" id="1_f2okj"]
+[ext_resource type="Texture2D" uid="uid://bn55x2xl3gfy" path="res://icons/right_menu/Right_menu_servers/initialization_unchecked.png" id="2_w6jk4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8aix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2u2y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckk80"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8nqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6l4h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjojc"]
+
+[resource]
+CheckButton/icons/checked = ExtResource("1_f2okj")
+CheckButton/icons/unchecked = ExtResource("2_w6jk4")
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_c8aix")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_y2u2y")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_ckk80")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_b8nqh")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_g6l4h")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_tjojc")

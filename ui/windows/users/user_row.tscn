@@ -1,0 +1,200 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3ccbmuyqc6g4"]
+
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="1_pk8dv"]
+[ext_resource type="Script" path="res://ui/windows/users/user_row.gd" id="2_w8dmy"]
+[ext_resource type="Theme" uid="uid://bxar4fpj82boj" path="res://ui/themes/info/buttons_and_icons.tres" id="3_q0tvd"]
+[ext_resource type="Theme" uid="uid://dq7gtnuof4q8k" path="res://ui/themes/info/select.tres" id="4_g07w1"]
+[ext_resource type="ButtonGroup" uid="uid://bkmxktu7xgxg5" path="res://ui/themes/button_groups/select_edit_delete_main_info.tres" id="5_vje2x"]
+[ext_resource type="Theme" uid="uid://b7jfgghuhmc83" path="res://ui/themes/info/edit.tres" id="6_rmjr6"]
+[ext_resource type="Theme" uid="uid://27rafffnngdm" path="res://ui/themes/info/delete.tres" id="7_hemh5"]
+[ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://ui/themes/info/for_icons_and_state.tres" id="8_vr0mu"]
+[ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://icons/animals/Orca_62.png" id="9_nqv0v"]
+[ext_resource type="Texture2D" uid="uid://m13u5tiklblf" path="res://icons/Info/On-line.png" id="10_rhpj1"]
+[ext_resource type="Texture2D" uid="uid://g8qubesadqqo" path="res://icons/Info/Lock_active.png" id="11_qms1x"]
+[ext_resource type="Theme" uid="uid://caxgx0sdeuepx" path="res://ui/themes/info/id.tres" id="12_fj6e4"]
+
+[node name="User Row" type="Control"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -15.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme = ExtResource("1_pk8dv")
+script = ExtResource("2_w8dmy")
+
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 10.0
+offset_right = 1920.0
+offset_bottom = 102.0
+color = Color(1, 1, 1, 0)
+
+[node name="Buttons_and_icons" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+offset_right = 153.0
+offset_bottom = 102.0
+theme = ExtResource("3_q0tvd")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("1_pk8dv")
+
+[node name="For_buttons" type="VBoxContainer" parent="Buttons_and_icons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("1_pk8dv")
+alignment = 2
+
+[node name="Select" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_g07w1")
+button_group = ExtResource("5_vje2x")
+
+[node name="Edit" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("6_rmjr6")
+button_group = ExtResource("5_vje2x")
+
+[node name="Delete" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("7_hemh5")
+button_group = ExtResource("5_vje2x")
+
+[node name="For_icons_and_state" type="VBoxContainer" parent="Buttons_and_icons"]
+layout_mode = 2
+theme = ExtResource("8_vr0mu")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons/For_icons_and_state"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("1_pk8dv")
+
+[node name="For_icon" type="HBoxContainer" parent="Buttons_and_icons/For_icons_and_state"]
+layout_mode = 2
+theme = ExtResource("8_vr0mu")
+
+[node name="Icon" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme = ExtResource("1_pk8dv")
+icon = ExtResource("9_nqv0v")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="For_state" type="VBoxContainer" parent="Buttons_and_icons/For_icons_and_state/For_icon"]
+layout_mode = 2
+theme = ExtResource("8_vr0mu")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("1_pk8dv")
+
+[node name="For_state1" type="HBoxContainer" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state"]
+layout_mode = 2
+theme = ExtResource("8_vr0mu")
+
+[node name="On_off" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state/For_state1"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+theme = ExtResource("1_pk8dv")
+icon = ExtResource("10_rhpj1")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="Blocked" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state/For_state1"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+theme = ExtResource("1_pk8dv")
+icon = ExtResource("11_qms1x")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="Id" type="Label" parent="Buttons_and_icons/For_icons_and_state"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("12_fj6e4")
+text = "ID: [ID]"
+vertical_alignment = 2
+
+[node name="Split0" type="HSplitContainer" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_right = 1905.0
+offset_bottom = 102.0
+size_flags_horizontal = 3
+theme = ExtResource("1_pk8dv")
+
+[node name="Name" type="HFlowContainer" parent="Split0"]
+custom_minimum_size = Vector2(245, 0)
+layout_mode = 2
+theme = ExtResource("1_pk8dv")
+alignment = 2
+
+[node name="Name" type="Label" parent="Split0/Name"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_pk8dv")
+text = "[USERNAME]"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Split1" type="HSplitContainer" parent="Split0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_pk8dv")
+
+[node name="Login" type="HFlowContainer" parent="Split0/Split1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_pk8dv")
+alignment = 2
+
+[node name="Login" type="Label" parent="Split0/Split1/Login"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_pk8dv")
+text = "[LOGIN]"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Split2" type="HSplitContainer" parent="Split0/Split1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_pk8dv")
+
+[node name="Role" type="HFlowContainer" parent="Split0/Split1/Split2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_pk8dv")
+alignment = 2
+
+[node name="Role" type="Label" parent="Split0/Split1/Split2/Role"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_pk8dv")
+text = "[ROLE]"
+vertical_alignment = 2
+autowrap_mode = 3

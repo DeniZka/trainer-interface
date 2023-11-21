@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dix2g581wjw1u"]
+
+[ext_resource type="Script" path="res://ui/windows/restarts/restarts_window.gd" id="1_kammb"]
+[ext_resource type="PackedScene" uid="uid://cp3w3e52bwonw" path="res://ui/windows/search_bar.tscn" id="1_smfug"]
+[ext_resource type="PackedScene" uid="uid://dqcyynvppy6u7" path="res://ui/windows/restarts/restarts_table.tscn" id="3_riqn6"]
+[ext_resource type="PackedScene" uid="uid://b8e1eh5c836ok" path="res://ui/windows/restarts/restart_row.tscn" id="4_mxxdo"]
+
+[node name="Restarts Window" type="VBoxContainer"]
+script = ExtResource("1_kammb")
+
+[node name="Search Bar" parent="." instance=ExtResource("1_smfug")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Restarts Table" parent="." instance=ExtResource("3_riqn6")]
+unique_name_in_owner = true
+layout_mode = 2
+restart_row_template = ExtResource("4_mxxdo")

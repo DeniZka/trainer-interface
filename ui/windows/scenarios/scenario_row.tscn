@@ -1,0 +1,221 @@
+[gd_scene load_steps=12 format=3 uid="uid://ccasa3cplxgri"]
+
+[ext_resource type="Theme" uid="uid://bxar4fpj82boj" path="res://ui/themes/info/buttons_and_icons.tres" id="1_gl72k"]
+[ext_resource type="Script" path="res://ui/windows/scenarios/scenario_row.gd" id="1_qyhyo"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="2_3we0a"]
+[ext_resource type="Theme" uid="uid://dq7gtnuof4q8k" path="res://ui/themes/info/select.tres" id="3_a25ra"]
+[ext_resource type="ButtonGroup" uid="uid://bkmxktu7xgxg5" path="res://ui/themes/button_groups/select_edit_delete_main_info.tres" id="4_mrg28"]
+[ext_resource type="Theme" uid="uid://b7jfgghuhmc83" path="res://ui/themes/info/edit.tres" id="5_bwbgv"]
+[ext_resource type="Theme" uid="uid://27rafffnngdm" path="res://ui/themes/info/delete.tres" id="6_6dy55"]
+[ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://ui/themes/info/for_icons_and_state.tres" id="7_biaex"]
+[ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://icons/animals/Orca_62.png" id="8_bt7jv"]
+[ext_resource type="Texture2D" uid="uid://g8qubesadqqo" path="res://icons/Info/Lock_active.png" id="9_xvo63"]
+[ext_resource type="Theme" uid="uid://caxgx0sdeuepx" path="res://ui/themes/info/id.tres" id="10_abmvb"]
+
+[node name="Scenario Row" type="Control"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qyhyo")
+
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 10.0
+offset_right = 1920.0
+offset_bottom = 102.0
+color = Color(1, 1, 1, 0)
+
+[node name="Buttons_and_icons" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 0
+offset_right = 153.0
+offset_bottom = 102.0
+theme = ExtResource("1_gl72k")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("2_3we0a")
+
+[node name="For_buttons" type="VBoxContainer" parent="Buttons_and_icons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("2_3we0a")
+alignment = 2
+
+[node name="Select" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_a25ra")
+button_group = ExtResource("4_mrg28")
+
+[node name="Edit" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("5_bwbgv")
+button_group = ExtResource("4_mrg28")
+
+[node name="Delete" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("6_6dy55")
+button_group = ExtResource("4_mrg28")
+
+[node name="For_icons_and_state" type="VBoxContainer" parent="Buttons_and_icons"]
+layout_mode = 2
+theme = ExtResource("7_biaex")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons/For_icons_and_state"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("2_3we0a")
+
+[node name="For_icon" type="HBoxContainer" parent="Buttons_and_icons/For_icons_and_state"]
+layout_mode = 2
+theme = ExtResource("7_biaex")
+
+[node name="Icon" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme = ExtResource("2_3we0a")
+icon = ExtResource("8_bt7jv")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="For_state" type="VBoxContainer" parent="Buttons_and_icons/For_icons_and_state/For_icon"]
+layout_mode = 2
+theme = ExtResource("7_biaex")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("2_3we0a")
+
+[node name="For_state1" type="HBoxContainer" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state"]
+layout_mode = 2
+theme = ExtResource("7_biaex")
+
+[node name="On_off" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state/For_state1"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+theme = ExtResource("2_3we0a")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="Blocked" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state/For_state1"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+theme = ExtResource("2_3we0a")
+icon = ExtResource("9_xvo63")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="Id" type="Label" parent="Buttons_and_icons/For_icons_and_state"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("10_abmvb")
+text = "ID: 12345"
+vertical_alignment = 2
+
+[node name="Split0" type="HSplitContainer" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_right = 1905.0
+offset_bottom = 102.0
+size_flags_horizontal = 3
+theme = ExtResource("2_3we0a")
+
+[node name="Name" type="HFlowContainer" parent="Split0"]
+custom_minimum_size = Vector2(245, 0)
+layout_mode = 2
+theme = ExtResource("2_3we0a")
+alignment = 2
+
+[node name="Name" type="Label" parent="Split0/Name"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_3we0a")
+text = "Название сценария
+"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Split1" type="HSplitContainer" parent="Split0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_3we0a")
+
+[node name="Connected_model" type="HFlowContainer" parent="Split0/Split1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_3we0a")
+alignment = 2
+
+[node name="Connected Model" type="Label" parent="Split0/Split1/Connected_model"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_3we0a")
+text = "Связанная модель"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Split2" type="HSplitContainer" parent="Split0/Split1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_3we0a")
+
+[node name="Author" type="HFlowContainer" parent="Split0/Split1/Split2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_3we0a")
+alignment = 2
+
+[node name="Author" type="Label" parent="Split0/Split1/Split2/Author"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_3we0a")
+text = "Автор"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Split3" type="HSplitContainer" parent="Split0/Split1/Split2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_3we0a")
+
+[node name="Load_date" type="HFlowContainer" parent="Split0/Split1/Split2/Split3"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_3we0a")
+alignment = 2
+
+[node name="Upload Date" type="Label" parent="Split0/Split1/Split2/Split3/Load_date"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("2_3we0a")
+text = "Дата загрузки"
+vertical_alignment = 2
+autowrap_mode = 3

@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7x5p85fcidtb"]
+
+[ext_resource type="Script" path="res://ui/windows/windows_manager.gd" id="1_ophxf"]
+[ext_resource type="PackedScene" uid="uid://cwmd8h1svh7jq" path="res://ui/windows/navigation_left_bar.tscn" id="2_gcph1"]
+[ext_resource type="PackedScene" uid="uid://bg4wp573ha8su" path="res://ui/windows/roles/roles_window.tscn" id="3_bo7ls"]
+[ext_resource type="PackedScene" uid="uid://brxvc48v4dq7i" path="res://ui/windows/users/users_window.tscn" id="3_jgji5"]
+[ext_resource type="PackedScene" uid="uid://bubk6hx1iu30" path="res://ui/windows/menu_manager.tscn" id="4_4kwnt"]
+[ext_resource type="PackedScene" uid="uid://cqxtfnkpwbry2" path="res://ui/windows/models/models_window.tscn" id="5_4iq1m"]
+[ext_resource type="PackedScene" uid="uid://dix2g581wjw1u" path="res://ui/windows/restarts/restarts_window.tscn" id="6_mrb51"]
+[ext_resource type="PackedScene" uid="uid://bxfxh0320pjud" path="res://ui/windows/screens/screens_window.tscn" id="7_8eukd"]
+[ext_resource type="PackedScene" uid="uid://b6f4hmlokt5pk" path="res://ui/windows/scenarios/scenarios_window.tscn" id="8_fh160"]
+[ext_resource type="PackedScene" uid="uid://5ho1xues8vrd" path="res://ui/windows/servers/servers_window.tscn" id="9_5fey8"]
+
+[node name="Windows Manager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ophxf")
+
+[node name="Windows Content" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Navigation Left Bar" parent="Windows Content" instance=ExtResource("2_gcph1")]
+layout_mode = 2
+
+[node name="Roles Window" parent="Windows Content" instance=ExtResource("3_bo7ls")]
+visible = false
+layout_mode = 2
+
+[node name="Users Window" parent="Windows Content" instance=ExtResource("3_jgji5")]
+visible = false
+layout_mode = 2
+
+[node name="Models Window" parent="Windows Content" instance=ExtResource("5_4iq1m")]
+visible = false
+layout_mode = 2
+
+[node name="Restarts Window" parent="Windows Content" instance=ExtResource("6_mrb51")]
+visible = false
+layout_mode = 2
+
+[node name="Screens Window" parent="Windows Content" instance=ExtResource("7_8eukd")]
+visible = false
+layout_mode = 2
+
+[node name="Scenarios Window" parent="Windows Content" instance=ExtResource("8_fh160")]
+visible = false
+layout_mode = 2
+
+[node name="Servers Window" parent="Windows Content" instance=ExtResource("9_5fey8")]
+visible = false
+layout_mode = 2
+
+[node name="Menu Manager" parent="." instance=ExtResource("4_4kwnt")]
+layout_mode = 1
+offset_top = -2.0
+offset_bottom = -2.0
+mouse_filter = 2

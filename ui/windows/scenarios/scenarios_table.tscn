@@ -1,0 +1,192 @@
+[gd_scene load_steps=5 format=3 uid="uid://drps7avdc8x6e"]
+
+[ext_resource type="Script" path="res://ui/windows/scenarios/scenarios_table.gd" id="1_3lu26"]
+[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="1_gjdhf"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="2_prng6"]
+[ext_resource type="PackedScene" uid="uid://ccasa3cplxgri" path="res://ui/windows/scenarios/scenario_row.tscn" id="2_s3gpu"]
+
+[node name="Scenarios Table" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3lu26")
+scenario_row_prefab = ExtResource("2_s3gpu")
+
+[node name="Table" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_vertical = 3
+
+[node name="Container" type="VBoxContainer" parent="Table"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 80.0
+theme = ExtResource("1_gjdhf")
+
+[node name="Space" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("2_prng6")
+
+[node name="Icon" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+theme = ExtResource("1_gjdhf")
+text = "ИКОНКА"
+horizontal_alignment = 1
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Icon"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 27.0
+offset_bottom = 67.0
+theme = ExtResource("2_prng6")
+
+[node name="Space2" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("2_prng6")
+
+[node name="Split0" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_prng6")
+
+[node name="Name" type="HFlowContainer" parent="HBoxContainer/Split0"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme = ExtResource("2_prng6")
+
+[node name="Name" type="Label" parent="HBoxContainer/Split0/Name"]
+custom_minimum_size = Vector2(260, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_gjdhf")
+text = "НАЗВАНИЕ СЦЕНАРИЯ"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Name/Name"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_prng6")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Name/Name"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_prng6")
+
+[node name="Split1" type="HSplitContainer" parent="HBoxContainer/Split0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_prng6")
+
+[node name="Connected_model" type="HFlowContainer" parent="HBoxContainer/Split0/Split1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("2_prng6")
+
+[node name="Connected_model" type="Label" parent="HBoxContainer/Split0/Split1/Connected_model"]
+custom_minimum_size = Vector2(150, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_gjdhf")
+text = "СВЯЗАННАЯ МОДЕЛЬ"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Connected_model/Connected_model"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_prng6")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Connected_model/Connected_model"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_prng6")
+
+[node name="Split2" type="HSplitContainer" parent="HBoxContainer/Split0/Split1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_prng6")
+
+[node name="Author" type="HFlowContainer" parent="HBoxContainer/Split0/Split1/Split2"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_prng6")
+
+[node name="Author" type="Label" parent="HBoxContainer/Split0/Split1/Split2/Author"]
+custom_minimum_size = Vector2(260, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_gjdhf")
+text = "АВТОР"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Author/Author"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_prng6")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Author/Author"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_prng6")
+
+[node name="Split3" type="HSplitContainer" parent="HBoxContainer/Split0/Split1/Split2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_prng6")
+
+[node name="Load_date" type="HFlowContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_prng6")
+
+[node name="Load_date" type="Label" parent="HBoxContainer/Split0/Split1/Split2/Split3/Load_date"]
+custom_minimum_size = Vector2(260, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_gjdhf")
+text = "ДАТА ЗАГРУЗКИ"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Load_date/Load_date"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_prng6")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Load_date/Load_date"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_prng6")

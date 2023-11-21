@@ -1,0 +1,172 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfpfo0ddyv1nt"]
+
+[ext_resource type="Script" path="res://ui/windows/roles/role_row.gd" id="1_nw73m"]
+[ext_resource type="Theme" uid="uid://bxar4fpj82boj" path="res://ui/themes/info/buttons_and_icons.tres" id="2_4hljw"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="3_2xnxu"]
+[ext_resource type="Theme" uid="uid://dq7gtnuof4q8k" path="res://ui/themes/info/select.tres" id="4_rmmlt"]
+[ext_resource type="ButtonGroup" uid="uid://bkmxktu7xgxg5" path="res://ui/themes/button_groups/select_edit_delete_main_info.tres" id="5_mmj56"]
+[ext_resource type="Theme" uid="uid://b7jfgghuhmc83" path="res://ui/themes/info/edit.tres" id="6_u8xdw"]
+[ext_resource type="Theme" uid="uid://27rafffnngdm" path="res://ui/themes/info/delete.tres" id="7_j3q35"]
+[ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://ui/themes/info/for_icons_and_state.tres" id="8_t0kia"]
+[ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://icons/animals/Orca_62.png" id="9_m3ejc"]
+[ext_resource type="Theme" uid="uid://caxgx0sdeuepx" path="res://ui/themes/info/id.tres" id="10_ef77e"]
+
+[node name="Role Row" type="Control"]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nw73m")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 1920.0
+offset_bottom = 102.0
+color = Color(1, 1, 1, 0)
+
+[node name="Buttons_and_icons" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 0
+offset_right = 153.0
+offset_bottom = 102.0
+theme = ExtResource("2_4hljw")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("3_2xnxu")
+
+[node name="For_buttons" type="VBoxContainer" parent="Buttons_and_icons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("3_2xnxu")
+alignment = 2
+
+[node name="Select" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_rmmlt")
+button_group = ExtResource("5_mmj56")
+
+[node name="Edit" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("6_u8xdw")
+button_group = ExtResource("5_mmj56")
+
+[node name="Delete" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("7_j3q35")
+button_group = ExtResource("5_mmj56")
+
+[node name="For_icons_and_state" type="VBoxContainer" parent="Buttons_and_icons"]
+layout_mode = 2
+theme = ExtResource("8_t0kia")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons/For_icons_and_state"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("3_2xnxu")
+
+[node name="For_icon" type="HBoxContainer" parent="Buttons_and_icons/For_icons_and_state"]
+layout_mode = 2
+theme = ExtResource("8_t0kia")
+
+[node name="Icon" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme = ExtResource("3_2xnxu")
+icon = ExtResource("9_m3ejc")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="For_state" type="VBoxContainer" parent="Buttons_and_icons/For_icons_and_state/For_icon"]
+layout_mode = 2
+theme = ExtResource("8_t0kia")
+
+[node name="Space" type="Panel" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+theme = ExtResource("3_2xnxu")
+
+[node name="For_state1" type="HBoxContainer" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state"]
+layout_mode = 2
+theme = ExtResource("8_t0kia")
+
+[node name="On_off" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state/For_state1"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+theme = ExtResource("3_2xnxu")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="Blocked" type="Button" parent="Buttons_and_icons/For_icons_and_state/For_icon/For_state/For_state1"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+theme = ExtResource("3_2xnxu")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="Id" type="Label" parent="Buttons_and_icons/For_icons_and_state"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("10_ef77e")
+text = "ID: 12345"
+vertical_alignment = 2
+
+[node name="Split0" type="HSplitContainer" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_right = 1905.0
+offset_bottom = 102.0
+size_flags_horizontal = 3
+theme = ExtResource("3_2xnxu")
+
+[node name="Name" type="HFlowContainer" parent="Split0"]
+custom_minimum_size = Vector2(245, 0)
+layout_mode = 2
+theme = ExtResource("3_2xnxu")
+alignment = 2
+
+[node name="Role Name" type="Label" parent="Split0/Name"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_2xnxu")
+text = "Название роли
+"
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="Split1" type="HSplitContainer" parent="Split0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2xnxu")
+
+[node name="Rights" type="HFlowContainer" parent="Split0/Split1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2xnxu")
+alignment = 2
+
+[node name="Rights" type="Label" parent="Split0/Split1/Rights"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("3_2xnxu")
+text = "Право 1, Право 2, Право 3, Право 4, Право 5, Право 6, Право 7,  Право 8, Право 9, Право 10, Право 11, Право 12"
+vertical_alignment = 2
+autowrap_mode = 3

@@ -1,0 +1,260 @@
+[gd_scene load_steps=5 format=3 uid="uid://byevck74m365k"]
+
+[ext_resource type="Script" path="res://ui/windows/screens/screens_table.gd" id="1_0cba6"]
+[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="1_ha26q"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="2_4sgnm"]
+[ext_resource type="PackedScene" uid="uid://baw8jmgbxrvtm" path="res://ui/windows/screens/screen_row.tscn" id="2_7i3n7"]
+
+[node name="Screens Table" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0cba6")
+screen_row_template = ExtResource("2_7i3n7")
+
+[node name="Table" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_vertical = 3
+
+[node name="Container" type="VBoxContainer" parent="Table"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 80.0
+theme = ExtResource("1_ha26q")
+
+[node name="Space" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme = ExtResource("2_4sgnm")
+
+[node name="Icon" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(153, 0)
+layout_mode = 2
+theme = ExtResource("1_ha26q")
+text = "ИКОНКА"
+horizontal_alignment = 1
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Icon"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 27.0
+offset_bottom = 67.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Space2" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("2_4sgnm")
+
+[node name="Split0" type="HSplitContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Name" type="HFlowContainer" parent="HBoxContainer/Split0"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme = ExtResource("2_4sgnm")
+
+[node name="Name" type="Label" parent="HBoxContainer/Split0/Name"]
+custom_minimum_size = Vector2(260, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ha26q")
+text = "НАЗВАНИЕ РЕСТАРТА"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Name/Name"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Name/Name"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Split1" type="HSplitContainer" parent="HBoxContainer/Split0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Connected_model" type="HFlowContainer" parent="HBoxContainer/Split0/Split1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("2_4sgnm")
+
+[node name="Connected_model" type="Label" parent="HBoxContainer/Split0/Split1/Connected_model"]
+custom_minimum_size = Vector2(150, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ha26q")
+text = "СВЯЗАННАЯ МОДЕЛЬ"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Connected_model/Connected_model"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Connected_model/Connected_model"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Split2" type="HSplitContainer" parent="HBoxContainer/Split0/Split1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Allowed_roles" type="HFlowContainer" parent="HBoxContainer/Split0/Split1/Split2"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Allowed_roles" type="Label" parent="HBoxContainer/Split0/Split1/Split2/Allowed_roles"]
+custom_minimum_size = Vector2(260, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ha26q")
+text = "ДОПУЩЕННЫЕ РОЛИ"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Allowed_roles/Allowed_roles"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Allowed_roles/Allowed_roles"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Split3" type="HSplitContainer" parent="HBoxContainer/Split0/Split1/Split2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Allowed_users" type="HFlowContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Allowed_users" type="Label" parent="HBoxContainer/Split0/Split1/Split2/Split3/Allowed_users"]
+custom_minimum_size = Vector2(260, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ha26q")
+text = "ДОПУЩЕННЫЕ ПОЛЬЗОВАТЕЛИ"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Allowed_users/Allowed_users"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Allowed_users/Allowed_users"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Split4" type="HSplitContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Author" type="HFlowContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Author" type="Label" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4/Author"]
+custom_minimum_size = Vector2(260, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ha26q")
+text = "АВТОР"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4/Author/Author"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4/Author/Author"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Split5" type="HSplitContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Load_date" type="HFlowContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4/Split5"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_4sgnm")
+
+[node name="Load_date" type="Label" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4/Split5/Load_date"]
+custom_minimum_size = Vector2(260, 51)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ha26q")
+text = "ДАТА ЗАГРУЗКИ"
+vertical_alignment = 2
+
+[node name="Connection" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4/Split5/Load_date/Load_date"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 51.0
+offset_right = -10.0
+offset_bottom = 96.0
+theme = ExtResource("2_4sgnm")
+
+[node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Split3/Split4/Split5/Load_date/Load_date"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 49.0
+offset_bottom = 51.0
+theme = ExtResource("2_4sgnm")

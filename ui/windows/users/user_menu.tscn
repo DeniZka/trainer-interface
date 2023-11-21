@@ -1,0 +1,743 @@
+[gd_scene load_steps=14 format=3 uid="uid://cnvus38vai81p"]
+
+[ext_resource type="Script" path="res://ui/windows/users/user_menu.gd" id="1_p27yi"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_gbw5k"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="3_rmpl7"]
+[ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://ui/themes/right_menu/right_block_button.tres" id="4_16ux6"]
+[ext_resource type="Texture2D" uid="uid://4eteq4yg3twf" path="res://icons/right_menu/Right_menu_user/User_right_menu.png" id="5_to4ts"]
+[ext_resource type="Texture2D" uid="uid://vqh3aho542mu" path="res://icons/right_menu/Drop.png" id="6_5b416"]
+[ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="7_6ifrg"]
+[ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_saf8i"]
+[ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="9_6sycx"]
+[ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://ui/themes/button_groups/save_cancel_delete_right.tres" id="10_uoexc"]
+[ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://ui/themes/right_menu/right_delete.tres" id="11_cfqtb"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="12_woaw8"]
+[ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="13_e31vl"]
+
+[node name="User Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p27yi")
+metadata/_edit_horizontal_guides_ = [1001.85]
+
+[node name="Right_menu" type="Panel" parent="."]
+custom_minimum_size = Vector2(643, 1080)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.665104
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gbw5k")
+metadata/_edit_use_anchors_ = true
+
+[node name="Main" type="VBoxContainer" parent="Right_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 52.0
+offset_right = -29.0004
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Menu_name" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Name" type="Label" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(308, 36)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+text = "Карточка пользователя"
+horizontal_alignment = 1
+
+[node name="Name_H" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -37.0
+offset_top = 39.0
+offset_right = 352.0
+offset_bottom = 41.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Name_V" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -37.0
+offset_right = 4.0
+offset_bottom = 2.0
+rotation = 1.5708
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Name" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -71.0
+offset_top = -52.0
+offset_right = 2.0
+offset_bottom = -50.0
+rotation = 1.5708
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="H_Name" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -71.0
+offset_top = 19.0
+offset_right = -39.0
+offset_bottom = 21.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Menu_name"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Space" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Block_Avatar" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Block" type="VBoxContainer" parent="Right_menu/Main/Block_Avatar"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar/Block"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Block_text" type="Label" parent="Right_menu/Main/Block_Avatar/Block"]
+custom_minimum_size = Vector2(108, 20)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+theme_override_font_sizes/font_size = 13
+text = "ЗАБЛОКИРОВАТЬ"
+
+[node name="Avatar_H" type="ColorRect" parent="Right_menu/Main/Block_Avatar/Block/Block_text"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 344.0
+offset_top = 21.0
+offset_right = 566.0
+offset_bottom = 23.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Block_H" type="ColorRect" parent="Right_menu/Main/Block_Avatar/Block/Block_text"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -20.0
+offset_top = 21.0
+offset_right = 204.0
+offset_bottom = 23.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Block_Avatar/Block"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Block_button" type="CheckButton" parent="Right_menu/Main/Block_Avatar/Block"]
+custom_minimum_size = Vector2(48, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("4_16ux6")
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Block_Avatar"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Panel_for_icon" type="Panel" parent="Right_menu/Main/Block_Avatar"]
+custom_minimum_size = Vector2(141, 143)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="UserRightMenu" type="Sprite2D" parent="Right_menu/Main/Block_Avatar/Panel_for_icon"]
+position = Vector2(70.677, 71.4219)
+texture = ExtResource("5_to4ts")
+
+[node name="Space3" type="Panel" parent="Right_menu/Main/Block_Avatar"]
+custom_minimum_size = Vector2(95, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Avatar" type="VBoxContainer" parent="Right_menu/Main/Block_Avatar"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar/Avatar"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Avatar" type="HBoxContainer" parent="Right_menu/Main/Block_Avatar/Avatar"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Block_Avatar/Avatar/Avatar"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Avatar_text" type="Label" parent="Right_menu/Main/Block_Avatar/Avatar/Avatar"]
+custom_minimum_size = Vector2(47, 20)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+theme_override_font_sizes/font_size = 13
+text = "АВАТАР"
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Block_Avatar/Avatar/Avatar"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Drop" type="Button" parent="Right_menu/Main/Block_Avatar/Avatar/Avatar"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("4_16ux6")
+toggle_mode = true
+icon = ExtResource("6_5b416")
+icon_alignment = 1
+
+[node name="Space2" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="User_name" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/User_name"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Name_user_text" type="Label" parent="Right_menu/Main/User_name"]
+custom_minimum_size = Vector2(28, 20)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+theme_override_font_sizes/font_size = 13
+text = "ФИО"
+
+[node name="Space3" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="User_name_placeholder" type="HBoxContainer" parent="Right_menu/Main" node_paths=PackedStringArray("menu_items")]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+script = ExtResource("7_6ifrg")
+menu_items = [NodePath("Name Edit")]
+colors = ExtResource("8_saf8i")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/User_name_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Name Edit" type="LineEdit" parent="Right_menu/Main/User_name_placeholder" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(112, 31)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+placeholder_text = "Введите ФИО"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("9_6sycx")
+tag = "Username"
+vertical_lines = [NodePath("V_User_name")]
+horizontal_lines = [NodePath("Hs_User_name"), NodePath("HL_User_name")]
+
+[node name="Hs_User_name" type="ColorRect" parent="Right_menu/Main/User_name_placeholder/Name Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_User_name" type="ColorRect" parent="Right_menu/Main/User_name_placeholder/Name Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0
+offset_top = -10.0
+offset_right = -33.0
+offset_bottom = -8.0
+rotation = 1.5708
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_User_name" type="ColorRect" parent="Right_menu/Main/User_name_placeholder/Name Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -12.0
+offset_right = 527.0
+offset_bottom = -10.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space4" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="User_login" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/User_login"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Login_text" type="Label" parent="Right_menu/Main/User_login"]
+custom_minimum_size = Vector2(44, 20)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+theme_override_font_sizes/font_size = 13
+text = "ЛОГИН"
+
+[node name="Space5" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="User_login_placeholder" type="HBoxContainer" parent="Right_menu/Main" node_paths=PackedStringArray("menu_items")]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+script = ExtResource("7_6ifrg")
+menu_items = [NodePath("Login Edit")]
+colors = ExtResource("8_saf8i")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/User_login_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Login Edit" type="LineEdit" parent="Right_menu/Main/User_login_placeholder" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(121, 31)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+placeholder_text = "Введите логин"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("9_6sycx")
+tag = "Login"
+vertical_lines = [NodePath("V_login")]
+horizontal_lines = [NodePath("Hs_login"), NodePath("HL_login")]
+
+[node name="Hs_login" type="ColorRect" parent="Right_menu/Main/User_login_placeholder/Login Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 13.0
+offset_right = -15.0
+offset_bottom = 15.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_login" type="ColorRect" parent="Right_menu/Main/User_login_placeholder/Login Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0001
+offset_top = -10.0
+offset_right = -33.0001
+offset_bottom = -8.0
+rotation = 1.5708
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_login" type="ColorRect" parent="Right_menu/Main/User_login_placeholder/Login Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -12.0
+offset_right = 527.0
+offset_bottom = -10.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space6" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="User_password" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/User_password"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Password_text" type="Label" parent="Right_menu/Main/User_password"]
+custom_minimum_size = Vector2(51, 20)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+theme_override_font_sizes/font_size = 13
+text = "ПАРОЛЬ"
+
+[node name="Space7" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="User_password_placeholder" type="HBoxContainer" parent="Right_menu/Main" node_paths=PackedStringArray("menu_items")]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+script = ExtResource("7_6ifrg")
+menu_items = [NodePath("Password Edit")]
+colors = ExtResource("8_saf8i")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/User_password_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Password Edit" type="LineEdit" parent="Right_menu/Main/User_password_placeholder" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(132, 31)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+placeholder_text = "Введите пароль"
+max_length = 52
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("9_6sycx")
+tag = "Password"
+vertical_lines = [NodePath("V_password")]
+horizontal_lines = [NodePath("Hs_password"), NodePath("HL_password")]
+
+[node name="Hs_password" type="ColorRect" parent="Right_menu/Main/User_password_placeholder/Password Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 17.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_password" type="ColorRect" parent="Right_menu/Main/User_password_placeholder/Password Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0001
+offset_top = -8.0
+offset_right = -33.0001
+offset_bottom = -6.0
+rotation = 1.5708
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_password" type="ColorRect" parent="Right_menu/Main/User_password_placeholder/Password Edit"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -10.0
+offset_right = 527.0
+offset_bottom = -8.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space8" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="User_role" type="HBoxContainer" parent="Right_menu/Main"]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/User_role"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Role_text" type="Label" parent="Right_menu/Main/User_role"]
+custom_minimum_size = Vector2(34, 20)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+theme_override_font_sizes/font_size = 13
+text = "РОЛЬ"
+
+[node name="Space9" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="User_role_placeholder" type="HBoxContainer" parent="Right_menu/Main" node_paths=PackedStringArray("menu_items")]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+script = ExtResource("7_6ifrg")
+menu_items = [NodePath("Roles"), NodePath("Roles/Role1"), NodePath("Roles/Role2"), NodePath("Roles/Role3")]
+colors = ExtResource("8_saf8i")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/User_role_placeholder"]
+custom_minimum_size = Vector2(58, 0)
+layout_mode = 2
+theme = ExtResource("3_rmpl7")
+
+[node name="Roles" type="VBoxContainer" parent="Right_menu/Main/User_role_placeholder" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+script = ExtResource("9_6sycx")
+vertical_lines = [NodePath("Role1/V_role")]
+horizontal_lines = [NodePath("Role1/Hs_role"), NodePath("Role1/HL_role")]
+
+[node name="Role1" type="CheckBox" parent="Right_menu/Main/User_role_placeholder/Roles"]
+custom_minimum_size = Vector2(84, 30)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+keep_pressed_outside = true
+text = "Ученик"
+script = ExtResource("9_6sycx")
+
+[node name="Hs_role" type="ColorRect" parent="Right_menu/Main/User_role_placeholder/Roles/Role1"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 17.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_role" type="ColorRect" parent="Right_menu/Main/User_role_placeholder/Roles/Role1"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -56.0001
+offset_top = -8.0
+offset_right = -33.0001
+offset_bottom = -6.0
+rotation = 1.5708
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_role" type="ColorRect" parent="Right_menu/Main/User_role_placeholder/Roles/Role1"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -58.0
+offset_top = -10.0
+offset_right = 527.0
+offset_bottom = -8.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Role2" type="CheckBox" parent="Right_menu/Main/User_role_placeholder/Roles"]
+custom_minimum_size = Vector2(153, 30)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+keep_pressed_outside = true
+text = "Администратор"
+script = ExtResource("9_6sycx")
+
+[node name="Role3" type="CheckBox" parent="Right_menu/Main/User_role_placeholder/Roles"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+keep_pressed_outside = true
+text = "Преподаватель"
+script = ExtResource("9_6sycx")
+
+[node name="Space10" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_rmpl7")
+
+[node name="Save_Cancel_Delete" type="HBoxContainer" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+
+[node name="Space" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+toggle_mode = true
+button_group = ExtResource("10_uoexc")
+text = "Сохранить"
+
+[node name="H_Save" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Save Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Save" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Save Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space2" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_rmpl7")
+
+[node name="Cancel Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("2_gbw5k")
+toggle_mode = true
+button_group = ExtResource("10_uoexc")
+text = "Отменить"
+
+[node name="H_Cancel" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Cancel Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_Cancel" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Cancel Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("2_gbw5k")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="Space3" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
+custom_minimum_size = Vector2(57, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_rmpl7")
+
+[node name="Delete Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("11_cfqtb")
+toggle_mode = true
+button_group = ExtResource("10_uoexc")
+text = "Удалить"
+
+[node name="H_Delete" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Delete Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -36.0
+offset_top = 22.0
+offset_right = -10.0
+offset_bottom = 24.0
+theme = ExtResource("11_cfqtb")
+color = Color(0.619608, 0.498039, 0.498039, 1)
+
+[node name="V_Delete" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Delete Button"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = -34.0
+offset_top = 24.0
+offset_right = 21.0
+offset_bottom = 26.0
+rotation = 1.5708
+theme = ExtResource("11_cfqtb")
+color = Color(0.619608, 0.498039, 0.498039, 1)
+
+[node name="Space11" type="Panel" parent="Right_menu/Main"]
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("3_rmpl7")
+
+[node name="Close Button" type="Button" parent="Right_menu"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(34, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.8562
+offset_top = 17.0121
+offset_right = -17.8562
+offset_bottom = 49.0121
+grow_horizontal = 0
+theme = ExtResource("4_16ux6")
+icon = ExtResource("12_woaw8")
+icon_alignment = 1
+
+[node name="Shadow" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.665104
+anchor_bottom = 1.00093
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("13_e31vl")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="Right_menu/Main/Block_Avatar/Block/Block_button" to="." method="_on_block_button_toggled"]
+[connection signal="toggled" from="Right_menu/Main/Block_Avatar/Avatar/Avatar/Drop" to="." method="_on_drop_toggled"]
+[connection signal="focus_entered" from="Right_menu/Main/User_name_placeholder/Name Edit" to="Right_menu/Main/User_name_placeholder/Name Edit" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/User_name_placeholder/Name Edit" to="Right_menu/Main/User_name_placeholder/Name Edit" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/User_login_placeholder/Login Edit" to="Right_menu/Main/User_login_placeholder/Login Edit" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/User_login_placeholder/Login Edit" to="Right_menu/Main/User_login_placeholder/Login Edit" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/User_password_placeholder/Password Edit" to="Right_menu/Main/User_password_placeholder/Password Edit" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/User_password_placeholder/Password Edit" to="Right_menu/Main/User_password_placeholder/Password Edit" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/User_role_placeholder/Roles/Role1" to="Right_menu/Main/User_role_placeholder/Roles/Role1" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/User_role_placeholder/Roles/Role1" to="Right_menu/Main/User_role_placeholder/Roles/Role1" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/User_role_placeholder/Roles/Role2" to="Right_menu/Main/User_role_placeholder/Roles/Role2" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/User_role_placeholder/Roles/Role2" to="Right_menu/Main/User_role_placeholder/Roles/Role2" method="_on_focus_exited"]
+[connection signal="focus_entered" from="Right_menu/Main/User_role_placeholder/Roles/Role3" to="Right_menu/Main/User_role_placeholder/Roles/Role3" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Right_menu/Main/User_role_placeholder/Roles/Role3" to="Right_menu/Main/User_role_placeholder/Roles/Role3" method="_on_focus_exited"]
