@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d0csjqmvuy0cs"]
+
+[ext_resource type="FontFile" uid="uid://bwr8s7ldbolmf" path="res://Fonts/Roboto/Roboto-Light.ttf" id="1_12wqe"]
+
+[resource]
+Label/font_sizes/font_size = 13
+Label/fonts/font = ExtResource("1_12wqe")
