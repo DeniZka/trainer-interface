@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LineMenuColors1" load_steps=2 format=3 uid="uid://073bco0mefks"]
+[gd_resource type="Resource" script_class="LineMenuColors" load_steps=2 format=3 uid="uid://073bco0mefks"]
 
 [ext_resource type="Script" path="res://ui/components/lines/line_menu_colors.gd" id="1_kmt6d"]
 
