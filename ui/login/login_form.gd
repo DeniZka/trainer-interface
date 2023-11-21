@@ -9,5 +9,4 @@ func _ready() -> void:
 	enter_button.pressed.connect(_on_enter_pressed)
 
 func _on_enter_pressed() -> void:
-	print("enter!")
-	pass
+	visible = false
