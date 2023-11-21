@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://drps7avdc8x6e"]
 
 [ext_resource type="Script" path="res://ui/windows/scenarios/scenarios_table.gd" id="1_3lu26"]
-[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://Themes/Info/title.tres" id="1_gjdhf"]
-[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://Themes/Info/Info_main.tres" id="2_prng6"]
+[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="1_gjdhf"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="2_prng6"]
 [ext_resource type="PackedScene" uid="uid://ccasa3cplxgri" path="res://ui/windows/scenarios/scenario_row.tscn" id="2_s3gpu"]
 
 [node name="Scenarios Table" type="Control"]

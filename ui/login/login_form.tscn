@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://byiivddm860t5"]
 
 [ext_resource type="Script" path="res://ui/login/login_form.gd" id="1_e3718"]
-[ext_resource type="Theme" uid="uid://e0ysmbexe776" path="res://Themes/Login/Login.tres" id="2_plp3h"]
-[ext_resource type="Texture2D" uid="uid://cvc8k23m2vqba" path="res://Icons/Login/cut.jpg" id="3_ge2dg"]
-[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="4_1fvlc"]
-[ext_resource type="Texture2D" uid="uid://dqmcdls336et2" path="res://Icons/Animals/Bear_144.png" id="5_2io1w"]
+[ext_resource type="Theme" uid="uid://e0ysmbexe776" path="res://ui/themes/login/login.tres" id="2_kk6xc"]
+[ext_resource type="Texture2D" uid="uid://cvc8k23m2vqba" path="res://icons/Login/cut.jpg" id="3_6d6d1"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="4_yot21"]
+[ext_resource type="Texture2D" uid="uid://dqmcdls336et2" path="res://icons/animals/Bear_144.png" id="5_2eiru"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="5_smtpn"]
-[ext_resource type="Theme" uid="uid://hwm0wlbmcybu" path="res://Themes/Login/Login_Hello.tres" id="6_r20t3"]
-[ext_resource type="Theme" uid="uid://d0csjqmvuy0cs" path="res://Themes/Login/Login_subtext.tres" id="7_5d7pl"]
+[ext_resource type="Theme" uid="uid://hwm0wlbmcybu" path="res://ui/themes/login/login_hello.tres" id="6_wxmn7"]
+[ext_resource type="Theme" uid="uid://d0csjqmvuy0cs" path="res://ui/themes/login/login_subtext.tres" id="7_uyly3"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="8_da6im"]
-[ext_resource type="Resource" uid="uid://2es7d7wdgpne" path="res://ui/themes/login_form_colors.tres" id="10_84tca"]
+[ext_resource type="Resource" uid="uid://2es7d7wdgpne" path="res://ui/themes/lines/login_form_colors.tres" id="9_1yk1w"]
 
 [node name="Login Form" type="Control"]
 layout_mode = 3
@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 
 [node name="Photo_Login" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -36,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 
 [node name="Photo" type="Panel" parent="Photo_Login"]
 custom_minimum_size = Vector2(1266, 0)
@@ -45,31 +45,31 @@ layout_mode = 2
 [node name="Hubert-neufeld-gg1CwF4Qdlg-unsplash" type="Sprite2D" parent="Photo_Login/Photo"]
 position = Vector2(629.602, 540.006)
 scale = Vector2(0.673647, 0.673647)
-texture = ExtResource("3_ge2dg")
+texture = ExtResource("3_6d6d1")
 
 [node name="Login" type="VBoxContainer" parent="Photo_Login"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 
 [node name="Space" type="Panel" parent="Photo_Login/Login"]
 custom_minimum_size = Vector2(0, 234)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Login" type="VBoxContainer" parent="Photo_Login/Login"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 
 [node name="Icon" type="HBoxContainer" parent="Photo_Login/Login/Login"]
 layout_mode = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 
 [node name="Space" type="Panel" parent="Photo_Login/Login/Login/Icon"]
 custom_minimum_size = Vector2(248, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Connction_rightH" type="ColorRect" parent="Photo_Login/Login/Login/Icon/Space"]
 custom_minimum_size = Vector2(197, 2)
@@ -102,16 +102,16 @@ color = Color(0.54902, 0.607843, 0.658824, 1)
 [node name="Panel_for_icon" type="Panel" parent="Photo_Login/Login/Login/Icon"]
 custom_minimum_size = Vector2(144, 144)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Icon" type="Sprite2D" parent="Photo_Login/Login/Login/Icon/Panel_for_icon"]
 position = Vector2(72.0446, 72.2824)
-texture = ExtResource("5_2io1w")
+texture = ExtResource("5_2eiru")
 
 [node name="Space2" type="Panel" parent="Photo_Login/Login/Login/Icon"]
 custom_minimum_size = Vector2(248, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Connection_rightV" type="ColorRect" parent="Photo_Login/Login/Login/Icon/Space2"]
 custom_minimum_size = Vector2(520, 2)
@@ -135,44 +135,44 @@ color = Color(0.54902, 0.607843, 0.658824, 1)
 [node name="Space" type="Panel" parent="Photo_Login/Login/Login"]
 custom_minimum_size = Vector2(183, 50)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Hello" type="HBoxContainer" parent="Photo_Login/Login/Login"]
 layout_mode = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 
 [node name="Space" type="Panel" parent="Photo_Login/Login/Login/Hello"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Hello" type="Label" parent="Photo_Login/Login/Login/Hello"]
 layout_mode = 2
-theme = ExtResource("6_r20t3")
+theme = ExtResource("6_wxmn7")
 text = "Добро пожаловать!"
 
 [node name="Space2" type="Panel" parent="Photo_Login/Login/Login/Hello"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Space2" type="Panel" parent="Photo_Login/Login/Login"]
 custom_minimum_size = Vector2(183, 69)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="SubText" type="HBoxContainer" parent="Photo_Login/Login/Login"]
 layout_mode = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 
 [node name="Space" type="Panel" parent="Photo_Login/Login/Login/SubText"]
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Subtext" type="Label" parent="Photo_Login/Login/Login/SubText"]
 layout_mode = 2
-theme = ExtResource("7_5d7pl")
+theme = ExtResource("7_uyly3")
 text = "ВВЕДИТЕ ВЫДАННЫЕ ВАМ ЛОГИН И ПАРОЛЬ, ЧТОБЫ ВОЙТИ В СИСТЕМУ"
 
 [node name="Connecton_HL" type="ColorRect" parent="Photo_Login/Login/Login/SubText/Subtext"]
@@ -206,35 +206,35 @@ color = Color(0.54902, 0.607843, 0.658824, 1)
 [node name="Space2" type="Panel" parent="Photo_Login/Login/Login/SubText"]
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Space3" type="Panel" parent="Photo_Login/Login/Login"]
 custom_minimum_size = Vector2(183, 40)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Login_password" type="HBoxContainer" parent="Photo_Login/Login/Login" node_paths=PackedStringArray("menu_items")]
 layout_mode = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 script = ExtResource("5_smtpn")
 menu_items = [NodePath("Login_password/Login"), NodePath("Login_password/Password")]
-colors = ExtResource("10_84tca")
+colors = ExtResource("9_1yk1w")
 
 [node name="Space" type="Panel" parent="Photo_Login/Login/Login/Login_password"]
 custom_minimum_size = Vector2(206, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Login_password" type="VBoxContainer" parent="Photo_Login/Login/Login/Login_password"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 
 [node name="Login" type="LineEdit" parent="Photo_Login/Login/Login/Login_password/Login_password" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 placeholder_text = "Логин"
 script = ExtResource("8_da6im")
 tag = "Login"
@@ -245,7 +245,7 @@ horizontal_lines = [NodePath("../../../SubText/Subtext/Connecton_HL"), NodePath(
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 placeholder_text = "Пароль"
 script = ExtResource("8_da6im")
 tag = "Password"
@@ -255,30 +255,30 @@ horizontal_lines = [NodePath("../../../SubText/Subtext/Connecton_HL"), NodePath(
 [node name="Space2" type="Panel" parent="Photo_Login/Login/Login/Login_password"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Space4" type="Panel" parent="Photo_Login/Login/Login"]
 custom_minimum_size = Vector2(183, 55)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Enterence" type="HBoxContainer" parent="Photo_Login/Login/Login" node_paths=PackedStringArray("menu_items")]
 layout_mode = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 script = ExtResource("5_smtpn")
 menu_items = [NodePath("Enter Button")]
-colors = ExtResource("10_84tca")
+colors = ExtResource("9_1yk1w")
 
 [node name="Space" type="Panel" parent="Photo_Login/Login/Login/Enterence"]
 custom_minimum_size = Vector2(190, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Enter Button" type="Button" parent="Photo_Login/Login/Login/Enterence" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(279, 45)
 layout_mode = 2
-theme = ExtResource("2_plp3h")
+theme = ExtResource("2_kk6xc")
 toggle_mode = true
 text = "Войти"
 script = ExtResource("8_da6im")
@@ -308,12 +308,12 @@ color = Color(0.54902, 0.607843, 0.658824, 1)
 [node name="Space2" type="Panel" parent="Photo_Login/Login/Login/Enterence"]
 custom_minimum_size = Vector2(185, 0)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [node name="Space2" type="Panel" parent="Photo_Login/Login"]
 custom_minimum_size = Vector2(0, 234)
 layout_mode = 2
-theme = ExtResource("4_1fvlc")
+theme = ExtResource("4_yot21")
 
 [connection signal="focus_entered" from="Photo_Login/Login/Login/Login_password/Login_password/Login" to="Photo_Login/Login/Login/Login_password/Login_password/Login" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Photo_Login/Login/Login/Login_password/Login_password/Login" to="Photo_Login/Login/Login/Login_password/Login_password/Login" method="_on_focus_exited"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://ch7e4u4qkirgo"]
 
-[ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://Themes/Info/for_icons_and_state.tres" id="1_5ssu8"]
+[ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://ui/themes/info/for_icons_and_state.tres" id="1_5ssu8"]
 [ext_resource type="Script" path="res://ui/windows/users/users_table.gd" id="2_7qbly"]
-[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="3_g7bfg"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/Right_menu/Right_main.tres" id="3_g7bfg"]
 [ext_resource type="PackedScene" uid="uid://b3ccbmuyqc6g4" path="res://ui/windows/users/user_row.tscn" id="3_qr84l"]
-[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://Themes/Info/title.tres" id="4_7hstu"]
-[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://Themes/Info/Info_main.tres" id="5_hfly2"]
+[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="4_7hstu"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="5_hfly2"]
 
 [node name="Users Table" type="Control"]
 layout_mode = 3

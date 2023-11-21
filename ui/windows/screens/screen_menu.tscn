@@ -1,15 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://u3ut51jn0w7k"]
 
 [ext_resource type="Script" path="res://ui/windows/screens/screen_menu.gd" id="1_nnyo7"]
-[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="2_ywome"]
-[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="3_7ky4s"]
-[ext_resource type="Texture2D" uid="uid://dioswr8u15slk" path="res://Icons/Right_menu/Right_menu_screen/Screen.png" id="4_kkga8"]
-[ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://Themes/Right_menu/Right_block_button.tres" id="5_rloir"]
-[ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://Icons/Info/Load.png" id="6_21jhq"]
-[ext_resource type="ButtonGroup" uid="uid://2ldf1dqeuahq" path="res://Themes/Button_groups/connected_models.tres" id="7_s6ayw"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_ywome"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/Empty.tres" id="3_7ky4s"]
+[ext_resource type="Texture2D" uid="uid://dioswr8u15slk" path="res://icons/Right_menu/Right_menu_screen/Screen.png" id="4_kkga8"]
+[ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://ui/themes/right_menu/right_block_button.tres" id="5_rloir"]
+[ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://icons/Info/Load.png" id="6_21jhq"]
+[ext_resource type="ButtonGroup" uid="uid://2ldf1dqeuahq" path="res://ui/themes/button_groups/connected_models.tres" id="7_s6ayw"]
 [ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="8_k302g"]
-[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://Icons/Right_menu/Close.png" id="10_1voeo"]
-[ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://Themes/Right_menu/Shadow.tres" id="11_pjv77"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/Right_menu/Close.png" id="10_1voeo"]
+[ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="11_pjv77"]
 
 [node name="Screen Menu" type="Control"]
 layout_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjqyfuik734km"]
 
-[ext_resource type="Theme" uid="uid://ye8p72kwosj7" path="res://Themes/Combo_menu/Combo_main.tres" id="2_iwbhw"]
+[ext_resource type="Theme" uid="uid://ye8p72kwosj7" path="res://ui/themes/combo_menu/combo_main.tres" id="1_2yry4"]
 [ext_resource type="PackedScene" uid="uid://byiivddm860t5" path="res://ui/login/login_form.tscn" id="3_5k6fq"]
 [ext_resource type="PackedScene" uid="uid://b7x5p85fcidtb" path="res://ui/windows/windows_manager.tscn" id="4_r4vx0"]
 
@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_iwbhw")
+theme = ExtResource("1_2yry4")
 
 [node name="Windows Manager" parent="." instance=ExtResource("4_r4vx0")]
 layout_mode = 1

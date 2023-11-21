@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ckkpkqulicu7v"]
+
+[ext_resource type="FontFile" uid="uid://bwr8s7ldbolmf" path="res://fonts/Roboto/Roboto-Light.ttf" id="1_a5mlc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgw0b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[resource]
+Label/colors/font_color = Color(0.101961, 0.160784, 0.211765, 1)
+Label/font_sizes/font_size = 13
+Label/fonts/font = ExtResource("1_a5mlc")
+Label/styles/normal = SubResource("StyleBoxFlat_fgw0b")

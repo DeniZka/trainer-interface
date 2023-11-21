@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://cp3w3e52bwonw"]
 
-[ext_resource type="Theme" uid="uid://cjd5ih62jsh4b" path="res://Themes/Upper_menu/Upper_main.tres" id="1_kwgrw"]
+[ext_resource type="Theme" uid="uid://cjd5ih62jsh4b" path="res://ui/themes/upper_menu/upper_main.tres" id="1_kwgrw"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="2_m0lfp"]
 [ext_resource type="Script" path="res://ui/windows/search_bar.gd" id="2_wunjq"]
-[ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/search_bar_colors.tres" id="3_hy20t"]
-[ext_resource type="Texture2D" uid="uid://dd1uak0hw77lr" path="res://Icons/Upper_menu/Search.png" id="3_u8ltl"]
-[ext_resource type="Texture2D" uid="uid://ubg60ddi1k0v" path="res://Icons/Upper_menu/Add.png" id="4_37jyl"]
+[ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="3_hy20t"]
+[ext_resource type="Texture2D" uid="uid://dd1uak0hw77lr" path="res://icons/Upper_menu/Search.png" id="3_u8ltl"]
+[ext_resource type="Texture2D" uid="uid://ubg60ddi1k0v" path="res://icons/Upper_menu/Add.png" id="4_37jyl"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="5_kg0ui"]
-[ext_resource type="Texture2D" uid="uid://dbeiojwroum71" path="res://Icons/Upper_menu/Edit.png" id="5_plf0p"]
-[ext_resource type="Texture2D" uid="uid://bcih456ohwh6v" path="res://Icons/Upper_menu/Delete.png" id="6_kt680"]
+[ext_resource type="Texture2D" uid="uid://dbeiojwroum71" path="res://icons/Upper_menu/Edit.png" id="5_plf0p"]
+[ext_resource type="Texture2D" uid="uid://bcih456ohwh6v" path="res://icons/Upper_menu/Delete.png" id="6_kt680"]
 
 [node name="Search Bar" type="Control"]
 custom_minimum_size = Vector2(1536, 132)

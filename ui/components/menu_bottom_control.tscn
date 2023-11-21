@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://bsaq7mubnduwc"]
 
-[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="1_rgon0"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="1_rgon0"]
 [ext_resource type="Script" path="res://ui/components/menu_bottom_control.gd" id="2_6fun0"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu_group.gd" id="2_7waer"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="3_ndn7m"]
-[ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/search_bar_colors.tres" id="4_adgax"]
-[ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://Themes/Button_groups/save_cancel_delete_right.tres" id="5_3rcwt"]
+[ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="4_adgax"]
+[ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://ui/themes/button_groups/save_cancel_delete_right.tres" id="5_3rcwt"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="6_38ekw"]
-[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="7_qpp06"]
-[ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://Themes/Right_menu/Right_delete.tres" id="8_4cgim"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/Empty.tres" id="7_qpp06"]
+[ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://ui/themes/right_menu/right_delete.tres" id="8_4cgim"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mep8u"]
 draw_center = false

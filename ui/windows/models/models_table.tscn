@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsge3sc0y5ryw"]
 
 [ext_resource type="Script" path="res://ui/windows/models/models_table.gd" id="1_61wks"]
-[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://Themes/Info/title.tres" id="1_xd8pu"]
+[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="1_xd8pu"]
 [ext_resource type="PackedScene" uid="uid://df4j77m8jubu7" path="res://ui/windows/models/model_row.tscn" id="2_md13m"]
-[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://Themes/Info/Info_main.tres" id="2_y3htr"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="2_y3htr"]
 
 [node name="Models Table" type="Control"]
 layout_mode = 3
