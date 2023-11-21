@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://hwm0wlbmcybu"]
-
-[ext_resource type="FontFile" uid="uid://dnhfrnjxds8h" path="res://Fonts/Roboto/Roboto-Medium.ttf" id="1_jc3wn"]
-
-[resource]
-Label/font_sizes/font_size = 28
-Label/fonts/font = ExtResource("1_jc3wn")
