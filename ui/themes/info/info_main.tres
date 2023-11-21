@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=11 format=3 uid="uid://b3rhwjl7yw6lu"]
 
-[ext_resource type="Texture2D" uid="uid://b7qgi44mignyg" path="res://icons/Info/empty.png" id="1_gdhu0"]
+[ext_resource type="Texture2D" uid="uid://b7qgi44mignyg" path="res://icons/info/empty.png" id="1_gdhu0"]
 [ext_resource type="FontFile" uid="uid://djgaoaek3xday" path="res://fonts/Roboto/RobotoSerif_28pt_Condensed-SemiBold.ttf" id="2_6k85h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8rfwa"]

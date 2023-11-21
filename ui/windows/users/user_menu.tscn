@@ -4,14 +4,14 @@
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_gbw5k"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="3_rmpl7"]
 [ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://ui/themes/right_menu/right_block_button.tres" id="4_16ux6"]
-[ext_resource type="Texture2D" uid="uid://4eteq4yg3twf" path="res://icons/Right_menu/Right_menu_user/User_right_menu.png" id="5_nuymg"]
-[ext_resource type="Texture2D" uid="uid://vqh3aho542mu" path="res://icons/Right_menu/Drop.png" id="6_age1j"]
+[ext_resource type="Texture2D" uid="uid://4eteq4yg3twf" path="res://icons/right_menu/Right_menu_user/User_right_menu.png" id="5_to4ts"]
+[ext_resource type="Texture2D" uid="uid://vqh3aho542mu" path="res://icons/right_menu/Drop.png" id="6_5b416"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="7_6ifrg"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_saf8i"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="9_6sycx"]
-[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/Right_menu/Close.png" id="9_lcpsu"]
 [ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://ui/themes/button_groups/save_cancel_delete_right.tres" id="10_uoexc"]
 [ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://ui/themes/right_menu/right_delete.tres" id="11_cfqtb"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="12_woaw8"]
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="13_e31vl"]
 
 [node name="User Menu" type="Control"]
@@ -183,7 +183,7 @@ theme = ExtResource("2_gbw5k")
 
 [node name="UserRightMenu" type="Sprite2D" parent="Right_menu/Main/Block_Avatar/Panel_for_icon"]
 position = Vector2(70.677, 71.4219)
-texture = ExtResource("5_nuymg")
+texture = ExtResource("5_to4ts")
 
 [node name="Space3" type="Panel" parent="Right_menu/Main/Block_Avatar"]
 custom_minimum_size = Vector2(95, 0)
@@ -225,7 +225,7 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 theme = ExtResource("4_16ux6")
 toggle_mode = true
-icon = ExtResource("6_age1j")
+icon = ExtResource("6_5b416")
 icon_alignment = 1
 
 [node name="Space2" type="Panel" parent="Right_menu/Main"]
@@ -714,7 +714,7 @@ offset_right = -17.8562
 offset_bottom = 49.0121
 grow_horizontal = 0
 theme = ExtResource("4_16ux6")
-icon = ExtResource("9_lcpsu")
+icon = ExtResource("12_woaw8")
 icon_alignment = 1
 
 [node name="Shadow" type="Panel" parent="."]

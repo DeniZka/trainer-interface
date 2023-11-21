@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=9 format=3 uid="uid://itqlca07sghr"]
 
-[ext_resource type="Texture2D" uid="uid://b5m7tal70j0kn" path="res://icons/Right_menu/Right_menu_servers/initialization_ckecked.png" id="1_f2okj"]
-[ext_resource type="Texture2D" uid="uid://bn55x2xl3gfy" path="res://icons/Right_menu/Right_menu_servers/initialization_unchecked.png" id="2_w6jk4"]
+[ext_resource type="Texture2D" uid="uid://b5m7tal70j0kn" path="res://icons/right_menu/Right_menu_servers/initialization_ckecked.png" id="1_f2okj"]
+[ext_resource type="Texture2D" uid="uid://bn55x2xl3gfy" path="res://icons/right_menu/Right_menu_servers/initialization_unchecked.png" id="2_w6jk4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c8aix"]
 

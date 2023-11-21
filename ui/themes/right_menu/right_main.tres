@@ -2,12 +2,12 @@
 
 [ext_resource type="FontFile" uid="uid://bwr8s7ldbolmf" path="res://fonts/Roboto/Roboto-Light.ttf" id="1_fndps"]
 [ext_resource type="FontFile" uid="uid://dcw2c2tpem8b0" path="res://fonts/Roboto/Roboto-Regular.ttf" id="2_ni544"]
-[ext_resource type="Texture2D" uid="uid://b7orhsw7vypl2" path="res://icons/Right_menu/Checkbox.png" id="3_3t3oq"]
-[ext_resource type="Texture2D" uid="uid://1wq8qfmabpi3" path="res://icons/Right_menu/Right_menu_user/Block_checked.png" id="4_ahrln"]
-[ext_resource type="Texture2D" uid="uid://b5ivpq54ga0y0" path="res://icons/Right_menu/Round_checked.png" id="4_diylr"]
-[ext_resource type="Texture2D" uid="uid://cnsy4dy3qr005" path="res://icons/Right_menu/Checkbox_unchecked.png" id="4_yvhwc"]
-[ext_resource type="Texture2D" uid="uid://f7oi142sgwtn" path="res://icons/Right_menu/Round_unchecked.png" id="5_c2m4q"]
-[ext_resource type="Texture2D" uid="uid://c4gh1qy3retwg" path="res://icons/Right_menu/Right_menu_user/Block_unchecked.png" id="5_d022j"]
+[ext_resource type="Texture2D" uid="uid://b7orhsw7vypl2" path="res://icons/right_menu/Checkbox.png" id="3_3t3oq"]
+[ext_resource type="Texture2D" uid="uid://1wq8qfmabpi3" path="res://icons/right_menu/Right_menu_user/Block_checked.png" id="4_ahrln"]
+[ext_resource type="Texture2D" uid="uid://b5ivpq54ga0y0" path="res://icons/right_menu/Round_checked.png" id="4_diylr"]
+[ext_resource type="Texture2D" uid="uid://cnsy4dy3qr005" path="res://icons/right_menu/Checkbox_unchecked.png" id="4_yvhwc"]
+[ext_resource type="Texture2D" uid="uid://f7oi142sgwtn" path="res://icons/right_menu/Round_unchecked.png" id="5_c2m4q"]
+[ext_resource type="Texture2D" uid="uid://c4gh1qy3retwg" path="res://icons/right_menu/Right_menu_user/Block_unchecked.png" id="5_d022j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgf22"]
 bg_color = Color(0.937255, 0.94902, 0.956863, 1)
