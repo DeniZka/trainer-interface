@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://x8gvjg5bdtxh"]
+
+[ext_resource type="Script" path="res://Scripts/TEST/TEST.gd" id="1_hoobu"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hoobu")
+
+[node name="Add" type="Button" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 18.0
+offset_right = 280.0
+offset_bottom = 72.0
+text = "Добавить элемент"
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 0
+offset_left = 47.3182
+offset_top = 133.203
+offset_right = 278.318
+offset_bottom = 187.203
+text = "Сохранить сцену"
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 239.997
+offset_right = 280.0
+offset_bottom = 293.997
+text = "Загрузить сцену"
+
+[node name="xPosition" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 380.276
+offset_top = 36.8727
+offset_right = 447.339
+offset_bottom = 67.8727
+placeholder_text = "x ="
+
+[node name="yPosition" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 491.275
+offset_top = 36.8727
+offset_right = 558.337
+offset_bottom = 67.8727
+placeholder_text = "y ="
+
+[connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
