@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddjuuexhvorfw"]
+
+[ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu/Left_main.tres" id="1_ppmts"]
+
+[node name="DeviceName" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-25.5, -26, 25.5, -26, 25.5, 26, -25.5, 26)
+
+[node name="Label" type="Label" parent="Polygon2D"]
+custom_minimum_size = Vector2(50, 52)
+offset_left = -25.5
+offset_top = -26.0
+offset_right = 25.5
+offset_bottom = 26.0
+theme = ExtResource("1_ppmts")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "KBA60
+AA802"
+horizontal_alignment = 1
+vertical_alignment = 1

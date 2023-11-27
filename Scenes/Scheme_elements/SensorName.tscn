@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr7kqujnbvtir"]
+
+[ext_resource type="Texture2D" uid="uid://cqrl8gy5lahfu" path="res://Icons/Scheme_elements/SensorName.png" id="1_irlfn"]
+[ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu/Left_main.tres" id="2_bboy8"]
+
+[node name="SensorName" type="Node2D"]
+
+[node name="SensorName" type="Sprite2D" parent="."]
+texture = ExtResource("1_irlfn")
+
+[node name="Number" type="Label" parent="SensorName"]
+offset_left = -63.0
+offset_top = -12.0
+offset_right = 15.0
+offset_bottom = 11.0
+theme = ExtResource("2_bboy8")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "12345678"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Letter" type="Label" parent="SensorName"]
+offset_left = 23.5997
+offset_top = -11.4905
+offset_right = 63.5997
+offset_bottom = 11.5095
+theme = ExtResource("2_bboy8")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ABC"
+horizontal_alignment = 1
+vertical_alignment = 1

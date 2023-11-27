@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cldc3whg4xy5g"
-path="res://.godot/imported/hubert-neufeld-GG1CwF4qdlg-unsplash.jpg-e6f1bc1a6814237709ae5a6397809364.ctex"
+uid="uid://cdxgmfps3kx8q"
+path="res://.godot/imported/ValveEl.png-48574050e6ef4f8527d53394bc483c69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/Login/hubert-neufeld-GG1CwF4qdlg-unsplash.jpg"
-dest_files=["res://.godot/imported/hubert-neufeld-GG1CwF4qdlg-unsplash.jpg-e6f1bc1a6814237709ae5a6397809364.ctex"]
+source_file="res://Icons/Scheme_elements/ValveEl.png"
+dest_files=["res://.godot/imported/ValveEl.png-48574050e6ef4f8527d53394bc483c69.ctex"]
 
 [params]
 

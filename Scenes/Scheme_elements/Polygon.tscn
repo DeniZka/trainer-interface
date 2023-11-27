@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://0dus6aoagk6o"]
+
+[ext_resource type="Texture2D" uid="uid://bdc5mq7n6a1qo" path="res://Icons/Scheme_elements/Polygon.png" id="1_dy1kv"]
+
+[node name="Polygon" type="Node2D"]
+
+[node name="Polygon" type="Sprite2D" parent="."]
+texture = ExtResource("1_dy1kv")

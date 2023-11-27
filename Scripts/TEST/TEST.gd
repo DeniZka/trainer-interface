@@ -6,7 +6,7 @@ var xPositionArray = []
 var yPositionArray = []
 var sceneNameArray = []
 var scenes = {
-	"tank" : "res://Scenes/TEST_ELEMENT.tscn"
+	"tank" : "res://Scenes/Scheme_elements/Tank.tscn"
 }
 
 
@@ -61,4 +61,3 @@ func load_scene():
 		add_child(scene)
 		scene.position.x = data["xPosition"][i] as float
 		scene.position.y = data["yPosition"][i] as float
-	

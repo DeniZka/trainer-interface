@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1qtldy4hp1ab"]
+
+[ext_resource type="Texture2D" uid="uid://dkwiul3ps50wh" path="res://Icons/Scheme_elements/ResistanceL.png" id="1_h0l7i"]
+
+[node name="ResistanceL" type="Node2D"]
+
+[node name="ResistanceL" type="Sprite2D" parent="."]
+texture = ExtResource("1_h0l7i")
+
+[node name="ResistanceL2" type="Sprite2D" parent="."]
+texture = ExtResource("1_h0l7i")
+flip_v = true
