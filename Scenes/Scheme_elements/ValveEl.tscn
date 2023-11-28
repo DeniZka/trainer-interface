@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cgqtw81411xsb" path="res://Icons/Scheme_elements/Valve_electric_motor.png" id="2_e2kby"]
 [ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Place.png" id="2_pgwgs"]
 [ext_resource type="Texture2D" uid="uid://deah34ydfr0gy" path="res://Icons/Scheme_elements/CheckValveOnOff.png" id="3_agbtt"]
-[ext_resource type="Texture2D" uid="uid://dk2lpuymte63b" path="res://Icons/Scheme_elements/Valve_left.png" id="3_w27yk"]
+[ext_resource type="Texture2D" uid="uid://caad6bc8st15r" path="res://Icons/Scheme_elements/Valve.png" id="3_w27yk"]
 [ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/On.png" id="4_lqhgh"]
 [ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/CheckValveOn.png" id="5_pie00"]
 [ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="6_i1bh3"]

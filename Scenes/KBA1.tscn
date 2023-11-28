@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://br1o6llia1le7"]
+[gd_scene load_steps=18 format=3 uid="uid://br1o6llia1le7"]
 
+[ext_resource type="Script" path="res://Scripts/KBA1.gd" id="1_qllwu"]
 [ext_resource type="PackedScene" uid="uid://ddjuuexhvorfw" path="res://Scenes/Scheme_elements/DeviceName.tscn" id="2_ph5kb"]
 [ext_resource type="PackedScene" uid="uid://m1w4reapa4an" path="res://Scenes/Scheme_elements/Tank.tscn" id="2_roqwo"]
 [ext_resource type="PackedScene" uid="uid://dc8rwep6tub7r" path="res://Scenes/Scheme_elements/Node.tscn" id="3_kj0b7"]
@@ -17,7 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://binf0ntu48hb7" path="res://Scenes/Scheme_elements/ResistanceS.tscn" id="15_4u0nq"]
 [ext_resource type="PackedScene" uid="uid://dr7kqujnbvtir" path="res://Scenes/Scheme_elements/SensorName.tscn" id="16_vpoda"]
 
-[node name="Node2D" type="Node2D"]
+[node name="kva_scene" type="Node2D"]
+script = ExtResource("1_qllwu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -302,9 +304,6 @@ position = Vector2(596.15, 612.865)
 [node name="DeviceName8" parent="." instance=ExtResource("2_ph5kb")]
 position = Vector2(438.523, 607.674)
 
-[node name="DeviceName9" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(216.713, 642.125)
-
 [node name="DeviceName10" parent="." instance=ExtResource("2_ph5kb")]
 position = Vector2(449.7, 897.587)
 
@@ -469,12 +468,15 @@ position = Vector2(1799.45, 397.708)
 
 [node name="Valve20" parent="." instance=ExtResource("7_iftpl")]
 position = Vector2(169.751, 643.125)
+Position = Vector2(23.925, -24.015)
+Rotate = 90.0
 
 [node name="Valve21" parent="." instance=ExtResource("7_iftpl")]
 position = Vector2(783.282, 643.125)
 
 [node name="Valve22" parent="." instance=ExtResource("7_iftpl")]
 position = Vector2(828.449, 754.518)
+Rotate = 90.0
 
 [node name="Valve23" parent="." instance=ExtResource("7_iftpl")]
 position = Vector2(906.342, 754.518)

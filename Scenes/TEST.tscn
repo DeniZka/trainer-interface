@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://x8gvjg5bdtxh"]
+[gd_scene load_steps=4 format=3 uid="uid://x8gvjg5bdtxh"]
 
 [ext_resource type="Script" path="res://Scripts/TEST/TEST.gd" id="1_hoobu"]
-[ext_resource type="Texture2D" uid="uid://b1ncouvghdfpm" path="res://image_2023-11-17_19-53-50 1.png" id="2_o0a16"]
 [ext_resource type="PackedScene" uid="uid://ciowslckq7k3v" path="res://Scenes/Scheme_elements/Valve.tscn" id="3_5bv45"]
 [ext_resource type="PackedScene" uid="uid://m1w4reapa4an" path="res://Scenes/Scheme_elements/Tank.tscn" id="4_3mv5p"]
 
@@ -52,7 +51,6 @@ placeholder_text = "y ="
 
 [node name="Image2023-11-1719-53-501" type="Sprite2D" parent="."]
 position = Vector2(963.244, 545.71)
-texture = ExtResource("2_o0a16")
 
 [node name="Tank" parent="." instance=ExtResource("4_3mv5p")]
 position = Vector2(472.017, 302.372)
@@ -60,6 +58,7 @@ position = Vector2(472.017, 302.372)
 [node name="Valve" parent="." instance=ExtResource("3_5bv45")]
 position = Vector2(538.687, 748.431)
 rotation = 1.5708
+valve_stat = null
 
 [connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
