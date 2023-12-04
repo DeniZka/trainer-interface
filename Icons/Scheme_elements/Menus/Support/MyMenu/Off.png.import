@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt2x8xuivmy56"
-path="res://.godot/imported/Motor.png-5af7b1e664c21a603dd7b365e9898912.ctex"
+uid="uid://coppovd5ul32x"
+path="res://.godot/imported/Off.png-e895817f6191bbb229471eb64256dcb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/Scheme_elements/Motor.png"
-dest_files=["res://.godot/imported/Motor.png-5af7b1e664c21a603dd7b365e9898912.ctex"]
+source_file="res://Icons/Scheme_elements/Menus/Support/MyMenu/Off.png"
+dest_files=["res://.godot/imported/Off.png-e895817f6191bbb229471eb64256dcb5.ctex"]
 
 [params]
 

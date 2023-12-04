@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ciowslckq7k3v"]
+[gd_scene load_steps=17 format=3 uid="uid://ciowslckq7k3v"]
 
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ValveService.gd" id="1_2sacc"]
 [ext_resource type="Texture2D" uid="uid://caad6bc8st15r" path="res://Icons/Scheme_elements/Valve.png" id="1_p5jxi"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/CheckValveOn.png" id="6_hbpcq"]
 [ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="6_unrdw"]
 [ext_resource type="Texture2D" uid="uid://3pt8gsoxhvbd" path="res://Icons/Scheme_elements/Flip.png" id="7_pyg3y"]
-[ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu/Left_main.tres" id="11_unb0q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_whjgr"]
 radius = 89.5231
@@ -148,19 +147,6 @@ flip_h = true
 
 [node name="ActiveArea" type="CollisionShape2D" parent="ActiveArea"]
 shape = SubResource("CircleShape2D_q78pu")
-
-[node name="lname" type="Label" parent="."]
-custom_minimum_size = Vector2(50, 52)
-offset_left = -25.0
-offset_top = 33.0
-offset_right = 26.0
-offset_bottom = 85.0
-theme = ExtResource("11_unb0q")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "KBAXX
-AAXXX"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="signal_play" type="AnimationPlayer" parent="."]
 libraries = {

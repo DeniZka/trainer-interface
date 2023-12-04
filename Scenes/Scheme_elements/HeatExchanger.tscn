@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfup5fvysffmc"]
+[gd_scene load_steps=4 format=3 uid="uid://bfup5fvysffmc"]
 
 [ext_resource type="Texture2D" uid="uid://dfrmx4t3g5ave" path="res://Icons/Scheme_elements/Square.png" id="1_n6ltc"]
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/HeatExchanger.gd" id="1_p8cnt"]
 [ext_resource type="Texture2D" uid="uid://nf1e66kct1ba" path="res://Icons/Scheme_elements/HeatExchanger.png" id="2_efg1k"]
 
 [node name="HeatExchanger" type="Node2D"]
+script = ExtResource("1_p8cnt")
 
 [node name="Square" type="Sprite2D" parent="."]
 texture = ExtResource("1_n6ltc")

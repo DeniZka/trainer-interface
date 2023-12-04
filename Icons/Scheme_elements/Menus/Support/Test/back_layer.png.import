@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlmu6a7p1ra3x"
-path="res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"
+uid="uid://nwtttk1b28jn"
+path="res://.godot/imported/back_layer.png-efd2c8fecdd7ad8f893657cff2a127b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/Scheme_elements/NodeBlue.png"
-dest_files=["res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"]
+source_file="res://Icons/Scheme_elements/Menus/Support/Test/back_layer.png"
+dest_files=["res://.godot/imported/back_layer.png-efd2c8fecdd7ad8f893657cff2a127b1.ctex"]
 
 [params]
 

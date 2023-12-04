@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlmu6a7p1ra3x"
-path="res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"
+uid="uid://dqc1uui2emx24"
+path="res://.godot/imported/maint-top.png-11359ce76737e177fd42411c0ec014fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/Scheme_elements/NodeBlue.png"
-dest_files=["res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"]
+source_file="res://Icons/Scheme_elements/Menus/Support/Test/maint-top.png"
+dest_files=["res://.godot/imported/maint-top.png-11359ce76737e177fd42411c0ec014fc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg74aaxos2asb"
-path="res://.godot/imported/CheckValveOn.png-c9aeae2ddfcd1c03621815f7404c7c70.ctex"
+uid="uid://ds21ver73vxl3"
+path="res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/Scheme_elements/CheckValveOn.png"
-dest_files=["res://.godot/imported/CheckValveOn.png-c9aeae2ddfcd1c03621815f7404c7c70.ctex"]
+source_file="res://Icons/Scheme_elements/NodeBlue.png"
+dest_files=["res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"]
 
 [params]
 

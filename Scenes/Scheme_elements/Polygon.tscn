@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://0dus6aoagk6o"]
+[gd_scene load_steps=3 format=3 uid="uid://0dus6aoagk6o"]
 
 [ext_resource type="Texture2D" uid="uid://bdc5mq7n6a1qo" path="res://Icons/Scheme_elements/Polygon.png" id="1_dy1kv"]
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/Polygon.gd" id="1_vqu3f"]
 
 [node name="Polygon" type="Node2D"]
+script = ExtResource("1_vqu3f")
 
 [node name="Polygon" type="Sprite2D" parent="."]
 texture = ExtResource("1_dy1kv")

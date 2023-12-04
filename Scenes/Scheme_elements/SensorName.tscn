@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr7kqujnbvtir"]
+[gd_scene load_steps=4 format=3 uid="uid://dr7kqujnbvtir"]
 
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/SensorName.gd" id="1_diga6"]
 [ext_resource type="Texture2D" uid="uid://cqrl8gy5lahfu" path="res://Icons/Scheme_elements/SensorName.png" id="1_irlfn"]
 [ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu/Left_main.tres" id="2_bboy8"]
 
 [node name="SensorName" type="Node2D"]
+script = ExtResource("1_diga6")
 
 [node name="SensorName" type="Sprite2D" parent="."]
 texture = ExtResource("1_irlfn")

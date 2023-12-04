@@ -14,7 +14,7 @@ func _ready():
 		"posititon": {"x": 100, "y": 500},
 		"name1": "KBAXX",
 		"name2": "asdfasdf",
-		"rotateion": 90,
+		"rotation": 90,
 		#and so on
 	})
 	print(JSON.stringify(jobjects))

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlmu6a7p1ra3x"
-path="res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"
+uid="uid://d3edbw1crpv1t"
+path="res://.godot/imported/CheckValveOff.png-dc553cc749304e1ebff8f183de3d0a1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/Scheme_elements/NodeBlue.png"
-dest_files=["res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"]
+source_file="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOff.png"
+dest_files=["res://.godot/imported/CheckValveOff.png-dc553cc749304e1ebff8f183de3d0a1a.ctex"]
 
 [params]
 

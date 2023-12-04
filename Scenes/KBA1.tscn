@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://br1o6llia1le7"]
+[gd_scene load_steps=19 format=3 uid="uid://br1o6llia1le7"]
 
 [ext_resource type="Script" path="res://Scripts/KBA1.gd" id="1_qllwu"]
 [ext_resource type="PackedScene" uid="uid://ddjuuexhvorfw" path="res://Scenes/Scheme_elements/DeviceName.tscn" id="2_ph5kb"]
@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dc8rwep6tub7r" path="res://Scenes/Scheme_elements/Node.tscn" id="3_kj0b7"]
 [ext_resource type="PackedScene" uid="uid://bvvmavom2oouc" path="res://Scenes/Scheme_elements/ValveEl.tscn" id="4_wmk10"]
 [ext_resource type="PackedScene" uid="uid://0vjytkiid28w" path="res://Scenes/Scheme_elements/ListChange.tscn" id="5_51gqg"]
+[ext_resource type="Theme" uid="uid://cs4bkw5nffd1u" path="res://Themes/For_scheme_elements/For_elements.tres" id="6_buief"]
 [ext_resource type="PackedScene" uid="uid://i1gy4pljl145" path="res://Scenes/Scheme_elements/ValveRegul.tscn" id="6_h32ox"]
-[ext_resource type="PackedScene" uid="uid://ciowslckq7k3v" path="res://Scenes/Scheme_elements/Valve.tscn" id="7_iftpl"]
 [ext_resource type="PackedScene" uid="uid://dkqihw2axr4ko" path="res://Scenes/Scheme_elements/PumpEl.tscn" id="8_o8my3"]
 [ext_resource type="PackedScene" uid="uid://0dus6aoagk6o" path="res://Scenes/Scheme_elements/Polygon.tscn" id="9_sfco6"]
 [ext_resource type="PackedScene" uid="uid://bfup5fvysffmc" path="res://Scenes/Scheme_elements/HeatExchanger.tscn" id="10_8ikhm"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c1qtldy4hp1ab" path="res://Scenes/Scheme_elements/ResistanceL.tscn" id="14_0y8gh"]
 [ext_resource type="PackedScene" uid="uid://binf0ntu48hb7" path="res://Scenes/Scheme_elements/ResistanceS.tscn" id="15_4u0nq"]
 [ext_resource type="PackedScene" uid="uid://dr7kqujnbvtir" path="res://Scenes/Scheme_elements/SensorName.tscn" id="16_vpoda"]
+[ext_resource type="PackedScene" uid="uid://deibof6jekfnt" path="res://Scenes/Scheme_elements/ValveCheck.tscn" id="19_b0mp3"]
 
 [node name="kva_scene" type="Node2D"]
 script = ExtResource("1_qllwu")
@@ -29,361 +30,78 @@ color = Color(0.75, 0.75, 0.75, 1)
 
 [node name="ThinLine" type="Line2D" parent="."]
 position = Vector2(1412.2, 241.132)
-points = PackedVector2Array(7.26563, 173.219, 7.25769, 275.21)
+points = PackedVector2Array(3.80005, 166.868, 3.80005, 278.868)
 width = 1.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine" type="Line2D" parent="."]
-position = Vector2(1457.2, 241.132)
-points = PackedVector2Array(7.26917, 167.009, 6.72632, 436.296)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine9" type="Line2D" parent="."]
-position = Vector2(1123.2, 352.132)
-points = PackedVector2Array(7.26917, 167.009, 6.81641, 448.943)
-width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine10" type="Line2D" parent="."]
 position = Vector2(899.2, 475.132)
-points = PackedVector2Array(7.26917, 167.009, 6.98779, 441.18)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine11" type="Line2D" parent="."]
-position = Vector2(822.2, 475.132)
-points = PackedVector2Array(7.26917, 167.009, 6.93091, 470.4)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine12" type="Line2D" parent="."]
-position = Vector2(163.2, 468.132)
-points = PackedVector2Array(7.19788, 141.295, 6.93091, 470.4)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine13" type="Line2D" parent="."]
-position = Vector2(275.2, 121.132)
-points = PackedVector2Array(7.19788, 141.295, 7.00635, 394.183)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine19" type="Line2D" parent="."]
-position = Vector2(553.2, -55.8678)
-points = PackedVector2Array(7.19788, 141.295, 7.58649, 322.171)
+points = PackedVector2Array(12.8, 164.868, 12.8, 436.868)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine20" type="Line2D" parent="."]
 position = Vector2(702.2, 79.1322)
 rotation = 1.5708
-points = PackedVector2Array(7.19788, 141.295, 7.23248, 193.99)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine21" type="Line2D" parent="."]
-position = Vector2(702.2, 258.132)
-rotation = 1.5708
-points = PackedVector2Array(7.19788, 141.295, 6.9035, 419.927)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine22" type="Line2D" parent="."]
-position = Vector2(534.2, 513.132)
-rotation = 1.5708
-points = PackedVector2Array(7.19788, 141.295, 6.9035, 419.927)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine27" type="Line2D" parent="."]
-position = Vector2(594.2, 937.132)
-rotation = 1.5708
-points = PackedVector2Array(7.78229, -235.422, 6.9035, 419.927)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine29" type="Line2D" parent="."]
-position = Vector2(1397.2, 512.132)
-rotation = 1.5708
-points = PackedVector2Array(7.78229, -235.422, 8.00433, 267.643)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine33" type="Line2D" parent="."]
-position = Vector2(1397.2, 792.132)
-rotation = 1.5708
-points = PackedVector2Array(7.78229, -235.422, 8.00433, 267.643)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine28" type="Line2D" parent="."]
-position = Vector2(812.2, 636.132)
-rotation = 1.5708
-points = PackedVector2Array(7.69189, -998.614, 6.9035, 419.927)
+points = PackedVector2Array(8.868, 190.2, 8.868, 142.2, 184.868, 142.199, 184.869, 229.313, 184.869, 422.199, 440.869, 422.198, 440.87, 590.198, 528.87, 590.198, 528.87, 534.198, 864.87, 534.197, 864.867, -129.803, 560.867, -129.802, 560.869, 310.198, 384.869, 310.199, 384.868, 150.199, 441.062, 150.198, 560.868, 150.198, 464.868, 150.198, 464.869, 206.198)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="BoldLine" type="Line2D" parent="."]
 position = Vector2(890.2, 404.132)
 rotation = 1.5708
-points = PackedVector2Array(7.06711, -528.8, 6.9035, 419.927)
+points = PackedVector2Array(3.86612, -525.8, 3.86954, 418.2)
 width = 4.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine23" type="Line2D" parent="."]
-position = Vector2(534.2, 535.132)
-rotation = 1.5708
-points = PackedVector2Array(7.09723, 174.693, 7.09723, 341.182)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine37" type="Line2D" parent="."]
-position = Vector2(724.2, 457.132)
-rotation = 1.5708
-points = PackedVector2Array(7.03455, 173.843, 6.94293, 331.832)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine24" type="Line2D" parent="."]
-position = Vector2(456.2, 602.132)
-rotation = 1.5708
-points = PackedVector2Array(7.05811, 285.105, 7.09723, 341.182)
-width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine30" type="Line2D" parent="."]
 position = Vector2(1760.2, 402.132)
 rotation = 1.5708
-points = PackedVector2Array(7.04736, 294.808, 7.09723, 341.182)
+points = PackedVector2Array(5.86926, 344.2, 5.86908, 296.2, 277.869, 296.199, 277.869, 344.199, 397.869, 344.198, 397.868, 128.198, 117.868, 128.2, 117.87, 632.2, 397.87, 632.198, 397.869, 344.198)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine31" type="Line2D" parent="."]
 position = Vector2(1760.2, 547.132)
 rotation = 1.5708
-points = PackedVector2Array(7.04736, 294.808, 7.09723, 341.182)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine32" type="Line2D" parent="."]
-position = Vector2(1760.2, 670.132)
-rotation = 1.5708
-points = PackedVector2Array(7.04736, 294.808, 7.09723, 341.182)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine34" type="Line2D" parent="."]
-position = Vector2(2028.2, 714.132)
-rotation = 1.5708
-points = PackedVector2Array(6.81189, 251.052, 7.09723, 341.182)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine35" type="Line2D" parent="."]
-position = Vector2(2055.2, 503.132)
-rotation = 1.5708
-points = PackedVector2Array(6.91052, 249.568, 7.16846, 345.57)
+points = PackedVector2Array(4.86902, 296.2, 4.8692, 344.2, 92.8692, 344.2, 92.8713, 928.2)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine36" type="Line2D" parent="."]
 position = Vector2(2055.2, 927.132)
 rotation = 1.5708
-points = PackedVector2Array(7.12634, 244.394, 7.09332, 349.58)
+points = PackedVector2Array(8.86926, 351.2, 8.8689, 247.2, -575.131, 247.202, -575.131, 343.202, -415.131, 343.202, -415.131, 247.202)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine25" type="Line2D" parent="."]
 position = Vector2(813.2, 514.132)
 rotation = 1.5708
-points = PackedVector2Array(7.05811, 285.105, 7.14056, 315.418)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine26" type="Line2D" parent="."]
-position = Vector2(813.2, 536.132)
-rotation = 1.5708
-points = PackedVector2Array(7.05811, 285.105, 7.14056, 315.418)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine14" type="Line2D" parent="."]
-position = Vector2(108.2, 214.132)
-points = PackedVector2Array(7.04526, 311.428, 6.56621, 390.163)
+points = PackedVector2Array(5.86902, 285.2, 5.86914, 317.2)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine15" type="Line2D" parent="."]
 position = Vector2(464.2, 57.1322)
-points = PackedVector2Array(7.18518, 306.591, 6.98636, 403.186)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine16" type="Line2D" parent="."]
-position = Vector2(542.2, 157.132)
-points = PackedVector2Array(7.18518, 306.591, 6.77222, 484.821)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine17" type="Line2D" parent="."]
-position = Vector2(386.2, 158.132)
-points = PackedVector2Array(7.18518, 306.591, 6.77222, 484.821)
+points = PackedVector2Array(7.79999, 302.868, 7.79999, 406.868)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine18" type="Line2D" parent="."]
 position = Vector2(186.2, 158.132)
-points = PackedVector2Array(6.34555, 367.686, 6.17529, 385.743)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine2" type="Line2D" parent="."]
-position = Vector2(1624.2, 354.132)
-points = PackedVector2Array(7.41309, 165.414, 7.55029, 446.118)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine3" type="Line2D" parent="."]
-position = Vector2(1803.2, 189.132)
-points = PackedVector2Array(7.31067, 169.774, 6.93542, 746.008)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine4" type="Line2D" parent="."]
-position = Vector2(1704.2, 188.132)
-points = PackedVector2Array(6.14331, 164.918, 6.07336, 322.098)
+points = PackedVector2Array(5.8, 361.868, 5.8, 385.868, 205.8, 385.868, 205.8, 361.868, 93.8, 361.868)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
 [node name="MediumLine5" type="Line2D" parent="."]
 position = Vector2(1682.2, 400.132)
-points = PackedVector2Array(5.62305, 248.239, 6.07336, 322.098)
+points = PackedVector2Array(-266.2, 239.868, 93.8, 239.868, 93.8, 319.868, 5.80005, 319.868, 5.80005, 239.868, 125.8, 239.868)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine7" type="Line2D" parent="."]
-position = Vector2(1414.2, 306.132)
-points = PackedVector2Array(5.62305, 248.239, 5.48755, 332.444)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine8" type="Line2D" parent="."]
-position = Vector2(1414.2, 428.132)
-points = PackedVector2Array(5.62305, 248.239, 5.55615, 366.22)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="MediumLine6" type="Line2D" parent="."]
-position = Vector2(1771.2, 400.132)
-points = PackedVector2Array(5.62305, 248.239, 6.07336, 322.098)
-width = 2.0
-default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
-
-[node name="DeviceName" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(505.414, 215.69)
-
-[node name="DeviceName2" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(238.425, 473.352)
-
-[node name="DeviceName3" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(360.401, 461.685)
-
-[node name="DeviceName4" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(449.85, 528.86)
-
-[node name="DeviceName5" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(584.824, 463.261)
-
-[node name="DeviceName6" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(607.005, 529.332)
-
-[node name="DeviceName7" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(596.15, 612.865)
-
-[node name="DeviceName8" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(438.523, 607.674)
-
-[node name="DeviceName10" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(449.7, 897.587)
-
-[node name="DeviceName11" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(693.924, 686.325)
-
-[node name="DeviceName12" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(785.32, 608.413)
-
-[node name="DeviceName13" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(863.232, 706.552)
-
-[node name="DeviceName14" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(942.643, 706.552)
-
-[node name="DeviceName15" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(919.419, 967.258)
-
-[node name="DeviceName16" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(120.272, 956.555)
-
-[node name="DeviceName17" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1162.75, 844.499)
-
-[node name="DeviceName18" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1319.99, 843.163)
-
-[node name="DeviceName19" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1319.99, 686.01)
-
-[node name="DeviceName20" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1163.63, 686.01)
-
-[node name="DeviceName21" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1161.51, 471.999)
-
-[node name="DeviceName22" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1231.44, 474.118)
-
-[node name="DeviceName23" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1229.32, 595.956)
-
-[node name="DeviceName24" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1230.38, 751.697)
-
-[node name="DeviceName25" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1321.49, 470.939)
-
-[node name="DeviceName26" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1386.9, 440.238)
-
-[node name="DeviceName27" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1386.9, 563.043)
-
-[node name="DeviceName28" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1389.57, 712.545)
 
 [node name="DeviceName29" parent="." instance=ExtResource("2_ph5kb")]
 position = Vector2(1589.8, 843.36)
-
-[node name="DeviceName30" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1591.13, 685.849)
-
-[node name="DeviceName31" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1592.47, 557.704)
-
-[node name="DeviceName32" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1656.54, 404.197)
-
-[node name="DeviceName33" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1856.76, 404.197)
-
-[node name="DeviceName34" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1735.29, 596.414)
-
-[node name="DeviceName35" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1732.62, 767.274)
-
-[node name="DeviceName36" parent="." instance=ExtResource("2_ph5kb")]
-position = Vector2(1859.43, 753.925)
 
 [node name="Tank" parent="." instance=ExtResource("2_roqwo")]
 position = Vector2(472.776, 306.685)
@@ -399,127 +117,460 @@ position = Vector2(448.294, 264.068)
 
 [node name="Valve" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(550.22, 218.782)
+valve_stat = 1
+Rotate = -90.0
+main_name = "KBA60"
+sub_name = "AA802"
+
+[node name="Label" type="Label" parent="Valve"]
+offset_left = -73.5391
+offset_top = -25.8094
+offset_right = -33.5391
+offset_bottom = -2.80939
+theme = ExtResource("6_buief")
+text = "KBA60
+AA802"
 
 [node name="Valve2" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(426.313, 454.424)
+valve_stat = 1
+main_name = "KBA21"
+sub_name = "AA001"
+
+[node name="Label" type="Label" parent="Valve2"]
+offset_left = -90.313
+offset_top = -30.424
+offset_right = -42.313
+offset_bottom = 13.576
+theme = ExtResource("6_buief")
+text = "KBA21
+AA001"
 
 [node name="Valve3" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(515.652, 454.573)
+valve_stat = 1
+main_name = "KBA22"
+sub_name = "AA001"
+
+[node name="Label" type="Label" parent="Valve3"]
+offset_left = 44.348
+offset_top = -30.573
+offset_right = 92.348
+offset_bottom = 13.427
+theme = ExtResource("6_buief")
+text = "KBA22
+AA001"
 
 [node name="Valve4" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(237.233, 510.086)
+valve_stat = 1
+main_name = "KBA10"
+sub_name = "AA101"
+
+[node name="Label" type="Label" parent="Valve4"]
+offset_left = -21.233
+offset_top = -70.086
+offset_right = 26.767
+offset_bottom = -26.086
+theme = ExtResource("6_buief")
+text = "KBA10
+AA101"
 
 [node name="Valve5" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(382.904, 609.964)
+position = Vector2(382.221, 607.251)
+valve_stat = 2
+Rotate = -90.0
+main_name = "KBA21"
+sub_name = "AA002"
+
+[node name="Label" type="Label" parent="Valve5"]
+offset_left = 30.66
+offset_top = -20.531
+offset_right = 78.66
+offset_bottom = 23.469
+theme = ExtResource("6_buief")
+text = "KBA21
+AA002"
 
 [node name="Valve6" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(538.867, 615.321)
+position = Vector2(542.409, 606.763)
+valve_stat = 1
+Rotate = -90.0
+main_name = "KBA22"
+sub_name = "AA002"
+
+[node name="Label" type="Label" parent="Valve6"]
+offset_left = 30.66
+offset_top = -20.531
+offset_right = 78.66
+offset_bottom = 23.469
+theme = ExtResource("6_buief")
+text = "KBA22
+AA002"
 
 [node name="Valve7" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(694.809, 632.844)
+position = Vector2(695.5, 630)
+valve_stat = 1
+main_name = "KBA24"
+sub_name = "AA002"
+
+[node name="Label" type="Label" parent="Valve7"]
+offset_left = -23.5
+offset_top = 34.0
+offset_right = 24.5
+offset_bottom = 78.0
+theme = ExtResource("6_buief")
+text = "KBA24
+AA002"
 
 [node name="Valve8" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(448.815, 934.117)
+valve_stat = 1
+main_name = "KBA25"
+sub_name = "AA002"
+
+[node name="Label" type="Label" parent="Valve8"]
+offset_left = -24.815
+offset_top = -70.117
+offset_right = 23.185
+offset_bottom = -26.117
+theme = ExtResource("6_buief")
+text = "KBA25
+AA002"
 
 [node name="Valve9" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1162.6, 510.254)
+valve_stat = 1
+main_name = "KBA31"
+sub_name = "AA101"
+
+[node name="Label" type="Label" parent="Valve9"]
+offset_left = -24.7123
+offset_top = -65.5156
+offset_right = 25.2877
+offset_bottom = -21.5156
+theme = ExtResource("6_buief")
+text = "KBA31
+AA101"
 
 [node name="Valve10" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(1162.6, 632.782)
+position = Vector2(1162.71, 630.154)
+valve_stat = 1
+main_name = "KBA32"
+sub_name = "AA101"
+
+[node name="Label" type="Label" parent="Valve10"]
+offset_left = -26.6
+offset_top = 35.007
+offset_right = 23.4
+offset_bottom = 79.007
+theme = ExtResource("6_buief")
+text = "KBA32
+AA101"
 
 [node name="Valve11" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(1162.6, 788.993)
+position = Vector2(1162.41, 789.929)
+valve_stat = 2
+main_name = "KBA33"
+sub_name = "AA101"
+
+[node name="Label" type="Label" parent="Valve11"]
+offset_left = -26.6
+offset_top = 35.007
+offset_right = 23.4
+offset_bottom = 79.007
+theme = ExtResource("6_buief")
+text = "KBA33
+AA101"
 
 [node name="Valve12" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(1408.78, 732.828)
+position = Vector2(1406.09, 730.364)
+valve_stat = 2
+Rotate = -90.0
+main_name = "KBA33"
+sub_name = "AA003"
+
+[node name="Label" type="Label" parent="Valve12"]
+offset_left = -54.0928
+offset_top = -58.3636
+offset_right = -4.0928
+offset_bottom = -14.3636
+theme = ExtResource("6_buief")
+text = "KBA33
+AA003"
 
 [node name="Valve13" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(1409.26, 587.607)
+position = Vector2(1406.08, 590.659)
+valve_stat = 2
+Rotate = -90.0
+main_name = "KBA32"
+sub_name = "AA003"
+
+[node name="Label" type="Label" parent="Valve13"]
+offset_left = -51.2659
+offset_top = -50.1873
+offset_right = -1.2659
+offset_bottom = -6.18732
+theme = ExtResource("6_buief")
+text = "KBA32
+AA003"
 
 [node name="Valve14" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(1409.41, 464.631)
+position = Vector2(1405.96, 463.598)
+valve_stat = 2
+Rotate = -90.0
+main_name = "KBA31"
+sub_name = "AA003"
+
+[node name="Label" type="Label" parent="Valve14"]
+offset_left = -51.2659
+offset_top = -52.5711
+offset_right = -1.2659
+offset_bottom = -8.57111
+theme = ExtResource("6_buief")
+text = "KBA31
+AA003"
 
 [node name="Valve15" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1586.7, 510.773)
+valve_stat = 1
+main_name = "KBA31"
+sub_name = "AA002"
+
+[node name="Label" type="Label" parent="Valve15"]
+offset_left = -26.7
+offset_top = 25.227
+offset_right = 23.3
+offset_bottom = 69.227
+theme = ExtResource("6_buief")
+text = "KBA31
+AA002"
 
 [node name="Valve16" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(1586.46, 633.476)
+position = Vector2(1584.18, 630.232)
+valve_stat = 1
+main_name = "KBA32"
+sub_name = "AA002"
+
+[node name="Label" type="Label" parent="Valve16"]
+offset_left = -26.7
+offset_top = 25.227
+offset_right = 23.3
+offset_bottom = 69.227
+theme = ExtResource("6_buief")
+text = "KBA32
+AA002"
 
 [node name="Valve17" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(1586.46, 788.551)
+position = Vector2(1584.26, 790.146)
+valve_stat = 2
+main_name = "KBA33"
+sub_name = "AA002"
 
 [node name="Valve18" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1731.42, 710.265)
+valve_stat = 2
+main_name = "KBA40"
+sub_name = "AA001"
+
+[node name="Label" type="Label" parent="Valve18"]
+offset_left = -26.7
+offset_top = 25.227
+offset_right = 23.3
+offset_bottom = 69.227
+theme = ExtResource("6_buief")
+text = "KBA40
+AA001"
 
 [node name="Valve19" parent="." instance=ExtResource("4_wmk10")]
-position = Vector2(1799.44, 754.457)
+position = Vector2(1798.2, 756.402)
+valve_stat = 1
+Rotate = -90.0
+main_name = "KBA50"
+sub_name = "AA801"
+
+[node name="Label" type="Label" parent="Valve19"]
+offset_left = 33.7973
+offset_top = -20.4016
+offset_right = 83.7973
+offset_bottom = 23.5984
+theme = ExtResource("6_buief")
+text = "KBA50
+AA801"
 
 [node name="ListChange" parent="." instance=ExtResource("5_51gqg")]
-position = Vector2(481.756, 85.5746)
+position = Vector2(480, 88)
+Rotate = 180.0
+lst_state = 1
+main_name = "02-E"
+
+[node name="Label" type="Label" parent="ListChange"]
+offset_left = -30.0
+offset_top = -12.0
+offset_right = 18.0
+offset_bottom = 11.0
+theme = ExtResource("6_buief")
+text = "02-E"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ValveRegul" parent="." instance=ExtResource("6_h32ox")]
-position = Vector2(1732.08, 633.056)
+position = Vector2(1732.08, 630.181)
+valve_stat = 1
+vlv_mode = 2
+main_name = "KBA40"
+sub_name = "AA201"
+
+[node name="Label" type="Label" parent="ValveRegul"]
+offset_left = -24.1801
+offset_top = -65.8023
+offset_right = 25.8199
+offset_bottom = -21.8023
+theme = ExtResource("6_buief")
+text = "KBA40
+AA201"
 
 [node name="ValveRegul2" parent="." instance=ExtResource("6_h32ox")]
-position = Vector2(1699.64, 397.776)
+position = Vector2(1702.14, 400.279)
+valve_stat = 1
+vlv_mode = 2
+Rotate = -90.0
+main_name = "KBA42"
+sub_name = "AA201"
 
-[node name="ValveRegul3" parent="." instance=ExtResource("6_h32ox")]
-position = Vector2(1799.45, 397.708)
-
-[node name="Valve20" parent="." instance=ExtResource("7_iftpl")]
-position = Vector2(169.751, 643.125)
-Position = Vector2(23.925, -24.015)
-Rotate = 90.0
-
-[node name="Valve21" parent="." instance=ExtResource("7_iftpl")]
-position = Vector2(783.282, 643.125)
-
-[node name="Valve22" parent="." instance=ExtResource("7_iftpl")]
-position = Vector2(828.449, 754.518)
-Rotate = 90.0
-
-[node name="Valve23" parent="." instance=ExtResource("7_iftpl")]
-position = Vector2(906.342, 754.518)
-
-[node name="Valve24" parent="." instance=ExtResource("7_iftpl")]
-position = Vector2(1319.02, 520.68)
-
-[node name="Valve25" parent="." instance=ExtResource("7_iftpl")]
-position = Vector2(1318.8, 643.402)
-
-[node name="Valve26" parent="." instance=ExtResource("7_iftpl")]
-position = Vector2(1319.4, 799.188)
+[node name="Label" type="Label" parent="ValveRegul2"]
+offset_left = -83.64
+offset_top = -21.776
+offset_right = -33.64
+offset_bottom = 22.224
+theme = ExtResource("6_buief")
+text = "KBA42
+AA201"
 
 [node name="ElPump" parent="." instance=ExtResource("8_o8my3")]
 position = Vector2(1229.66, 520.533)
+pmp_state = 1
+main_name = "KBA31"
+sub_name = "AP001"
+
+[node name="Label" type="Label" parent="ElPump"]
+offset_left = -22.26
+offset_top = -77.0652
+offset_right = 27.74
+offset_bottom = -33.0652
+theme = ExtResource("6_buief")
+text = "KBA31
+AP001"
 
 [node name="ElPump2" parent="." instance=ExtResource("8_o8my3")]
-position = Vector2(1230.26, 643.616)
+position = Vector2(1232, 640)
+pmp_state = 1
+main_name = "KBA32"
+sub_name = "AP001"
+
+[node name="Label" type="Label" parent="ElPump2"]
+offset_left = -22.26
+offset_top = -71.402
+offset_right = 27.74
+offset_bottom = -27.402
+theme = ExtResource("6_buief")
+text = "KBA32
+AP001"
 
 [node name="ElPump3" parent="." instance=ExtResource("8_o8my3")]
 position = Vector2(1230.26, 799.402)
+pmp_state = 2
+main_name = "KBA33"
+sub_name = "AP001"
+
+[node name="Label" type="Label" parent="ElPump3"]
+offset_left = -22.26
+offset_top = -71.402
+offset_right = 27.74
+offset_bottom = -27.402
+theme = ExtResource("6_buief")
+text = "KBA33
+AP001"
 
 [node name="Polygon" parent="." instance=ExtResource("9_sfco6")]
 position = Vector2(152.849, 944.364)
+plgn_state = 1
+main_name = "KBC"
+sub_name = ""
+
+[node name="Label" type="Label" parent="Polygon"]
+offset_left = -40.849
+offset_top = -8.36401
+offset_right = -8.849
+offset_bottom = 13.636
+theme = ExtResource("6_buief")
+text = "KBC
+"
 
 [node name="Polygon2" parent="." instance=ExtResource("9_sfco6")]
-position = Vector2(906.349, 938.614)
-rotation = -1.5708
+position = Vector2(912, 936)
+Rotate = -90.0
+plgn_state = 1
+main_name = "KBD"
+sub_name = ""
+
+[node name="Label" type="Label" parent="Polygon2"]
+offset_left = -16.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 30.0
+theme = ExtResource("6_buief")
+text = "KBD
+"
 
 [node name="HeatExchanger" parent="." instance=ExtResource("10_8ikhm")]
 position = Vector2(393.34, 532.531)
+main_name = "KBA21"
+sub_name = "AC001"
+
+[node name="Label" type="Label" parent="HeatExchanger"]
+offset_left = 30.66
+offset_top = -20.531
+offset_right = 78.66
+offset_bottom = 23.469
+theme = ExtResource("6_buief")
+text = "KBA21
+AC001"
 
 [node name="HeatExchanger2" parent="." instance=ExtResource("10_8ikhm")]
 position = Vector2(549.643, 531.97)
+main_name = "KBA22"
+sub_name = "AC001"
+
+[node name="Label" type="Label" parent="HeatExchanger2"]
+offset_left = 34.357
+offset_top = -19.97
+offset_right = 82.357
+offset_bottom = 24.03
+theme = ExtResource("6_buief")
+text = "KBA22
+AC001"
 
 [node name="ListGap" parent="." instance=ExtResource("11_krx8i")]
-position = Vector2(1686.86, 933.842)
+position = Vector2(1688, 936)
+lst_state = 1
+main_name = "02-C"
+
+[node name="Label" type="Label" parent="ListGap"]
+offset_left = -30.0
+offset_top = -12.0
+offset_right = 18.0
+offset_bottom = 11.0
+theme = ExtResource("6_buief")
+text = "02-C"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Node4" parent="." instance=ExtResource("3_kj0b7")]
 position = Vector2(169.579, 943.807)
 
 [node name="Node5" parent="." instance=ExtResource("3_kj0b7")]
-position = Vector2(906.51, 921.492)
+position = Vector2(912, 912)
 
 [node name="Node6" parent="." instance=ExtResource("3_kj0b7")]
 position = Vector2(493.506, 519.73)
@@ -527,20 +578,14 @@ position = Vector2(493.506, 519.73)
 [node name="Node7" parent="." instance=ExtResource("3_kj0b7")]
 position = Vector2(493.153, 542.888)
 
-[node name="NodeBlue" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(560.62, 185.693)
-
 [node name="NodeBlue3" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(470.829, 408.888)
+position = Vector2(472, 408)
 
 [node name="NodeBlue4" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(471.094, 464.775)
-
-[node name="NodeBlue5" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(393.004, 565.55)
+position = Vector2(472, 464)
 
 [node name="NodeBlue6" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(281.864, 520.337)
+position = Vector2(280, 520)
 
 [node name="NodeBlue7" parent="." instance=ExtResource("12_cnwmy")]
 position = Vector2(192.329, 520.782)
@@ -548,128 +593,55 @@ position = Vector2(192.329, 520.782)
 [node name="NodeBlue8" parent="." instance=ExtResource("12_cnwmy")]
 position = Vector2(113.93, 520.56)
 
-[node name="NodeBlue9" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(114.153, 610.318)
-
-[node name="NodeBlue10" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(169.995, 677.385)
-
-[node name="NodeBlue11" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(169.995, 765.779)
-
-[node name="NodeBlue12" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(169.786, 855.441)
-
-[node name="NodeBlue13" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(382.391, 944.079)
-
-[node name="NodeBlue14" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(515.95, 944.551)
-
-[node name="NodeBlue15" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(470.654, 643.221)
-
-[node name="NodeBlue16" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(548.994, 565.327)
-
-[node name="NodeBlue17" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(649.336, 642.913)
-
-[node name="NodeBlue18" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(739.102, 642.913)
-
-[node name="NodeBlue19" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(829.078, 643.124)
-
 [node name="NodeBlue20" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(907.166, 642.79)
-
-[node name="NodeBlue21" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(984.92, 643.124)
-
-[node name="NodeBlue22" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1063.01, 643.457)
+position = Vector2(912, 640)
 
 [node name="NodeBlue23" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1130.08, 643.791)
-
-[node name="NodeBlue24" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1274.08, 643.994)
-
-[node name="NodeBlue25" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1274.08, 799.483)
-
-[node name="NodeBlue26" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1273.52, 520.27)
+position = Vector2(1128, 640)
 
 [node name="NodeBlue27" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1418.96, 409.638)
+position = Vector2(1416, 408)
 
 [node name="NodeBlue28" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1419.59, 520.511)
+position = Vector2(1416, 520)
 
 [node name="NodeBlue29" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1419.03, 643)
+position = Vector2(1416, 640)
 
 [node name="NodeBlue30" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1419.76, 798.986)
-
-[node name="NodeBlue31" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1542.13, 799.143)
-
-[node name="NodeBlue32" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1542.02, 642.374)
-
-[node name="NodeBlue33" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1542.32, 520.183)
+position = Vector2(1416, 800)
 
 [node name="NodeBlue34" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1632.2, 642.69)
+position = Vector2(1632, 640)
 
 [node name="NodeBlue35" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1687.76, 643.484)
+position = Vector2(1688, 640)
 
 [node name="NodeBlue36" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1776.46, 642.492)
-
-[node name="NodeBlue37" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1709.81, 441.845)
-
-[node name="NodeBlue38" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1809.82, 354.092)
-
-[node name="NodeBlue39" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1810.48, 442.291)
+position = Vector2(1776, 640)
 
 [node name="NodeBlue40" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1810.04, 509.553)
-
-[node name="NodeBlue41" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1810.26, 798.633)
-
-[node name="NodeBlue42" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(1810.62, 899.042)
-
-[node name="NodeBlue2" parent="." instance=ExtResource("12_cnwmy")]
-position = Vector2(560.789, 107.949)
+position = Vector2(1808, 512)
 
 [node name="Arrow" parent="." instance=ExtResource("13_fukg0")]
 position = Vector2(364.648, 543.575)
 
 [node name="Arrow2" parent="." instance=ExtResource("13_fukg0")]
-position = Vector2(393.79, 503.224)
+position = Vector2(392, 504)
+Rotate = 90.0
 
 [node name="Arrow3" parent="." instance=ExtResource("13_fukg0")]
 position = Vector2(521.186, 543.487)
 
 [node name="Arrow4" parent="." instance=ExtResource("13_fukg0")]
-position = Vector2(549.626, 503.465)
+position = Vector2(552, 504)
+Rotate = 90.0
 
 [node name="Arrow5" parent="." instance=ExtResource("13_fukg0")]
 position = Vector2(1202.21, 521.282)
 
 [node name="Arrow6" parent="." instance=ExtResource("13_fukg0")]
-position = Vector2(1202.42, 643.002)
+position = Vector2(1208, 640)
 
 [node name="Arrow7" parent="." instance=ExtResource("13_fukg0")]
 position = Vector2(1203.42, 799.846)
@@ -677,23 +649,152 @@ position = Vector2(1203.42, 799.846)
 [node name="ResistanceL" parent="." instance=ExtResource("14_0y8gh")]
 position = Vector2(1374.85, 800.023)
 
+[node name="ResistanceL3" parent="." instance=ExtResource("14_0y8gh")]
+position = Vector2(1374.85, 640.023)
+
 [node name="ResistanceL2" parent="." instance=ExtResource("14_0y8gh")]
 position = Vector2(1375.32, 521.108)
 
 [node name="ResistanceS" parent="." instance=ExtResource("15_4u0nq")]
-position = Vector2(1419.72, 776.736)
+position = Vector2(1416, 776)
 
 [node name="ResistanceS2" parent="." instance=ExtResource("15_4u0nq")]
-position = Vector2(1420.19, 620.053)
+position = Vector2(1416, 622.682)
 
 [node name="ResistanceS3" parent="." instance=ExtResource("15_4u0nq")]
-position = Vector2(1420.19, 498.293)
+position = Vector2(1416, 496)
 
 [node name="SensorName" parent="." instance=ExtResource("16_vpoda")]
-position = Vector2(1330.76, 878.197)
+position = Vector2(1336, 904)
 
 [node name="SensorName2" parent="." instance=ExtResource("16_vpoda")]
-position = Vector2(1330.76, 900.471)
+position = Vector2(1336, 926.274)
 
 [node name="SensorName3" parent="." instance=ExtResource("16_vpoda")]
-position = Vector2(1330.76, 922.745)
+position = Vector2(1336, 948.548)
+
+[node name="ValveRegul3" parent="." instance=ExtResource("6_h32ox")]
+position = Vector2(1798.11, 399.79)
+valve_stat = 2
+vlv_mode = 2
+Rotate = -90.0
+main_name = "KBA41"
+sub_name = "AA201"
+
+[node name="Label" type="Label" parent="ValveRegul3"]
+offset_left = 33.7973
+offset_top = -20.4016
+offset_right = 83.7973
+offset_bottom = 23.5984
+theme = ExtResource("6_buief")
+text = "KBA41
+AA201"
+
+[node name="ValveCheck" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(168, 656)
+Rotate = -90.0
+valve_stat = 1
+main_name = "KBA13"
+sub_name = "AA601"
+
+[node name="Label" type="Label" parent="ValveCheck"]
+offset_left = 24.0
+offset_top = -24.0001
+offset_right = 72.0
+offset_bottom = 19.9999
+theme = ExtResource("6_buief")
+text = "KBA13
+AA601"
+
+[node name="ValveCheck2" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(784, 640)
+Rotate = 180.0
+valve_stat = 1
+main_name = "KBA20"
+sub_name = "AA601"
+
+[node name="Label" type="Label" parent="ValveCheck2"]
+offset_left = -24.0
+offset_top = -56.0
+offset_right = 24.0
+offset_bottom = -12.0
+theme = ExtResource("6_buief")
+text = "KBA20
+AA601"
+
+[node name="ValveCheck3" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(832, 760)
+Rotate = -90.0
+valve_stat = 2
+main_name = "KBA25"
+sub_name = "AA601"
+
+[node name="Label" type="Label" parent="ValveCheck3"]
+offset_left = 7.99997
+offset_top = -64.0
+offset_right = 56.0
+offset_bottom = -20.0
+theme = ExtResource("6_buief")
+text = "KBA25
+AA601"
+
+[node name="ValveCheck4" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(912, 760)
+Rotate = -90.0
+valve_stat = 2
+main_name = "KBD40"
+sub_name = "AA601"
+
+[node name="Label" type="Label" parent="ValveCheck4"]
+offset_left = 16.0
+offset_top = -64.0
+offset_right = 66.0
+offset_bottom = -20.0
+theme = ExtResource("6_buief")
+text = "KBD40
+AA601"
+
+[node name="ValveCheck5" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(1320, 800)
+valve_stat = 2
+main_name = "KBA33"
+sub_name = "AA601"
+
+[node name="Label" type="Label" parent="ValveCheck5"]
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 26.0
+offset_bottom = 68.0
+theme = ExtResource("6_buief")
+text = "KBA33
+AA601"
+
+[node name="ValveCheck6" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(1318.84, 640.237)
+valve_stat = 1
+main_name = "KBA32"
+sub_name = "AA601"
+
+[node name="Label" type="Label" parent="ValveCheck6"]
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 26.0
+offset_bottom = 68.0
+theme = ExtResource("6_buief")
+text = "KBA32
+AA601"
+
+[node name="ValveCheck7" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(1318.84, 520.411)
+valve_stat = 1
+main_name = "KBA31"
+sub_name = "AA601"
+
+[node name="Label" type="Label" parent="ValveCheck7"]
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 26.0
+offset_bottom = 68.0
+theme = ExtResource("6_buief")
+text = "KBA31
+AA601"

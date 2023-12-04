@@ -1,20 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://v878eg8p1f5k"]
 
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ListGap.gd" id="1_iiwfn"]
 [ext_resource type="Texture2D" uid="uid://la66qh7wu0wl" path="res://Icons/Scheme_elements/ListGap.png" id="1_vsw5j"]
-[ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://Themes/Left_menu/Left_main.tres" id="2_45tcm"]
 
 [node name="ListGap" type="Node2D"]
+script = ExtResource("1_iiwfn")
 
 [node name="ListGap" type="Sprite2D" parent="."]
 texture = ExtResource("1_vsw5j")
-
-[node name="Label" type="Label" parent="ListGap"]
-offset_left = -28.0
-offset_top = -11.0551
-offset_right = 17.0
-offset_bottom = 12.9449
-theme = ExtResource("2_45tcm")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "03-E"
-horizontal_alignment = 1
-vertical_alignment = 1

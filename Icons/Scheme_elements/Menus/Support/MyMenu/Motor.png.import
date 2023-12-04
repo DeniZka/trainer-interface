@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlmu6a7p1ra3x"
-path="res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"
+uid="uid://bt2x8xuivmy56"
+path="res://.godot/imported/Motor.png-d7d98a37fa95ed0ee0110b5a33ec20f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/Scheme_elements/NodeBlue.png"
-dest_files=["res://.godot/imported/NodeBlue.png-87af8583adb0ddbbe84761c33b6be308.ctex"]
+source_file="res://Icons/Scheme_elements/Menus/Support/MyMenu/Motor.png"
+dest_files=["res://.godot/imported/Motor.png-d7d98a37fa95ed0ee0110b5a33ec20f6.ctex"]
 
 [params]
 

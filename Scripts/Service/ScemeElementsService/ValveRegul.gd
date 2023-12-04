@@ -1,4 +1,5 @@
-extends Node2D
+@tool #set design-time usability
+class_name ValveRegul extends Node2D #generate class name for node searching type
 
 @onready var btnArea = $menuArea
 @onready var valveLeft = $ValveEl
@@ -13,12 +14,116 @@ extends Node2D
 @onready var CheckValveOff = $menuArea/menuColShape/Bg/CheckValveOff/CheckValveOff
 @onready var rotate = $menuArea/menuColShape/Bg/Rotate/Rotate
 @onready var flip = $menuArea/menuColShape/Bg/Flip/Flip
+@onready var refusalBuffer : bool = false
+@onready var obj_name = {"mainname": "", "subname" : ""}
 
-var CLOSE_RGB = CustomRGBDto.new(0, 0.9176470588235294, 0) 
-var OPEN_RGB = CustomRGBDto.new(1, 0.5803921568627451, 0.1568627450980392) 
-var DARK_RGB = CustomRGBDto.new(0.8, 0.8, 0.8)
-var DEFAULT_RGB = CustomRGBDto.new(1, 1, 1)
+const CLOSE_RGB = Color(0, 0.9176470588235294, 0) 
+const OPEN_RGB = Color(1, 0.5803921568627451, 0.1568627450980392) 
+const DARK_RGB = Color(0.8, 0.8, 0.8)
+const DEFAULT_RGB = Color(1, 1, 1)
+const REFUSAL_RGB = Color(0.5490196078431373, 0.2509803921568627, 0.7843137254901961)
 
+#export inspector variables
+@export_category("Valve_Regul") #create comfort category
+enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING}
+@onready var valve_status : VLV_STATE = VLV_STATE.ST_UNKNOWN
+@export_enum("неизвестно:0", "открыт:1", "закрыт:2", "в работе:3") var valve_stat : int = VLV_STATE.ST_UNKNOWN: #same as VLV_STATE indexes
+	get:
+		if not is_node_ready(): await ready
+		return valve_status
+	set(val):
+		if not is_node_ready(): await ready
+		#default states
+		valve_status = val
+		valveLeft.modulate = DEFAULT_RGB
+		valveRight.modulate = DEFAULT_RGB
+		if val == VLV_STATE.ST_OPENED: #direct states
+			valveLeft.modulate = OPEN_RGB
+			valveRight.modulate = OPEN_RGB
+		if val == VLV_STATE.ST_CLOSED:
+			valveLeft.modulate = CLOSE_RGB
+			valveRight.modulate = CLOSE_RGB
+		if val == VLV_STATE.ST_WORKING:
+			valveLeft.modulate = CLOSE_RGB
+			valveRight.modulate = OPEN_RGB
+
+enum VLV_MODE {ST_UNKNOWN, ST_AUTO, ST_REMOTE}
+@onready var valve_mode : VLV_MODE = VLV_MODE.ST_UNKNOWN
+@export_enum("неизвестно:0", "автоматический:1", "удаленный:2") var vlv_mode : int = VLV_MODE.ST_UNKNOWN: #same as VLV_STATE indexes
+	get:
+		if not is_node_ready(): await ready
+		return valve_mode
+	set(val):
+		if not is_node_ready(): await ready
+		#default states
+		valve_mode = val
+		elMotor.modulate = DEFAULT_RGB
+		if val == VLV_MODE.ST_AUTO: #direct states
+			elMotor.modulate = OPEN_RGB
+		if val == VLV_MODE.ST_REMOTE:
+			elMotor.modulate = CLOSE_RGB
+
+@export var refusal: bool = false:
+	set(val):
+		if not is_node_ready() : await ready
+		refusalBuffer = val
+		if val:
+			elMotor.modulate = REFUSAL_RGB
+		else:
+			if valve_mode == VLV_MODE.ST_AUTO:
+				elMotor.modulate = OPEN_RGB
+			elif valve_mode == VLV_MODE.ST_REMOTE:
+				elMotor.modulate = CLOSE_RGB
+			else:
+				elMotor.modulate = DEFAULT_RGB
+	get:
+		if not is_node_ready() : await ready
+		return refusalBuffer
+
+@export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
+	get:
+		if not is_node_ready(): await ready
+		return valveLeft.rotation_degrees
+	set(val):
+		if not is_node_ready(): await ready
+		valveLeft.rotation_degrees = val
+		valveRight.rotation_degrees = val
+		elMotor.rotation_degrees = val
+		elArrow.rotation_degrees = val
+
+func printLabel(mainName, subName):
+	for child in get_children():
+		if child is Label:
+			child.text = mainName + "\n" + subName
+
+@export var main_name : String = "KBAXX":
+	set(val):
+		if not is_node_ready() : await ready
+		obj_name["mainname"] = val
+		printLabel(obj_name["mainname"], obj_name["subname"])
+	get:
+		if not is_node_ready() : await ready
+		return obj_name["mainname"]
+
+@export var sub_name : String = "AAXXX":
+	set(val):
+		if not is_node_ready() : await ready
+		obj_name["subname"] = val
+		printLabel(obj_name["mainname"], obj_name["subname"])
+	get:
+		if not is_node_ready() : await ready
+		return obj_name["subname"]
+
+func _ready():
+	pass 
+
+
+func _process(delta):
+	pass
+
+func _on_child_entered_tree(node):
+	if not is_node_ready() : await ready
+	printLabel(obj_name["mainname"], obj_name["subname"])
 
 
 func _on_active_area_mouse_entered():
@@ -31,66 +136,66 @@ func _on_menu_area_mouse_exited():
 
 func _on_on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		valveLeft.modulate = Color(OPEN_RGB.red, OPEN_RGB.green, OPEN_RGB.blue)
-		valveRight.modulate = Color(OPEN_RGB.red, OPEN_RGB.green, OPEN_RGB.blue)
+		valveLeft.modulate = OPEN_RGB
+		valveRight.modulate = OPEN_RGB
 
 func _on_on_mouse_entered():
-	open.modulate = Color(OPEN_RGB.red, OPEN_RGB.green, OPEN_RGB.blue)
+	open.modulate = OPEN_RGB
 
 func _on_on_mouse_exited():
-	open.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
+	open.modulate = DEFAULT_RGB
 
 
 
 func _on_off_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		valveLeft.modulate = Color(CLOSE_RGB.red, CLOSE_RGB.green, CLOSE_RGB.blue)
-		valveRight.modulate = Color(CLOSE_RGB.red, CLOSE_RGB.green, CLOSE_RGB.blue)
+		valveLeft.modulate = CLOSE_RGB
+		valveRight.modulate = CLOSE_RGB
 
 func _on_off_mouse_entered():
-	close.modulate = Color(CLOSE_RGB.red, CLOSE_RGB.green, CLOSE_RGB.blue)
+	close.modulate = CLOSE_RGB
 
 func _on_off_mouse_exited():
-	close.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
+	close.modulate = DEFAULT_RGB
 
 
 
 func _on_check_valve_on_off_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		valveLeft.modulate = Color(OPEN_RGB.red, OPEN_RGB.green, OPEN_RGB.blue)
-		valveRight.modulate = Color(CLOSE_RGB.red, CLOSE_RGB.green, CLOSE_RGB.blue)
+		valveLeft.modulate = OPEN_RGB
+		valveRight.modulate = CLOSE_RGB
 
 func _on_check_valve_on_off_mouse_entered():
-	CheckValveOnOff.modulate = Color(OPEN_RGB.red, OPEN_RGB.green, OPEN_RGB.blue)
+	CheckValveOnOff.modulate = OPEN_RGB
 
 func _on_check_valve_on_off_mouse_exited():
-	CheckValveOnOff.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
+	CheckValveOnOff.modulate = DEFAULT_RGB
 
 
 
 func _on_check_valve_on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		valveLeft.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
-		valveRight.modulate = Color(OPEN_RGB.red, OPEN_RGB.green, OPEN_RGB.blue)
+		valveLeft.modulate = DEFAULT_RGB
+		valveRight.modulate = OPEN_RGB
 
 func _on_check_valve_on_mouse_entered():
-	CheckValveOn.modulate = Color(OPEN_RGB.red, OPEN_RGB.green, OPEN_RGB.blue)
+	CheckValveOn.modulate = OPEN_RGB
 
 func _on_check_valve_on_mouse_exited():
-	CheckValveOn.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
+	CheckValveOn.modulate = DEFAULT_RGB
 
 
 
 func _on_check_valve_off_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		valveLeft.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
-		valveRight.modulate = Color(CLOSE_RGB.red, CLOSE_RGB.green, CLOSE_RGB.blue)
+		valveLeft.modulate = DEFAULT_RGB
+		valveRight.modulate = CLOSE_RGB
 
 func _on_check_valve_off_mouse_entered():
-	CheckValveOff.modulate = Color(CLOSE_RGB.red, CLOSE_RGB.green, CLOSE_RGB.blue)
+	CheckValveOff.modulate = CLOSE_RGB
 
 func _on_check_valve_off_mouse_exited():
-	CheckValveOff.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
+	CheckValveOff.modulate = DEFAULT_RGB
 
 
 
@@ -102,10 +207,10 @@ func _on_rotate_input_event(viewport, event, shape_idx):
 		elMotor.rotation_degrees += 90
 
 func _on_rotate_mouse_entered():
-	rotate.modulate = Color(DARK_RGB.red, DARK_RGB.green, DARK_RGB.blue)
+	rotate.modulate = DARK_RGB
 
 func _on_rotate_mouse_exited():
-	rotate.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
+	rotate.modulate = DEFAULT_RGB
 
 
 
@@ -119,19 +224,19 @@ func _on_flip_input_event(viewport, event, shape_idx):
 			valveRight.scale.x = -1
 
 func _on_flip_mouse_entered():
-	flip.modulate = Color(DARK_RGB.red, DARK_RGB.green, DARK_RGB.blue)
+	flip.modulate = DARK_RGB
 
 func _on_flip_mouse_exited():
-	flip.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
+	flip.modulate = DEFAULT_RGB
 
 
 
 func _on_motor_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		elMotor.modulate = Color(CLOSE_RGB.red, CLOSE_RGB.green, CLOSE_RGB.blue)
+		elMotor.modulate = CLOSE_RGB
 
 func _on_motor_mouse_entered():
-	motorClose.modulate = Color(CLOSE_RGB.red, CLOSE_RGB.green, CLOSE_RGB.blue)
+	motorClose.modulate = CLOSE_RGB
 
 func _on_motor_mouse_exited():
-	motorClose.modulate = Color(DEFAULT_RGB.red, DEFAULT_RGB.green, DEFAULT_RGB.blue)
+	motorClose.modulate = DEFAULT_RGB

@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cgqtw81411xsb" path="res://Icons/Scheme_elements/Valve_electric_motor.png" id="2_e2kby"]
 [ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Place.png" id="2_pgwgs"]
 [ext_resource type="Texture2D" uid="uid://deah34ydfr0gy" path="res://Icons/Scheme_elements/CheckValveOnOff.png" id="3_agbtt"]
-[ext_resource type="Texture2D" uid="uid://caad6bc8st15r" path="res://Icons/Scheme_elements/Valve.png" id="3_w27yk"]
 [ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/On.png" id="4_lqhgh"]
 [ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/CheckValveOn.png" id="5_pie00"]
 [ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="6_i1bh3"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d3edbw1crpv1t" path="res://Icons/Scheme_elements/CheckValveOff.png" id="8_507e8"]
 [ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Off.png" id="9_epej5"]
 [ext_resource type="Texture2D" uid="uid://bt2x8xuivmy56" path="res://Icons/Scheme_elements/Motor.png" id="10_j6n3y"]
+[ext_resource type="Texture2D" uid="uid://cdxgmfps3kx8q" path="res://Icons/Scheme_elements/ValveEl.png" id="13_fjyie"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0v0cj"]
 radius = 89.5231
@@ -139,10 +139,10 @@ texture = ExtResource("1_ys0eg")
 texture = ExtResource("2_e2kby")
 
 [node name="ValveLeft" type="Sprite2D" parent="."]
-texture = ExtResource("3_w27yk")
+texture = ExtResource("13_fjyie")
 
 [node name="ValveRight" type="Sprite2D" parent="."]
-texture = ExtResource("3_w27yk")
+texture = ExtResource("13_fjyie")
 flip_h = true
 
 [node name="ActiveArea" type="Area2D" parent="."]

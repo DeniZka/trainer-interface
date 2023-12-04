@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qv1135o1u0gc"]
+
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/Menus/pill.gd" id="1_ja1s0"]
+
+[node name="pill" type="Node2D"]
+script = ExtResource("1_ja1s0")

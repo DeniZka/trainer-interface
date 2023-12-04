@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://btt61xvymlnub"]
+
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/Menus/main-cir.gd" id="1_5rkkr"]
+[ext_resource type="Texture2D" uid="uid://dnd2n84j0pwab" path="res://Icons/Scheme_elements/Menus/Support/Test/main-bak.png" id="2_gj3in"]
+[ext_resource type="Texture2D" uid="uid://mlk002kunlob" path="res://Icons/Scheme_elements/Menus/Support/Test/main-outline.png" id="3_se86d"]
+[ext_resource type="Texture2D" uid="uid://dqc1uui2emx24" path="res://Icons/Scheme_elements/Menus/Support/Test/maint-top.png" id="4_c3sba"]
+
+[node name="main-cir" type="Node2D"]
+script = ExtResource("1_5rkkr")
+
+[node name="Button" type="Button" parent="."]
+z_index = 2
+offset_left = -44.0
+offset_top = -19.0
+offset_right = 45.0
+offset_bottom = 18.0
+pivot_offset = Vector2(30, 19)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+text = "PUSHME"
+flat = true
+
+[node name="body" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Main-bak" type="Sprite2D" parent="body"]
+modulate = Color(0.137255, 0.266667, 0.360784, 1)
+z_index = -1
+position = Vector2(0, 4)
+texture = ExtResource("2_gj3in")
+
+[node name="Main-outline" type="Sprite2D" parent="body"]
+modulate = Color(1, 0.85098, 0, 1)
+texture = ExtResource("3_se86d")
+
+[node name="Maint-top" type="Sprite2D" parent="body"]
+modulate = Color(1, 0.85098, 0, 1)
+z_index = 1
+texture = ExtResource("4_c3sba")
+
+[node name="mplay" type="AnimationPlayer" parent="."]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
