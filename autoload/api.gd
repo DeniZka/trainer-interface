@@ -4,6 +4,7 @@ var url: String = "https://192.168.100.105:8000"
 var http: HTTPRequest
 
 var persons: PersonService
+var roles: RolesService
 
 func _ready() -> void:
 	http = HTTPRequest.new()
@@ -13,4 +14,5 @@ func _ready() -> void:
 
 func initialize_api(url: String, http: HTTPRequest) -> void:
 	var http_service: HTTPService = HTTPService.new(http)
-	persons = PersonService.new(url, http_service)
+	self.persons = PersonService.new(url, http_service)
+	self.roles = RolesService.new(url, http_service)

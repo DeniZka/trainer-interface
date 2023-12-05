@@ -13,7 +13,8 @@ static func create_from_json(json: Dictionary) -> PersonRole:
 	var role: PersonRole = PersonRole.new()
 	role.id = json["role_id"]
 	role.name = json["name"]
-	role.overlay_id = json["overlay_id"]
+	if json["overlay_id"] != null:
+		role.overlay_id = json["overlay_id"]
 	role.person_view = json["person_view"]
 	role.person_add = json["person_add"]
 	role.role_view = json["role_view"]

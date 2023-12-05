@@ -16,7 +16,7 @@ func _roles_to_string() -> String:
 	var line: String = ""
 	for role in role_ids:
 		line += str(role) + ", "
-	return str(role_ids)
+	return line
 
 func serialize(with_id: bool = true) -> Dictionary:
 	if with_id:

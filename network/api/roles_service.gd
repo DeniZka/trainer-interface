@@ -16,7 +16,8 @@ func get_roles(page: int, size: int) -> Array[PersonRole]:
 	if response.content == null:
 		return []
 	
-	return _parse_roles_from_json(response.content["items"])
+	var roles = _parse_roles_from_json(response.content["items"])
+	return roles
 
 func _parse_roles_from_json(json_data: Array) -> Array[PersonRole]:
 	var answer: Array[PersonRole]
