@@ -18,15 +18,33 @@ func send_delete(url: String, headers: PackedStringArray = []) -> HTTPResponse:
 func send_put(url: String) -> HTTPResponse:
 	return await send(url, HTTPClient.METHOD_PUT)
 
+func send_post(url: String) -> HTTPResponse:
+	return await send(url, HTTPClient.METHOD_POST)
+
 func send(url: String, method: HTTPClient.Method, headers: PackedStringArray = []) -> HTTPResponse:
 	var error = http.request(url, headers, method)
 	if error != OK:
 		push_error("Invalid request to %s" % url)
-		print("hey!")
 		return HTTPResponse.error()
 	
 	var response = await http.request_completed
-	return HTTPResponse.valid(response[1], _body_from(response))
+	return HTTPResponse.valid(response[0], response[1], response[2], _body_from(response))
+
+func download(url: String) -> HTTPResponse:
+	var error = http.request(url, [], HTTPClient.METHOD_GET)
+	if error != OK:
+		push_error("Invalid downaload try, %s" % url)
+		return HTTPResponse.error()
+	var response = await http.request_completed
+	return HTTPResponse.valid(response[0], response[1], response[2], response[3])
+
+func send_raw(url: String, headers: PackedStringArray, method: HTTPClient.Method, body: PackedByteArray) -> HTTPResponse:
+	var error = http.request_raw(url, headers, method, body)
+	if error != OK:
+		push_error("Invalid request to %s" % url)
+		return HTTPResponse.error()
+	var response = await http.request_completed
+	return HTTPResponse.valid(response[0], response[1], response[2], _body_from(response))
 
 func _body_from(response: Array) -> Variant:
 	var body: PackedByteArray = response[3]

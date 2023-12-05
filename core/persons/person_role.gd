@@ -13,10 +13,25 @@ func rights_to_string() -> String:
 			line += key + ", "
 	return line
 
+func serialize() -> Dictionary:
+	var base: Dictionary = {
+		"role_id": id,
+		"name": name,
+	}
+	
+	if overlay_id == "":
+		base["overlay_id"] = null
+	
+	for right in rights.keys():
+		base[right] = rights[right]
+	
+	return base
+
 static func create_from_json(json: Dictionary) -> PersonRole:
 	var role: PersonRole = PersonRole.new()
 	role.id = json["role_id"]
 	role.name = json["name"]
+	
 	if json["overlay_id"] != null:
 		role.overlay_id = json["overlay_id"]
 	

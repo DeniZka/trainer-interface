@@ -5,12 +5,12 @@ var url: String
 var http: HTTPService
 
 func _init(url: String, http: HTTPService) -> void:
-	self.url = url
+	self.url = url + "/scenarios"
 	self.http = http
 
 ## Get all users from database
 func get_scenarios(page: int, size: int) -> Array[Scenario]:
-	var endpoint: String = Url.with_parameters(url + "/scenarios", { "page": page, "size": size })
+	var endpoint: String = Url.with_parameters(url, { "page": page, "size": size })
 	var response = await http.send_get(endpoint);
 	
 	if response == null:

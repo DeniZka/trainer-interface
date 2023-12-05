@@ -5,12 +5,12 @@ var url: String
 var http: HTTPService
 
 func _init(url: String, http: HTTPService) -> void:
-	self.url = url
+	self.url = url + "/persons"
 	self.http = http
 
 ## Get all users from database
 func get_persons(page: int, size: int) -> Array[Person]:
-	var endpoint: String = Url.with_parameters(url + "/persons", { "page": page, "size": size })
+	var endpoint: String = Url.with_parameters(url, { "page": page, "size": size })
 	var response = await http.send_get(endpoint);
 	
 	if response == null:
@@ -23,7 +23,7 @@ func update_person(person_id: int, new_person: Person) -> Person:
 	var serialized_person = new_person.serialize()
 	serialized_person.erase("person_id")
 	serialized_person.erase("role_ids")
-	var endpoint: String = Url.with_parameters(url + "/persons/" + str(person_id) +"/", serialized_person)
+	var endpoint: String = Url.with_parameters(url + "/" + str(person_id) +"/", serialized_person)
 	var response = await http.send_patch(endpoint);
 	
 	if response.content == null:
@@ -35,8 +35,8 @@ func update_person(person_id: int, new_person: Person) -> Person:
 func create_person(user: Person) -> Person:
 	var serialized_person = user.serialize(false)
 	serialized_person.erase("role_ids")
-	var endpoint: String = Url.with_parameters(url + "/persons", serialized_person)
-	var response = await http.send_patch(endpoint);
+	var endpoint: String = Url.with_parameters(url, serialized_person)
+	var response = await http.send_post(endpoint);
 	
 	if response.content == null:
 		return null

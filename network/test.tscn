@@ -4,3 +4,14 @@
 
 [node name="Test" type="Node"]
 script = ExtResource("1_dkaoy")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(44, 55)
+size = Vector2i(1000, 1000)
+visible = true
+ok_button_text = "Открыть"
+file_mode = 0
+access = 2
+filters = PackedStringArray("zip")
+show_hidden_files = true
