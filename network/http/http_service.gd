@@ -22,6 +22,7 @@ func send(url: String, method: HTTPClient.Method, headers: PackedStringArray = [
 	var error = http.request(url, headers, method)
 	if error != OK:
 		push_error("Invalid request to %s" % url)
+		print("hey!")
 		return HTTPResponse.error()
 	
 	var response = await http.request_completed

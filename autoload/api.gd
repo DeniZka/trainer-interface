@@ -7,6 +7,7 @@ var persons: PersonService
 
 func _ready() -> void:
 	http = HTTPRequest.new()
+	http.set_tls_options(TLSOptions.client_unsafe())
 	add_child(http)
 	initialize_api(url, http)
 

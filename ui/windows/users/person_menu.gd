@@ -1,8 +1,8 @@
-class_name UserMenu
+class_name PersonMenu
 extends Control
 
-signal saved(data: UserData)
-signal deleted(data: UserData)
+signal saved(data: Person)
+signal deleted(data: Person)
 signal closed()
 
 @onready var save_button: Button = %"Save Button" as Button
@@ -21,7 +21,7 @@ func _ready() -> void:
 	close_button.pressed.connect(_on_close_button_pressed)
 
 func _on_save_button_pressed() -> void:
-	var user = UserData.new()
+	var user = Person.new()
 	user.name = username_edit.text
 	user.login = login_edit.text
 	saved.emit(user)

@@ -1,18 +1,18 @@
-class_name UsersTable
+class_name PersonsTable
 extends Control
 
 @onready var container: Control = %Container
-@export var user_row_prefab: PackedScene
+@export var person_row_prefab: PackedScene
 
 var background_color: Color = Color(0.9372549019607843, 0.9490196078431373, 0.9568627450980392)
 
 func _on_split_0_sort_children():
 	for i in range(container.get_child_count()):
-		var row : UserRow = container.get_child(i)
+		var row : PersonRow = container.get_child(i)
 		align_row(row)
 
-func add_user(user: UserData) -> void:
-	var user_row: UserRow = user_row_prefab.instantiate() as UserRow
+func add_user(user: Person) -> void:
+	var user_row: PersonRow = person_row_prefab.instantiate() as PersonRow
 	user_row.construct(user)
 	container.add_child(user_row)
 	
@@ -21,7 +21,7 @@ func add_user(user: UserData) -> void:
 	
 	align_row(user_row)
 
-func align_row(row: UserRow) -> void:
+func align_row(row: PersonRow) -> void:
 	var iconColumn = $HBoxContainer/Icon
 	var nameColumn = $HBoxContainer/Split0/Name
 	var loginColumn = $HBoxContainer/Split0/Split1/Login

@@ -1,7 +1,7 @@
 class_name MenuManager
 extends Control
 
-@onready var user_menu: UserMenu = $"User Menu" as UserMenu
+@onready var person_menu: PersonMenu = $"Person Menu" as PersonMenu
 @onready var role_menu: RoleMenu = $"Role Menu" as RoleMenu
 @onready var model_menu: ModelMenu = $"Model Menu" as ModelMenu
 @onready var restart_menu: RestartMenu = $"Restart Menu" as RestartMenu
@@ -10,7 +10,7 @@ extends Control
 @onready var server_menu: ServerMenu = $"Server Menu" as ServerMenu
 
 @onready var menus = {
-	WindowId.Users		: user_menu,
+	WindowId.Users		: person_menu,
 	WindowId.Roles		: role_menu,
 	WindowId.Models		: model_menu,
 	WindowId.Restarts	: restart_menu,

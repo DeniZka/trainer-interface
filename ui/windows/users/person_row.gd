@@ -1,4 +1,4 @@
-class_name UserRow
+class_name PersonRow
 extends Control
 
 func align_column_width(iconColumn: Control, nameColumn: Control, loginColumn: Control, roleColumn: Control):
@@ -11,12 +11,12 @@ func align_column_width(iconColumn: Control, nameColumn: Control, loginColumn: C
 	col3.custom_minimum_size.x = loginColumn.size.x
 	col4.custom_minimum_size.x = roleColumn.size.x
 
-func construct(user: UserData) -> void:
-	%Id.set_text("ID: %s" % user.id)
-	%Name.set_text(user.name)
-	%Login.set_text(user.login)
-	%Role.set_text(user.role)
-	%Icon.set_button_icon(load(user.icon))
+func construct(person: Person) -> void:
+	%Id.set_text("ID: %s" % person.id)
+	%Name.set_text(person.full_name)
+	%Login.set_text(person.login)
+	#%Role.set_text(user.role)
+	#%Icon.set_button_icon(load(person.icon))
 
 func paint_background(color: Color) -> void:
 	%Background.color = color

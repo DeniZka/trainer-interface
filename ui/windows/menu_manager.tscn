@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bubk6hx1iu30"]
 
 [ext_resource type="Script" path="res://ui/windows/menu_manager.gd" id="1_gavro"]
-[ext_resource type="PackedScene" uid="uid://cnvus38vai81p" path="res://ui/windows/users/user_menu.tscn" id="2_52gl6"]
+[ext_resource type="PackedScene" uid="uid://cnvus38vai81p" path="res://ui/windows/users/person_menu.tscn" id="2_3wyb6"]
 [ext_resource type="PackedScene" uid="uid://dq7r7kva4r3ye" path="res://ui/windows/roles/role_menu.tscn" id="3_ihigp"]
 [ext_resource type="PackedScene" uid="uid://ddoccrx3dp5ro" path="res://ui/windows/models/model_menu.tscn" id="4_83jb6"]
 [ext_resource type="PackedScene" uid="uid://cae61kmxhnqec" path="res://ui/windows/restarts/restart_menu.tscn" id="5_euad2"]
@@ -18,8 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gavro")
 
-[node name="User Menu" parent="." instance=ExtResource("2_52gl6")]
-visible = false
+[node name="Person Menu" parent="." instance=ExtResource("2_3wyb6")]
 layout_mode = 1
 
 [node name="Role Menu" parent="." instance=ExtResource("3_ihigp")]

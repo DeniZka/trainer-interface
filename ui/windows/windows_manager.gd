@@ -3,7 +3,7 @@ extends Control
 
 @onready var navigation_bar: LineMenuGroup = $"Windows Content/Navigation Left Bar" as LineMenuGroup
 
-@onready var users_window: UsersWindow = $"Windows Content/Users Window" as UsersWindow
+@onready var persons_window: PersonsWindow = $"Windows Content/Persons Window" as PersonsWindow
 @onready var roles_window: RolesWindow = $"Windows Content/Roles Window" as RolesWindow
 @onready var models_window: ModelsWindow = $"Windows Content/Models Window" as ModelsWindow
 @onready var restarts_window: RestartsWindow = $"Windows Content/Restarts Window" as RestartsWindow
@@ -14,7 +14,7 @@ extends Control
 @onready var menu_manager: MenuManager = $"Menu Manager" as MenuManager
 
 @onready var windows: Dictionary = {
-	WindowId.Users		: users_window,
+	WindowId.Users		: persons_window,
 	WindowId.Roles		: roles_window,
 	WindowId.Models		: models_window,
 	WindowId.Restarts	: restarts_window,
@@ -40,3 +40,6 @@ func _on_navigation_button_pressed(tag: String) -> void:
 	
 	current = windows[tag]
 	current.show()
+	
+	if current.has_method("update"):
+		current.update()

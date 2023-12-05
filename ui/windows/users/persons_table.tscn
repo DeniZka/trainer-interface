@@ -1,22 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://ch7e4u4qkirgo"]
 
-[ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://ui/themes/info/for_icons_and_state.tres" id="1_5ssu8"]
-[ext_resource type="Script" path="res://ui/windows/users/users_table.gd" id="2_7qbly"]
-[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/Right_menu/Right_main.tres" id="3_g7bfg"]
-[ext_resource type="PackedScene" uid="uid://b3ccbmuyqc6g4" path="res://ui/windows/users/user_row.tscn" id="3_qr84l"]
-[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="4_7hstu"]
-[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="5_hfly2"]
+[ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://ui/themes/info/for_icons_and_state.tres" id="1_i8ny2"]
+[ext_resource type="Script" path="res://ui/windows/users/persons_table.gd" id="2_bi3l7"]
+[ext_resource type="PackedScene" uid="uid://b3ccbmuyqc6g4" path="res://ui/windows/users/person_row.tscn" id="3_ptspa"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="4_7qt3r"]
+[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="5_javh4"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="6_05uii"]
 
-[node name="Users Table" type="Control"]
+[node name="Persons Table" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_5ssu8")
-script = ExtResource("2_7qbly")
-user_row_prefab = ExtResource("3_qr84l")
+theme = ExtResource("1_i8ny2")
+script = ExtResource("2_bi3l7")
+person_row_prefab = ExtResource("3_ptspa")
 
 [node name="Table" type="ScrollContainer" parent="."]
 layout_mode = 2
@@ -28,24 +28,24 @@ size_flags_vertical = 3
 [node name="Container" type="VBoxContainer" parent="Table"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("3_g7bfg")
+theme = ExtResource("4_7qt3r")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 80.0
-theme = ExtResource("4_7hstu")
+theme = ExtResource("5_javh4")
 
 [node name="Space" type="Panel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Icon" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(153, 0)
 layout_mode = 2
-theme = ExtResource("4_7hstu")
+theme = ExtResource("5_javh4")
 text = "ИКОНКА"
 horizontal_alignment = 1
 
@@ -54,28 +54,28 @@ layout_mode = 0
 offset_top = 21.0
 offset_right = 27.0
 offset_bottom = 67.0
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Space2" type="Panel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Split0" type="HSplitContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Name" type="HFlowContainer" parent="HBoxContainer/Split0"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Name" type="Label" parent="HBoxContainer/Split0/Name"]
 custom_minimum_size = Vector2(260, 51)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_7hstu")
+theme = ExtResource("5_javh4")
 text = "ФИО"
 vertical_alignment = 2
 
@@ -85,30 +85,30 @@ offset_left = -30.0
 offset_top = 51.0
 offset_right = -10.0
 offset_bottom = 96.0
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Name/Name"]
 layout_mode = 0
 offset_left = -30.0
 offset_top = 49.0
 offset_bottom = 51.0
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Split1" type="HSplitContainer" parent="HBoxContainer/Split0"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Login" type="HFlowContainer" parent="HBoxContainer/Split0/Split1"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Login" type="Label" parent="HBoxContainer/Split0/Split1/Login"]
 custom_minimum_size = Vector2(150, 51)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_7hstu")
+theme = ExtResource("5_javh4")
 text = "ЛОГИН"
 vertical_alignment = 2
 
@@ -118,31 +118,31 @@ offset_left = -30.0
 offset_top = 51.0
 offset_right = -10.0
 offset_bottom = 96.0
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Login/Login"]
 layout_mode = 0
 offset_left = -30.0
 offset_top = 49.0
 offset_bottom = 51.0
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Split2" type="HSplitContainer" parent="HBoxContainer/Split0/Split1"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Role" type="HFlowContainer" parent="HBoxContainer/Split0/Split1/Split2"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Role" type="Label" parent="HBoxContainer/Split0/Split1/Split2/Role"]
 custom_minimum_size = Vector2(260, 51)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_7hstu")
+theme = ExtResource("5_javh4")
 text = "РОЛЬ"
 vertical_alignment = 2
 
@@ -152,14 +152,14 @@ offset_left = -30.0
 offset_top = 51.0
 offset_right = -10.0
 offset_bottom = 96.0
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [node name="Connection2" type="PanelContainer" parent="HBoxContainer/Split0/Split1/Split2/Role/Role"]
 layout_mode = 0
 offset_left = -30.0
 offset_top = 49.0
 offset_bottom = 51.0
-theme = ExtResource("5_hfly2")
+theme = ExtResource("6_05uii")
 
 [connection signal="sort_children" from="HBoxContainer/Split0" to="." method="_on_split_0_sort_children"]
 [connection signal="sort_children" from="HBoxContainer/Split0/Split1" to="." method="_on_split_0_sort_children"]
