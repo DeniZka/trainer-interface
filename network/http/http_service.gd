@@ -30,13 +30,18 @@ func send(url: String, method: HTTPClient.Method, headers: PackedStringArray = [
 	var response = await http.request_completed
 	return HTTPResponse.valid(response[0], response[1], response[2], _body_from(response))
 
-func download(url: String) -> HTTPResponse:
+func download_file(url: String) -> HTTPResponse:
 	var error = http.request(url, [], HTTPClient.METHOD_GET)
 	if error != OK:
 		push_error("Invalid downaload try, %s" % url)
 		return HTTPResponse.error()
 	var response = await http.request_completed
 	return HTTPResponse.valid(response[0], response[1], response[2], response[3])
+
+func upload_file(url: String, file_name: String, file_type: String, file_base64: String) -> HTTPResponse:
+	const endpoint_argument_name: String = "model_file"
+	var form: FormData = FormData.with_file(endpoint_argument_name, file_name, file_type, file_base64)
+	return await http.send_raw(url, form.headers, HTTPClient.METHOD_POST, form.body)
 
 func send_raw(url: String, headers: PackedStringArray, method: HTTPClient.Method, body: PackedByteArray) -> HTTPResponse:
 	var error = http.request_raw(url, headers, method, body)

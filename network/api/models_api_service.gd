@@ -31,16 +31,32 @@ func create_model(new_model: Model) -> Model:
 	
 	return Model.create_from_json(response.content)
 
+## Update existing model and return it from database
+func update_model(updated_model: Model) -> Model:
+	var serialized: Dictionary = updated_model.serialize()
+	serialized.erase("model_id")
+	serialized.erase("created_at")
+	var endpoint: String = Url.with_parameters(url + "/" + str(updated_model.id) + "/", serialized)
+	var response = await http.send_patch(endpoint)
+	
+	if response == null:
+		return null
+	
+	return Model.create_from_json(response.content)
+
 func upload_file(model_id: int, file_name: String, file_type: String, file_base64: String) -> HTTPResponse:
-	const endpoint_argument_name: String = "model_file"
 	var endpoint: String = url + "/" + str(model_id) + "/file"
-	var form: FormData = FormData.with_file(endpoint_argument_name, file_name, file_type, file_base64)
-	return await http.send_raw(endpoint, form.headers, HTTPClient.METHOD_POST, form.body)
+	return await http.upload_file(endpoint, file_name, file_type, file_base64)
 
 ## Download file, content in HTTPResponse has PackedByteArray with raw file data
 func download_file(model_id: int) -> HTTPResponse:
 	var endpoint: String = url + "/" + str(model_id) + "/file"
-	var response = await http.download(endpoint)
+	var response = await http.download_file(endpoint)
+	return response
+
+func delete_model(model_id: int) -> HTTPResponse:
+	var endpoint: String = url + "/" + str(model_id)
+	var response = await http.send_delete(endpoint)
 	return response
 
 func _parse_models_from_json(json_data: Array) -> Array[Model]:

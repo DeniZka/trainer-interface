@@ -10,6 +10,15 @@ var created_at: String
 func _to_string() -> String:
 	return "Screen #%s: %s by %s for model #%s; Created at: %s" % [id, name, author_id, model_id, created_at]
 
+func serialize() -> Dictionary:
+	return {
+		"screen_id": id,
+		"name": name,
+		"author_id": author_id,
+		"model_id": model_id,
+		"created_at": created_at
+	}
+
 static func create_from_json(json: Dictionary) -> Screen:
 	var screen: Screen = Screen.new()
 	screen.id = json["screen_id"]

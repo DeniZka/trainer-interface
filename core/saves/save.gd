@@ -10,6 +10,15 @@ var created_at: String
 func _to_string() -> String:
 	return "Save #%s: %s by %s for model #%s; Created at: %s." % [id, name, author_id, model_id, created_at]
 
+func serialize() -> Dictionary:
+	return {
+		"save_id": id,
+		"name": name,
+		"author_id": author_id,
+		"model_id": model_id,
+		"created_at": created_at
+	}
+
 static func create_from_json(json: Dictionary) -> Save:
 	var save = Save.new()
 	save.id = json["save_id"]
