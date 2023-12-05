@@ -16,7 +16,7 @@ class_name ValveCheck extends Node2D
 const CLOSE_RGB = Color(0, 0.9176470588235294, 0) 
 const OPEN_RGB = Color(1, 0.5803921568627451, 0.1568627450980392) 
 const DARK_RGB = Color(0.8, 0.8, 0.8)
-const DEFAULT_RGB = Color(1, 1, 1)
+const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.9372549019607843)
 
 
 @export_category("ValveCheck") 

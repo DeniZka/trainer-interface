@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://deibof6jekfnt"]
 
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ValveCheck.gd" id="1_h6nii"]
-[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Place.png" id="2_ingkq"]
+[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Place.png" id="2_ingkq"]
 [ext_resource type="Texture2D" uid="uid://deah34ydfr0gy" path="res://Icons/Scheme_elements/CheckValveOnOff.png" id="3_r1x8y"]
-[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/On.png" id="4_aspkf"]
-[ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/CheckValveOn.png" id="5_o4fby"]
+[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/On.png" id="4_aspkf"]
+[ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOn.png" id="5_o4fby"]
 [ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="6_8qro5"]
 [ext_resource type="Texture2D" uid="uid://3pt8gsoxhvbd" path="res://Icons/Scheme_elements/Flip.png" id="7_a3t0n"]
-[ext_resource type="Texture2D" uid="uid://d3edbw1crpv1t" path="res://Icons/Scheme_elements/CheckValveOff.png" id="8_14jb5"]
-[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Off.png" id="9_k3hwg"]
+[ext_resource type="Texture2D" uid="uid://d3edbw1crpv1t" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOff.png" id="8_14jb5"]
+[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Off.png" id="9_k3hwg"]
 [ext_resource type="Texture2D" uid="uid://caad6bc8st15r" path="res://Icons/Scheme_elements/Valve.png" id="10_pdl5d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hij20"]
@@ -25,6 +25,8 @@ radius = 25.9306
 
 [node name="ValveCheck" type="Node2D"]
 script = ExtResource("1_h6nii")
+main_name = ""
+sub_name = ""
 
 [node name="menuArea" type="Area2D" parent="."]
 visible = false

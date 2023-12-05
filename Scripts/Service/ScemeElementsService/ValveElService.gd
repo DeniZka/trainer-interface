@@ -16,17 +16,19 @@ class_name ValveEl extends Node2D
 @onready var flip = $menuArea/menuColShape/Bg/Flip/Flip
 @onready var refusalBuffer : bool = false
 @onready var obj_name = {"mainname": "", "subname" : ""}
+@onready var player = $signal_play
 
 
 const CLOSE_RGB = Color(0, 0.9176470588235294, 0) 
 const OPEN_RGB = Color(1, 0.5803921568627451, 0.1568627450980392) 
 const DARK_RGB = Color(0.8, 0.8, 0.8)
-const DEFAULT_RGB = Color(1, 1, 1)
+const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.9372549019607843)
+const REFUSAL_RGB = Color(0.7568627450980392, 0, 0.7568627450980392)
 
 @export_category("Valve_El") 
-enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED}
+enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING, ST_OPENING, ST_CLOSING}
 @onready var valve_status : VLV_STATE = VLV_STATE.ST_UNKNOWN
-@export_enum("неизвестно:0", "открыт:1", "закрыт:2") var valve_stat : int = VLV_STATE.ST_UNKNOWN: #same as VLV_STATE indexes
+@export_enum("неизвестно:0", "открыт:1", "закрыт:2", "в работе:3", "открывается:4", "закрывается:5") var valve_stat : int = VLV_STATE.ST_UNKNOWN: #same as VLV_STATE indexes
 	get:
 		if not is_node_ready(): await ready
 		return valve_status
@@ -34,14 +36,27 @@ enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED}
 		if not is_node_ready(): await ready
 		#default states
 		valve_status = val
+		elMotor.modulate = DEFAULT_RGB
 		valveLeft.modulate = DEFAULT_RGB
 		valveRight.modulate = DEFAULT_RGB
+		player.stop()
 		if val == VLV_STATE.ST_OPENED: #direct states
 			valveLeft.modulate = OPEN_RGB
 			valveRight.modulate = OPEN_RGB
 		if val == VLV_STATE.ST_CLOSED:
 			valveLeft.modulate = CLOSE_RGB
 			valveRight.modulate = CLOSE_RGB
+		if val == VLV_STATE.ST_WORKING:
+			valveRight.modulate = OPEN_RGB
+			valveLeft.modulate = CLOSE_RGB
+		if val == VLV_STATE.ST_OPENING:
+			valveLeft.modulate = CLOSE_RGB
+			valveRight.modulate = DEFAULT_RGB
+			player.play("opening")
+		if val == VLV_STATE.ST_CLOSING:
+			valveLeft.modulate = DEFAULT_RGB
+			valveRight.modulate = OPEN_RGB
+			player.play("closing")
 
 
 @export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:

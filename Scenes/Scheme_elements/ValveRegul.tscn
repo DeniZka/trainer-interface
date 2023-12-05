@@ -1,18 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://i1gy4pljl145"]
+[gd_scene load_steps=28 format=3 uid="uid://i1gy4pljl145"]
 
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ValveRegul.gd" id="1_kw2eh"]
-[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Place.png" id="2_qaa3t"]
-[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/On.png" id="3_cbehf"]
-[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Off.png" id="4_dj8ey"]
-[ext_resource type="Texture2D" uid="uid://bt2x8xuivmy56" path="res://Icons/Scheme_elements/Motor.png" id="5_w103j"]
+[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Place.png" id="2_qaa3t"]
+[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/On.png" id="3_cbehf"]
+[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Off.png" id="4_dj8ey"]
+[ext_resource type="Texture2D" uid="uid://bt2x8xuivmy56" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Motor.png" id="5_w103j"]
 [ext_resource type="Texture2D" uid="uid://cdxgmfps3kx8q" path="res://Icons/Scheme_elements/ValveEl.png" id="6_mswoq"]
 [ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="6_w83p8"]
 [ext_resource type="Texture2D" uid="uid://dx7s03sa25ou3" path="res://Icons/Scheme_elements/ValveElArrow.png" id="7_4pe16"]
 [ext_resource type="Texture2D" uid="uid://3pt8gsoxhvbd" path="res://Icons/Scheme_elements/Flip.png" id="7_hgb60"]
 [ext_resource type="Texture2D" uid="uid://deah34ydfr0gy" path="res://Icons/Scheme_elements/CheckValveOnOff.png" id="8_7bl0x"]
 [ext_resource type="Texture2D" uid="uid://cgqtw81411xsb" path="res://Icons/Scheme_elements/Valve_electric_motor.png" id="8_ah4tu"]
-[ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/CheckValveOn.png" id="9_o2i2u"]
-[ext_resource type="Texture2D" uid="uid://d3edbw1crpv1t" path="res://Icons/Scheme_elements/CheckValveOff.png" id="10_m5ujs"]
+[ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOn.png" id="9_o2i2u"]
+[ext_resource type="Texture2D" uid="uid://d3edbw1crpv1t" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOff.png" id="10_m5ujs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iyw6o"]
 radius = 89.5231
@@ -34,6 +34,256 @@ size = Vector2(65.1695, 18.1038)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lrlqk"]
 radius = 30.2919
+
+[sub_resource type="Animation" id="Animation_ywvsa"]
+resource_name = "auto_opened"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ValveRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ValveElectricMotor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s72ey"]
+resource_name = "auto_closed"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ValveRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ValveElectricMotor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6xjdr"]
+resource_name = "remote_closed"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ValveRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ValveElectricMotor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_as2eg"]
+resource_name = "remote_opened"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ValveRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ValveElectricMotor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y0kv7"]
+resource_name = "remote_working"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ValveRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ValveElectricMotor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_asoe7"]
+resource_name = "auto_working"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(0, 0.917647, 0, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ValveRight:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ValveElectricMotor:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 1), Color(1, 0.580392, 0.156863, 1), Color(0.756863, 0, 0.756863, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfegg"]
+_data = {
+"auto_closed": SubResource("Animation_s72ey"),
+"auto_opened": SubResource("Animation_ywvsa"),
+"auto_working": SubResource("Animation_asoe7"),
+"remote_closed": SubResource("Animation_6xjdr"),
+"remote_opened": SubResource("Animation_as2eg"),
+"remote_working": SubResource("Animation_y0kv7")
+}
 
 [node name="ValveRegul" type="Node2D"]
 script = ExtResource("1_kw2eh")
@@ -138,10 +388,12 @@ texture = ExtResource("10_m5ujs")
 position = Vector2(32.3777, 18.8637)
 shape = SubResource("RectangleShape2D_p1j5x")
 
-[node name="ValveEl" type="Sprite2D" parent="."]
+[node name="ValveLeft" type="Sprite2D" parent="."]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
 texture = ExtResource("6_mswoq")
 
-[node name="ValveEl2" type="Sprite2D" parent="."]
+[node name="ValveRight" type="Sprite2D" parent="."]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
 texture = ExtResource("6_mswoq")
 flip_h = true
 
@@ -149,6 +401,7 @@ flip_h = true
 texture = ExtResource("7_4pe16")
 
 [node name="ValveElectricMotor" type="Sprite2D" parent="."]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
 texture = ExtResource("8_ah4tu")
 
 [node name="ActiveArea" type="Area2D" parent="."]
@@ -156,6 +409,11 @@ texture = ExtResource("8_ah4tu")
 [node name="ActiveArea" type="CollisionShape2D" parent="ActiveArea"]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_lrlqk")
+
+[node name="signal_play" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qfegg")
+}
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="mouse_exited" from="menuArea" to="." method="_on_menu_area_mouse_exited"]

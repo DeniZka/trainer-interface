@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://dkqihw2axr4ko"]
 
-[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Place.png" id="1_kcsiv"]
+[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Place.png" id="1_kcsiv"]
 [ext_resource type="Texture2D" uid="uid://x83gsm6l2076" path="res://Icons/Scheme_elements/Ellipse.png" id="1_kvobw"]
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/PumpElService.gd" id="1_ufo5a"]
-[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/On.png" id="2_8djf0"]
+[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/On.png" id="2_8djf0"]
 [ext_resource type="Texture2D" uid="uid://b858ppsyelk3j" path="res://Icons/Scheme_elements/ElDrive.png" id="2_ke5ip"]
-[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Off.png" id="3_2cct4"]
+[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Off.png" id="3_2cct4"]
 [ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="5_4h6vj"]
 [ext_resource type="Texture2D" uid="uid://3pt8gsoxhvbd" path="res://Icons/Scheme_elements/Flip.png" id="6_4im4b"]
 
@@ -26,6 +26,8 @@ radius = 21.2504
 
 [node name="ElPump" type="Node2D"]
 script = ExtResource("1_ufo5a")
+main_name = ""
+sub_name = ""
 
 [node name="menuArea" type="Area2D" parent="."]
 visible = false
@@ -87,6 +89,7 @@ shape = SubResource("RectangleShape2D_j6mkw")
 texture = ExtResource("1_kvobw")
 
 [node name="ElDrive" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 texture = ExtResource("2_ke5ip")
 
 [node name="ActiveArea" type="Area2D" parent="."]

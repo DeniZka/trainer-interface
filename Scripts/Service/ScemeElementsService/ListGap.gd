@@ -5,7 +5,7 @@ class_name ListGap extends Node2D
 @onready var obj_name = {"name": ""}
 
 const BLUE_RGB = Color(0, 0.9411764705882353, 1)
-const DEFAULT_RGB = Color(1, 1, 1)
+const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.9372549019607843)
 
 @export_category("List Gap") 
 

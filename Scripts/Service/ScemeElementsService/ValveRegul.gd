@@ -2,8 +2,8 @@
 class_name ValveRegul extends Node2D #generate class name for node searching type
 
 @onready var btnArea = $menuArea
-@onready var valveLeft = $ValveEl
-@onready var valveRight = $ValveEl2
+@onready var valveLeft = $ValveLeft
+@onready var valveRight = $ValveRight
 @onready var elMotor = $ValveElectricMotor
 @onready var elArrow = $ValveElArrow
 @onready var open = $menuArea/menuColShape/Bg/On/On2
@@ -14,14 +14,15 @@ class_name ValveRegul extends Node2D #generate class name for node searching typ
 @onready var CheckValveOff = $menuArea/menuColShape/Bg/CheckValveOff/CheckValveOff
 @onready var rotate = $menuArea/menuColShape/Bg/Rotate/Rotate
 @onready var flip = $menuArea/menuColShape/Bg/Flip/Flip
-@onready var refusalBuffer : bool = false
+@onready var powerBuffer : bool = false
 @onready var obj_name = {"mainname": "", "subname" : ""}
+@onready var player = $signal_play
 
 const CLOSE_RGB = Color(0, 0.9176470588235294, 0) 
 const OPEN_RGB = Color(1, 0.5803921568627451, 0.1568627450980392) 
 const DARK_RGB = Color(0.8, 0.8, 0.8)
-const DEFAULT_RGB = Color(1, 1, 1)
-const REFUSAL_RGB = Color(0.5490196078431373, 0.2509803921568627, 0.7843137254901961)
+const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.9372549019607843)
+const REFUSAL_RGB = Color(0.7568627450980392, 0, 0.7568627450980392)
 
 #export inspector variables
 @export_category("Valve_Regul") #create comfort category
@@ -37,15 +38,27 @@ enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING}
 		valve_status = val
 		valveLeft.modulate = DEFAULT_RGB
 		valveRight.modulate = DEFAULT_RGB
-		if val == VLV_STATE.ST_OPENED: #direct states
-			valveLeft.modulate = OPEN_RGB
-			valveRight.modulate = OPEN_RGB
+		if val == VLV_STATE.ST_OPENED: #direct states 
+			if power == true:
+				valveLeft.modulate = REFUSAL_RGB
+				valveRight.modulate = REFUSAL_RGB
+			else:
+				valveLeft.modulate = OPEN_RGB
+				valveRight.modulate = OPEN_RGB
 		if val == VLV_STATE.ST_CLOSED:
-			valveLeft.modulate = CLOSE_RGB
-			valveRight.modulate = CLOSE_RGB
+			if power == true:
+				valveLeft.modulate = REFUSAL_RGB
+				valveRight.modulate = REFUSAL_RGB
+			else:
+				valveLeft.modulate = CLOSE_RGB
+				valveRight.modulate = CLOSE_RGB
 		if val == VLV_STATE.ST_WORKING:
-			valveLeft.modulate = CLOSE_RGB
-			valveRight.modulate = OPEN_RGB
+			if power == true:
+				valveLeft.modulate = REFUSAL_RGB
+				valveRight.modulate = REFUSAL_RGB
+			else:
+				valveLeft.modulate = CLOSE_RGB
+				valveRight.modulate = OPEN_RGB
 
 enum VLV_MODE {ST_UNKNOWN, ST_AUTO, ST_REMOTE}
 @onready var valve_mode : VLV_MODE = VLV_MODE.ST_UNKNOWN
@@ -59,26 +72,66 @@ enum VLV_MODE {ST_UNKNOWN, ST_AUTO, ST_REMOTE}
 		valve_mode = val
 		elMotor.modulate = DEFAULT_RGB
 		if val == VLV_MODE.ST_AUTO: #direct states
-			elMotor.modulate = OPEN_RGB
+			if power == true:
+				elMotor.modulate = REFUSAL_RGB
+			else:
+				elMotor.modulate = OPEN_RGB
 		if val == VLV_MODE.ST_REMOTE:
-			elMotor.modulate = CLOSE_RGB
+			if power == true:
+				elMotor.modulate = REFUSAL_RGB
+			else:
+				elMotor.modulate = CLOSE_RGB
 
-@export var refusal: bool = false:
+@export var power: bool = false:
 	set(val):
 		if not is_node_ready() : await ready
-		refusalBuffer = val
+		powerBuffer = val
 		if val:
-			elMotor.modulate = REFUSAL_RGB
+			if valve_mode == VLV_MODE.ST_AUTO && valve_status == VLV_STATE.ST_OPENED:
+				player.play("auto_opened")
+			elif valve_mode == VLV_MODE.ST_AUTO && valve_status == VLV_STATE.ST_CLOSED:
+				player.play("auto_closed")
+			elif valve_mode == VLV_MODE.ST_AUTO && valve_status == VLV_STATE.ST_WORKING:
+				player.play("auto_working")
+			elif valve_mode == VLV_MODE.ST_REMOTE && valve_status == VLV_STATE.ST_OPENED:
+				player.play("remote_opened")
+			elif valve_mode == VLV_MODE.ST_REMOTE && valve_status == VLV_STATE.ST_CLOSED:
+				player.play("remote_closed")
+			elif valve_mode == VLV_MODE.ST_REMOTE && valve_status == VLV_STATE.ST_WORKING:
+				player.play("remote_working")
 		else:
-			if valve_mode == VLV_MODE.ST_AUTO:
+			player.stop()
+			if valve_mode == VLV_MODE.ST_AUTO && valve_status == VLV_STATE.ST_OPENED:
 				elMotor.modulate = OPEN_RGB
-			elif valve_mode == VLV_MODE.ST_REMOTE:
+				valveLeft.modulate = OPEN_RGB
+				valveRight.modulate = OPEN_RGB
+			elif valve_mode == VLV_MODE.ST_AUTO && valve_status == VLV_STATE.ST_CLOSED:
+				elMotor.modulate = OPEN_RGB
+				valveLeft.modulate = CLOSE_RGB
+				valveRight.modulate = CLOSE_RGB
+			elif valve_mode == VLV_MODE.ST_AUTO && valve_status == VLV_STATE.ST_WORKING:
+				elMotor.modulate = OPEN_RGB
+				valveLeft.modulate = CLOSE_RGB
+				valveRight.modulate = OPEN_RGB
+			elif valve_mode == VLV_MODE.ST_REMOTE && valve_status == VLV_STATE.ST_OPENED:
 				elMotor.modulate = CLOSE_RGB
+				valveLeft.modulate = OPEN_RGB
+				valveRight.modulate = OPEN_RGB
+			elif valve_mode == VLV_MODE.ST_REMOTE && valve_status == VLV_STATE.ST_CLOSED:
+				elMotor.modulate = CLOSE_RGB
+				valveLeft.modulate = CLOSE_RGB
+				valveRight.modulate = CLOSE_RGB
+			elif valve_mode == VLV_MODE.ST_REMOTE && valve_status == VLV_STATE.ST_WORKING:
+				elMotor.modulate = CLOSE_RGB
+				valveLeft.modulate = CLOSE_RGB
+				valveRight.modulate = OPEN_RGB
 			else:
 				elMotor.modulate = DEFAULT_RGB
+				valveLeft.modulate = DEFAULT_RGB
+				valveRight.modulate = DEFAULT_RGB
 	get:
 		if not is_node_ready() : await ready
-		return refusalBuffer
+		return powerBuffer
 
 @export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
 	get:

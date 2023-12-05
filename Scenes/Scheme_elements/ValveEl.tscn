@@ -1,17 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://bvvmavom2oouc"]
+[gd_scene load_steps=22 format=3 uid="uid://bvvmavom2oouc"]
 
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ValveElService.gd" id="1_g7lbp"]
 [ext_resource type="Texture2D" uid="uid://hq6qvroofohp" path="res://Icons/Scheme_elements/ValveElConn.png" id="1_ys0eg"]
 [ext_resource type="Texture2D" uid="uid://cgqtw81411xsb" path="res://Icons/Scheme_elements/Valve_electric_motor.png" id="2_e2kby"]
-[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Place.png" id="2_pgwgs"]
+[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Place.png" id="2_pgwgs"]
 [ext_resource type="Texture2D" uid="uid://deah34ydfr0gy" path="res://Icons/Scheme_elements/CheckValveOnOff.png" id="3_agbtt"]
-[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/On.png" id="4_lqhgh"]
-[ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/CheckValveOn.png" id="5_pie00"]
+[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/On.png" id="4_lqhgh"]
+[ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOn.png" id="5_pie00"]
 [ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="6_i1bh3"]
 [ext_resource type="Texture2D" uid="uid://3pt8gsoxhvbd" path="res://Icons/Scheme_elements/Flip.png" id="7_d6qqp"]
-[ext_resource type="Texture2D" uid="uid://d3edbw1crpv1t" path="res://Icons/Scheme_elements/CheckValveOff.png" id="8_507e8"]
-[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Off.png" id="9_epej5"]
-[ext_resource type="Texture2D" uid="uid://bt2x8xuivmy56" path="res://Icons/Scheme_elements/Motor.png" id="10_j6n3y"]
+[ext_resource type="Texture2D" uid="uid://d3edbw1crpv1t" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOff.png" id="8_507e8"]
+[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Off.png" id="9_epej5"]
+[ext_resource type="Texture2D" uid="uid://bt2x8xuivmy56" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Motor.png" id="10_j6n3y"]
 [ext_resource type="Texture2D" uid="uid://cdxgmfps3kx8q" path="res://Icons/Scheme_elements/ValveEl.png" id="13_fjyie"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0v0cj"]
@@ -28,6 +28,44 @@ size = Vector2(65.1695, 18.2895)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u6o2o"]
 radius = 30.0161
+
+[sub_resource type="Animation" id="Animation_1md53"]
+resource_name = "closing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.937255, 0.937255, 0.937255, 1), Color(0, 0.917647, 0, 1), Color(0.937255, 0.937255, 0.937255, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l3k6j"]
+resource_name = "opening"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveRight:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.937255, 0.937255, 0.937255, 1), Color(1, 0.580392, 0.156863, 1), Color(0.937255, 0.937255, 0.937255, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfegg"]
+_data = {
+"closing": SubResource("Animation_1md53"),
+"opening": SubResource("Animation_l3k6j")
+}
 
 [node name="Valve" type="Node2D"]
 script = ExtResource("1_g7lbp")
@@ -150,6 +188,11 @@ flip_h = true
 [node name="ActiveArea" type="CollisionShape2D" parent="ActiveArea"]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_u6o2o")
+
+[node name="signal_play" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qfegg")
+}
 
 [connection signal="mouse_exited" from="menuArea" to="." method="_on_menu_area_mouse_exited"]
 [connection signal="input_event" from="menuArea/menuColShape/Bg/CheckValveOnOff" to="." method="_on_check_valve_on_off_input_event"]
