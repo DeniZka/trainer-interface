@@ -1,4 +1,4 @@
-class_name RolesService
+class_name RolesApiService
 extends RefCounted
 
 var url: String

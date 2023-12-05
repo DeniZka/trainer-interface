@@ -1,4 +1,4 @@
-class_name PersonService
+class_name PersonsApiService
 extends RefCounted
 
 var url: String
