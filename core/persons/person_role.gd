@@ -4,10 +4,14 @@ extends RefCounted
 var id: int
 var name: String
 var overlay_id: String
-var person_view: bool
-var person_add: bool
-var role_view: bool
-var role_add: bool
+var rights: Dictionary
+
+func rights_to_string() -> String:
+	var line: String = ""
+	for key in rights.keys():
+		if rights[key]:
+			line += key + ", "
+	return line
 
 static func create_from_json(json: Dictionary) -> PersonRole:
 	var role: PersonRole = PersonRole.new()
@@ -15,8 +19,9 @@ static func create_from_json(json: Dictionary) -> PersonRole:
 	role.name = json["name"]
 	if json["overlay_id"] != null:
 		role.overlay_id = json["overlay_id"]
-	role.person_view = json["person_view"]
-	role.person_add = json["person_add"]
-	role.role_view = json["role_view"]
-	role.role_add = json["role_add"]
+	
+	role.rights["person_view"] = json["person_view"]
+	role.rights["person_add"] = json["person_add"]
+	role.rights["role_view"] = json["role_view"]
+	role.rights["role_add"] = json["role_add"]
 	return role

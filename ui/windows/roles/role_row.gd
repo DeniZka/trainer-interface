@@ -6,11 +6,11 @@ func align_column_width(iconColumn: Control, nameColumn: Control, rightsColumn: 
 	$Split0/Name.custom_minimum_size.x = nameColumn.size.x
 	$Split0/Split1/Rights.custom_minimum_size.x = rightsColumn.size.x
 
-func construct(data: RoleData) -> void:
-	%Icon.set_button_icon(load(data.iconPath))
-	%Id.set_text(data.id)
+func construct(data: PersonRole) -> void:
+	#%Icon.set_button_icon(load(data.iconPath))
+	%Id.set_text("ID: %s" % data.id)
 	%"Role Name".set_text(data.name)
-	%Rights.set_text(data.rights)
+	%Rights.set_text(data.rights_to_string())
 
 func paint_background(color: Color) -> void:
 	$Background.color = color

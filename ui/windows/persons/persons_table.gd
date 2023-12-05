@@ -11,7 +11,11 @@ func _on_split_0_sort_children():
 		var row : PersonRow = container.get_child(i)
 		align_row(row)
 
-func add_user(user: Person) -> void:
+func clear() -> void:
+	for child in container.get_children():
+		child.free()
+
+func add(user: Person) -> void:
 	var user_row: PersonRow = person_row_prefab.instantiate() as PersonRow
 	user_row.construct(user)
 	container.add_child(user_row)

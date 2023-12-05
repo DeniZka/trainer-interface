@@ -12,10 +12,11 @@ func _ready() -> void:
 	search_bar.add_button_pressed.connect(_on_add_button_pressed)
 
 func add(person: Person) -> void:
-	table.add_user(person)
+	table.add(person)
 
 func update() -> void:
 	var persons = await Api.persons.get_persons(1, 25)
+	table.clear()
 	for person in persons:
 		add(person)
 
