@@ -4,21 +4,21 @@
 [ext_resource type="Script" path="res://ui/components/lines/line_menu_group.gd" id="2_x822k"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="3_whnkn"]
 [ext_resource type="Resource" uid="uid://073bco0mefks" path="res://ui/themes/lines/left_menu_colors.tres" id="4_2blrh"]
-[ext_resource type="Texture2D" uid="uid://d3dcn5o464vtu" path="res://icons/Left_menu/Logo.png" id="4_jl5o0"]
+[ext_resource type="Texture2D" uid="uid://d3dcn5o464vtu" path="res://icons/left_menu/Logo.png" id="4_jl5o0"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="6_6xnlt"]
-[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/Empty.tres" id="6_rb0pa"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="6_rb0pa"]
 [ext_resource type="ButtonGroup" uid="uid://du6n17rmehtbj" path="res://ui/themes/button_groups/settings_left_menu.tres" id="7_7idfv"]
-[ext_resource type="Texture2D" uid="uid://bf18q6y2s4ee2" path="res://icons/Left_menu/User_icon_left_menu.png" id="8_oopkr"]
-[ext_resource type="Texture2D" uid="uid://b8wmhvbb4j1df" path="res://icons/Left_menu/Role_icon_left_menu.png" id="9_sucy1"]
-[ext_resource type="Texture2D" uid="uid://b0g4eavkk3ojd" path="res://icons/Left_menu/Model_icon_left_menu.png" id="10_qyy74"]
-[ext_resource type="Texture2D" uid="uid://c5tepj1j2wbrg" path="res://icons/Left_menu/Restart_icon_left_menu.png" id="11_5py4q"]
-[ext_resource type="Texture2D" uid="uid://cxqigfijyfj76" path="res://icons/Left_menu/Videoframe_icon_left_menu.png" id="12_dirfy"]
-[ext_resource type="Texture2D" uid="uid://dl684yhxqd6un" path="res://icons/Left_menu/Scenario_icon_left_menu.png" id="13_c1tgd"]
-[ext_resource type="Texture2D" uid="uid://cr4e5b5x854my" path="res://icons/Left_menu/ServerS_icon_left_menu.png" id="14_411cc"]
-[ext_resource type="Texture2D" uid="uid://cruhip4lopqgq" path="res://icons/Left_menu/Server_icon_left_menu.png" id="15_jgvw3"]
+[ext_resource type="Texture2D" uid="uid://bf18q6y2s4ee2" path="res://icons/left_menu/User_icon_left_menu.png" id="8_oopkr"]
+[ext_resource type="Texture2D" uid="uid://b8wmhvbb4j1df" path="res://icons/left_menu/Role_icon_left_menu.png" id="9_sucy1"]
+[ext_resource type="Texture2D" uid="uid://b0g4eavkk3ojd" path="res://icons/left_menu/Model_icon_left_menu.png" id="10_qyy74"]
+[ext_resource type="Texture2D" uid="uid://c5tepj1j2wbrg" path="res://icons/left_menu/Restart_icon_left_menu.png" id="11_5py4q"]
+[ext_resource type="Texture2D" uid="uid://cxqigfijyfj76" path="res://icons/left_menu/Videoframe_icon_left_menu.png" id="12_dirfy"]
+[ext_resource type="Texture2D" uid="uid://dl684yhxqd6un" path="res://icons/left_menu/Scenario_icon_left_menu.png" id="13_c1tgd"]
+[ext_resource type="Texture2D" uid="uid://cr4e5b5x854my" path="res://icons/left_menu/ServerS_icon_left_menu.png" id="14_411cc"]
+[ext_resource type="Texture2D" uid="uid://cruhip4lopqgq" path="res://icons/left_menu/Server_icon_left_menu.png" id="15_jgvw3"]
 [ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://icons/animals/Orca_62.png" id="16_huipu"]
 [ext_resource type="Theme" uid="uid://n1wc11n0cx2r" path="res://ui/themes/left_menu/left_log_out_button.tres" id="17_vorxe"]
-[ext_resource type="Texture2D" uid="uid://dq4sf5jkliia4" path="res://icons/Left_menu/Log_out.png" id="18_hjdb4"]
+[ext_resource type="Texture2D" uid="uid://dq4sf5jkliia4" path="res://icons/left_menu/Log_out.png" id="18_hjdb4"]
 
 [node name="Navigation Left Bar" type="Control" node_paths=PackedStringArray("menus")]
 custom_minimum_size = Vector2(384, 1080)
@@ -136,7 +136,7 @@ toggle_mode = true
 button_group = ExtResource("7_7idfv")
 icon = ExtResource("8_oopkr")
 script = ExtResource("6_6xnlt")
-tag = "Users"
+tag = "Persons"
 vertical_lines = [NodePath("UV")]
 horizontal_lines = [NodePath("UH")]
 

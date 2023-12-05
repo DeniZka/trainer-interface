@@ -1,6 +1,6 @@
 class_name WindowId
 
-const Users: String = "Users"
+const Persons: String = "Persons"
 const Roles: String = "Roles"
 const Models: String = "Models"
 const Restarts: String = "Restarts"

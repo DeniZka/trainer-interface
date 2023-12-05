@@ -18,4 +18,4 @@ func update() -> void:
 		add(person)
 
 func _on_add_button_pressed() -> void:
-	opened_menu.emit(WindowId.Users)
+	opened_menu.emit(WindowId.Persons)

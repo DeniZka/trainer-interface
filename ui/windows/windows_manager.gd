@@ -14,7 +14,7 @@ extends Control
 @onready var menu_manager: MenuManager = $"Menu Manager" as MenuManager
 
 @onready var windows: Dictionary = {
-	WindowId.Users		: persons_window,
+	WindowId.Persons	: persons_window,
 	WindowId.Roles		: roles_window,
 	WindowId.Models		: models_window,
 	WindowId.Restarts	: restarts_window,

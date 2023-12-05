@@ -10,7 +10,7 @@ extends Control
 @onready var server_menu: ServerMenu = $"Server Menu" as ServerMenu
 
 @onready var menus = {
-	WindowId.Users		: person_menu,
+	WindowId.Persons	: person_menu,
 	WindowId.Roles		: role_menu,
 	WindowId.Models		: model_menu,
 	WindowId.Restarts	: restart_menu,
