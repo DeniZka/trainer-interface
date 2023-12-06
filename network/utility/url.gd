@@ -4,9 +4,6 @@ extends RefCounted
 static func with_parameters(url: String, parameters: Dictionary) -> String:
 	var result = url + "?"
 	for key in parameters.keys():
-		var origin_query_parameter = query_string_format(str(parameters[key]))
-		result += str(key) + "=" + origin_query_parameter + "&"
+		var query_parameter = str(parameters[key]).uri_encode()
+		result += str(key) + "=" + query_parameter + "&"
 	return result
-
-static func query_string_format(origin: String) -> String:
-	return origin.replace(" ", "%20")
