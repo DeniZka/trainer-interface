@@ -18,8 +18,21 @@ func is_success() -> bool:
 func is_error() -> bool:
 	return !is_success()
 
+func parse_as_json() -> HTTPResponse:
+	var parsed_content: Variant = content
+	
+	if content != null:
+		parsed_content = _parse_json(content)
+	
+	return HTTPResponse.valid(result, status_code, headers, parsed_content)
+
+func _parse_json(response: Variant) -> Variant:
+	var json: JSON = JSON.new()
+	json.parse(response.get_string_from_utf8())
+	return json.data
+
 func _to_string() -> String:
-	return "Status: %s; Content: %s" % [status_code, content]
+	return "Status: %s, %s" % [status_code, content]
 
 static func error() -> HTTPResponse:
 	return HTTPResponse.new()

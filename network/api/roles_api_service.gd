@@ -13,7 +13,7 @@ func get_roles(page: int, size: int) -> Array[PersonRole]:
 	var endpoint: String = Url.with_parameters(url, { "page": page, "size": size })
 	var response = await http.send_get(endpoint);
 	
-	if response.content == null:
+	if not response.is_success():
 		return []
 	
 	var roles = _parse_roles_from_json(response.content["items"])
@@ -26,7 +26,7 @@ func create_role(new_role: PersonRole) -> PersonRole:
 	var endpoint: String = Url.with_parameters(url, serialized_person)
 	var response = await http.send_post(endpoint);
 	
-	if response.content == null:
+	if not response.is_success():
 		return null
 	
 	return PersonRole.create_from_json(response.content);
@@ -38,7 +38,7 @@ func update_role(updated_role: PersonRole) -> PersonRole:
 	var endpoint: String = Url.with_parameters(url + "/" + str(updated_role.id) + "/", serialized_person)
 	var response = await http.send_patch(endpoint);
 	
-	if response.content == null:
+	if not response.is_success():
 		return null
 	
 	return PersonRole.create_from_json(response.content);
@@ -54,7 +54,7 @@ func get_role(role_id: int) -> PersonRole:
 	var endpoint: String = url + "/" + str(role_id)
 	var response = await http.send_get(endpoint)
 	
-	if response.content == null:
+	if not response.is_success():
 		return null
 	
 	return PersonRole.create_from_json(response.content)

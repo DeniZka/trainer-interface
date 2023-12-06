@@ -18,6 +18,13 @@ func get_persons(page: int, size: int) -> Array[Person]:
 	
 	return _parse_persons_from_json(response.content["items"])
 
+func get_person(person_id: int) -> Person:
+	var endpoint: String = url + "/" + str(person_id)
+	var response = await http.send_get(endpoint)
+	if not response.is_success():
+		return null
+	return Person.create_from_json(response.content)
+
 ## Update person with new person and return new person from database
 func update_person(person_id: int, new_person: Person) -> Person:
 	var serialized_person = new_person.serialize()

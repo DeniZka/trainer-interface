@@ -51,4 +51,5 @@ func format_message(tag: String, message: String) -> String:
 
 func date_time() -> String:
 	var time = Time.get_datetime_dict_from_system()
-	return "%02d:%02d:%02d-%02d:%02d:%02d" % [time.year, time.month, time.day, time.hour, time.minute, time.second]
+	var msec = Time.get_ticks_msec() % 1000
+	return "%02d-%02d-%02dT%02d:%02d:%02d.%03d" % [time.year, time.month, time.day, time.hour, time.minute, time.second, msec]

@@ -7,8 +7,6 @@ func _ready() -> void:
 	#var model = Model.new()
 	#var result = await Api.models.create_model(model)
 	dialog.file_selected.connect(_on_file_selected)
-	Log.set_sensitive(Log.Level.Debug)
-	print(Log.sensitive)
 
 func _on_file_selected(path: String) -> void:
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
