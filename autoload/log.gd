@@ -1,9 +1,5 @@
 extends Node
 
-const LOG_TAG	: String = "[LOG]"
-const ERR_TAG	: String = "[ERROR]"
-const DEBUG_TAG	: String = "[DEBUG]"
-
 enum Level {
 	Trace = 10,
 	Debug = 20,
