@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://ui/windows/roles/role_menu.gd" id="1_k51qb"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_s26ty"]
-[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/Empty.tres" id="3_ok7rb"]
-[ext_resource type="Texture2D" uid="uid://und3xiie8216" path="res://icons/Right_menu/Right_menu_role/Role_icon_right_menu.png" id="4_5pmlk"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="3_ok7rb"]
+[ext_resource type="Texture2D" uid="uid://und3xiie8216" path="res://icons/right_menu/Right_menu_role/Role_icon_right_menu.png" id="4_5pmlk"]
 [ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://ui/themes/right_menu/right_block_button.tres" id="5_ef81e"]
-[ext_resource type="Texture2D" uid="uid://vqh3aho542mu" path="res://icons/Right_menu/Drop.png" id="6_5qwx8"]
+[ext_resource type="Texture2D" uid="uid://vqh3aho542mu" path="res://icons/right_menu/Drop.png" id="6_5qwx8"]
 [ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://ui/themes/button_groups/save_cancel_delete_right.tres" id="7_m28qv"]
 [ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://ui/themes/right_menu/right_delete.tres" id="8_dugsd"]
-[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/Right_menu/Close.png" id="9_ajgnr"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="9_ajgnr"]
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="10_68q53"]
 
 [node name="Role Menu" type="Control"]

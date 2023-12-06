@@ -1,6 +1,19 @@
 class_name PersonRow
 extends Control
 
+signal selected(row: PersonRow)
+signal edited(row: PersonRow)
+signal deleted(row: PersonRow)
+
+@onready var row_control_buttons: RowControlButtons = %"Row Control Buttons" as RowControlButtons
+
+var person: Person
+
+func _ready() -> void:
+	row_control_buttons.selected.connect(func(): selected.emit(self))
+	row_control_buttons.edited.connect(func(): edited.emit(self))
+	row_control_buttons.deleted.connect(func(): deleted.emit(self))
+
 func align_column_width(iconColumn: Control, nameColumn: Control, loginColumn: Control, roleColumn: Control):
 	var col1: Control = $Buttons_and_icons
 	var col2: Control = $Split0/Name
@@ -12,6 +25,7 @@ func align_column_width(iconColumn: Control, nameColumn: Control, loginColumn: C
 	col4.custom_minimum_size.x = roleColumn.size.x
 
 func construct(person: Person) -> void:
+	self.person = person
 	%Id.set_text("ID: %s" % person.id)
 	%Name.set_text(person.full_name)
 	%Login.set_text(person.login)

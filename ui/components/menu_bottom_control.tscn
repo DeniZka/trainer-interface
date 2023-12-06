@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="4_adgax"]
 [ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://ui/themes/button_groups/save_cancel_delete_right.tres" id="5_3rcwt"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="6_38ekw"]
-[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/Empty.tres" id="7_qpp06"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="7_qpp06"]
 [ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://ui/themes/right_menu/right_delete.tres" id="8_4cgim"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mep8u"]

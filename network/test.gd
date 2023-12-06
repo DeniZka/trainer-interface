@@ -2,12 +2,6 @@ extends Node
 
 @onready var dialog: FileDialog = $FileDialog as FileDialog
 
-func _ready() -> void:
-	
-	#var model = Model.new()
-	#var result = await Api.models.create_model(model)
-	dialog.file_selected.connect(_on_file_selected)
-
 func _on_file_selected(path: String) -> void:
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 	var data = file.get_buffer(file.get_length())

@@ -31,9 +31,9 @@ func open(window_id: String) -> void:
 
 func _open_menu(menu: Control) -> void:
 	if opened_menu != null:
-		opened_menu.hide()
+		opened_menu.close()
 	opened_menu = menu
-	opened_menu.show()
+	opened_menu.open()
 
 func _on_menu_closed() -> void:
-	opened_menu.hide()
+	opened_menu.close()

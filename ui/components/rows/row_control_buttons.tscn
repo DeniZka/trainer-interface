@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://ys335vcr3hb8"]
+
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="1_o5qtn"]
+[ext_resource type="Script" path="res://ui/components/rows/row_control_buttons.gd" id="2_1aao7"]
+[ext_resource type="Theme" uid="uid://dq7gtnuof4q8k" path="res://ui/themes/info/select.tres" id="3_v88tu"]
+[ext_resource type="ButtonGroup" uid="uid://bkmxktu7xgxg5" path="res://ui/themes/button_groups/select_edit_delete_main_info.tres" id="4_fsqt3"]
+[ext_resource type="Theme" uid="uid://b7jfgghuhmc83" path="res://ui/themes/info/edit.tres" id="5_5xgq4"]
+[ext_resource type="Theme" uid="uid://27rafffnngdm" path="res://ui/themes/info/delete.tres" id="6_d1wsv"]
+
+[node name="Row Control Buttons" type="VBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+theme = ExtResource("1_o5qtn")
+alignment = 2
+script = ExtResource("2_1aao7")
+
+[node name="Select" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_v88tu")
+button_group = ExtResource("4_fsqt3")
+
+[node name="Edit" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("5_5xgq4")
+button_group = ExtResource("4_fsqt3")
+
+[node name="Delete" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("6_d1wsv")
+button_group = ExtResource("4_fsqt3")

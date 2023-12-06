@@ -19,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_gavro")
 
 [node name="Person Menu" parent="." instance=ExtResource("2_3wyb6")]
+visible = false
 layout_mode = 1
 
 [node name="Role Menu" parent="." instance=ExtResource("3_ihigp")]

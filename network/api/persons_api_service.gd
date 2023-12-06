@@ -52,7 +52,7 @@ func create_person(user: Person) -> Person:
 
 ## Delete person, return status code (200 - OK, 404 - NOT FOUND, etc) when success
 func delete_person(person_id: int) -> HTTPResponse:
-	var endpoint = url + "/persons/" + str(person_id)
+	var endpoint = url + "/" + str(person_id)
 	var response = await http.send_delete(endpoint)
 	return response
 

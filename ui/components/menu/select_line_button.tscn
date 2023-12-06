@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgp1lhjsskqud"]
+
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="1_kjuno"]
+[ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="2_5ffkl"]
+
+[node name="Select Line Button" type="CheckBox"]
+custom_minimum_size = Vector2(84, 30)
+theme = ExtResource("1_kjuno")
+keep_pressed_outside = true
+text = "Ученик"
+script = ExtResource("2_5ffkl")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

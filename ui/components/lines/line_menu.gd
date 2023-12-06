@@ -11,11 +11,14 @@ var line_items_painter: LineItemsPainter = LineItemsPainter.new()
 
 func _ready() -> void:
 	for item in menu_items:
-		item.item_focus_entered.connect(_on_item_focus_entered)
-		item.item_focus_exited.connect(_on_item_focus_exited)
-		item.item_mouse_entered.connect(_on_item_mouse_entered)
-		item.item_mouse_exited.connect(_on_item_mouse_exited)
-		item.item_pressed.connect(_on_item_pressed)
+		add_item(item)
+
+func add_item(item: LineItem) -> void:
+	item.item_focus_entered.connect(_on_item_focus_entered)
+	item.item_focus_exited.connect(_on_item_focus_exited)
+	item.item_mouse_entered.connect(_on_item_mouse_entered)
+	item.item_mouse_exited.connect(_on_item_mouse_exited)
+	item.item_pressed.connect(_on_item_pressed)
 
 func unselect_all() -> void:
 	line_items_painter.unselect(colors.unhover_color, menu_items)

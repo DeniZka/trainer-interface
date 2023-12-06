@@ -37,13 +37,13 @@ func upload_file(url: String, file_name: String, file_type: String, file_base64:
 	return await http.send_raw(url, form.headers, HTTPClient.METHOD_POST, form.body)
 
 func _send_exchange(url: String, headers: PackedStringArray, method: HTTPClient.Method, body: PackedByteArray) -> HTTPResponse:
-	Log.debug("Установка соединения с сервером (%s)" % url)
+	Log.trace("Установка соединения с сервером, %s" % url)
 	var error = http.request_raw(url, headers, method, body)
 	if error != OK:
 		_not_connection_log(url, error)
 		return HTTPResponse.error()
 	var response = await http.request_completed
-	Log.debug("Окончание обмена информацией с сервером (%s)" % url)
+	Log.trace("Окончание обмена информацией с сервером, %s" % url)
 	
 	var http_response = HTTPResponse.valid(response[0], response[1], response[2], response[3])
 	

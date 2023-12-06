@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnvus38vai81p"]
+[gd_scene load_steps=16 format=3 uid="uid://cnvus38vai81p"]
 
 [ext_resource type="Script" path="res://ui/windows/persons/person_menu.gd" id="1_n1hsb"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_gocva"]
@@ -9,13 +9,14 @@
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="7_pk2bf"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_wxayy"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="9_ruod5"]
+[ext_resource type="Script" path="res://ui/components/menu/menu_roles_selector.gd" id="10_m4fcw"]
 [ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://ui/themes/button_groups/save_cancel_delete_right.tres" id="10_n018k"]
 [ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://ui/themes/right_menu/right_delete.tres" id="11_6m7n0"]
+[ext_resource type="PackedScene" uid="uid://bgp1lhjsskqud" path="res://ui/components/menu/select_line_button.tscn" id="11_7gfgp"]
 [ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="12_dl3n2"]
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="13_vhdue"]
 
 [node name="Person Menu" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,7 +167,8 @@ custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 theme = ExtResource("3_m7cnv")
 
-[node name="Block_button" type="CheckButton" parent="Right_menu/Main/Block_Avatar/Block"]
+[node name="Lock Button" type="CheckButton" parent="Right_menu/Main/Block_Avatar/Block"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(48, 24)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -499,16 +501,50 @@ theme = ExtResource("2_gocva")
 theme_override_font_sizes/font_size = 13
 text = "РОЛЬ"
 
-[node name="Space9" type="Panel" parent="Right_menu/Main"]
+[node name="Menu Roles Selector" type="Panel" parent="Right_menu/Main" node_paths=PackedStringArray("roles_container", "line_menu")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("3_m7cnv")
+script = ExtResource("10_m4fcw")
+roles_container = NodePath("../User_role_placeholder/Roles")
+roles_template = ExtResource("11_7gfgp")
+line_menu = NodePath("../User_role_placeholder")
+
+[node name="Hs_role" type="ColorRect" parent="Right_menu/Main/Menu Roles Selector"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_top = 27.0
+offset_right = 43.0
+offset_bottom = 29.0
+theme = ExtResource("2_gocva")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="V_role" type="ColorRect" parent="Right_menu/Main/Menu Roles Selector"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_left = 1.99988
+offset_top = 4.0
+offset_right = 24.9999
+offset_bottom = 6.0
+rotation = 1.5708
+theme = ExtResource("2_gocva")
+color = Color(0.54902, 0.576471, 0.603922, 1)
+
+[node name="HL_role" type="ColorRect" parent="Right_menu/Main/Menu Roles Selector"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 0
+offset_top = 2.0
+offset_right = 585.0
+offset_bottom = 4.0
+theme = ExtResource("2_gocva")
+color = Color(0.54902, 0.576471, 0.603922, 1)
 
 [node name="User_role_placeholder" type="HBoxContainer" parent="Right_menu/Main" node_paths=PackedStringArray("menu_items")]
 layout_mode = 2
 theme = ExtResource("2_gocva")
 script = ExtResource("7_pk2bf")
-menu_items = [NodePath("Roles"), NodePath("Roles/Role1"), NodePath("Roles/Role2"), NodePath("Roles/Role3")]
+menu_items = [NodePath("Roles")]
 colors = ExtResource("8_wxayy")
 
 [node name="Space" type="Panel" parent="Right_menu/Main/User_role_placeholder"]
@@ -520,63 +556,8 @@ theme = ExtResource("3_m7cnv")
 layout_mode = 2
 theme = ExtResource("2_gocva")
 script = ExtResource("9_ruod5")
-vertical_lines = [NodePath("Role1/V_role")]
-horizontal_lines = [NodePath("Role1/Hs_role"), NodePath("Role1/HL_role")]
-
-[node name="Role1" type="CheckBox" parent="Right_menu/Main/User_role_placeholder/Roles"]
-custom_minimum_size = Vector2(84, 30)
-layout_mode = 2
-theme = ExtResource("2_gocva")
-keep_pressed_outside = true
-text = "Ученик"
-script = ExtResource("9_ruod5")
-
-[node name="Hs_role" type="ColorRect" parent="Right_menu/Main/User_role_placeholder/Roles/Role1"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -58.0
-offset_top = 15.0
-offset_right = -15.0
-offset_bottom = 17.0
-theme = ExtResource("2_gocva")
-color = Color(0.54902, 0.576471, 0.603922, 1)
-
-[node name="V_role" type="ColorRect" parent="Right_menu/Main/User_role_placeholder/Roles/Role1"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -56.0001
-offset_top = -8.0
-offset_right = -33.0001
-offset_bottom = -6.0
-rotation = 1.5708
-theme = ExtResource("2_gocva")
-color = Color(0.54902, 0.576471, 0.603922, 1)
-
-[node name="HL_role" type="ColorRect" parent="Right_menu/Main/User_role_placeholder/Roles/Role1"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -58.0
-offset_top = -10.0
-offset_right = 527.0
-offset_bottom = -8.0
-theme = ExtResource("2_gocva")
-color = Color(0.54902, 0.576471, 0.603922, 1)
-
-[node name="Role2" type="CheckBox" parent="Right_menu/Main/User_role_placeholder/Roles"]
-custom_minimum_size = Vector2(153, 30)
-layout_mode = 2
-theme = ExtResource("2_gocva")
-keep_pressed_outside = true
-text = "Администратор"
-script = ExtResource("9_ruod5")
-
-[node name="Role3" type="CheckBox" parent="Right_menu/Main/User_role_placeholder/Roles"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_gocva")
-keep_pressed_outside = true
-text = "Преподаватель"
-script = ExtResource("9_ruod5")
+vertical_lines = [NodePath("../../Menu Roles Selector/V_role")]
+horizontal_lines = [NodePath("../../Menu Roles Selector/Hs_role"), NodePath("../../Menu Roles Selector/HL_role")]
 
 [node name="Space10" type="Panel" parent="Right_menu/Main"]
 custom_minimum_size = Vector2(0, 12)
@@ -728,7 +709,6 @@ grow_vertical = 2
 theme = ExtResource("13_vhdue")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="toggled" from="Right_menu/Main/Block_Avatar/Block/Block_button" to="." method="_on_block_button_toggled"]
 [connection signal="toggled" from="Right_menu/Main/Block_Avatar/Avatar/Avatar/Drop" to="." method="_on_drop_toggled"]
 [connection signal="focus_entered" from="Right_menu/Main/User_name_placeholder/Name Edit" to="Right_menu/Main/User_name_placeholder/Name Edit" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Right_menu/Main/User_name_placeholder/Name Edit" to="Right_menu/Main/User_name_placeholder/Name Edit" method="_on_focus_exited"]
@@ -736,9 +716,3 @@ metadata/_edit_use_anchors_ = true
 [connection signal="focus_exited" from="Right_menu/Main/User_login_placeholder/Login Edit" to="Right_menu/Main/User_login_placeholder/Login Edit" method="_on_focus_exited"]
 [connection signal="focus_entered" from="Right_menu/Main/User_password_placeholder/Password Edit" to="Right_menu/Main/User_password_placeholder/Password Edit" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Right_menu/Main/User_password_placeholder/Password Edit" to="Right_menu/Main/User_password_placeholder/Password Edit" method="_on_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/User_role_placeholder/Roles/Role1" to="Right_menu/Main/User_role_placeholder/Roles/Role1" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/User_role_placeholder/Roles/Role1" to="Right_menu/Main/User_role_placeholder/Roles/Role1" method="_on_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/User_role_placeholder/Roles/Role2" to="Right_menu/Main/User_role_placeholder/Roles/Role2" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/User_role_placeholder/Roles/Role2" to="Right_menu/Main/User_role_placeholder/Roles/Role2" method="_on_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/User_role_placeholder/Roles/Role3" to="Right_menu/Main/User_role_placeholder/Roles/Role3" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/User_role_placeholder/Roles/Role3" to="Right_menu/Main/User_role_placeholder/Roles/Role3" method="_on_focus_exited"]

@@ -13,7 +13,7 @@ var sensitive: Level = Level.Trace : set = set_sensitive
 
 func set_sensitive(level: Level) -> void:
 	sensitive = level
-	info("Установлен уровень чувствительности логгирования = %s" % get_sensitive_string(level))
+	info("Установлен уровень логгирования = %s" % get_sensitive_string(level))
 
 func trace(message: String) -> void:
 	write(Level.Trace, message)
@@ -47,7 +47,7 @@ func get_sensitive_string(level: int) -> String:
 	return Level.keys()[index] if index > -1 else "Unknown"
 
 func format_message(tag: String, message: String) -> String:
-	return "[" + tag.to_upper() + "]\t" + date_time() + ": " + message
+	return "[" + tag.to_upper() + "]\t" + date_time() + " " + message
 
 func date_time() -> String:
 	var time = Time.get_datetime_dict_from_system()
