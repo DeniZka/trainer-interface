@@ -13,7 +13,7 @@ func get_persons(page: int, size: int) -> Array[Person]:
 	var endpoint: String = Url.with_parameters(url, { "page": page, "size": size })
 	var response = await http.send_get(endpoint);
 	
-	if response == null:
+	if not response.is_success():
 		return []
 	
 	return _parse_persons_from_json(response.content["items"])
@@ -26,7 +26,7 @@ func update_person(person_id: int, new_person: Person) -> Person:
 	var endpoint: String = Url.with_parameters(url + "/" + str(person_id) +"/", serialized_person)
 	var response = await http.send_patch(endpoint);
 	
-	if response.content == null:
+	if not response.is_success():
 		return null
 	
 	return Person.create_from_json(response.content);
@@ -38,7 +38,7 @@ func create_person(user: Person) -> Person:
 	var endpoint: String = Url.with_parameters(url, serialized_person)
 	var response = await http.send_post(endpoint);
 	
-	if response.content == null:
+	if not response.is_success():
 		return null
 	
 	return Person.create_from_json(response.content);

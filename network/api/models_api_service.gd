@@ -13,7 +13,7 @@ func get_models(page: int, size: int) -> Array[Model]:
 	var endpoint: String = Url.with_parameters(url, { "page": page, "size": size })
 	var response = await http.send_get(endpoint);
 	
-	if response == null:
+	if not response.is_success():
 		return []
 	
 	return _parse_models_from_json(response.content["items"])

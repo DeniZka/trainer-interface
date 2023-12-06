@@ -18,6 +18,7 @@ config/icon="res://icons/animals/Bear_144.png"
 [autoload]
 
 Api="*res://autoload/api.gd"
+Log="*res://autoload/log.gd"
 
 [display]
 

@@ -7,10 +7,13 @@ var headers: PackedStringArray
 var content: Variant
 
 func is_not_found() -> bool:
-	return str(status_code) == "404"
+	return status_code == HTTPClient.RESPONSE_NOT_FOUND
+
+func is_timeout_error() -> bool:
+	return result == HTTPRequest.RESULT_TIMEOUT
 
 func is_success() -> bool:
-	return str(status_code) == "200"
+	return status_code == HTTPClient.RESPONSE_OK
 
 func is_error() -> bool:
 	return !is_success()

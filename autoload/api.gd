@@ -1,5 +1,8 @@
 extends Node
 
+## Timeout for http exchange
+const TIMEOUT_IN_SECONDS: float = 1.0
+
 var url: String = "https://192.168.100.105:8000"
 var http: HTTPRequest
 
@@ -11,10 +14,15 @@ var scenarios: ScenariosApiService
 var screens: ScreensApiService
 
 func _ready() -> void:
-	http = HTTPRequest.new()
-	http.set_tls_options(TLSOptions.client_unsafe())
-	add_child(http)
+	http = create_http_request(TIMEOUT_IN_SECONDS)
 	initialize_api(url, http)
+
+func create_http_request(timeout: float) -> HTTPRequest:
+	var request = HTTPRequest.new()
+	request.set_tls_options(TLSOptions.client_unsafe())
+	request.timeout = timeout
+	add_child(request)
+	return request
 
 func initialize_api(url: String, http: HTTPRequest) -> void:
 	var http_service: HTTPService = HTTPService.new(http)
