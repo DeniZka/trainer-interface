@@ -7,7 +7,7 @@ var login: String
 var password: String
 var full_name: String
 var locked: bool
-var role_ids: Array
+var role_ids: Array[int]
 
 func _to_string() -> String:
 	return "Person [%s] login: %s; password: %s; full_name: %s; roles: %s. [locked: %s]" % [id, login, password, full_name, _roles_to_string(), locked]
@@ -54,6 +54,8 @@ static func create_from_json(json: Dictionary) -> Person:
 	person.locked = json["locked"]
 	
 	if json.has("role_ids"):
-		person.role_ids = json["role_ids"]
+		for id in json["role_ids"]:
+			if id != null:
+				person.role_ids.append(int(id))
 
 	return person

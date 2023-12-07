@@ -25,15 +25,15 @@ func _ready() -> void:
 	for menu_id in menus:
 		menus[menu_id].closed.connect(_on_menu_closed)
 
-func open(window_id: String) -> void:
+func open(window_id: String, data: Variant) -> void:
 	var next_menu: Control = menus[window_id]
-	_open_menu(next_menu)
+	_open_menu(next_menu, data)
 
-func _open_menu(menu: Control) -> void:
+func _open_menu(menu: Control, data: Variant) -> void:
 	if opened_menu != null:
 		opened_menu.close()
 	opened_menu = menu
-	opened_menu.open()
+	opened_menu.open(data)
 
 func _on_menu_closed() -> void:
 	opened_menu.close()

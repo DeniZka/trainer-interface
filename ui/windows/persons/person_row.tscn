@@ -24,8 +24,9 @@ script = ExtResource("2_jmmvg")
 [node name="Background" type="ColorRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
+offset_left = 2.0
 offset_top = 10.0
-offset_right = 1920.0
+offset_right = 1922.0
 offset_bottom = 102.0
 color = Color(1, 1, 1, 0)
 
@@ -107,8 +108,8 @@ vertical_alignment = 2
 [node name="Split0" type="HSplitContainer" parent="."]
 layout_mode = 0
 offset_left = 214.0
-offset_right = 1905.0
-offset_bottom = 102.0
+offset_right = 849.0
+offset_bottom = 90.0
 size_flags_horizontal = 3
 theme = ExtResource("1_ejwqn")
 

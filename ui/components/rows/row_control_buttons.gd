@@ -11,5 +11,9 @@ signal deleted()
 
 func _ready() -> void:
 	select_button.pressed.connect(func(): selected.emit())
-	edit_button.pressed.connect(func(): edited.emit())
+	edit_button.pressed.connect(_on_edited)
 	delete_button.pressed.connect(func(): deleted.emit())
+
+func _on_edited() -> void:
+	edited.emit()
+	edit_button.button_pressed = false

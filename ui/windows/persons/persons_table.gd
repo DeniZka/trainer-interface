@@ -44,8 +44,8 @@ func subscribe_to_row_signals(row: PersonRow) -> void:
 	row.deleted.connect(func(inner: PersonRow): deleted.emit(inner))
 
 func align_row(row: PersonRow) -> void:
-	var iconColumn = $HBoxContainer/Icon
-	var nameColumn = $HBoxContainer/Split0/Name
-	var loginColumn = $HBoxContainer/Split0/Split1/Login
-	var roleColumn = $HBoxContainer/Split0/Split1/Split2/Role
+	var iconColumn = $Container/HBoxContainer/Icon
+	var nameColumn = $Container/HBoxContainer/Split0/Name
+	var loginColumn = $Container/HBoxContainer/Split0/Split1/Login
+	var roleColumn = $Container/HBoxContainer/Split0/Split1/Split2/Role
 	row.align_column_width(iconColumn, nameColumn, loginColumn, roleColumn)

@@ -1,49 +1,44 @@
 class_name PersonsWindow
 extends Control
 
-signal opened_menu(tag: String)
+signal opened_menu(data: Person)
 
 @onready var search_bar: SearchBar = %"Search Bar" as SearchBar
 @onready var table: PersonsTable = %"Persons Table" as PersonsTable
 
 var roles_by_id: Dictionary
+var persons_service: PersonsService
 
 func _ready() -> void:
+	persons_service = Services.persons as PersonsService
 	search_bar.add_button_pressed.connect(_on_add_button_pressed)
 	table.edited.connect(_on_row_edited)
 	table.selected.connect(_on_row_selected)
 	table.deleted.connect(_on_row_deleted)
-	PersonProvider.updated.connect(_on_persons_updated)
+	persons_service.updated.connect(_on_persons_updated)
+
+func open() -> void:
+	Log.trace("Открыл окно пользователей")
+	await persons_service.refresh(1, 25)
+
+func close() -> void:
+	Log.trace("Закрыл окно пользователей")
 
 func add(person: Person) -> void:
 	table.add(person)
 
 func _on_persons_updated() -> void:
 	table.clear()
-	table.add_array(PersonProvider.persons)
-
-func update() -> void:
-	var personsService = Api.persons;
-	refresh_persons(personsService)
-
-func refresh_persons(service: PersonsApiService) -> void:
-	Log.debug("Обновление списка пользователей")
-	var persons: Array[Person] = await service.get_persons(1, 25)
-	
-	if persons != null:
-		table.clear()
-		table.add_array(persons)
+	table.add_array(persons_service.persons)
 
 func _on_row_edited(row: PersonRow) -> void:
-	pass
+	opened_menu.emit(row.person)
 
 func _on_row_selected(row: PersonRow) -> void:
 	pass
 
 func _on_row_deleted(row: PersonRow) -> void:
-	Log.info("Удаление пользователя #%s" % row.person.id)
-	var response = await Api.persons.delete_person(row.person.id)
-	update()
+	var response = await persons_service.delete(row.person)
 
 func _on_add_button_pressed() -> void:
-	opened_menu.emit(WindowId.Persons)
+	opened_menu.emit(null)

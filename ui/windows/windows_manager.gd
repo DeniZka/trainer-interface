@@ -27,19 +27,15 @@ var current: Control
 
 func _ready() -> void:
 	for window_id in windows:
-		windows[window_id].opened_menu.connect(func(tag: String): menu_manager.open(tag))
-	
-	for menu_id in menu_manager.menus:
-		menu_manager.menus[menu_id].saved.connect(func(data): windows[menu_id].add(data))
+		windows[window_id].opened_menu.connect(func(data): menu_manager.open(window_id, data))
 	
 	navigation_bar.button_pressed.connect(_on_navigation_button_pressed)
 
 func _on_navigation_button_pressed(tag: String) -> void:
 	if current != null:
+		current.close()
 		current.hide()
 	
 	current = windows[tag]
+	current.open()
 	current.show()
-	
-	if current.has_method("update"):
-		current.update()

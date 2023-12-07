@@ -32,7 +32,7 @@ func _parse_json(response: Variant) -> Variant:
 	return json.data
 
 func _to_string() -> String:
-	return "Status: %s, %s" % [status_code, content]
+	return "Status: %s, Result: %s, %s" % [status_code, result, content]
 
 static func error() -> HTTPResponse:
 	return HTTPResponse.new()

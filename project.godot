@@ -19,7 +19,7 @@ config/icon="res://icons/animals/Bear_144.png"
 
 Api="*res://autoload/api.gd"
 Log="*res://autoload/log.gd"
-PersonProvider="*res://core/persons/person_provider.gd"
+Services="*res://autoload/services.gd"
 
 [display]
 
