@@ -1,0 +1,21 @@
+[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://bnfp3omaim015"]
+
+[sub_resource type="Animation" id="Animation_iojca"]
+resource_name = "popup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.406126, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[resource]
+_data = {
+"popup": SubResource("Animation_iojca")
+}

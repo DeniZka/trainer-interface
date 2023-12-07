@@ -43,7 +43,7 @@ position = Vector2(976, 704)
 position = Vector2(976, 816)
 
 [node name="ValveRegul" parent="ColorRect" instance=ExtResource("3_2wsit")]
-position = Vector2(838.195, 569.285)
+position = Vector2(848, 568)
 valve_stat = 1
 vlv_mode = 2
 Rotate = -90.0
@@ -51,16 +51,16 @@ main_name = "KBA51"
 sub_name = "AA101"
 
 [node name="Label" type="Label" parent="ColorRect/ValveRegul"]
-offset_left = -78.2595
-offset_top = -21.7526
-offset_right = -30.2595
-offset_bottom = 22.2474
+offset_left = -80.0
+offset_top = -23.9999
+offset_right = -32.0
+offset_bottom = 20.0001
 theme = ExtResource("4_33kpl")
 text = "KBA51
 AA101"
 
 [node name="ValveRegul2" parent="ColorRect" instance=ExtResource("3_2wsit")]
-position = Vector2(1102.06, 567.836)
+position = Vector2(1112, 568)
 valve_stat = 1
 vlv_mode = 2
 Rotate = -90.0
@@ -68,148 +68,130 @@ main_name = "KBA54"
 sub_name = "AA101"
 
 [node name="Label" type="Label" parent="ColorRect/ValveRegul2"]
-offset_left = 26.2239
-offset_top = -20.5375
-offset_right = 76.2239
-offset_bottom = 23.4625
+offset_left = 16.0
+offset_top = -24.0
+offset_right = 66.0
+offset_bottom = 20.0
 theme = ExtResource("4_33kpl")
 text = "KBA54
 AA101"
 
 [node name="Valve" parent="ColorRect" instance=ExtResource("4_qoqdb")]
-position = Vector2(438.365, 600.892)
-valve_stat = 1
-Rotate = -90.0
+position = Vector2(448, 600)
 main_name = "KBA62"
 sub_name = "AA002"
+Rotate = -90.0
+valve_stat = 1
 
 [node name="Label" type="Label" parent="ColorRect/Valve"]
-offset_left = -78.2595
-offset_top = -21.7526
-offset_right = -30.2595
-offset_bottom = 22.2474
+offset_left = -88.0
+offset_top = -23.9999
+offset_right = -40.0
+offset_bottom = 20.0001
 theme = ExtResource("4_33kpl")
 text = "KBA62
 AA002"
 
 [node name="Valve2" parent="ColorRect" instance=ExtResource("4_qoqdb")]
-position = Vector2(838.074, 663.131)
-valve_stat = 1
-Rotate = -90.0
+position = Vector2(848, 664)
 main_name = "KBA51"
 sub_name = "AA001"
+Rotate = -90.0
+valve_stat = 1
 
 [node name="Label" type="Label" parent="ColorRect/Valve2"]
-offset_left = -78.2595
-offset_top = -21.7526
-offset_right = -30.2595
-offset_bottom = 22.2474
+offset_left = -80.0
+offset_top = -24.0
+offset_right = -32.0
+offset_bottom = 20.0
 theme = ExtResource("4_33kpl")
 text = "KBA51
 AA001"
 
 [node name="Valve3" parent="ColorRect" instance=ExtResource("4_qoqdb")]
-position = Vector2(1101.97, 665.661)
-valve_stat = 1
-Rotate = -90.0
+position = Vector2(1112, 664)
 main_name = "KBA54"
 sub_name = "AA001"
+Rotate = -90.0
+valve_stat = 1
 
 [node name="Label" type="Label" parent="ColorRect/Valve3"]
-offset_left = 26.0453
-offset_top = -20.3952
-offset_right = 74.0453
-offset_bottom = 23.6048
+offset_left = 16.0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = 20.0
 theme = ExtResource("4_33kpl")
 text = "KBA54
 AA001"
 
 [node name="Valve4" parent="ColorRect" instance=ExtResource("4_qoqdb")]
-position = Vector2(1350.37, 593.38)
-valve_stat = 1
-Rotate = -90.0
+position = Vector2(1360, 592)
 main_name = "KBA64"
 sub_name = "AA002"
+Rotate = -90.0
+valve_stat = 1
 
 [node name="Label" type="Label" parent="ColorRect/Valve4"]
-offset_left = -78.2595
-offset_top = -21.7526
-offset_right = -30.2595
-offset_bottom = 22.2474
+offset_left = -80.0001
+offset_top = -24.0
+offset_right = -32.0001
+offset_bottom = 20.0
 theme = ExtResource("4_33kpl")
 text = "KBA64
 AA002"
 
 [node name="Valve5" parent="ColorRect" instance=ExtResource("4_qoqdb")]
-position = Vector2(1350.09, 486.186)
-valve_stat = 1
-Rotate = -90.0
+position = Vector2(1360, 480)
 main_name = "KBA64"
 sub_name = "AA001"
+Rotate = -90.0
+valve_stat = 1
 
 [node name="Label" type="Label" parent="ColorRect/Valve5"]
-offset_left = -78.2595
-offset_top = -21.7526
-offset_right = -30.2595
-offset_bottom = 22.2474
+offset_left = -79.9998
+offset_top = -24.0
+offset_right = -31.9998
+offset_bottom = 20.0
 theme = ExtResource("4_33kpl")
 text = "KBA64
 AA001"
 
 [node name="ListChange" parent="ColorRect" instance=ExtResource("5_1702m")]
 position = Vector2(904, 728)
+scheme_name = "01-C   "
 Rotate = 180.0
-lst_state = 1
-main_name = "01-C"
-
-[node name="Label" type="Label" parent="ColorRect/ListChange"]
-offset_left = -30.0
-offset_top = -12.0
-offset_right = 18.0
-offset_bottom = 11.0
-theme = ExtResource("4_33kpl")
-text = "01-C"
-horizontal_alignment = 1
-vertical_alignment = 1
+text_color = Color(0, 0, 0, 1)
+shape_color = Color(0, 1, 1, 1)
 
 [node name="ListGap" parent="ColorRect" instance=ExtResource("6_p34o2")]
 position = Vector2(1037.63, 856.375)
+scheme_name = "     01-E"
 Rotate = 180.0
-lst_state = 1
-main_name = "01-E"
-
-[node name="Label" type="Label" parent="ColorRect/ListGap"]
-offset_left = -19.625
-offset_top = -11.75
-offset_right = 28.375
-offset_bottom = 11.25
-theme = ExtResource("4_33kpl")
-text = "01-E"
-horizontal_alignment = 1
-vertical_alignment = 1
+text_color = Color(0, 0, 0, 1)
+shape_color = Color(0, 1, 1, 1)
 
 [node name="ValveCheck" parent="." instance=ExtResource("7_xg1kg")]
 position = Vector2(848.216, 430.094)
-Rotate = -90.0
-valve_stat = 1
 main_name = "KBA51"
 sub_name = "AA601"
+Rotate = -90.0
+valve_stat = 1
 
 [node name="Label" type="Label" parent="ValveCheck"]
-offset_left = -78.2595
-offset_top = -21.7526
-offset_right = -30.2595
-offset_bottom = 22.2474
+offset_left = -64.216
+offset_top = -22.094
+offset_right = -16.216
+offset_bottom = 21.906
 theme = ExtResource("4_33kpl")
 text = "KBA51
 AA601"
 
 [node name="ValveCheck2" parent="." instance=ExtResource("7_xg1kg")]
 position = Vector2(1111.98, 484.631)
-Rotate = -90.0
-valve_stat = 1
 main_name = "KBA54"
 sub_name = "AA601"
+Rotate = -90.0
+valve_stat = 1
 
 [node name="Label" type="Label" parent="ValveCheck2"]
 offset_left = 16.0167

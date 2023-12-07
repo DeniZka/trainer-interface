@@ -1,27 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciowslckq7k3v"]
+[gd_scene load_steps=5 format=3 uid="uid://ciowslckq7k3v"]
 
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ValveService.gd" id="1_2sacc"]
 [ext_resource type="Texture2D" uid="uid://caad6bc8st15r" path="res://Icons/Scheme_elements/Valve.png" id="1_p5jxi"]
-[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Place.png" id="2_bwkln"]
-[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/On.png" id="3_pu0m4"]
-[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Off.png" id="4_auepj"]
-[ext_resource type="Texture2D" uid="uid://deah34ydfr0gy" path="res://Icons/Scheme_elements/CheckValveOnOff.png" id="5_4dc8c"]
-[ext_resource type="Texture2D" uid="uid://d3edbw1crpv1t" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOff.png" id="6_gnrkn"]
-[ext_resource type="Texture2D" uid="uid://bg74aaxos2asb" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOn.png" id="6_hbpcq"]
-[ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="6_unrdw"]
-[ext_resource type="Texture2D" uid="uid://3pt8gsoxhvbd" path="res://Icons/Scheme_elements/Flip.png" id="7_pyg3y"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_whjgr"]
-radius = 89.5231
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxi3q"]
-size = Vector2(65.1695, 18.1038)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tv024"]
-size = Vector2(17.9594, 65.3834)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q78pu"]
-radius = 25.9306
 
 [sub_resource type="Animation" id="Animation_1md53"]
 resource_name = "opening"
@@ -46,101 +26,12 @@ _data = {
 
 [node name="Valve" type="Node2D"]
 script = ExtResource("1_2sacc")
-valve_stat = 3
 main_name = ""
 sub_name = ""
-
-[node name="menuArea" type="Area2D" parent="."]
-visible = false
-
-[node name="menuColShape" type="CollisionShape2D" parent="menuArea"]
-rotation = 1.5708
-shape = SubResource("CircleShape2D_whjgr")
-
-[node name="Bg" type="Sprite2D" parent="menuArea/menuColShape"]
-rotation = -1.5708
-texture = ExtResource("2_bwkln")
-
-[node name="CheckValveOnOff" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(25, -2)
-
-[node name="CheckValveOnOff" type="Sprite2D" parent="menuArea/menuColShape/Bg/CheckValveOnOff"]
-position = Vector2(-24.9425, -65.7718)
-texture = ExtResource("5_4dc8c")
-
-[node name="CheckValveOnOff2" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/CheckValveOnOff"]
-position = Vector2(-24.6223, -66.1363)
-shape = SubResource("RectangleShape2D_wxi3q")
-
-[node name="On" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(-24, 0)
-
-[node name="On2" type="Sprite2D" parent="menuArea/menuColShape/Bg/On"]
-position = Vector2(-18.6158, -43.5377)
-texture = ExtResource("3_pu0m4")
-
-[node name="On" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/On"]
-position = Vector2(-18.6283, -43.5826)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_tv024")
-
-[node name="CheckValveOn" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(25, -2)
-
-[node name="CheckValveOn" type="Sprite2D" parent="menuArea/menuColShape/Bg/CheckValveOn"]
-position = Vector2(-82.2886, -15.4338)
-texture = ExtResource("6_hbpcq")
-
-[node name="CheckValveOn2" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/CheckValveOn"]
-position = Vector2(-82.6223, -15.1363)
-shape = SubResource("RectangleShape2D_wxi3q")
-
-[node name="Rotate" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(25, 32)
-
-[node name="Rotate" type="Sprite2D" parent="menuArea/menuColShape/Bg/Rotate"]
-position = Vector2(-82.2886, -15.4338)
-texture = ExtResource("6_unrdw")
-
-[node name="Rotate2" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/Rotate"]
-position = Vector2(-82.6223, -15.3893)
-shape = SubResource("RectangleShape2D_wxi3q")
-
-[node name="Flip" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(40, 59)
-
-[node name="Flip" type="Sprite2D" parent="menuArea/menuColShape/Bg/Flip"]
-position = Vector2(-82.2886, -15.4338)
-texture = ExtResource("7_pyg3y")
-
-[node name="Flip2" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/Flip"]
-position = Vector2(-82.6223, -15.3919)
-shape = SubResource("RectangleShape2D_wxi3q")
-
-[node name="CheckValveOff" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(25, -2)
-
-[node name="CheckValveOff" type="Sprite2D" parent="menuArea/menuColShape/Bg/CheckValveOff"]
-position = Vector2(32.3567, 18.8168)
-texture = ExtResource("6_gnrkn")
-
-[node name="CheckValveOff2" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/CheckValveOff"]
-position = Vector2(32.3777, 18.8637)
-shape = SubResource("RectangleShape2D_wxi3q")
-
-[node name="Off" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(25, -2)
-
-[node name="Off2" type="Sprite2D" parent="menuArea/menuColShape/Bg/Off"]
-position = Vector2(17.2113, 45.7696)
-texture = ExtResource("4_auepj")
-
-[node name="Off" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/Off"]
-position = Vector2(17.3777, 45.8637)
-shape = SubResource("RectangleShape2D_wxi3q")
+valve_stat = 3
 
 [node name="ValveLeft" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0, 1)
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
 texture = ExtResource("1_p5jxi")
 
 [node name="ValveRight" type="Sprite2D" parent="."]
@@ -148,36 +39,9 @@ modulate = Color(1, 0.580392, 0.156863, 1)
 texture = ExtResource("1_p5jxi")
 flip_h = true
 
-[node name="ActiveArea" type="Area2D" parent="."]
-
-[node name="ActiveArea" type="CollisionShape2D" parent="ActiveArea"]
-shape = SubResource("CircleShape2D_q78pu")
-
 [node name="signal_play" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qfegg")
 }
 
-[connection signal="mouse_exited" from="menuArea" to="." method="_on_menu_area_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/CheckValveOnOff" to="." method="_on_check_valve_on_off_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/CheckValveOnOff" to="." method="_on_check_valve_on_off_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/CheckValveOnOff" to="." method="_on_check_valve_on_off_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/On" to="." method="_on_on_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/On" to="." method="_on_on_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/On" to="." method="_on_on_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/CheckValveOn" to="." method="_on_check_valve_on_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/CheckValveOn" to="." method="_on_check_valve_on_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/CheckValveOn" to="." method="_on_check_valve_on_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/Rotate" to="." method="_on_rotate_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/Rotate" to="." method="_on_rotate_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/Rotate" to="." method="_on_rotate_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/Flip" to="." method="_on_flip_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/Flip" to="." method="_on_flip_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/Flip" to="." method="_on_flip_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/CheckValveOff" to="." method="_on_check_valve_off_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/CheckValveOff" to="." method="_on_check_valve_off_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/CheckValveOff" to="." method="_on_check_valve_off_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/Off" to="." method="_on_off_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/Off" to="." method="_on_off_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/Off" to="." method="_on_off_mouse_exited"]
-[connection signal="mouse_entered" from="ActiveArea" to="." method="_on_active_area_mouse_entered"]
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

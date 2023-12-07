@@ -9,27 +9,6 @@ const DEFAULT_RGB = Color(1, 1, 1)
 
 @export_category("Polygon") 
 
-@export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
-	get:
-		if not is_node_ready(): await ready
-		return polygon.rotation_degrees
-	set(val):
-		if not is_node_ready(): await ready
-		polygon.rotation_degrees = val
-
-enum POLYGON_STATE  {ST_UNKNOWN, ST_COLORED}
-@onready var polygon_status : POLYGON_STATE = POLYGON_STATE.ST_UNKNOWN
-@export_enum("неизвестно:0", "окрашен:1") var plgn_state : int = POLYGON_STATE.ST_UNKNOWN: 
-	get:
-		if not is_node_ready(): await ready
-		return polygon_status
-	set(val):
-		if not is_node_ready(): await ready
-		polygon_status = val
-		polygon.modulate = DEFAULT_RGB
-		if val == POLYGON_STATE.ST_COLORED:
-			polygon.modulate = PURPLE_RGB
-
 func printLabel(mainName, subName):
 	for child in get_children():
 		if child is Label:
@@ -52,6 +31,28 @@ func printLabel(mainName, subName):
 	get:
 		if not is_node_ready() : await ready
 		return obj_name["subname"]
+
+@export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
+	get:
+		if not is_node_ready(): await ready
+		return polygon.rotation_degrees
+	set(val):
+		if not is_node_ready(): await ready
+		polygon.rotation_degrees = val
+
+enum POLYGON_STATE  {ST_UNKNOWN, ST_COLORED}
+@onready var polygon_status : POLYGON_STATE = POLYGON_STATE.ST_UNKNOWN
+@export_enum("неизвестно:0", "окрашен:1") var plgn_state : int = POLYGON_STATE.ST_UNKNOWN: 
+	get:
+		if not is_node_ready(): await ready
+		return polygon_status
+	set(val):
+		if not is_node_ready(): await ready
+		polygon_status = val
+		polygon.modulate = DEFAULT_RGB
+		if val == POLYGON_STATE.ST_COLORED:
+			polygon.modulate = PURPLE_RGB
+
 
 func _ready():
 	pass 

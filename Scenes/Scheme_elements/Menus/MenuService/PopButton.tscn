@@ -1,31 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds5viwncwvcci"]
+[gd_scene load_steps=8 format=3 uid="uid://ds5viwncwvcci"]
 
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/Menus/float_button.gd" id="1_837di"]
 [ext_resource type="Texture2D" uid="uid://nwtttk1b28jn" path="res://Icons/Scheme_elements/Menus/Support/Test/back_layer.png" id="2_j6mce"]
 [ext_resource type="Texture2D" uid="uid://btywixtrhwfty" path="res://Icons/Scheme_elements/Menus/Support/Test/outline.png" id="3_7xrpk"]
 [ext_resource type="Texture2D" uid="uid://btjtic1p1gyof" path="res://Icons/Scheme_elements/Menus/Support/Test/overlay.png" id="4_g8ohs"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="5_d2v5n"]
+[ext_resource type="AnimationLibrary" uid="uid://c87dq8x5mrjc3" path="res://Themes/For_scheme_elements/Menus/play.tres" id="5_pe42d"]
+[ext_resource type="AnimationLibrary" uid="uid://c3yrcnjatpn0r" path="res://Themes/For_scheme_elements/Menus/play_tmp.tres" id="6_1qswr"]
 
 [node name="float_button" type="Node2D"]
 script = ExtResource("1_837di")
+main_color = Color(0, 1, 1, 1)
 
-[node name="button-place" type="Node2D" parent="."]
+[node name="button_place" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 
-[node name="BackLayer" type="Sprite2D" parent="button-place"]
-modulate = Color(0.137255, 0.266667, 0.360784, 1)
+[node name="BackLayer" type="Sprite2D" parent="button_place"]
+modulate = Color(0, 1, 1, 1)
 z_index = -1
 position = Vector2(0, 4)
 texture = ExtResource("2_j6mce")
 
-[node name="Outline" type="Sprite2D" parent="button-place"]
+[node name="Outline" type="Sprite2D" parent="button_place"]
 modulate = Color(1, 0.85098, 0, 1)
 texture = ExtResource("3_7xrpk")
 
-[node name="Overlay" type="Sprite2D" parent="button-place"]
-modulate = Color(1, 0.85098, 0, 1)
+[node name="Overlay" type="Sprite2D" parent="button_place"]
+modulate = Color(0, 1, 1, 1)
+z_index = 1
 texture = ExtResource("4_g8ohs")
 
-[node name="Button" type="Button" parent="button-place"]
+[node name="text" type="Node2D" parent="button_place"]
+
+[node name="Button" type="Button" parent="button_place/text"]
+visible = false
 z_index = 2
 offset_left = -30.0
 offset_top = -19.0
@@ -34,9 +42,18 @@ offset_bottom = 18.0
 pivot_offset = Vector2(30, 19)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("5_d2v5n")
 flat = true
 
-[node name="target-point" type="Node2D" parent="."]
+[node name="target_point" type="Node2D" parent="."]
 position = Vector2(61, -68)
 
 [node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": ExtResource("5_pe42d"),
+"temp": ExtResource("6_1qswr")
+}
+
+[connection signal="pressed" from="button_place/text/Button" to="." method="_on_button_pressed"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="tree_exiting" from="anim" to="." method="_on_anim_tree_exiting"]

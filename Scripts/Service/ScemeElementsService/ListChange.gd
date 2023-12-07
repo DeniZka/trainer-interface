@@ -2,14 +2,21 @@
 class_name ListChange extends Node2D
 
 @onready var shape = $ListChange
-@onready var obj_name = {"name": ""}
+@onready var text = $text/name
+@onready var textColor = $text
 
 const BLUE_RGB = Color(0, 0.9411764705882353, 1)
 const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.9372549019607843)
 
 @export_category("List Change") 
 
-@export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
+@export var scheme_name: String = "name":
+	set(val):
+		if not is_node_ready(): await ready
+		scheme_name = val
+		text.text = val
+
+@export_range(-180.0, 180.0, 180.0, "degrees") var Rotate: float = 0.0:
 	get:
 		if not is_node_ready(): await ready
 		return shape.rotation_degrees
@@ -17,32 +24,17 @@ const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.937254901960
 		if not is_node_ready(): await ready
 		shape.rotation_degrees = val
 
-enum LISTCHANGE_STATE  {ST_UNKNOWN, ST_COLORED}
-@onready var listChange_status : LISTCHANGE_STATE = LISTCHANGE_STATE.ST_UNKNOWN
-@export_enum("неизвестно:0", "окрашен:1") var lst_state : int = LISTCHANGE_STATE.ST_UNKNOWN: 
-	get:
-		if not is_node_ready(): await ready
-		return listChange_status
+@export var text_color : Color = Color(1,1,1,1):
 	set(val):
 		if not is_node_ready(): await ready
-		listChange_status = val
-		shape.modulate = DEFAULT_RGB
-		if val == LISTCHANGE_STATE.ST_COLORED:
-			shape.modulate = BLUE_RGB
+		text_color = val
+		textColor.modulate = val
 
-func printLabel(mainName):
-	for child in get_children():
-		if child is Label:
-			child.text = mainName
-
-@export var main_name : String = "KBAXX":
+@export var shape_color : Color = Color(1,1,1,1):
 	set(val):
-		if not is_node_ready() : await ready
-		obj_name["name"] = val
-		printLabel(obj_name["name"])
-	get:
-		if not is_node_ready() : await ready
-		return obj_name["name"]
+		if not is_node_ready(): await ready
+		shape_color = val
+		shape.modulate = val
 
 
 func _ready():
@@ -51,6 +43,4 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_child_entered_tree(node):
-	if not is_node_ready() : await ready
-	printLabel(obj_name["name"])
+

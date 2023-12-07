@@ -6,14 +6,6 @@ class_name HeatExchanger extends Node2D
 
 @export_category("Heat Exchanger") 
 
-@export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
-	get:
-		if not is_node_ready(): await ready
-		return heatExchanger.rotation_degrees
-	set(val):
-		if not is_node_ready(): await ready
-		heatExchanger.rotation_degrees = val
-
 
 func printLabel(mainName, subName):
 	for child in get_children():
@@ -37,6 +29,15 @@ func printLabel(mainName, subName):
 	get:
 		if not is_node_ready() : await ready
 		return obj_name["subname"]
+
+
+@export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
+	get:
+		if not is_node_ready(): await ready
+		return heatExchanger.rotation_degrees
+	set(val):
+		if not is_node_ready(): await ready
+		heatExchanger.rotation_degrees = val
 
 func _ready():
 	pass 

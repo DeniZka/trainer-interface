@@ -6,9 +6,13 @@
 
 [node name="HeatExchanger" type="Node2D"]
 script = ExtResource("1_p8cnt")
+main_name = ""
+sub_name = ""
 
 [node name="Square" type="Sprite2D" parent="."]
 texture = ExtResource("1_n6ltc")
 
 [node name="HeatExchanger" type="Sprite2D" parent="."]
 texture = ExtResource("2_efg1k")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

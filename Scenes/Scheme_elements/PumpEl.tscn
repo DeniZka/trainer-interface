@@ -1,113 +1,53 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkqihw2axr4ko"]
+[gd_scene load_steps=6 format=3 uid="uid://dkqihw2axr4ko"]
 
-[ext_resource type="Texture2D" uid="uid://b4wepm8kd86yj" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Place.png" id="1_kcsiv"]
 [ext_resource type="Texture2D" uid="uid://x83gsm6l2076" path="res://Icons/Scheme_elements/Ellipse.png" id="1_kvobw"]
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/PumpElService.gd" id="1_ufo5a"]
-[ext_resource type="Texture2D" uid="uid://eqmjcv4ffwdh" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/On.png" id="2_8djf0"]
+[ext_resource type="PackedScene" uid="uid://btt61xvymlnub" path="res://Scenes/Scheme_elements/Menus/MenuService/mainCircle.tscn" id="2_ixv4j"]
 [ext_resource type="Texture2D" uid="uid://b858ppsyelk3j" path="res://Icons/Scheme_elements/ElDrive.png" id="2_ke5ip"]
-[ext_resource type="Texture2D" uid="uid://coppovd5ul32x" path="res://Icons/Scheme_elements/Menus/Support/MyMenu/Off.png" id="3_2cct4"]
-[ext_resource type="Texture2D" uid="uid://bkvwte1sq1aik" path="res://Icons/Scheme_elements/Rotate.png" id="5_4h6vj"]
-[ext_resource type="Texture2D" uid="uid://3pt8gsoxhvbd" path="res://Icons/Scheme_elements/Flip.png" id="6_4im4b"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rieju"]
-radius = 89.5231
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tug8"]
-size = Vector2(17.9594, 65.3834)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_25q5c"]
-size = Vector2(65.1695, 18.2895)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6mkw"]
-size = Vector2(65.1695, 18.1038)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hqfmo"]
-radius = 21.2504
+[ext_resource type="PackedScene" uid="uid://ds5viwncwvcci" path="res://Scenes/Scheme_elements/Menus/MenuService/PopButton.tscn" id="3_y5gjt"]
 
 [node name="ElPump" type="Node2D"]
 script = ExtResource("1_ufo5a")
 main_name = ""
 sub_name = ""
 
-[node name="menuArea" type="Area2D" parent="."]
-visible = false
+[node name="main-cir" parent="." instance=ExtResource("2_ixv4j")]
+main_color = Color(0.2, 0.313726, 0.407843, 1)
 
-[node name="menuColShape" type="CollisionShape2D" parent="menuArea"]
-rotation = 1.5708
-shape = SubResource("CircleShape2D_rieju")
+[node name="close" parent="main-cir" instance=ExtResource("3_y5gjt")]
+text = "Закрыть"
+text_color = Color(0, 0.917647, 0, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0, 0.917647, 0, 1)
 
-[node name="Bg" type="Sprite2D" parent="menuArea/menuColShape"]
-rotation = -1.5708
-texture = ExtResource("1_kcsiv")
+[node name="Marker2D2" type="Marker2D" parent="main-cir/close"]
+position = Vector2(87, 75)
 
-[node name="On" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(-24, 0)
+[node name="open" parent="main-cir" instance=ExtResource("3_y5gjt")]
+text = "Открыть"
+text_color = Color(1, 0.580392, 0.156863, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.580392, 0.156863, 1)
 
-[node name="On2" type="Sprite2D" parent="menuArea/menuColShape/Bg/On"]
-position = Vector2(-18.6158, -43.5377)
-texture = ExtResource("2_8djf0")
+[node name="Marker2D2" type="Marker2D" parent="main-cir/open"]
+position = Vector2(-96, -50)
 
-[node name="On" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/On"]
-position = Vector2(-18.6283, -43.5826)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_8tug8")
+[node name="refusal" parent="main-cir" instance=ExtResource("3_y5gjt")]
+text = "Ошибка"
+text_color = Color(0.756863, 0, 0.756863, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0.756863, 0, 0.756863, 1)
 
-[node name="Off" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(25, -2)
-
-[node name="Off2" type="Sprite2D" parent="menuArea/menuColShape/Bg/Off"]
-position = Vector2(17.2113, 45.7696)
-texture = ExtResource("3_2cct4")
-
-[node name="Off" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/Off"]
-position = Vector2(17.3777, 45.8637)
-shape = SubResource("RectangleShape2D_25q5c")
-
-[node name="Rotate" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(25, 32)
-
-[node name="Rotate" type="Sprite2D" parent="menuArea/menuColShape/Bg/Rotate"]
-position = Vector2(-82.2886, -15.4338)
-texture = ExtResource("5_4h6vj")
-
-[node name="Rotate2" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/Rotate"]
-position = Vector2(-82.6223, -15.3893)
-shape = SubResource("RectangleShape2D_j6mkw")
-
-[node name="Flip" type="Area2D" parent="menuArea/menuColShape/Bg"]
-position = Vector2(40, 59)
-
-[node name="Flip" type="Sprite2D" parent="menuArea/menuColShape/Bg/Flip"]
-position = Vector2(-82.2886, -15.4338)
-texture = ExtResource("6_4im4b")
-
-[node name="Flip2" type="CollisionShape2D" parent="menuArea/menuColShape/Bg/Flip"]
-position = Vector2(-82.6223, -15.3919)
-shape = SubResource("RectangleShape2D_j6mkw")
+[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal"]
+position = Vector2(87, -51)
 
 [node name="Ellipse" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("1_kvobw")
 
 [node name="ElDrive" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
+z_index = 1
 texture = ExtResource("2_ke5ip")
 
-[node name="ActiveArea" type="Area2D" parent="."]
-
-[node name="ActiveArea" type="CollisionShape2D" parent="ActiveArea"]
-shape = SubResource("CircleShape2D_hqfmo")
-
-[connection signal="mouse_exited" from="menuArea" to="." method="_on_menu_area_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/On" to="." method="_on_on_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/On" to="." method="_on_on_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/On" to="." method="_on_on_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/Off" to="." method="_on_off_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/Off" to="." method="_on_off_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/Off" to="." method="_on_off_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/Rotate" to="." method="_on_rotate_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/Rotate" to="." method="_on_rotate_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/Rotate" to="." method="_on_rotate_mouse_exited"]
-[connection signal="input_event" from="menuArea/menuColShape/Bg/Flip" to="." method="_on_flip_input_event"]
-[connection signal="mouse_entered" from="menuArea/menuColShape/Bg/Flip" to="." method="_on_flip_mouse_entered"]
-[connection signal="mouse_exited" from="menuArea/menuColShape/Bg/Flip" to="." method="_on_flip_mouse_exited"]
-[connection signal="mouse_entered" from="ActiveArea" to="." method="_on_active_area_mouse_entered"]
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

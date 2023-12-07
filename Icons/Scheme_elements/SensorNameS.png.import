@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce6snb6lrqrlg"
-path="res://.godot/imported/CheckValveOnOff.png-ef84010b1e80ee6de0b279f507b24a13.ctex"
+uid="uid://dpgx5rjsxg0bp"
+path="res://.godot/imported/SensorNameS.png-d00d904fe7dc9c177d6e9c9434fc709c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/Scheme_elements/Menus/Support/MyMenu/CheckValveOnOff.png"
-dest_files=["res://.godot/imported/CheckValveOnOff.png-ef84010b1e80ee6de0b279f507b24a13.ctex"]
+source_file="res://Icons/Scheme_elements/SensorNameS.png"
+dest_files=["res://.godot/imported/SensorNameS.png-d00d904fe7dc9c177d6e9c9434fc709c.ctex"]
 
 [params]
 

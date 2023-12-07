@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://0vjytkiid28w"]
+[gd_scene load_steps=4 format=3 uid="uid://0vjytkiid28w"]
 
 [ext_resource type="Texture2D" uid="uid://cm5liahkjn3co" path="res://Icons/Scheme_elements/ListChange.png" id="1_bb865"]
 [ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ListChange.gd" id="1_dti8m"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://Themes/Empty/Empty.tres" id="3_umiwm"]
 
 [node name="ListChange" type="Node2D"]
 script = ExtResource("1_dti8m")
 
 [node name="ListChange" type="Sprite2D" parent="."]
 texture = ExtResource("1_bb865")
+
+[node name="text" type="Node2D" parent="."]
+
+[node name="name" type="Label" parent="text"]
+anchors_preset = -1
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 23.0
+offset_bottom = 12.0
+grow_horizontal = 2
+theme = ExtResource("3_umiwm")
+horizontal_alignment = 1
+vertical_alignment = 1

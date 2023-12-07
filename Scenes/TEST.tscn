@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://x8gvjg5bdtxh"]
 
 [ext_resource type="Script" path="res://Scripts/TEST/TEST.gd" id="1_hoobu"]
-[ext_resource type="PackedScene" uid="uid://i1gy4pljl145" path="res://Scenes/Scheme_elements/ValveRegul.tscn" id="2_1kgsd"]
+[ext_resource type="PackedScene" uid="uid://i1gy4pljl145" path="res://Scenes/Scheme_elements/ValveRegul.tscn" id="2_fbdfb"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
@@ -48,8 +48,8 @@ offset_right = 558.337
 offset_bottom = 67.8727
 placeholder_text = "y ="
 
-[node name="ValveRegul" parent="." instance=ExtResource("2_1kgsd")]
-position = Vector2(644.876, 552.317)
+[node name="ValveRegul" parent="." instance=ExtResource("2_fbdfb")]
+position = Vector2(519.644, 599.193)
 
 [connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Save" to="." method="_on_save_pressed"]

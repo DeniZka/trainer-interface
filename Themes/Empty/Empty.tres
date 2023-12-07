@@ -1,4 +1,7 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://d3n6kqhglrbq2"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://d3n6kqhglrbq2"]
+
+[ext_resource type="FontFile" uid="uid://dcw2c2tpem8b0" path="res://Fonts/Roboto/Roboto-Regular.ttf" id="1_e7a2w"]
+[ext_resource type="FontFile" uid="uid://bwr8s7ldbolmf" path="res://Fonts/Roboto/Roboto-Light.ttf" id="1_ehhe7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2oe2f"]
 
@@ -13,9 +16,13 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_is0ss"]
 
 [resource]
+Button/font_sizes/font_size = 13
+Button/fonts/font = ExtResource("1_e7a2w")
 Button/styles/disabled = SubResource("StyleBoxEmpty_2oe2f")
 Button/styles/focus = SubResource("StyleBoxEmpty_pbff2")
 Button/styles/hover = SubResource("StyleBoxEmpty_s6eon")
 Button/styles/normal = SubResource("StyleBoxEmpty_22byb")
 Button/styles/pressed = SubResource("StyleBoxEmpty_u0llt")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/fonts/font = ExtResource("1_ehhe7")
 Panel/styles/panel = SubResource("StyleBoxEmpty_is0ss")

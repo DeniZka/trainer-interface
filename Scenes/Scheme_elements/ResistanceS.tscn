@@ -7,10 +7,8 @@
 script = ExtResource("1_cjhnb")
 
 [node name="ResistanceS" type="Sprite2D" parent="."]
-rotation = 1.5708
 texture = ExtResource("1_k4lxe")
 
 [node name="ResistanceS2" type="Sprite2D" parent="."]
-rotation = 1.5708
 texture = ExtResource("1_k4lxe")
 flip_h = true
