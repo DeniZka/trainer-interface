@@ -34,6 +34,7 @@ func add(person: Person) -> void:
 func _on_persons_updated() -> void:
 	table.clear()
 	table.add_array(persons_service.persons)
+	Log.trace("Обновил отображение пользователей в таблице")
 
 func _on_row_edited(row: PersonRow) -> void:
 	opened_menu.emit(row.person)

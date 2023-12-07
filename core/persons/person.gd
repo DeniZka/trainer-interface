@@ -27,7 +27,6 @@ func serialize(with_id: bool = true) -> Dictionary:
 
 func apply_roles(roles: Array[PersonRole]) -> void:
 	self.roles = roles
-	print('hey')
 
 func roles_to_string() -> String:
 	var line: String = ""
