@@ -46,7 +46,7 @@ outline_color = Color(1, 0.580392, 0.156863, 1)
 position = Vector2(-96, -50)
 
 [node name="refusal" parent="main-cir" instance=ExtResource("3_y5gjt")]
-text = "Ошибка"
+text = "Отказ"
 pop = false
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
