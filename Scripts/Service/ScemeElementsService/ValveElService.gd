@@ -13,6 +13,8 @@ class_name ValveEl extends Node2D
 @onready var controlBuffer : bool = false
 @onready var obj_name = {"mainname": "", "subname" : ""}
 @onready var player = $signal_play
+@onready var refusalButton : PopButton = $"main-cir/refusal"
+@onready var refpopchstate : bool = false
 
 
 const CLOSE_RGB = Color(0, 0.9176470588235294, 0) 
@@ -135,3 +137,9 @@ func _on_child_entered_tree(node):
 	printLabel(obj_name["mainname"], obj_name["subname"])
 
 
+
+
+func _on_refusal_b_pressed():
+	refpopchstate = not refpopchstate
+	refusalButton.pop_childs(refpopchstate)
+	pass # Replace with function body.

@@ -14,6 +14,12 @@ signal b_pressed()
 signal b_pop_done()
 signal b_pop_hide()
 
+func pop_childs(pop_state):
+	for ch in get_children():
+		if ch is PopButton:
+			ch.pop = pop_state
+	pass
+
 @export var text: String = "test":
 	set(val):
 		if not is_node_ready(): await ready

@@ -11,6 +11,8 @@ class_name ValveRegul extends Node2D #generate class name for node searching typ
 @onready var obj_name = {"mainname": "", "subname" : ""}
 @onready var player = $signal_play
 @onready var elMotorRefusal = $ValveElectricMotorRefusal
+@onready var refusalButton : PopButton = $"main-cir/refusal"
+@onready var refchpopstate : bool = false
 
 const CLOSE_RGB = Color(0, 0.9176470588235294, 0) 
 const OPEN_RGB = Color(1, 0.5803921568627451, 0.1568627450980392) 
@@ -130,3 +132,9 @@ func _on_child_entered_tree(node):
 	if not is_node_ready() : await ready
 	printLabel(obj_name["mainname"], obj_name["subname"])
 
+
+
+func _on_refusal_b_pressed():
+	refchpopstate = not refchpopstate
+	refusalButton.pop_childs(refchpopstate)
+	pass # Replace with function body.

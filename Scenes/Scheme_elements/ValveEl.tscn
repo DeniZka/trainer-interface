@@ -99,7 +99,7 @@ texture = ExtResource("2_e2kby")
 offset = Vector2(0, -10)
 
 [node name="ValveElectricMotorRefusal" type="Sprite2D" parent="."]
-modulate = Color(0.756863, 0, 0.756863, 0)
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 texture = ExtResource("2_e2kby")
 offset = Vector2(0, -10)
@@ -109,7 +109,7 @@ z_index = 1
 texture = ExtResource("13_od7x5")
 
 [node name="ValveLeftRefusal" type="Sprite2D" parent="."]
-modulate = Color(0.756863, 0, 0.756863, 0)
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 texture = ExtResource("13_od7x5")
 
@@ -119,7 +119,7 @@ texture = ExtResource("13_od7x5")
 flip_h = true
 
 [node name="ValveRightRefusal" type="Sprite2D" parent="."]
-modulate = Color(0.756863, 0, 0.756863, 0)
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 texture = ExtResource("13_od7x5")
 flip_h = true
@@ -130,3 +130,4 @@ libraries = {
 }
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="b_pressed" from="main-cir/refusal" to="." method="_on_refusal_b_pressed"]

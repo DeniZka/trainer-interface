@@ -154,3 +154,4 @@ libraries = {
 }
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="b_pressed" from="main-cir/refusal" to="." method="_on_refusal_b_pressed"]
