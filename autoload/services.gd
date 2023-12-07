@@ -1,9 +1,8 @@
 extends Node
 
 var persons: PersonsService
+var roles: RolesService
 
 func _ready() -> void:
 	persons = PersonsService.new(Api.persons)
-
-func get_persons() -> PersonsService:
-	return persons;
+	roles = RolesService.new(Api.roles)

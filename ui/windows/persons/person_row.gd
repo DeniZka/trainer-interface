@@ -29,7 +29,7 @@ func construct(person: Person) -> void:
 	%Id.set_text("ID: %s" % person.id)
 	%Name.set_text(person.full_name)
 	%Login.set_text(person.login)
-	%Role.set_text(person._roles_to_string())
+	%Role.set_text(person.roles_to_string())
 	#%Icon.set_button_icon(load(person.icon))
 
 func paint_background(color: Color) -> void:

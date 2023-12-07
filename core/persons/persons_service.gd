@@ -9,13 +9,28 @@ var api: PersonsApiService
 func _init(apiService: PersonsApiService) -> void:
 	self.api = apiService
 
-func refresh(page: int, size: int) -> void:
+func refresh(page: int, size: int) -> Array[Person]:
 	Log.debug("Обновление данных пользователей (page %s, size %s)" % [page, size])
 	var result = await api.get_persons(page, size)
 	
 	if result != []:
 		persons = result
+		
+		for person in persons:
+			_apply_roles_for(person)
+		
 		updated.emit()
+		return result
+	return []
+
+func _apply_roles_for(person: Person) -> void:
+	var roles: RolesService = Services.roles as RolesService
+	var applied_roles: Array[PersonRole]
+	for role_id in person.role_ids:
+		var role: PersonRole = roles.get_cached_role_or_null(role_id)
+		if role != null:
+			applied_roles.append(role)
+	person.apply_roles(applied_roles)
 
 func add(new_person: Person) -> void:
 	Log.debug("Создание нового пользователя %s" % new_person.id)

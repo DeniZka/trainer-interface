@@ -8,9 +8,12 @@ signal opened_menu(data: Person)
 
 var roles_by_id: Dictionary
 var persons_service: PersonsService
+var roles_service: RolesService
 
 func _ready() -> void:
 	persons_service = Services.persons as PersonsService
+	roles_service = Services.roles as RolesService
+	
 	search_bar.add_button_pressed.connect(_on_add_button_pressed)
 	table.edited.connect(_on_row_edited)
 	table.selected.connect(_on_row_selected)
@@ -19,6 +22,7 @@ func _ready() -> void:
 
 func open() -> void:
 	Log.trace("Открыл окно пользователей")
+	await roles_service.refresh(1, 25)
 	await persons_service.refresh(1, 25)
 
 func close() -> void:
