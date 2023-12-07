@@ -11,6 +11,17 @@ script = ExtResource("1_ufo5a")
 main_name = ""
 sub_name = ""
 
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="Ellipse" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("1_kvobw")
+
+[node name="ElDrive" type="Sprite2D" parent="sprites"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+texture = ExtResource("2_ke5ip")
+
 [node name="main-cir" parent="." instance=ExtResource("2_ixv4j")]
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 
@@ -44,13 +55,5 @@ outline_color = Color(1, 0.313726, 0.992157, 1)
 [node name="Marker2D2" type="Marker2D" parent="main-cir/refusal"]
 position = Vector2(87, -51)
 
-[node name="Ellipse" type="Sprite2D" parent="."]
-z_index = 1
-texture = ExtResource("1_kvobw")
-
-[node name="ElDrive" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-z_index = 1
-texture = ExtResource("2_ke5ip")
-
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="popped" from="main-cir" to="." method="_on_maincir_popped"]

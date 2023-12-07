@@ -1,9 +1,10 @@
 @tool 
 class_name PumpEl extends Node2D 
 
+@onready var sprites = $sprites
 @onready var btnArea = $menuArea
-@onready var pump = $Ellipse
-@onready var elDrive = $ElDrive
+@onready var pump = $sprites/Ellipse
+@onready var elDrive = $sprites/ElDrive
 @onready var obj_name = {"mainname": "", "subname" : ""}
 @onready var refusalBuffer : bool = false
 
@@ -93,3 +94,12 @@ func _process(delta):
 func _on_child_entered_tree(node):
 	if not is_node_ready() : await ready
 	printLabel(obj_name["mainname"], obj_name["subname"])
+
+
+func _on_maincir_popped(state):
+	if state :
+		z_index = 5
+		sprites.z_index = 5
+	else:
+		z_index = 0
+		sprites.z_index = 0

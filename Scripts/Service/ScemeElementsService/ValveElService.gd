@@ -1,14 +1,14 @@
 @tool 
 class_name ValveEl extends Node2D
 
-@onready var btnArea = $menuArea
-@onready var valveLeft = $ValveLeft
-@onready var valveLeftRefusal = $ValveLeftRefusal
-@onready var valveRight = $ValveRight
-@onready var valveRightRefusal = $ValveRightRefusal
-@onready var elMotor = $ValveElectricMotor
-@onready var elMotorRefusal = $ValveElectricMotorRefusal
-@onready var elConn = $ValveConn
+@onready var sprites = $sprites
+@onready var valveLeft = $sprites/ValveLeft
+@onready var valveLeftRefusal = $sprites/ValveLeftRefusal
+@onready var valveRight = $sprites/ValveRight
+@onready var valveRightRefusal = $sprites/ValveRightRefusal
+@onready var elMotor = $sprites/ValveElectricMotor
+@onready var elMotorRefusal = $sprites/ValveElectricMotorRefusal
+@onready var elConn = $sprites/ValveConn
 @onready var powerBuffer : bool = false
 @onready var controlBuffer : bool = false
 @onready var obj_name = {"mainname": "", "subname" : ""}
@@ -149,3 +149,13 @@ func _on_refusal_b_pop_hide():
 	if not is_node_ready() : await ready
 	refpopchstate = false
 	refusalButton.pop_childs(refpopchstate)
+
+#popup ordering repair
+func _on_maincir_popped(state):
+	if state :
+		z_index = 5
+		sprites.z_index = 5
+	else:
+		z_index = 0
+		sprites.z_index = 0
+	pass # Replace with function body.

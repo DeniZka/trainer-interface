@@ -13,7 +13,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ValveLeftRefusal:modulate")
+tracks/0/path = NodePath("sprites/ValveLeftRefusal:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ValveElectricMotorRefusal:modulate")
+tracks/1/path = NodePath("sprites/ValveElectricMotorRefusal:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ValveRightRefusal:modulate")
+tracks/2/path = NodePath("sprites/ValveRightRefusal:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -58,6 +58,47 @@ main_name = ""
 sub_name = ""
 metadata/_edit_vertical_guides_ = [88.0]
 metadata/_edit_horizontal_guides_ = [-24.0, -80.0]
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="ValveLeft" type="Sprite2D" parent="sprites"]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
+z_index = 1
+texture = ExtResource("11_xka5l")
+
+[node name="ValveLeftRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(0.756863, 0, 0.756863, 0)
+z_index = 1
+texture = ExtResource("11_xka5l")
+
+[node name="ValveRight" type="Sprite2D" parent="sprites"]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
+z_index = 1
+texture = ExtResource("11_xka5l")
+flip_h = true
+
+[node name="ValveRightRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(0.756863, 0, 0.756863, 0)
+z_index = 1
+texture = ExtResource("11_xka5l")
+flip_h = true
+
+[node name="ValveElArrow" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("7_4pe16")
+offset = Vector2(0, -10)
+
+[node name="ValveElectricMotor" type="Sprite2D" parent="sprites"]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
+z_index = 1
+texture = ExtResource("8_ah4tu")
+offset = Vector2(0, -10)
+
+[node name="ValveElectricMotorRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(0.756863, 0, 0.756863, 0)
+z_index = 1
+texture = ExtResource("8_ah4tu")
+offset = Vector2(0, -10)
 
 [node name="main-cir" parent="." instance=ExtResource("2_3re6d")]
 main_color = Color(0.2, 0.313726, 0.407843, 1)
@@ -114,50 +155,12 @@ outline_color = Color(1, 0.313726, 0.992157, 1)
 [node name="Marker2D" type="Marker2D" parent="main-cir/refusal/control"]
 position = Vector2(49, 35)
 
-[node name="ValveLeft" type="Sprite2D" parent="."]
-modulate = Color(0.937255, 0.937255, 0.937255, 1)
-z_index = 1
-texture = ExtResource("11_xka5l")
-
-[node name="ValveLeftRefusal" type="Sprite2D" parent="."]
-modulate = Color(0.756863, 0, 0.756863, 0)
-z_index = 1
-texture = ExtResource("11_xka5l")
-
-[node name="ValveRight" type="Sprite2D" parent="."]
-modulate = Color(0.937255, 0.937255, 0.937255, 1)
-z_index = 1
-texture = ExtResource("11_xka5l")
-flip_h = true
-
-[node name="ValveRightRefusal" type="Sprite2D" parent="."]
-modulate = Color(0.756863, 0, 0.756863, 0)
-z_index = 1
-texture = ExtResource("11_xka5l")
-flip_h = true
-
-[node name="ValveElArrow" type="Sprite2D" parent="."]
-z_index = 1
-texture = ExtResource("7_4pe16")
-offset = Vector2(0, -10)
-
-[node name="ValveElectricMotor" type="Sprite2D" parent="."]
-modulate = Color(0.937255, 0.937255, 0.937255, 1)
-z_index = 1
-texture = ExtResource("8_ah4tu")
-offset = Vector2(0, -10)
-
-[node name="ValveElectricMotorRefusal" type="Sprite2D" parent="."]
-modulate = Color(0.756863, 0, 0.756863, 0)
-z_index = 1
-texture = ExtResource("8_ah4tu")
-offset = Vector2(0, -10)
-
 [node name="signal_play" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qfegg")
 }
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="popped" from="main-cir" to="." method="_on_maincir_popped"]
 [connection signal="b_pop_hide" from="main-cir/refusal" to="." method="_on_refusal_b_pop_hide"]
 [connection signal="b_pressed" from="main-cir/refusal" to="." method="_on_refusal_b_pressed"]

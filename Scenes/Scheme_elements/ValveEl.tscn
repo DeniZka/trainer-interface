@@ -13,7 +13,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/path = NodePath("sprites/ValveLeft:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,6 +37,44 @@ _data = {
 script = ExtResource("1_g7lbp")
 main_name = ""
 sub_name = ""
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="ValveConn" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("1_ys0eg")
+offset = Vector2(0, -10)
+
+[node name="ValveElectricMotor" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("2_e2kby")
+offset = Vector2(0, -10)
+
+[node name="ValveElectricMotorRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+texture = ExtResource("2_e2kby")
+offset = Vector2(0, -10)
+
+[node name="ValveLeft" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("13_od7x5")
+
+[node name="ValveLeftRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+texture = ExtResource("13_od7x5")
+
+[node name="ValveRight" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("13_od7x5")
+flip_h = true
+
+[node name="ValveRightRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+texture = ExtResource("13_od7x5")
+flip_h = true
 
 [node name="main-cir" parent="." instance=ExtResource("2_hld26")]
 main_color = Color(0.2, 0.313726, 0.407843, 1)
@@ -93,47 +131,12 @@ outline_color = Color(1, 0.313726, 0.992157, 1)
 [node name="Marker2D" type="Marker2D" parent="main-cir/refusal/control"]
 position = Vector2(49, 35)
 
-[node name="ValveConn" type="Sprite2D" parent="."]
-z_index = 1
-texture = ExtResource("1_ys0eg")
-offset = Vector2(0, -10)
-
-[node name="ValveElectricMotor" type="Sprite2D" parent="."]
-z_index = 1
-texture = ExtResource("2_e2kby")
-offset = Vector2(0, -10)
-
-[node name="ValveElectricMotorRefusal" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-z_index = 1
-texture = ExtResource("2_e2kby")
-offset = Vector2(0, -10)
-
-[node name="ValveLeft" type="Sprite2D" parent="."]
-z_index = 1
-texture = ExtResource("13_od7x5")
-
-[node name="ValveLeftRefusal" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-z_index = 1
-texture = ExtResource("13_od7x5")
-
-[node name="ValveRight" type="Sprite2D" parent="."]
-z_index = 1
-texture = ExtResource("13_od7x5")
-flip_h = true
-
-[node name="ValveRightRefusal" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-z_index = 1
-texture = ExtResource("13_od7x5")
-flip_h = true
-
 [node name="signal_play" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qfegg")
 }
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="popped" from="main-cir" to="." method="_on_maincir_popped"]
 [connection signal="b_pop_hide" from="main-cir/refusal" to="." method="_on_refusal_b_pop_hide"]
 [connection signal="b_pressed" from="main-cir/refusal" to="." method="_on_refusal_b_pressed"]

@@ -1,16 +1,16 @@
 @tool #set design-time usability
 class_name ValveRegul extends Node2D #generate class name for node searching type
 
-@onready var btnArea = $menuArea
-@onready var valveLeft = $ValveLeft
-@onready var valveRight = $ValveRight
-@onready var elMotor = $ValveElectricMotor
-@onready var elArrow = $ValveElArrow
+@onready var sprites = $sprites
+@onready var valveLeft = $sprites/ValveLeft
+@onready var valveRight = $sprites/ValveRight
+@onready var elMotor = $sprites/ValveElectricMotor
+@onready var elArrow = $sprites/ValveElArrow
 @onready var powerBuffer : bool = false
 @onready var controlBuffer : bool = false
 @onready var obj_name = {"mainname": "", "subname" : ""}
 @onready var player = $signal_play
-@onready var elMotorRefusal = $ValveElectricMotorRefusal
+@onready var elMotorRefusal = $sprites/ValveElectricMotorRefusal
 @onready var refusalButton : PopButton = $"main-cir/refusal"
 @onready var refchpopstate : bool = false
 
@@ -144,3 +144,12 @@ func _on_refusal_b_pop_hide():
 	if not is_node_ready() : await ready
 	refchpopstate = false
 	refusalButton.pop_childs(refchpopstate)
+
+
+func _on_maincir_popped(state):
+	if state :
+		z_index = 5
+		sprites.z_index = 5
+	else:
+		z_index = 0
+		sprites.z_index = 0

@@ -1,6 +1,8 @@
 @tool
 extends Node2D
 
+signal popped(state: bool)
+
 @onready var player = $mplay
 @onready var mainBG = $body/Main_bak
 @onready var outline = $body/Main_outline
@@ -48,6 +50,7 @@ func _process(delta):
 func _on_button_pressed():
 	if not is_node_ready(): await  ready
 	self.pop = not self.pop
+	emit_signal("popped", self.pop)
 	pass # Replace with function body.
 
 
