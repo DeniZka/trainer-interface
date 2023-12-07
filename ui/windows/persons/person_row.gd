@@ -22,8 +22,7 @@ func align_column_width(iconColumn: Control, nameColumn: Control, loginColumn: C
 	col1.custom_minimum_size.x = iconColumn.size.x 
 	col2.custom_minimum_size.x = nameColumn.size.x
 	col3.custom_minimum_size.x = loginColumn.size.x
-	col4.custom_minimum_size.x = 1171 #roleColumn.size.x
-	print("%s, %s, %s, %s" % [iconColumn.size.x, nameColumn.size.x, loginColumn.size.x, roleColumn.size.x])
+	col4.custom_minimum_size.x = roleColumn.size.x
 
 func construct(person: Person) -> void:
 	self.person = person
