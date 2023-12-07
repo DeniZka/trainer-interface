@@ -135,6 +135,12 @@ func _on_child_entered_tree(node):
 
 
 func _on_refusal_b_pressed():
+	if not is_node_ready() : await ready
 	refchpopstate = not refchpopstate
 	refusalButton.pop_childs(refchpopstate)
 	pass # Replace with function body.
+
+func _on_refusal_b_pop_hide():
+	if not is_node_ready() : await ready
+	refchpopstate = false
+	refusalButton.pop_childs(refchpopstate)

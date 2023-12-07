@@ -13,7 +13,6 @@ texture = ExtResource("1_bb865")
 [node name="text" type="Node2D" parent="."]
 
 [node name="name" type="Label" parent="text"]
-anchors_preset = -1
 offset_left = -13.0
 offset_top = -11.0
 offset_right = 23.0

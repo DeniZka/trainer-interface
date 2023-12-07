@@ -16,7 +16,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_is0ss"]
 
 [resource]
-Button/font_sizes/font_size = 13
+Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("1_e7a2w")
 Button/styles/disabled = SubResource("StyleBoxEmpty_2oe2f")
 Button/styles/focus = SubResource("StyleBoxEmpty_pbff2")

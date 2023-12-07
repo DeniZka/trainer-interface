@@ -64,6 +64,7 @@ main_color = Color(0.2, 0.313726, 0.407843, 1)
 
 [node name="close" parent="main-cir" instance=ExtResource("3_iwwmu")]
 text = "Закрыть"
+pop = false
 text_color = Color(0, 0.917647, 0, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(0, 0.917647, 0, 1)
@@ -73,6 +74,7 @@ position = Vector2(87, 75)
 
 [node name="open" parent="main-cir" instance=ExtResource("3_iwwmu")]
 text = "Открыть"
+pop = false
 text_color = Color(1, 0.580392, 0.156863, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.580392, 0.156863, 1)
@@ -82,9 +84,10 @@ position = Vector2(-96, -50)
 
 [node name="refusal" parent="main-cir" instance=ExtResource("3_iwwmu")]
 text = "Ошибка"
-text_color = Color(0.756863, 0, 0.756863, 1)
+pop = false
+text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
-outline_color = Color(0.756863, 0, 0.756863, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
 
 [node name="Marker2D" type="Marker2D" parent="main-cir/refusal"]
 position = Vector2(87, -51)
@@ -92,9 +95,10 @@ position = Vector2(87, -51)
 [node name="power" parent="main-cir/refusal" instance=ExtResource("3_iwwmu")]
 position = Vector2(87, -51)
 text = "Power"
-text_color = Color(0.756863, 0, 0.756863, 1)
+pop = false
+text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
-outline_color = Color(0.756863, 0, 0.756863, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
 
 [node name="Marker2D" type="Marker2D" parent="main-cir/refusal/power"]
 position = Vector2(49, -37)
@@ -102,9 +106,10 @@ position = Vector2(49, -37)
 [node name="control" parent="main-cir/refusal" instance=ExtResource("3_iwwmu")]
 position = Vector2(87, -51)
 text = "Control"
-text_color = Color(0.756863, 0, 0.756863, 1)
+pop = false
+text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
-outline_color = Color(0.756863, 0, 0.756863, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
 
 [node name="Marker2D" type="Marker2D" parent="main-cir/refusal/control"]
 position = Vector2(49, 35)
@@ -154,4 +159,5 @@ libraries = {
 }
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="b_pop_hide" from="main-cir/refusal" to="." method="_on_refusal_b_pop_hide"]
 [connection signal="b_pressed" from="main-cir/refusal" to="." method="_on_refusal_b_pressed"]
