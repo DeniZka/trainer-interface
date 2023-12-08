@@ -14,6 +14,8 @@ signal b_pressed()
 signal b_pop_done()
 signal b_pop_hide()
 
+var tw : Tween
+
 func pop_childs(pop_state):
 	for ch in get_children():
 		if ch is PopButton:
@@ -37,10 +39,16 @@ var self_popup_anim_name : String = "popup"
 				target.position = child.position
 				break
 		if val:
-			#change animation accorting target position
-			var a : Animation = player.get_animation("temp/" + self_popup_anim_name)
-			a.track_set_key_value(1, 1, target.position)
-			player.play("temp/" + self_popup_anim_name)
+			if tw:
+				tw.kill()
+			tw = create_tween()
+			tw.tween_property(buttonPlace, "position", target.position, 0.6)
+			tw.play()
+			player.play("popup")
+			##change animation accorting target position
+			#var a : Animation = player.get_animation("temp/" + self_popup_anim_name)
+			#a.track_set_key_value(1, 1, target.position)
+			#player.play("temp/" + self_popup_anim_name)
 		else:
 			player.stop()
 			buttonPlace.position = Vector2(0, 0)
@@ -71,25 +79,6 @@ var self_popup_anim_name : String = "popup"
 func _ready():
 	#hide prepare
 	buttonPlace.modulate = Color(1,1,1,0)
-	#paint in the ass detected!!!
-	#stupid animation system uses single animation for all nodes.
-	#so stupid buttons jumps to same posititon
-	#create unique anumation by duplicate of popup animation
-	var a : Animation = player.get_animation("popup")
-	var my_a : Animation = a.duplicate()
-	self_popup_anim_name = "popup" + str(get_instance_id())
-	#put duplicated animation to library
-	var al: AnimationLibrary = player.get_animation_library("temp")
-	al.add_animation(self_popup_anim_name, my_a)
-	#FIXME reset visibility
-	player.stop()
-	
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_button_pressed():
 	emit_signal("b_pressed")
@@ -98,13 +87,4 @@ func _on_button_pressed():
 
 func _on_anim_animation_finished(anim_name):
 	emit_signal("b_pop_done")
-	pass # Replace with function body.
-
-
-func _on_anim_tree_exiting():
-	#purge animation library due to it will fillfull of trash in designtime
-	#FIXME: uncomment to cleanup library trash
-	var tal : AnimationLibrary = player.get_animation_library("temp")
-	for a_name in tal.get_animation_list():
-			tal.remove_animation(a_name)
 	pass # Replace with function body.
