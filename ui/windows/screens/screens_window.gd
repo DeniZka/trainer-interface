@@ -1,5 +1,5 @@
 class_name ScreensWindow
-extends Control
+extends BaseWindow
 
 signal opened_menu(tag: String)
 

@@ -2,9 +2,11 @@ class_name HTTPService
 extends RefCounted
 
 var http: HTTPRequest
+var response_awaiter: HTTPResponseAwaiter
 
 func _init(http: HTTPRequest) -> void:
 	self.http = http
+	self.response_awaiter = HTTPResponseAwaiter.new()
 
 func send_get(url: String, headers: PackedStringArray = []) -> HTTPResponse:
 	return await send(url, HTTPClient.METHOD_GET)
@@ -42,15 +44,17 @@ func _send_exchange(url: String, headers: PackedStringArray, method: HTTPClient.
 	if error != OK:
 		_not_connection_log(url, error)
 		return HTTPResponse.error()
-	var response = await http.request_completed
+	var response = await response_awaiter.await_response(http)
 	Log.trace("Окончание обмена информацией с сервером, %s" % url)
 	
-	var http_response = HTTPResponse.valid(response[0], response[1], response[2], response[3])
+	if not response.is_success():
+		Log.error("Не валидный ответ с сервера: %s" % response.parse_as_json())
 	
-	if not http_response.is_success():
-		Log.error("Не валидный ответ с сервера: %s" % http_response.parse_as_json())
-	
-	return http_response
+	return response
+
+func _cancel_previous_request() -> void:
+	http.request_completed.emit(0, 0, [], null)
+	http.cancel_request()
 
 func _not_connection_log(url: String, error: int) -> void:
 	Log.error("Не удалось установить соединение с сервером (%s). Код ошибки: %s" % [url, error])

@@ -15,7 +15,11 @@ func clear() -> void:
 	for child in container.get_children():
 		child.free()
 
-func add_role(role: PersonRole) -> void:
+func add_array(roles: Array[PersonRole]) -> void:
+	for role in roles:
+		add(role)
+
+func add(role: PersonRole) -> void:
 	var role_row: RoleRow = role_row_template.instantiate() as RoleRow
 	role_row.construct(role)
 	container.add_child(role_row)

@@ -1,5 +1,5 @@
 class_name ServersWindow
-extends Control
+extends BaseWindow
 
 signal opened_menu(tag: String)
 

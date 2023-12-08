@@ -1,5 +1,5 @@
 class_name ModelsWindow
-extends Control
+extends BaseWindow
 
 signal opened_menu(tag: String)
 

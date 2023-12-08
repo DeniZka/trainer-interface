@@ -1,5 +1,5 @@
 class_name PersonsWindow
-extends Control
+extends BaseWindow
 
 signal opened_menu(data: Person)
 
@@ -21,20 +21,17 @@ func _ready() -> void:
 	persons_service.updated.connect(_on_persons_updated)
 
 func open() -> void:
-	Log.trace("Открыл окно пользователей")
+	super.open()
 	await roles_service.refresh(1, 25)
 	await persons_service.refresh(1, 25)
 
 func close() -> void:
-	Log.trace("Закрыл окно пользователей")
-
-func add(person: Person) -> void:
-	table.add(person)
+	super.close()
 
 func _on_persons_updated() -> void:
 	table.clear()
 	table.add_array(persons_service.persons)
-	Log.trace("Обновил отображение пользователей в таблице")
+	Log.debug("Обновил отображение пользователей в таблице")
 
 func _on_row_edited(row: PersonRow) -> void:
 	opened_menu.emit(row.person)

@@ -1,22 +1,31 @@
 class_name RolesWindow
-extends Control
+extends BaseWindow
 
-signal opened_menu(tag: String)
+signal opened_menu(role: PersonRole)
 
 @onready var search_bar: SearchBar = %"Search Bar" as SearchBar
 @onready var table: RolesTable = %"Roles Table" as RolesTable
 
+var roles: RolesService
+
 func _ready() -> void:
+	roles = Services.roles as RolesService
 	search_bar.add_button_pressed.connect(_on_add_button_pressed)
+	roles.updated.connect(_on_roles_updated)
 
 func add(role: PersonRole) -> void:
 	table.add_role(role)
 
-func update() -> void:
-	var roles = await Api.roles.get_roles(1, 25)
+func _on_roles_updated() -> void:
 	table.clear()
-	for role in roles:
-		add(role)
+	table.add_array(roles.get_cached_roles())
+
+func open() -> void:
+	super.open()
+	await roles.refresh(1, 25)
+
+func close() -> void:
+	super.close()
 
 func _on_add_button_pressed() -> void:
-	opened_menu.emit(WindowId.Roles)
+	opened_menu.emit(null)

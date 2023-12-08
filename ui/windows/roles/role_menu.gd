@@ -18,6 +18,12 @@ func _ready() -> void:
 	cancel_button.pressed.connect(_on_close_button_pressed)
 	close_button.pressed.connect(_on_close_button_pressed)
 
+func open(person: PersonRole) -> void:
+	show()
+
+func close() -> void:
+	hide()
+
 func _on_save_button_pressed() -> void:
 	var role = RoleData.new()
 	role.name = rolename_edit.text

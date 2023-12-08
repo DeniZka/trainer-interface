@@ -23,7 +23,7 @@ extends Control
 	WindowId.Servers	: servers_window,
 }
 
-var current: Control
+var current: BaseWindow
 
 func _ready() -> void:
 	for window_id in windows:
@@ -34,8 +34,9 @@ func _ready() -> void:
 func _on_navigation_button_pressed(tag: String) -> void:
 	if current != null:
 		current.close()
-		current.hide()
 	
-	current = windows[tag]
-	current.open()
-	current.show()
+	if windows.has(tag):
+		current = windows[tag]
+		current.open()
+	else:
+		Log.fatal("Окно \"%s\" не обнаружено в списке окон WindowsManager" % tag)

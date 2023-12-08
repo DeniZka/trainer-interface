@@ -37,6 +37,12 @@ func update(updated_role: PersonRole) -> void:
 		roles[updated_role.id] = result
 		updated.emit()
 
+func get_cached_roles() -> Array[PersonRole]:
+	var array: Array[PersonRole]
+	for id in roles.keys():
+		array.append(roles[id])
+	return array
+
 func get_cached_role_or_null(role_id: int) -> PersonRole:
 	if roles.has(role_id):
 		return roles[role_id]
