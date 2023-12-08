@@ -9,8 +9,5 @@ signal opened_menu(tag: String)
 func _ready() -> void:
 	search_bar.add_button_pressed.connect(_on_add_button_pressed)
 
-func add(restart: RestartData ) -> void:
-	table.add_restart(restart)
-
 func _on_add_button_pressed() -> void:
 	opened_menu.emit(WindowId.Restarts)

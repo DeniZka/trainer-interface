@@ -1,8 +1,8 @@
 class_name RoleMenu
 extends Control
 
-signal saved(data: RoleData)
-signal deleted(data: RoleData)
+signal saved(data: PersonRole)
+signal deleted(data: PersonRole)
 signal closed()
 
 @onready var save_button: Button = %"Save Button" as Button
@@ -25,9 +25,7 @@ func close() -> void:
 	hide()
 
 func _on_save_button_pressed() -> void:
-	var role = RoleData.new()
-	role.name = rolename_edit.text
-	saved.emit(role)
+	pass
 
 func _on_delete_button_pressed() -> void:
 	deleted.emit(null)

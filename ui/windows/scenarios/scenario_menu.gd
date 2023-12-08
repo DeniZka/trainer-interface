@@ -1,8 +1,8 @@
 class_name ScenarioMenu
 extends Control
 
-signal saved(data: ScenarioData)
-signal deleted(data: ScenarioData)
+signal saved(data: Scenario)
+signal deleted(data: Scenario)
 signal closed()
 
 @onready var close_button: Button = %"Close Button" as Button
@@ -21,11 +21,7 @@ func _ready() -> void:
 	load_button.pressed.connect(_on_load_button_pressed)
 
 func _on_save_button_pressed() -> void:
-	var screen = ScenarioData.new()
-	screen.name = scenario_name_edit.text
-	screen.author = author_edit.text
-	screen.upload_at = upload_date_edit.text
-	saved.emit(screen)
+	pass
 
 func _on_delete_button_pressed() -> void:
 	deleted.emit(null)

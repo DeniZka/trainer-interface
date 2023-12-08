@@ -1,20 +1,5 @@
 class_name ServersTable
-extends Control
-
-@onready var container: Control = %Container
-@export var server_row_template: PackedScene
-
-var background_color: Color = Color(0.9372549019607843, 0.9490196078431373, 0.9568627450980392)
-
-func add_server(server: ServerData) -> void:
-	var server_row: ServerRow = server_row_template.instantiate() as ServerRow
-	server_row.construct(server)
-	container.add_child(server_row)
-	
-	if container.get_child_count() % 2 == 0:
-		server_row.paint_background(background_color)
-	
-	align_row(server_row)
+extends BaseTable
 
 func align_row(row: ServerRow) -> void:
 	var icon_column = $HBoxContainer/Icon

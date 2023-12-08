@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/windows/screens/screens_table.gd" id="1_0cba6"]
 [ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="1_ha26q"]
-[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="2_4sgnm"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="2_4sgnm"]
 [ext_resource type="PackedScene" uid="uid://baw8jmgbxrvtm" path="res://ui/windows/screens/screen_row.tscn" id="2_7i3n7"]
 
 [node name="Screens Table" type="Control"]
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0cba6")
-screen_row_template = ExtResource("2_7i3n7")
+row_prefab = ExtResource("2_7i3n7")
 
 [node name="Table" type="ScrollContainer" parent="."]
 layout_mode = 0

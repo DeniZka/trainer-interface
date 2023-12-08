@@ -1,8 +1,8 @@
 class_name RestartMenu
 extends Control
 
-signal saved(data: RestartData)
-signal deleted(data: RestartData)
+signal saved(data: Save)
+signal deleted(data: Save)
 signal closed()
 
 @onready var close_button: Button = %"Close Button" as Button
@@ -21,11 +21,7 @@ func _ready() -> void:
 	load_button.pressed.connect(_on_load_button_pressed)
 
 func _on_save_button_pressed() -> void:
-	var restart = RestartData.new()
-	restart.name = restart_name_edit.text
-	restart.author = author_edit.text
-	restart.upload_at = upload_date_edit.text
-	saved.emit(restart)
+	pass
 
 func _on_delete_button_pressed() -> void:
 	deleted.emit(null)

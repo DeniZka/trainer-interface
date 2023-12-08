@@ -1,8 +1,8 @@
 class_name ModelMenu
 extends Control
 
-signal saved(data: ModelData)
-signal deleted(data: ModelData)
+signal saved(data: Model)
+signal deleted(data: Model)
 signal closed()
 
 @onready var close_button: Button = %"Close Button" as Button
@@ -22,12 +22,7 @@ func _ready() -> void:
 	load_button.pressed.connect(_on_load_button_pressed)
 
 func _on_save_button_pressed() -> void:
-	var model = ModelData.new()
-	model.name = model_name_edit.text
-	model.checksum = checksum_edit.text
-	model.author = author_edit.text
-	model.upload_at = upload_date_edit.text
-	saved.emit(model)
+	pass
 
 func _on_delete_button_pressed() -> void:
 	deleted.emit(null)

@@ -15,8 +15,5 @@ func open() -> void:
 func close() -> void:
 	super.close()
 
-func add(role: ModelData) -> void:
-	table.add_model(role)
-
 func _on_add_button_pressed() -> void:
 	opened_menu.emit(WindowId.Models)

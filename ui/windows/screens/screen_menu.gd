@@ -1,8 +1,8 @@
 class_name ScreenMenu
 extends Control
 
-signal saved(data: ScreenData)
-signal deleted(data: ScreenData)
+signal saved(data: Screen)
+signal deleted(data: Screen)
 signal closed()
 
 @onready var close_button: Button = %"Close Button" as Button
@@ -21,11 +21,7 @@ func _ready() -> void:
 	load_button.pressed.connect(_on_load_button_pressed)
 
 func _on_save_button_pressed() -> void:
-	var screen = ScreenData.new()
-	screen.name = screen_name_edit.text
-	screen.author = author_edit.text
-	screen.upload_at = upload_date_edit.text
-	saved.emit(screen)
+	pass
 
 func _on_delete_button_pressed() -> void:
 	deleted.emit(null)

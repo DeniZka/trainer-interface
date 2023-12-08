@@ -1,8 +1,8 @@
 class_name ServerMenu
 extends Control
 
-signal saved(data: ServerData)
-signal deleted(data: ServerData)
+signal saved(data: Server)
+signal deleted(data: Server)
 signal closed()
 
 @onready var close_button: Button = %"Close Button" as Button
@@ -20,12 +20,7 @@ func _ready() -> void:
 	close_button.pressed.connect(_on_close_button_pressed)
 
 func _on_save_button_pressed() -> void:
-	var server = ServerData.new()
-	server.name = name_edit.text
-	server.author = author_edit.text
-	server.upload_at = upload_date_edit.text
-	server.data_exchange = data_exchange_edit.text
-	saved.emit(server)
+	pass
 
 func _on_delete_button_pressed() -> void:
 	deleted.emit(null)
