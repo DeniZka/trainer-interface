@@ -128,19 +128,9 @@ enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING, ST_OPENING, ST_CL
 		return controlBuffer
 @export_group("")
 
-func _ready():
-	pass 
-
-
-func _process(delta):
-	pass
-
 func _on_child_entered_tree(node):
 	if not is_node_ready() : await ready
 	printLabel(obj_name["mainname"], obj_name["subname"])
-
-
-
 
 func _on_refusal_b_pressed():
 	if not is_node_ready() : await ready

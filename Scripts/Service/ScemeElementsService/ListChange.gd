@@ -36,11 +36,3 @@ const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.937254901960
 		shape_color = val
 		shape.modulate = val
 
-
-func _ready():
-	pass 
-
-func _process(delta):
-	pass
-
-

@@ -2,7 +2,6 @@
 class_name PumpEl extends Node2D 
 
 @onready var sprites = $sprites
-@onready var btnArea = $menuArea
 @onready var pump = $sprites/Ellipse
 @onready var elDrive = $sprites/ElDrive
 @onready var obj_name = {"mainname": "", "subname" : ""}
@@ -83,18 +82,9 @@ enum PUMP_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED}
 		if not is_node_ready() : await ready
 		return refusalBuffer
 
-
-
-func _ready():
-	pass 
-
-func _process(delta):
-	pass
-
 func _on_child_entered_tree(node):
 	if not is_node_ready() : await ready
 	printLabel(obj_name["mainname"], obj_name["subname"])
-
 
 func _on_maincir_popped(state):
 	if state :

@@ -33,12 +33,3 @@ class_name ListGap extends Node2D
 		if not is_node_ready(): await ready
 		shape_color = val
 		shape.modulate = val
-
-
-func _ready():
-	pass 
-
-func _process(delta):
-	pass
-
-

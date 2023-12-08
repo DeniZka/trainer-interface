@@ -1,7 +1,6 @@
 @tool 
 class_name ValveCheck extends Node2D 
 
-@onready var btnArea = $menuArea
 @onready var valveLeft = $ValveLeft
 @onready var valveRight = $ValveRight
 @onready var obj_name = {"mainname": "", "subname" : ""}
@@ -67,13 +66,6 @@ enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_OPENEDCLOSED}
 		if val == VLV_STATE.ST_OPENEDCLOSED:
 			valveLeft.modulate = CLOSE_RGB
 			valveRight.modulate = OPEN_RGB
-
-
-func _ready():
-	pass 
-
-func _process(delta):
-	pass
 
 func _on_child_entered_tree(node):
 	if not is_node_ready() : await ready
