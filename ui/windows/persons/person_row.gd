@@ -1,18 +1,7 @@
 class_name PersonRow
-extends Control
-
-signal selected(row: PersonRow)
-signal edited(row: PersonRow)
-signal deleted(row: PersonRow)
-
-@onready var row_control_buttons: RowControlButtons = %"Row Control Buttons" as RowControlButtons
+extends BaseRow
 
 var person: Person
-
-func _ready() -> void:
-	row_control_buttons.selected.connect(func(): selected.emit(self))
-	row_control_buttons.edited.connect(func(): edited.emit(self))
-	row_control_buttons.deleted.connect(func(): deleted.emit(self))
 
 func align_column_width(iconColumn: Control, nameColumn: Control, loginColumn: Control, roleColumn: Control):
 	var col1: Control = $Buttons_and_icons

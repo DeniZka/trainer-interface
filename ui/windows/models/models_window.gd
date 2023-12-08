@@ -9,6 +9,12 @@ signal opened_menu(tag: String)
 func _ready() -> void:
 	search_bar.add_button_pressed.connect(_on_add_button_pressed)
 
+func open() -> void:
+	super.open()
+
+func close() -> void:
+	super.close()
+
 func add(role: ModelData) -> void:
 	table.add_model(role)
 

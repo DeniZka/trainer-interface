@@ -1,5 +1,7 @@
 class_name ScreenRow
-extends Control
+extends BaseRow
+
+var screen: Screen
 
 func align_column_width(iconColumn: Control, nameColumn: Control, modelColumn: Control, allowedRolesColumn: Control,
 		allowerdAuthorsColumn: Control, authorColumn: Control, dateColumn: Control):
@@ -11,7 +13,8 @@ func align_column_width(iconColumn: Control, nameColumn: Control, modelColumn: C
 	$Split0/Split1/Split2/Split3/Split4/Author.custom_minimum_size.x = authorColumn.size.x
 	$Split0/Split1/Split2/Split3/Split4/Split5/Load_date.custom_minimum_size.x = dateColumn.size.x
 
-func construct(data: ScreenData) -> void:
+func construct(data: Screen) -> void:
+	screen = data
 	%Id.set_text(data.id)
 	%Icon.set_button_icon(load(data.icon_path))
 	%Name.set_text(data.name)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqcyynvppy6u7"]
+[gd_scene load_steps=5 format=3 uid="uid://dqcyynvppy6u7"]
 
 [ext_resource type="Script" path="res://ui/windows/restarts/restarts_table.gd" id="1_ni0vg"]
 [ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="1_uwqne"]
-[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="2_ru8eh"]
+[ext_resource type="PackedScene" uid="uid://b8e1eh5c836ok" path="res://ui/windows/restarts/restart_row.tscn" id="2_dmklc"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="2_ru8eh"]
 
 [node name="Restarts Table" type="Control"]
 layout_mode = 3
@@ -12,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ni0vg")
+row_prefab = ExtResource("2_dmklc")
 
 [node name="Table" type="ScrollContainer" parent="."]
 layout_mode = 0

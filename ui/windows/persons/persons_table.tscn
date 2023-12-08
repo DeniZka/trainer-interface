@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_i8ny2")
 script = ExtResource("2_bi3l7")
-person_row_prefab = ExtResource("3_ptspa")
+row_prefab = ExtResource("3_ptspa")
 
 [node name="Container" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 80)

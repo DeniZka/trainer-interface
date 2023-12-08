@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://ui/windows/scenarios/scenarios_table.gd" id="1_3lu26"]
 [ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="1_gjdhf"]
-[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/Info_main.tres" id="2_prng6"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="2_prng6"]
 [ext_resource type="PackedScene" uid="uid://ccasa3cplxgri" path="res://ui/windows/scenarios/scenario_row.tscn" id="2_s3gpu"]
 
 [node name="Scenarios Table" type="Control"]
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3lu26")
-scenario_row_prefab = ExtResource("2_s3gpu")
+row_prefab = ExtResource("2_s3gpu")
 
 [node name="Table" type="ScrollContainer" parent="."]
 layout_mode = 0

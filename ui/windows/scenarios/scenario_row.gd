@@ -1,5 +1,7 @@
 class_name ScenarioRow
-extends Control
+extends BaseRow
+
+var scenario: Scenario
 
 func align_column_width(icon_column: Control, name_column: Control, model_column: Control, 
 		author_column: Control, upload_date_column: Control):
@@ -9,13 +11,14 @@ func align_column_width(icon_column: Control, name_column: Control, model_column
 	$Split0/Split1/Split2/Author.custom_minimum_size.x = author_column.size.x
 	$Split0/Split1/Split2/Split3/Load_date.custom_minimum_size.x = upload_date_column.size.x
 
-func construct(scenario: ScenarioData) -> void:
+func construct(data: Scenario) -> void:
+	scenario = data
 	%Id.set_text("ID: %s" % scenario.id)
 	%Name.set_text(scenario.name)
-	%"Connected Model".set_text(scenario.connected_model)
-	%Author.set_text(scenario.author)
-	%Icon.set_button_icon(load(scenario.icon_path))
-	%"Upload Date".set_text(scenario.upload_at)
+	%"Connected Model".set_text(scenario.model_id)
+	%Author.set_text(scenario.author_id)
+	#%Icon.set_button_icon(load(scenario.icon_path))
+	%"Upload Date".set_text(scenario.created_at)
 
 func paint_background(color: Color) -> void:
 	%Background.color = color

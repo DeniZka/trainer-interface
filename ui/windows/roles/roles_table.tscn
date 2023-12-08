@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://ui/windows/roles/roles_table.gd" id="1_5rolm"]
 [ext_resource type="PackedScene" uid="uid://dfpfo0ddyv1nt" path="res://ui/windows/roles/role_row.tscn" id="2_0fhjn"]
-[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://Themes/Right_menu/Right_main.tres" id="2_pssva"]
-[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://Themes/Info/title.tres" id="3_kp1sc"]
-[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://Themes/Info/Info_main.tres" id="4_qiahc"]
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_pssva"]
+[ext_resource type="Theme" uid="uid://ckkpkqulicu7v" path="res://ui/themes/info/title.tres" id="3_kp1sc"]
+[ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="4_qiahc"]
 
 [node name="Roles Table" type="Control"]
 layout_mode = 3
@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5rolm")
-role_row_template = ExtResource("2_0fhjn")
+row_prefab = ExtResource("2_0fhjn")
 
 [node name="Table" type="ScrollContainer" parent="."]
 layout_mode = 0
