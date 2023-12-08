@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://m1w4reapa4an"]
+
+[ext_resource type="Texture2D" uid="uid://ce8uv0vxfwox2" path="res://Icons/Scheme_elements/Tank.png" id="1_keyuw"]
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/Tank.gd" id="1_ynn16"]
+
+[node name="Tank" type="Node2D"]
+script = ExtResource("1_ynn16")
+
+[node name="Tank" type="Sprite2D" parent="."]
+texture = ExtResource("1_keyuw")

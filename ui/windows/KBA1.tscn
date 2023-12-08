@@ -1,0 +1,797 @@
+[gd_scene load_steps=18 format=3 uid="uid://cto4sj5d48pdi"]
+
+[ext_resource type="Script" path="res://Scripts/KBA1.gd" id="1_qllwu"]
+[ext_resource type="PackedScene" uid="uid://m1w4reapa4an" path="res://ui/windows/Scheme_elements/Tank.tscn" id="2_roqwo"]
+[ext_resource type="PackedScene" uid="uid://dc8rwep6tub7r" path="res://ui/windows/Scheme_elements/Node.tscn" id="3_kj0b7"]
+[ext_resource type="PackedScene" uid="uid://bvvmavom2oouc" path="res://ui/windows/Scheme_elements/ValveEl.tscn" id="4_wmk10"]
+[ext_resource type="PackedScene" uid="uid://0vjytkiid28w" path="res://ui/windows/Scheme_elements/ListChange.tscn" id="5_51gqg"]
+[ext_resource type="Theme" uid="uid://cs4bkw5nffd1u" path="res://Themes/For_scheme_elements/For_elements.tres" id="6_buief"]
+[ext_resource type="PackedScene" uid="uid://i1gy4pljl145" path="res://ui/windows/Scheme_elements/ValveRegul.tscn" id="6_h32ox"]
+[ext_resource type="PackedScene" uid="uid://dkqihw2axr4ko" path="res://ui/windows/Scheme_elements/PumpEl.tscn" id="8_o8my3"]
+[ext_resource type="PackedScene" uid="uid://0dus6aoagk6o" path="res://ui/windows/Scheme_elements/Polygon.tscn" id="9_sfco6"]
+[ext_resource type="PackedScene" uid="uid://bfup5fvysffmc" path="res://ui/windows/Scheme_elements/HeatExchanger.tscn" id="10_8ikhm"]
+[ext_resource type="PackedScene" uid="uid://v878eg8p1f5k" path="res://ui/windows/Scheme_elements/ListGap.tscn" id="11_krx8i"]
+[ext_resource type="PackedScene" uid="uid://bbd7wvu4waya2" path="res://ui/windows/Scheme_elements/NodeBlue.tscn" id="12_cnwmy"]
+[ext_resource type="PackedScene" uid="uid://j3bhhrtyqrj0" path="res://ui/windows/Scheme_elements/Arrow.tscn" id="13_fukg0"]
+[ext_resource type="PackedScene" uid="uid://c1qtldy4hp1ab" path="res://ui/windows/Scheme_elements/ResistanceL.tscn" id="14_0y8gh"]
+[ext_resource type="PackedScene" uid="uid://binf0ntu48hb7" path="res://ui/windows/Scheme_elements/ResistanceS.tscn" id="15_4u0nq"]
+[ext_resource type="PackedScene" uid="uid://dr7kqujnbvtir" path="res://ui/windows/Scheme_elements/SensorName.tscn" id="16_vpoda"]
+[ext_resource type="PackedScene" uid="uid://deibof6jekfnt" path="res://ui/windows/Scheme_elements/ValveCheck.tscn" id="19_b0mp3"]
+
+[node name="kva_scene" type="Node2D"]
+script = ExtResource("1_qllwu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.75, 0.75, 0.75, 1)
+
+[node name="ThinLine" type="Line2D" parent="."]
+position = Vector2(1412.2, 241.132)
+points = PackedVector2Array(3.80005, 166.868, 3.80005, 278.868)
+width = 1.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine10" type="Line2D" parent="."]
+position = Vector2(899.2, 475.132)
+points = PackedVector2Array(12.8, 164.868, 12.8, 436.868)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine20" type="Line2D" parent="."]
+position = Vector2(702.2, 79.1322)
+rotation = 1.5708
+points = PackedVector2Array(8.868, 190.2, 8.868, 142.2, 184.868, 142.199, 184.869, 229.313, 184.869, 422.199, 440.869, 422.198, 440.87, 590.198, 528.87, 590.198, 528.87, 534.198, 864.87, 534.197, 864.867, -129.803, 560.867, -129.802, 560.869, 310.198, 384.869, 310.199, 384.868, 150.199, 441.062, 150.198, 560.868, 150.198, 464.868, 150.198, 464.869, 206.198)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="BoldLine" type="Line2D" parent="."]
+position = Vector2(890.2, 404.132)
+rotation = 1.5708
+points = PackedVector2Array(3.86612, -525.8, 3.86954, 418.2)
+width = 4.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine30" type="Line2D" parent="."]
+position = Vector2(1760.2, 402.132)
+rotation = 1.5708
+points = PackedVector2Array(5.86926, 344.2, 5.86908, 296.2, 277.869, 296.199, 277.869, 344.199, 397.869, 344.198, 397.868, 128.198, 117.868, 128.2, 117.87, 632.2, 397.87, 632.198, 397.869, 344.198)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine31" type="Line2D" parent="."]
+position = Vector2(1760.2, 547.132)
+rotation = 1.5708
+points = PackedVector2Array(4.86902, 296.2, 4.8692, 344.2, 92.8692, 344.2, 92.8713, 928.2)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine36" type="Line2D" parent="."]
+position = Vector2(2055.2, 927.132)
+rotation = 1.5708
+points = PackedVector2Array(8.86926, 351.2, 8.8689, 247.2, -575.131, 247.202, -575.131, 343.202, -415.131, 343.202, -415.131, 247.202)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine25" type="Line2D" parent="."]
+position = Vector2(813.2, 514.132)
+rotation = 1.5708
+points = PackedVector2Array(5.86902, 285.2, 5.86914, 317.2)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine15" type="Line2D" parent="."]
+position = Vector2(464.2, 57.1322)
+points = PackedVector2Array(7.79999, 302.868, 7.79999, 406.868)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine18" type="Line2D" parent="."]
+position = Vector2(186.2, 158.132)
+points = PackedVector2Array(5.8, 361.868, 5.8, 385.868, 205.8, 385.868, 205.8, 361.868, 93.8, 361.868)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="MediumLine5" type="Line2D" parent="."]
+position = Vector2(1682.2, 400.132)
+points = PackedVector2Array(-266.2, 239.868, 93.8, 239.868, 93.8, 319.868, 5.80005, 319.868, 5.80005, 239.868, 125.8, 239.868)
+width = 2.0
+default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
+
+[node name="Tank" parent="." instance=ExtResource("2_roqwo")]
+position = Vector2(472.776, 306.685)
+
+[node name="Node" parent="." instance=ExtResource("3_kj0b7")]
+position = Vector2(492.828, 263.952)
+
+[node name="Node2" parent="." instance=ExtResource("3_kj0b7")]
+position = Vector2(471.14, 354.266)
+
+[node name="Node3" parent="." instance=ExtResource("3_kj0b7")]
+position = Vector2(448.294, 264.068)
+
+[node name="Valve" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(560, 216)
+main_name = "KBA60"
+sub_name = "AA802"
+Rotate = -90.0
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve"]
+offset_left = -88.0
+offset_top = -24.0
+offset_right = -40.0
+offset_bottom = 20.0
+theme = ExtResource("6_buief")
+text = "KBA60
+AA802"
+
+[node name="Valve2" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(424, 464)
+main_name = "KBA21"
+sub_name = "AA001"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve2"]
+offset_left = -90.313
+offset_top = -30.424
+offset_right = -42.313
+offset_bottom = 13.576
+theme = ExtResource("6_buief")
+text = "KBA21
+AA001"
+
+[node name="Valve3" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(520, 464)
+main_name = "KBA22"
+sub_name = "AA001"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve3"]
+offset_left = 44.348
+offset_top = -30.573
+offset_right = 92.348
+offset_bottom = 13.427
+theme = ExtResource("6_buief")
+text = "KBA22
+AA001"
+
+[node name="Valve4" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(240, 520)
+main_name = "KBA10"
+sub_name = "AA101"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve4"]
+offset_left = -21.233
+offset_top = -70.086
+offset_right = 26.767
+offset_bottom = -26.086
+theme = ExtResource("6_buief")
+text = "KBA10
+AA101"
+
+[node name="Valve5" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(392, 608)
+main_name = "KBA21"
+sub_name = "AA002"
+Rotate = -90.0
+valve_stat = 2
+
+[node name="Label" type="Label" parent="Valve5"]
+offset_left = 30.66
+offset_top = -20.531
+offset_right = 78.66
+offset_bottom = 23.469
+theme = ExtResource("6_buief")
+text = "KBA21
+AA002"
+
+[node name="Valve6" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(552, 608)
+main_name = "KBA22"
+sub_name = "AA002"
+Rotate = -90.0
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve6"]
+offset_left = 30.66
+offset_top = -20.531
+offset_right = 78.66
+offset_bottom = 23.469
+theme = ExtResource("6_buief")
+text = "KBA22
+AA002"
+
+[node name="Valve7" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(696, 640)
+main_name = "KBA24"
+sub_name = "AA002"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve7"]
+offset_left = -23.5
+offset_top = 34.0
+offset_right = 24.5
+offset_bottom = 78.0
+theme = ExtResource("6_buief")
+text = "KBA24
+AA002"
+
+[node name="Valve8" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(448, 944)
+main_name = "KBA25"
+sub_name = "AA002"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve8"]
+offset_left = -24.0
+offset_top = -79.9999
+offset_right = 24.0
+offset_bottom = -35.9999
+theme = ExtResource("6_buief")
+text = "KBA25
+AA002"
+
+[node name="Valve9" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1160, 520)
+main_name = "KBA31"
+sub_name = "AA101"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve9"]
+offset_left = -24.7123
+offset_top = -65.5156
+offset_right = 25.2877
+offset_bottom = -21.5156
+theme = ExtResource("6_buief")
+text = "KBA31
+AA101"
+
+[node name="Valve10" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1160, 640)
+main_name = "KBA32"
+sub_name = "AA101"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve10"]
+offset_left = -26.6
+offset_top = 35.007
+offset_right = 23.4
+offset_bottom = 79.007
+theme = ExtResource("6_buief")
+text = "KBA32
+AA101"
+
+[node name="Valve11" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1160, 800)
+main_name = "KBA33"
+sub_name = "AA101"
+valve_stat = 2
+
+[node name="Label" type="Label" parent="Valve11"]
+offset_left = -26.6
+offset_top = 35.007
+offset_right = 23.4
+offset_bottom = 79.007
+theme = ExtResource("6_buief")
+text = "KBA33
+AA101"
+
+[node name="Valve12" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1416, 736)
+main_name = "KBA33"
+sub_name = "AA003"
+Rotate = -90.0
+valve_stat = 2
+
+[node name="Label" type="Label" parent="Valve12"]
+offset_left = -55.9999
+offset_top = -64.0
+offset_right = -5.99991
+offset_bottom = -20.0
+theme = ExtResource("6_buief")
+text = "KBA33
+AA003"
+
+[node name="Valve13" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1416, 592)
+main_name = "KBA32"
+sub_name = "AA003"
+Rotate = -90.0
+valve_stat = 2
+
+[node name="Label" type="Label" parent="Valve13"]
+offset_left = -64.0002
+offset_top = -47.9999
+offset_right = -14.0002
+offset_bottom = -3.99992
+theme = ExtResource("6_buief")
+text = "KBA32
+AA003"
+
+[node name="Valve14" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1416, 464)
+main_name = "KBA31"
+sub_name = "AA003"
+Rotate = -90.0
+valve_stat = 2
+
+[node name="Label" type="Label" parent="Valve14"]
+offset_left = -51.2659
+offset_top = -52.5711
+offset_right = -1.2659
+offset_bottom = -8.57111
+theme = ExtResource("6_buief")
+text = "KBA31
+AA003"
+
+[node name="Valve15" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1584, 520)
+main_name = "KBA31"
+sub_name = "AA002"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve15"]
+offset_left = -26.7
+offset_top = 25.227
+offset_right = 23.3
+offset_bottom = 69.227
+theme = ExtResource("6_buief")
+text = "KBA31
+AA002"
+
+[node name="Valve16" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1584, 640)
+main_name = "KBA32"
+sub_name = "AA002"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve16"]
+offset_left = -26.7
+offset_top = 25.227
+offset_right = 23.3
+offset_bottom = 69.227
+theme = ExtResource("6_buief")
+text = "KBA32
+AA002"
+
+[node name="Valve17" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1584, 800)
+main_name = "KBA33"
+sub_name = "AA002"
+valve_stat = 2
+
+[node name="Label" type="Label" parent="Valve17"]
+offset_left = -24.0
+offset_top = 16.0
+offset_right = 26.0
+offset_bottom = 60.0
+theme = ExtResource("6_buief")
+text = "KBA33
+AA002"
+
+[node name="Valve18" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1732.42, 720.265)
+main_name = "KBA40"
+sub_name = "AA001"
+valve_stat = 2
+
+[node name="Label" type="Label" parent="Valve18"]
+offset_left = -23.7
+offset_top = 15.227
+offset_right = 26.3
+offset_bottom = 59.227
+theme = ExtResource("6_buief")
+text = "KBA40
+AA001"
+
+[node name="Valve19" parent="." instance=ExtResource("4_wmk10")]
+position = Vector2(1808, 760)
+main_name = "KBA50"
+sub_name = "AA801"
+Rotate = -90.0
+valve_stat = 1
+
+[node name="Label" type="Label" parent="Valve19"]
+offset_left = 16.0001
+offset_top = -24.0
+offset_right = 66.0001
+offset_bottom = 20.0
+theme = ExtResource("6_buief")
+text = "KBA50
+AA801"
+
+[node name="ListChange" parent="." instance=ExtResource("5_51gqg")]
+position = Vector2(480, 88)
+scheme_name = "02-E   "
+Rotate = 180.0
+text_color = Color(0, 0, 0, 1)
+shape_color = Color(0, 1, 1, 1)
+
+[node name="ValveRegul" parent="." instance=ExtResource("6_h32ox")]
+position = Vector2(1736, 640)
+valve_stat = 1
+vlv_mode = 2
+main_name = "KBA40"
+sub_name = "AA201"
+
+[node name="Label" type="Label" parent="ValveRegul"]
+offset_left = -24.1801
+offset_top = -65.8023
+offset_right = 25.8199
+offset_bottom = -21.8023
+theme = ExtResource("6_buief")
+text = "KBA40
+AA201"
+
+[node name="ValveRegul2" parent="." instance=ExtResource("6_h32ox")]
+position = Vector2(1712, 400)
+valve_stat = 1
+vlv_mode = 2
+Rotate = -90.0
+main_name = "KBA42"
+sub_name = "AA201"
+
+[node name="Label" type="Label" parent="ValveRegul2"]
+offset_left = -83.64
+offset_top = -21.776
+offset_right = -33.64
+offset_bottom = 22.224
+theme = ExtResource("6_buief")
+text = "KBA42
+AA201"
+
+[node name="ElPump" parent="." instance=ExtResource("8_o8my3")]
+position = Vector2(1229.66, 520.533)
+main_name = "KBA31"
+sub_name = "AP001"
+pmp_state = 1
+
+[node name="Label" type="Label" parent="ElPump"]
+offset_left = -22.26
+offset_top = -77.0652
+offset_right = 27.74
+offset_bottom = -33.0652
+theme = ExtResource("6_buief")
+text = "KBA31
+AP001"
+
+[node name="ElPump2" parent="." instance=ExtResource("8_o8my3")]
+position = Vector2(1232, 640)
+main_name = "KBA32"
+sub_name = "AP001"
+pmp_state = 1
+
+[node name="Label" type="Label" parent="ElPump2"]
+offset_left = -22.26
+offset_top = -71.402
+offset_right = 27.74
+offset_bottom = -27.402
+theme = ExtResource("6_buief")
+text = "KBA32
+AP001"
+
+[node name="ElPump3" parent="." instance=ExtResource("8_o8my3")]
+position = Vector2(1230.26, 799.402)
+main_name = "KBA33"
+sub_name = "AP001"
+pmp_state = 2
+
+[node name="Label" type="Label" parent="ElPump3"]
+offset_left = -22.26
+offset_top = -71.402
+offset_right = 27.74
+offset_bottom = -27.402
+theme = ExtResource("6_buief")
+text = "KBA33
+AP001"
+
+[node name="Polygon" parent="." instance=ExtResource("9_sfco6")]
+position = Vector2(152.849, 944.364)
+main_name = "KBC"
+plgn_state = 1
+
+[node name="Label" type="Label" parent="Polygon"]
+offset_left = -40.849
+offset_top = -8.36401
+offset_right = -8.849
+offset_bottom = 13.636
+theme = ExtResource("6_buief")
+text = "KBC
+"
+
+[node name="Polygon2" parent="." instance=ExtResource("9_sfco6")]
+position = Vector2(912, 936)
+main_name = "KBD"
+Rotate = -90.0
+plgn_state = 1
+
+[node name="Label" type="Label" parent="Polygon2"]
+offset_left = -16.0
+offset_top = 8.0
+offset_right = 16.0
+offset_bottom = 30.0
+theme = ExtResource("6_buief")
+text = "KBD
+"
+
+[node name="HeatExchanger" parent="." instance=ExtResource("10_8ikhm")]
+position = Vector2(393.34, 532.531)
+main_name = "KBA21"
+sub_name = "AC001"
+
+[node name="Label" type="Label" parent="HeatExchanger"]
+offset_left = 30.66
+offset_top = -20.531
+offset_right = 78.66
+offset_bottom = 23.469
+theme = ExtResource("6_buief")
+text = "KBA21
+AC001"
+
+[node name="HeatExchanger2" parent="." instance=ExtResource("10_8ikhm")]
+position = Vector2(549.643, 531.97)
+main_name = "KBA22"
+sub_name = "AC001"
+
+[node name="Label" type="Label" parent="HeatExchanger2"]
+offset_left = 34.357
+offset_top = -19.97
+offset_right = 82.357
+offset_bottom = 24.03
+theme = ExtResource("6_buief")
+text = "KBA22
+AC001"
+
+[node name="ListGap" parent="." instance=ExtResource("11_krx8i")]
+position = Vector2(1688, 936)
+scheme_name = "02-C"
+text_color = Color(0, 0, 0, 1)
+shape_color = Color(0, 1, 1, 1)
+
+[node name="Node4" parent="." instance=ExtResource("3_kj0b7")]
+position = Vector2(169.579, 943.807)
+
+[node name="Node5" parent="." instance=ExtResource("3_kj0b7")]
+position = Vector2(912, 912)
+
+[node name="Node6" parent="." instance=ExtResource("3_kj0b7")]
+position = Vector2(493.506, 519.73)
+
+[node name="Node7" parent="." instance=ExtResource("3_kj0b7")]
+position = Vector2(493.153, 542.888)
+
+[node name="NodeBlue3" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(472, 408)
+
+[node name="NodeBlue4" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(472, 464)
+
+[node name="NodeBlue6" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(280, 520)
+
+[node name="NodeBlue7" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(192.329, 520.782)
+
+[node name="NodeBlue8" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(113.93, 520.56)
+
+[node name="NodeBlue20" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(912, 640)
+
+[node name="NodeBlue23" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1128, 640)
+
+[node name="NodeBlue27" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1416, 408)
+
+[node name="NodeBlue28" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1416, 520)
+
+[node name="NodeBlue29" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1416, 640)
+
+[node name="NodeBlue30" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1416, 800)
+
+[node name="NodeBlue34" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1632, 640)
+
+[node name="NodeBlue35" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1688, 640)
+
+[node name="NodeBlue36" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1776, 640)
+
+[node name="NodeBlue40" parent="." instance=ExtResource("12_cnwmy")]
+position = Vector2(1808, 512)
+
+[node name="Arrow" parent="." instance=ExtResource("13_fukg0")]
+position = Vector2(364.648, 543.575)
+
+[node name="Arrow2" parent="." instance=ExtResource("13_fukg0")]
+position = Vector2(392, 504)
+Rotate = 90.0
+
+[node name="Arrow3" parent="." instance=ExtResource("13_fukg0")]
+position = Vector2(521.186, 543.487)
+
+[node name="Arrow4" parent="." instance=ExtResource("13_fukg0")]
+position = Vector2(552, 504)
+Rotate = 90.0
+
+[node name="Arrow5" parent="." instance=ExtResource("13_fukg0")]
+position = Vector2(1202.21, 521.282)
+
+[node name="Arrow6" parent="." instance=ExtResource("13_fukg0")]
+position = Vector2(1208, 640)
+
+[node name="Arrow7" parent="." instance=ExtResource("13_fukg0")]
+position = Vector2(1203.42, 799.846)
+
+[node name="ResistanceL" parent="." instance=ExtResource("14_0y8gh")]
+position = Vector2(1374.85, 800.023)
+
+[node name="ResistanceL3" parent="." instance=ExtResource("14_0y8gh")]
+position = Vector2(1374.85, 640.023)
+
+[node name="ResistanceL2" parent="." instance=ExtResource("14_0y8gh")]
+position = Vector2(1375.32, 521.108)
+
+[node name="ResistanceS" parent="." instance=ExtResource("15_4u0nq")]
+position = Vector2(1416, 776)
+
+[node name="ResistanceS2" parent="." instance=ExtResource("15_4u0nq")]
+position = Vector2(1416, 622.682)
+
+[node name="ResistanceS3" parent="." instance=ExtResource("15_4u0nq")]
+position = Vector2(1416, 496)
+
+[node name="SensorName" parent="." instance=ExtResource("16_vpoda")]
+position = Vector2(1336, 904)
+value = "12345678"
+meaning = "ABC"
+value_color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+meaning_color = Color(0, 0, 0, 1)
+
+[node name="SensorName2" parent="." instance=ExtResource("16_vpoda")]
+position = Vector2(1336, 926.274)
+value = "12345678"
+meaning = "ABC"
+value_color = Color(0, 0, 0, 1)
+meaning_color = Color(0, 0, 0, 1)
+
+[node name="SensorName3" parent="." instance=ExtResource("16_vpoda")]
+position = Vector2(1336, 948.548)
+value = "12345678"
+meaning = "ABC"
+value_color = Color(0, 0, 0, 1)
+meaning_color = Color(0, 0, 0, 1)
+
+[node name="ValveRegul3" parent="." instance=ExtResource("6_h32ox")]
+position = Vector2(1808, 400)
+valve_stat = 2
+vlv_mode = 2
+Rotate = -90.0
+main_name = "KBA41"
+sub_name = "AA201"
+
+[node name="Label" type="Label" parent="ValveRegul3"]
+offset_left = 24.0002
+offset_top = -24.0
+offset_right = 74.0002
+offset_bottom = 20.0
+theme = ExtResource("6_buief")
+text = "KBA41
+AA201"
+
+[node name="ValveCheck" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(168, 656)
+main_name = "KBA13"
+sub_name = "AA601"
+Rotate = -90.0
+valve_stat = 1
+
+[node name="Label" type="Label" parent="ValveCheck"]
+offset_left = 24.0
+offset_top = -24.0001
+offset_right = 72.0
+offset_bottom = 19.9999
+theme = ExtResource("6_buief")
+text = "KBA13
+AA601"
+
+[node name="ValveCheck2" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(784, 640)
+main_name = "KBA20"
+sub_name = "AA601"
+Rotate = 180.0
+valve_stat = 1
+
+[node name="Label" type="Label" parent="ValveCheck2"]
+offset_left = -24.0
+offset_top = -56.0
+offset_right = 24.0
+offset_bottom = -12.0
+theme = ExtResource("6_buief")
+text = "KBA20
+AA601"
+
+[node name="ValveCheck3" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(832, 760)
+main_name = "KBA25"
+sub_name = "AA601"
+Rotate = -90.0
+valve_stat = 2
+
+[node name="Label" type="Label" parent="ValveCheck3"]
+offset_left = 7.99997
+offset_top = -64.0
+offset_right = 56.0
+offset_bottom = -20.0
+theme = ExtResource("6_buief")
+text = "KBA25
+AA601"
+
+[node name="ValveCheck4" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(912, 760)
+main_name = "KBD40"
+sub_name = "AA601"
+Rotate = -90.0
+valve_stat = 2
+
+[node name="Label" type="Label" parent="ValveCheck4"]
+offset_left = 16.0
+offset_top = -64.0
+offset_right = 66.0
+offset_bottom = -20.0
+theme = ExtResource("6_buief")
+text = "KBD40
+AA601"
+
+[node name="ValveCheck5" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(1320, 800)
+main_name = "KBA33"
+sub_name = "AA601"
+valve_stat = 2
+
+[node name="Label" type="Label" parent="ValveCheck5"]
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 26.0
+offset_bottom = 68.0
+theme = ExtResource("6_buief")
+text = "KBA33
+AA601"
+
+[node name="ValveCheck6" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(1318.84, 640.237)
+main_name = "KBA32"
+sub_name = "AA601"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="ValveCheck6"]
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 26.0
+offset_bottom = 68.0
+theme = ExtResource("6_buief")
+text = "KBA32
+AA601"
+
+[node name="ValveCheck7" parent="." instance=ExtResource("19_b0mp3")]
+position = Vector2(1318.84, 520.411)
+main_name = "KBA31"
+sub_name = "AA601"
+valve_stat = 1
+
+[node name="Label" type="Label" parent="ValveCheck7"]
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 26.0
+offset_bottom = 68.0
+theme = ExtResource("6_buief")
+text = "KBA31
+AA601"

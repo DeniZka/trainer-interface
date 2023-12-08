@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://binf0ntu48hb7"]
+
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ResistanceS.gd" id="1_cjhnb"]
+[ext_resource type="Texture2D" uid="uid://cjpd3c63djnfl" path="res://Icons/Scheme_elements/ResistanceS.png" id="1_k4lxe"]
+
+[node name="ResistanceS" type="Node2D"]
+script = ExtResource("1_cjhnb")
+
+[node name="ResistanceS" type="Sprite2D" parent="."]
+texture = ExtResource("1_k4lxe")
+
+[node name="ResistanceS2" type="Sprite2D" parent="."]
+texture = ExtResource("1_k4lxe")
+flip_h = true

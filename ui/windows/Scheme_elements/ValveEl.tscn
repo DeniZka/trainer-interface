@@ -1,0 +1,140 @@
+[gd_scene load_steps=10 format=3 uid="uid://bvvmavom2oouc"]
+
+[ext_resource type="Script" path="res://Scripts/Service/ScemeElementsService/ValveElService.gd" id="1_g7lbp"]
+[ext_resource type="Texture2D" uid="uid://hq6qvroofohp" path="res://Icons/Scheme_elements/ValveElConn.png" id="1_ys0eg"]
+[ext_resource type="Texture2D" uid="uid://cgqtw81411xsb" path="res://Icons/Scheme_elements/Valve_electric_motor.png" id="2_e2kby"]
+[ext_resource type="PackedScene" uid="uid://btt61xvymlnub" path="res://Scenes/Scheme_elements/Menus/MenuService/mainCircle.tscn" id="2_hld26"]
+[ext_resource type="PackedScene" uid="uid://ds5viwncwvcci" path="res://Scenes/Scheme_elements/Menus/MenuService/PopButton.tscn" id="3_fy42o"]
+[ext_resource type="Texture2D" uid="uid://caad6bc8st15r" path="res://Icons/Scheme_elements/Valve.png" id="13_od7x5"]
+
+[sub_resource type="Animation" id="Animation_1md53"]
+resource_name = "closing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.937255, 0.937255, 0.937255, 1), Color(0, 0.917647, 0, 1), Color(0.937255, 0.937255, 0.937255, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l3k6j"]
+resource_name = "opening"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfegg"]
+_data = {
+"closing": SubResource("Animation_1md53"),
+"opening": SubResource("Animation_l3k6j")
+}
+
+[node name="Valve" type="Node2D"]
+script = ExtResource("1_g7lbp")
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="ValveConn" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("1_ys0eg")
+offset = Vector2(0, -10)
+
+[node name="ValveElectricMotor" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("2_e2kby")
+offset = Vector2(0, -10)
+
+[node name="ValveElectricMotorRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+texture = ExtResource("2_e2kby")
+offset = Vector2(0, -10)
+
+[node name="ValveLeft" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("13_od7x5")
+
+[node name="ValveLeftRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+texture = ExtResource("13_od7x5")
+
+[node name="ValveRight" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("13_od7x5")
+flip_h = true
+
+[node name="ValveRightRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+texture = ExtResource("13_od7x5")
+flip_h = true
+
+[node name="main-cir" parent="." instance=ExtResource("2_hld26")]
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+
+[node name="close" parent="main-cir" instance=ExtResource("3_fy42o")]
+text = "Закрыть"
+pop = false
+text_color = Color(0, 0.917647, 0, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0, 0.917647, 0, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/close"]
+position = Vector2(87, 75)
+
+[node name="open" parent="main-cir" instance=ExtResource("3_fy42o")]
+text = "Открыть"
+pop = false
+text_color = Color(1, 0.580392, 0.156863, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.580392, 0.156863, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/open"]
+position = Vector2(-96, -50)
+
+[node name="refusal" parent="main-cir" instance=ExtResource("3_fy42o")]
+text = "Отказ"
+pop = false
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal"]
+position = Vector2(87, -51)
+
+[node name="power" parent="main-cir/refusal" instance=ExtResource("3_fy42o")]
+position = Vector2(87.0277, -50.9853)
+text = "Питание"
+pop = false
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal/power"]
+position = Vector2(49, -37)
+
+[node name="control" parent="main-cir/refusal" instance=ExtResource("3_fy42o")]
+position = Vector2(86.9877, -51.0145)
+text = "Управл."
+pop = false
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
+
+[node name="Marker2D" type="Marker2D" parent="main-cir/refusal/control"]
+position = Vector2(49, 35)
+
+[node name="signal_play" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qfegg")
+}
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="popped" from="main-cir" to="." method="_on_maincir_popped"]
+[connection signal="b_pop_hide" from="main-cir/refusal" to="." method="_on_refusal_b_pop_hide"]
+[connection signal="b_pressed" from="main-cir/refusal" to="." method="_on_refusal_b_pressed"]
