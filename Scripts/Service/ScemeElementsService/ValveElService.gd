@@ -58,9 +58,12 @@ func printLabel(mainName, subName):
 	set(val):
 		if not is_node_ready(): await ready
 		valveLeft.rotation_degrees = val
+		valveLeftRefusal.rotation_degrees = val
 		valveRight.rotation_degrees = val
-		elMotor.rotation_degrees = val
+		valveRightRefusal.rotation_degrees = val
 		elConn.rotation_degrees = val
+		elMotor.rotation_degrees = val
+		elMotorRefusal.rotation_degrees = val
 
 
 enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING, ST_OPENING, ST_CLOSING}

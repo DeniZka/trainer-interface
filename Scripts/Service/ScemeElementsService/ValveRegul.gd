@@ -11,6 +11,8 @@ class_name ValveRegul extends Node2D #generate class name for node searching typ
 @onready var obj_name = {"mainname": "", "subname" : ""}
 @onready var player = $signal_play
 @onready var elMotorRefusal = $sprites/ValveElectricMotorRefusal
+@onready var valveLeftRefusal = $sprites/ValveLeftRefusal
+@onready var valveRightRefusal = $sprites/ValveRightRefusal
 @onready var refusalButton : PopButton = $"main-cir/refusal"
 @onready var refchpopstate : bool = false
 
@@ -94,9 +96,12 @@ enum VLV_MODE {ST_UNKNOWN, ST_AUTO, ST_REMOTE}
 	set(val):
 		if not is_node_ready(): await ready
 		valveLeft.rotation_degrees = val
+		valveLeftRefusal.rotation_degrees = val
 		valveRight.rotation_degrees = val
-		elMotor.rotation_degrees = val
+		valveRightRefusal.rotation_degrees = val
 		elArrow.rotation_degrees = val
+		elMotor.rotation_degrees = val
+		elMotorRefusal.rotation_degrees = val
 
 func printLabel(mainName, subName):
 	for child in get_children():
