@@ -54,6 +54,8 @@ _data = {
 
 [node name="ValveRegul" type="Node2D"]
 script = ExtResource("1_kw2eh")
+main_name = ""
+sub_name = ""
 metadata/_edit_vertical_guides_ = [88.0]
 metadata/_edit_horizontal_guides_ = [-24.0, -80.0]
 
@@ -103,7 +105,6 @@ main_color = Color(0.2, 0.313726, 0.407843, 1)
 
 [node name="close" parent="main-cir" instance=ExtResource("3_iwwmu")]
 text = "Закрыть"
-pop = false
 text_color = Color(0, 0.917647, 0, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(0, 0.917647, 0, 1)
@@ -113,7 +114,6 @@ position = Vector2(87, 75)
 
 [node name="open" parent="main-cir" instance=ExtResource("3_iwwmu")]
 text = "Открыть"
-pop = false
 text_color = Color(1, 0.580392, 0.156863, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.580392, 0.156863, 1)
@@ -123,7 +123,6 @@ position = Vector2(-96, -50)
 
 [node name="refusal" parent="main-cir" instance=ExtResource("3_iwwmu")]
 text = "Отказ"
-pop = false
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.313726, 0.992157, 1)
@@ -134,7 +133,6 @@ position = Vector2(87, -51)
 [node name="power" parent="main-cir/refusal" instance=ExtResource("3_iwwmu")]
 position = Vector2(87, -51)
 text = "Питание"
-pop = false
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.313726, 0.992157, 1)
@@ -145,7 +143,6 @@ position = Vector2(49, -37)
 [node name="control" parent="main-cir/refusal" instance=ExtResource("3_iwwmu")]
 position = Vector2(87, -51)
 text = "Управл."
-pop = false
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.313726, 0.992157, 1)

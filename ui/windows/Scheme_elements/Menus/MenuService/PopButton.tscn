@@ -10,7 +10,6 @@
 
 [node name="float_button" type="Node2D"]
 script = ExtResource("1_837di")
-pop = true
 
 [node name="button_place" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -54,5 +53,4 @@ libraries = {
 }
 
 [connection signal="pressed" from="button_place/text/Button" to="." method="_on_button_pressed"]
-[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="tree_exiting" from="anim" to="." method="_on_anim_tree_exiting"]

@@ -412,8 +412,6 @@ shape_color = Color(0, 1, 1, 1)
 
 [node name="ValveRegul" parent="." instance=ExtResource("6_h32ox")]
 position = Vector2(1736, 640)
-valve_stat = 1
-vlv_mode = 2
 main_name = "KBA40"
 sub_name = "AA201"
 
@@ -428,9 +426,6 @@ AA201"
 
 [node name="ValveRegul2" parent="." instance=ExtResource("6_h32ox")]
 position = Vector2(1712, 400)
-valve_stat = 1
-vlv_mode = 2
-Rotate = -90.0
 main_name = "KBA42"
 sub_name = "AA201"
 
@@ -672,9 +667,6 @@ meaning_color = Color(0, 0, 0, 1)
 
 [node name="ValveRegul3" parent="." instance=ExtResource("6_h32ox")]
 position = Vector2(1808, 400)
-valve_stat = 2
-vlv_mode = 2
-Rotate = -90.0
 main_name = "KBA41"
 sub_name = "AA201"
 
