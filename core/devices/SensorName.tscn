@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr7kqujnbvtir"]
+
+[ext_resource type="Script" path="res://core/devices/SensorName.gd" id="1_diga6"]
+[ext_resource type="Texture2D" uid="uid://cnkxwcufo8x05" path="res://icons/frame_elements/SensorNameL.png" id="2_fc6s0"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="3_j3pdh"]
+[ext_resource type="Texture2D" uid="uid://dpgx5rjsxg0bp" path="res://icons/frame_elements/SensorNameS.png" id="4_2qvpr"]
+
+[node name="SensorName" type="Node2D"]
+script = ExtResource("1_diga6")
+metadata/_edit_horizontal_guides_ = [-10.395]
+
+[node name="SensorNameL" type="Sprite2D" parent="."]
+position = Vector2(-31, 0)
+texture = ExtResource("2_fc6s0")
+
+[node name="Number" type="Node2D" parent="SensorNameL"]
+position = Vector2(31, 0)
+
+[node name="Number" type="Label" parent="SensorNameL/Number"]
+offset_left = -70.8013
+offset_top = -10.3973
+offset_right = 4.19865
+offset_bottom = 11.6027
+theme = ExtResource("3_j3pdh")
+text = "12345678"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SensorNameS" type="Sprite2D" parent="."]
+texture = ExtResource("4_2qvpr")
+offset = Vector2(35, 0)
+
+[node name="Letter" type="Node2D" parent="SensorNameS"]
+
+[node name="Letter" type="Label" parent="SensorNameS/Letter"]
+offset_left = 18.0
+offset_top = -10.0
+offset_right = 55.0
+offset_bottom = 12.0
+theme = ExtResource("3_j3pdh")
+text = "ABC"
+vertical_alignment = 1

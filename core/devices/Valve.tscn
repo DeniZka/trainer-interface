@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciowslckq7k3v"]
+
+[ext_resource type="Script" path="res://core/devices/ValveService.gd" id="1_2sacc"]
+[ext_resource type="Texture2D" uid="uid://caad6bc8st15r" path="res://icons/frame_elements/Valve.png" id="1_p5jxi"]
+
+[sub_resource type="Animation" id="Animation_1md53"]
+resource_name = "opening"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ValveLeft:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.858824, 0.337255, 0, 1), Color(0, 1, 0, 1), Color(0.858824, 0.337255, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfegg"]
+_data = {
+"opening": SubResource("Animation_1md53")
+}
+
+[node name="Valve" type="Node2D"]
+script = ExtResource("1_2sacc")
+main_name = ""
+sub_name = ""
+
+[node name="ValveLeft" type="Sprite2D" parent="."]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
+texture = ExtResource("1_p5jxi")
+
+[node name="ValveRight" type="Sprite2D" parent="."]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
+texture = ExtResource("1_p5jxi")
+flip_h = true
+
+[node name="signal_play" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qfegg")
+}
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

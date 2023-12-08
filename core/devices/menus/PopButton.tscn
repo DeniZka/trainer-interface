@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds5viwncwvcci"]
+
+[ext_resource type="Script" path="res://core/devices/menus/float_button.gd" id="1_837di"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="5_d2v5n"]
+[ext_resource type="PackedScene" uid="uid://dhcydj5r2vwp8" path="res://core/primitives/pill.tscn" id="5_grx8g"]
+[ext_resource type="AnimationLibrary" uid="uid://c87dq8x5mrjc3" path="res://Themes/For_scheme_elements/Menus/play.tres" id="5_pe42d"]
+[ext_resource type="AnimationLibrary" uid="uid://c3yrcnjatpn0r" path="res://Themes/For_scheme_elements/Menus/play_tmp.tres" id="6_1qswr"]
+
+[node name="float_button" type="Node2D"]
+script = ExtResource("1_837di")
+
+[node name="button_place" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="BackLayer" parent="button_place" instance=ExtResource("5_grx8g")]
+modulate = Color(1, 1, 0.380392, 1)
+color = Color(0, 0, 0, 0.113725)
+offset = Vector2(-1, 4)
+polygon = PackedVector2Array(40, 0, 39.7252, 3.8425, 38.9063, 7.60678, 37.5601, 11.2162, 35.7138, 14.5973, 33.4052, 17.6812, 30.6812, 20.4052, 27.5973, 22.7138, 24.2162, 24.5601, 20.6068, 25.9063, 16.8425, 26.7252, 13, 27, -13, 27, -16.8425, 26.7252, -20.6068, 25.9063, -24.2162, 24.5601, -27.5973, 22.7138, -30.6812, 20.4052, -33.4052, 17.6812, -35.7138, 14.5973, -37.5601, 11.2162, -38.9063, 7.60678, -39.7252, 3.8425, -40, 2.72874e-14, -40, 3.30655e-15, -39.7252, -3.8425, -38.9063, -7.60678, -37.5601, -11.2162, -35.7138, -14.5973, -33.4052, -17.6812, -30.6812, -20.4052, -27.5973, -22.7138, -24.2162, -24.5601, -20.6068, -25.9063, -16.8425, -26.7252, -13, -27, 13, -27, 16.8425, -26.7252, 20.6068, -25.9063, 24.2162, -24.5601, 27.5973, -22.7138, 30.6812, -20.4052, 33.4052, -17.6812, 35.7138, -14.5973, 37.5601, -11.2162, 38.9063, -7.60678, 39.7252, -3.8425, 40, -3.05939e-14)
+width = 80.0
+height = 54.0
+roundness = 43.1
+smooth = 11.0
+
+[node name="Outline" parent="button_place" instance=ExtResource("5_grx8g")]
+modulate = Color(1, 1, 0.380392, 1)
+polygon = PackedVector2Array(40, 0, 39.7252, 3.8425, 38.9063, 7.60678, 37.5601, 11.2162, 35.7138, 14.5973, 33.4052, 17.6812, 30.6812, 20.4052, 27.5973, 22.7138, 24.2162, 24.5601, 20.6068, 25.9063, 16.8425, 26.7252, 13, 27, -13, 27, -16.8425, 26.7252, -20.6068, 25.9063, -24.2162, 24.5601, -27.5973, 22.7138, -30.6812, 20.4052, -33.4052, 17.6812, -35.7138, 14.5973, -37.5601, 11.2162, -38.9063, 7.60678, -39.7252, 3.8425, -40, 2.72874e-14, -40, 3.30655e-15, -39.7252, -3.8425, -38.9063, -7.60678, -37.5601, -11.2162, -35.7138, -14.5973, -33.4052, -17.6812, -30.6812, -20.4052, -27.5973, -22.7138, -24.2162, -24.5601, -20.6068, -25.9063, -16.8425, -26.7252, -13, -27, 13, -27, 16.8425, -26.7252, 20.6068, -25.9063, 24.2162, -24.5601, 27.5973, -22.7138, 30.6812, -20.4052, 33.4052, -17.6812, 35.7138, -14.5973, 37.5601, -11.2162, 38.9063, -7.60678, 39.7252, -3.8425, 40, -3.05939e-14)
+width = 80.0
+height = 54.0
+roundness = 43.1
+smooth = 11.0
+
+[node name="Overlay" parent="button_place" instance=ExtResource("5_grx8g")]
+z_index = 1
+polygon = PackedVector2Array(38, 0, 37.7861, 3.26315, 37.1481, 6.47048, 36.097, 9.56709, 34.6506, 12.5, 32.8338, 15.219, 30.6777, 17.6777, 28.219, 19.8338, 25.5, 21.6506, 22.5671, 23.097, 19.4705, 24.1481, 16.2632, 24.7861, 13, 25, -13, 25, -16.2632, 24.7861, -19.4705, 24.1481, -22.5671, 23.097, -25.5, 21.6506, -28.219, 19.8338, -30.6777, 17.6777, -32.8338, 15.219, -34.6506, 12.5, -36.097, 9.56709, -37.1481, 6.47048, -37.7861, 3.26315, -38, 2.52661e-14, -38, 3.06162e-15, -37.7861, -3.26315, -37.1481, -6.47048, -36.097, -9.56709, -34.6506, -12.5, -32.8338, -15.219, -30.6777, -17.6777, -28.219, -19.8338, -25.5, -21.6506, -22.5671, -23.097, -19.4705, -24.1481, -16.2632, -24.7861, -13, -25, 13, -25, 16.2632, -24.7861, 19.4705, -24.1481, 22.5671, -23.097, 25.5, -21.6506, 28.219, -19.8338, 30.6777, -17.6777, 32.8338, -15.219, 34.6506, -12.5, 36.097, -9.56709, 37.1481, -6.47048, 37.7861, -3.26315, 38, -5.05322e-14)
+width = 76.0
+height = 50.0
+roundness = 41.5
+smooth = 12.0
+
+[node name="text" type="Node2D" parent="button_place"]
+
+[node name="Button" type="Button" parent="button_place/text"]
+visible = false
+z_index = 2
+offset_left = -30.0
+offset_top = -19.0
+offset_right = 31.0
+offset_bottom = 18.0
+pivot_offset = Vector2(30, 19)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_d2v5n")
+flat = true
+
+[node name="target_point" type="Node2D" parent="."]
+position = Vector2(61, -68)
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": ExtResource("5_pe42d"),
+"temp": ExtResource("6_1qswr")
+}
+
+[connection signal="pressed" from="button_place/text/Button" to="." method="_on_button_pressed"]
+[connection signal="tree_exiting" from="anim" to="." method="_on_anim_tree_exiting"]

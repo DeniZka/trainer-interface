@@ -1,0 +1,167 @@
+[gd_scene load_steps=9 format=3 uid="uid://i1gy4pljl145"]
+
+[ext_resource type="Script" path="res://core/devices/ValveRegul.gd" id="1_kw2eh"]
+[ext_resource type="PackedScene" uid="uid://btt61xvymlnub" path="res://core/devices/menus/mainCircle.tscn" id="2_3re6d"]
+[ext_resource type="PackedScene" uid="uid://ds5viwncwvcci" path="res://core/devices/menus/PopButton.tscn" id="3_iwwmu"]
+[ext_resource type="Texture2D" uid="uid://dx7s03sa25ou3" path="res://icons/frame_elements/ValveElArrow.png" id="7_4pe16"]
+[ext_resource type="Texture2D" uid="uid://cgqtw81411xsb" path="res://icons/frame_elements/Valve_electric_motor.png" id="8_ah4tu"]
+[ext_resource type="Texture2D" uid="uid://caad6bc8st15r" path="res://icons/frame_elements/Valve.png" id="11_xka5l"]
+
+[sub_resource type="Animation" id="Animation_y0kv7"]
+resource_name = "refusal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprites/ValveLeftRefusal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 0), Color(0.756863, 0, 0.756863, 1), Color(0.756863, 0, 0.756863, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprites/ValveElectricMotorRefusal:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 381246, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 0), Color(0.756863, 0, 0.756863, 1), Color(0.756863, 0, 0.756863, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprites/ValveRightRefusal:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e+06, 1e+06, 1),
+"update": 0,
+"values": [Color(0.756863, 0, 0.756863, 0), Color(0.756863, 0, 0.756863, 1), Color(0.756863, 0, 0.756863, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qfegg"]
+_data = {
+"refusal": SubResource("Animation_y0kv7")
+}
+
+[node name="ValveRegul" type="Node2D"]
+script = ExtResource("1_kw2eh")
+vlv_mode = 2
+main_name = ""
+sub_name = ""
+metadata/_edit_vertical_guides_ = [88.0]
+metadata/_edit_horizontal_guides_ = [-24.0, -80.0]
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="ValveLeft" type="Sprite2D" parent="sprites"]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
+z_index = 1
+texture = ExtResource("11_xka5l")
+
+[node name="ValveLeftRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(0.756863, 0, 0.756863, 0)
+z_index = 1
+texture = ExtResource("11_xka5l")
+
+[node name="ValveRight" type="Sprite2D" parent="sprites"]
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
+z_index = 1
+texture = ExtResource("11_xka5l")
+flip_h = true
+
+[node name="ValveRightRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(0.756863, 0, 0.756863, 0)
+z_index = 1
+texture = ExtResource("11_xka5l")
+flip_h = true
+
+[node name="ValveElArrow" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("7_4pe16")
+offset = Vector2(0, -10)
+
+[node name="ValveElectricMotor" type="Sprite2D" parent="sprites"]
+modulate = Color(0, 0.917647, 0, 1)
+z_index = 1
+texture = ExtResource("8_ah4tu")
+offset = Vector2(0, -10)
+
+[node name="ValveElectricMotorRefusal" type="Sprite2D" parent="sprites"]
+modulate = Color(0.756863, 0, 0.756863, 0)
+z_index = 1
+texture = ExtResource("8_ah4tu")
+offset = Vector2(0, -10)
+
+[node name="main-cir" parent="." instance=ExtResource("2_3re6d")]
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+
+[node name="close" parent="main-cir" instance=ExtResource("3_iwwmu")]
+text = "Закрыть"
+text_color = Color(0, 0.917647, 0, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0, 0.917647, 0, 1)
+
+[node name="Marker2D" type="Marker2D" parent="main-cir/close"]
+position = Vector2(87, 75)
+gizmo_extents = 2.0
+
+[node name="open" parent="main-cir" instance=ExtResource("3_iwwmu")]
+text = "Открыть"
+text_color = Color(1, 0.580392, 0.156863, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.580392, 0.156863, 1)
+
+[node name="Marker2D" type="Marker2D" parent="main-cir/open"]
+position = Vector2(-96, -50)
+gizmo_extents = 2.0
+
+[node name="refusal" parent="main-cir" instance=ExtResource("3_iwwmu")]
+text = "Отказ"
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
+
+[node name="Marker2D" type="Marker2D" parent="main-cir/refusal"]
+position = Vector2(87, -51)
+gizmo_extents = 2.0
+
+[node name="power" parent="main-cir/refusal" instance=ExtResource("3_iwwmu")]
+position = Vector2(87, -51)
+text = "Питание"
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
+
+[node name="Marker2D" type="Marker2D" parent="main-cir/refusal/power"]
+position = Vector2(49, -37)
+gizmo_extents = 2.0
+
+[node name="control" parent="main-cir/refusal" instance=ExtResource("3_iwwmu")]
+position = Vector2(87, -51)
+text = "Управл."
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
+
+[node name="Marker2D" type="Marker2D" parent="main-cir/refusal/control"]
+position = Vector2(49, 35)
+gizmo_extents = 2.0
+
+[node name="signal_play" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qfegg")
+}
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="popped" from="main-cir" to="." method="_on_maincir_popped"]
+[connection signal="b_pop_hide" from="main-cir/refusal" to="." method="_on_refusal_b_pop_hide"]
+[connection signal="b_pressed" from="main-cir/refusal" to="." method="_on_refusal_b_pressed"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkqihw2axr4ko"]
+
+[ext_resource type="Texture2D" uid="uid://x83gsm6l2076" path="res://icons/frame_elements/Ellipse.png" id="1_kvobw"]
+[ext_resource type="Script" path="res://core/devices/PumpElService.gd" id="1_ufo5a"]
+[ext_resource type="PackedScene" uid="uid://btt61xvymlnub" path="res://core/devices/MenuService/mainCircle.tscn" id="2_ixv4j"]
+[ext_resource type="Texture2D" uid="uid://b858ppsyelk3j" path="res://icons/frame_elements/ElDrive.png" id="2_ke5ip"]
+[ext_resource type="PackedScene" uid="uid://ds5viwncwvcci" path="res://core/devices/MenuService/PopButton.tscn" id="3_y5gjt"]
+
+[node name="ElPump" type="Node2D"]
+script = ExtResource("1_ufo5a")
+main_name = ""
+sub_name = ""
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="Ellipse" type="Sprite2D" parent="sprites"]
+z_index = 1
+texture = ExtResource("1_kvobw")
+
+[node name="ElDrive" type="Sprite2D" parent="sprites"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+texture = ExtResource("2_ke5ip")
+
+[node name="main-cir" parent="." instance=ExtResource("2_ixv4j")]
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+
+[node name="close" parent="main-cir" instance=ExtResource("3_y5gjt")]
+text = "Выкл."
+pop = false
+text_color = Color(0, 0.917647, 0, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0, 0.917647, 0, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/close"]
+position = Vector2(87, 75)
+
+[node name="open" parent="main-cir" instance=ExtResource("3_y5gjt")]
+text = "Вкл."
+pop = false
+text_color = Color(1, 0.580392, 0.156863, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.580392, 0.156863, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/open"]
+position = Vector2(-96, -50)
+
+[node name="refusal" parent="main-cir" instance=ExtResource("3_y5gjt")]
+text = "Отказ"
+pop = false
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal"]
+position = Vector2(87, -51)
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="popped" from="main-cir" to="." method="_on_maincir_popped"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://x8gvjg5bdtxh"]
 
 [ext_resource type="Script" path="res://Scripts/TEST/TEST.gd" id="1_hoobu"]
-[ext_resource type="PackedScene" uid="uid://i1gy4pljl145" path="res://Scenes/Scheme_elements/ValveRegul.tscn" id="2_fbdfb"]
+[ext_resource type="PackedScene" uid="uid://i1gy4pljl145" path="res://core/devices/ValveRegul.tscn" id="2_fbdfb"]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
