@@ -8,7 +8,6 @@
 
 [node name="float_button" type="Node2D"]
 script = ExtResource("1_837di")
-toggle_mode = null
 
 [node name="button_place" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)

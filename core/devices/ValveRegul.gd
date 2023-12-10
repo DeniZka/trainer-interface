@@ -1,12 +1,11 @@
 @tool #set design-time usability
-class_name ValveRegul extends Node2D #generate class name for node searching type
+class_name ValveRegul extends Device #generate class name for node searching type
 
 @onready var sprites = $sprites
 @onready var valveLeft = $sprites/ValveLeft
 @onready var valveRight = $sprites/ValveRight
 @onready var elMotor = $sprites/ValveElectricMotor
 @onready var elArrow = $sprites/ValveElArrow
-@onready var obj_name = {"mainname": "", "subname" : ""}
 @onready var player = $signal_play
 @onready var elMotorRefusal = $sprites/ValveElectricMotorRefusal
 @onready var valveLeftRefusal = $sprites/ValveLeftRefusal
@@ -83,33 +82,6 @@ enum VLV_MODE {ST_UNKNOWN, ST_AUTO, ST_REMOTE}
 		elArrow.rotation_degrees = val
 		elMotor.rotation_degrees = val
 		elMotorRefusal.rotation_degrees = val
-
-func printLabel(mainName, subName):
-	for child in get_children():
-		if child is Label:
-			child.text = mainName + "\n" + subName
-
-@export var main_name : String = "KBAXX":
-	set(val):
-		if not is_node_ready() : await ready
-		obj_name["mainname"] = val
-		printLabel(obj_name["mainname"], obj_name["subname"])
-	get:
-		if not is_node_ready() : await ready
-		return obj_name["mainname"]
-
-@export var sub_name : String = "AAXXX":
-	set(val):
-		if not is_node_ready() : await ready
-		obj_name["subname"] = val
-		printLabel(obj_name["mainname"], obj_name["subname"])
-	get:
-		if not is_node_ready() : await ready
-		return obj_name["subname"]
-
-func _on_child_entered_tree(node):
-	if not is_node_ready() : await ready
-	printLabel(obj_name["mainname"], obj_name["subname"])
 
 func _on_refusal_b_pressed():
 	if not is_node_ready() : await ready

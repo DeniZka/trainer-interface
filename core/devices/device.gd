@@ -5,29 +5,32 @@ extends Node2D
 @onready var _device_menu : DeviceMenu = null
 var menu_active : bool = true:
 	set(val):
-		menu_active = val
-		_device_menu.enabled = val
+		if _device_menu:
+			menu_active = val
+			_device_menu.enabled = val
+			
+var label : Label = null
 
 signal device_menu_popped(dev: Device, state: bool)
 
-func printLabel(mainName, subName):
+func printLabel():
 	for child in get_children():
 		if child is Label:
-			child.text = mainName + "\n" + subName
+			child.text = main_name + "\n" + sub_name
 
 @export var main_name : String = "KBAXX":
 	set(val):
 		main_name = val
 		if not is_node_ready() : await ready
-		printLabel(val, sub_name)
+		printLabel()
 
 @export var sub_name : String = "AAXXX":
 	set(val):
 		if not is_node_ready() : await ready
 		sub_name = val
-		printLabel(main_name, val)
+		printLabel()
 
-signal exchange_prepared(out_signals: Dictionary)
+signal commands_prepared(out_signals: Dictionary)
 signal _await_interrupt(ir_status: bool) #0-got correct signal 1 - timeout
 
 var _is_await_response: bool = false
@@ -36,6 +39,8 @@ var _response : Dictionary = {}
 var confirm_timeout : float = 1.0
 
 func _ready():
+	self.child_entered_tree.connect(label_entered_tree)
+	
 	_timer.timeout.connect(_on_timer_timeout)
 	add_child(_timer)
 	#get device menu
@@ -48,7 +53,7 @@ func _ready():
 #use await send_signals(signals, true)  in case of await_confirm 
 func send_signal(sigName: String, sigVal: Variant, await_confirm : bool = false) -> bool:
 	var d : Dictionary = {main_name+sub_name+"_"+sigName: sigVal}
-	exchange_prepared.emit(d)
+	commands_prepared.emit(d)
 	var result : bool = true
 	if await_confirm:
 		_response = d #FIXME .duolicate() ???
@@ -57,7 +62,6 @@ func send_signal(sigName: String, sigVal: Variant, await_confirm : bool = false)
 		result = await _await_interrupt
 		_is_await_response = false
 	return result
-	pass
 	
 var requested_signals = []  #setup this one in _init fuunc of child
 
@@ -91,3 +95,7 @@ func close_menu():
 		
 func self_menu_popped(state: bool):
 	device_menu_popped.emit(self, state)
+	
+func label_entered_tree(node: Node):
+	if node is Label:
+		label = node

@@ -1,11 +1,11 @@
 @tool
 class_name PopButton extends Node2D
 
-@onready var textColor = $button_place/text
-@onready var textButton = $button_place/text/Button
-@onready var buttonPlace = $button_place
 @onready var player = $anim
 @onready var target = $target_point
+@onready var buttonPlace = $button_place
+@onready var textColor = $button_place/text
+@onready var textButton = $button_place/text/Button
 @onready var backLayer = $button_place/BackLayer
 @onready var outline = $button_place/Outline
 @onready var overlay = $button_place/Overlay

@@ -123,11 +123,6 @@ func _ready():
 		]
 	)
 	
-func _on_child_entered_tree(node):
-	if not is_node_ready() : await ready
-	if node is Label:
-		printLabel(main_name, sub_name)
-
 func _on_refusal_b_pressed():
 	if not is_node_ready() : await ready
 	refpopchstate = not refpopchstate

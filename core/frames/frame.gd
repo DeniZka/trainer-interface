@@ -2,6 +2,7 @@ class_name Frame
 extends Node2D
 
 signal frame_swap_called(frame_name: String, link_name: String)
+signal commands_prpared(signals: Dictionary)
 
 @onready var jobjects : Dictionary = {
 	"lines":[], #array of lines
@@ -15,6 +16,8 @@ var background : ColorRect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#TODO: LOAD FRAME FILE
+	
 	for ch in get_children():
 		if ch is ColorRect and ch.name == "background":
 			background = ch
@@ -22,6 +25,10 @@ func _ready():
 		
 		if ch is Device and ch.got_device_menu():
 			ch.device_menu_popped.connect(device_menu_popped)
+			ch.commands_prepared.connect(devs_cmd_prepared)
+			
+		if ch is FrameLink:
+			ch.frame_swap_called.connect(swap_frame_cb)
 	
 	#example how to add valve in array
 	jobjects["valves1"].append({
@@ -34,11 +41,6 @@ func _ready():
 	print(JSON.stringify(jobjects))
 	
 	
-	for ch in get_children():
-		if ch is FrameLink:
-			ch.frame_swap_called.connect(swap_frame_cb)
-			pass
-
 func flash_link(linkName: String):
 	for ch in get_children():
 		if ch is FrameLink and ch.self_name == linkName:
@@ -70,3 +72,6 @@ func device_menu_popped(dev: Device, status: bool):
 		for ch in get_children():
 			if ch is Device:
 				ch.menu_active = true
+				
+func devs_cmd_prepared(signals: Dictionary):
+	commands_prpared.emit(signals)
