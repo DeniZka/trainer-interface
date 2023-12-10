@@ -1,23 +1,77 @@
-[gd_scene load_steps=4 format=3 uid="uid://0vjytkiid28w"]
+[gd_scene load_steps=8 format=3 uid="uid://0vjytkiid28w"]
 
 [ext_resource type="Texture2D" uid="uid://cm5liahkjn3co" path="res://icons/frame_elements/ListChange.png" id="1_bb865"]
 [ext_resource type="Script" path="res://core/devices/ListChange.gd" id="1_dti8m"]
+[ext_resource type="Texture2D" uid="uid://la66qh7wu0wl" path="res://icons/frame_elements/ListGap.png" id="2_dnoxu"]
+[ext_resource type="PackedScene" uid="uid://dhcydj5r2vwp8" path="res://core/primitives/pill.tscn" id="2_kqwlh"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="3_umiwm"]
 
-[node name="ListChange" type="Node2D"]
+[sub_resource type="Animation" id="Animation_8ef61"]
+resource_name = "blink"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shapes/pill:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 1, 1.1, 1.6, 2),
+"transitions": PackedFloat32Array(1, 5.65685, 1, 5.65685, 1, 5.65685, 75281.2),
+"update": 0,
+"values": [Color(0.25098, 0.670588, 0.835294, 0), Color(0.25098, 0.670588, 0.835294, 1), Color(0.25098, 0.670588, 0.835294, 0), Color(0.25098, 0.670588, 0.835294, 1), Color(0.25098, 0.670588, 0.835294, 0), Color(0.25098, 0.670588, 0.835294, 1), Color(0.25098, 0.670588, 0.835294, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y4ofu"]
+_data = {
+"blink": SubResource("Animation_8ef61")
+}
+
+[node name="frame_link" type="Node2D"]
 script = ExtResource("1_dti8m")
 
-[node name="ListChange" type="Sprite2D" parent="."]
+[node name="shapes" type="Node2D" parent="."]
+
+[node name="pill" parent="shapes" instance=ExtResource("2_kqwlh")]
+color = Color(0.25098, 0.670588, 0.835294, 0)
+polygon = PackedVector2Array(47.5, 0, 47.2538, 3.12869, 46.5211, 6.18034, 45.3201, 9.07981, 43.6803, 11.7557, 41.6421, 14.1421, 39.2557, 16.1803, 36.5798, 17.8201, 33.6803, 19.0211, 30.6287, 19.7538, 27.5, 20, -27.5, 20, -30.6287, 19.7538, -33.6803, 19.0211, -36.5798, 17.8201, -39.2557, 16.1803, -41.6421, 14.1421, -43.6803, 11.7557, -45.3201, 9.07981, -46.5211, 6.18034, -47.2538, 3.12869, -47.5, 2.44929e-15, -47.5, 2.44929e-15, -47.2538, -3.12869, -46.5211, -6.18034, -45.3201, -9.07981, -43.6803, -11.7557, -41.6421, -14.1421, -39.2557, -16.1803, -36.5798, -17.8201, -33.6803, -19.0211, -30.6287, -19.7538, -27.5, -20, 27.5, -20, 30.6287, -19.7538, 33.6803, -19.0211, 36.5798, -17.8201, 39.2557, -16.1803, 41.6421, -14.1421, 43.6803, -11.7557, 45.3201, -9.07981, 46.5211, -6.18034, 47.2538, -3.12869, 47.5, -4.89859e-15)
+width = 95.0
+height = 40.0
+roundness = 31.6
+
+[node name="ListGap" type="Sprite2D" parent="shapes"]
+visible = false
+position = Vector2(6, 0)
+texture = ExtResource("2_dnoxu")
+
+[node name="ListChange" type="Sprite2D" parent="shapes"]
+position = Vector2(-7, 0)
 texture = ExtResource("1_bb865")
 
 [node name="text" type="Node2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 
 [node name="name" type="Label" parent="text"]
-offset_left = -13.0
+offset_left = -27.0
 offset_top = -11.0
-offset_right = 23.0
+offset_right = 26.0
 offset_bottom = 12.0
-grow_horizontal = 2
 theme = ExtResource("3_umiwm")
+text = "01-A"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="bswap" type="Button" parent="text"]
+offset_left = -35.0
+offset_top = -12.0
+offset_right = 31.0
+offset_bottom = 12.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_umiwm")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y4ofu")
+}
+
+[connection signal="pressed" from="text/bswap" to="." method="_on_bswap_pressed"]

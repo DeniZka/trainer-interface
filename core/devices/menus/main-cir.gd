@@ -1,4 +1,5 @@
 @tool
+class_name DeviceMenu
 extends Node2D
 
 signal popped(state: bool)
@@ -7,22 +8,27 @@ signal popped(state: bool)
 @onready var mainBG = $body/Main_bak
 @onready var outline = $body/Main_outline
 @onready var mainTop = $body/Maint_top
+@onready var button = $Button
 
 func pop_chids(pop_state):
 	for ch in get_children():
 		if ch is PopButton:
-			ch.pop = pop
+			ch.pop = pop_state
 	pass
 
 @export var pop: bool = false:
 	set(val):
-		if not is_node_ready(): await  ready
-		pop = val
-		if val:
-			player.play("popup")
-		else:
-			player.stop()
-		self.pop_chids(val)
+		if not is_node_ready(): await ready
+		button.button_pressed = val
+	get:
+		if not is_node_ready(): await ready
+		return button.button_pressed
+		
+@export var enabled: bool = true:
+	set(val):
+		if not is_node_ready(): await ready
+		enabled = val
+		button.visible = val
 
 @export var main_color : Color = Color(1,1,1,1):
 	set(val):
@@ -38,12 +44,27 @@ func pop_chids(pop_state):
 		outline.modulate = val
 
 func _on_button_pressed():
-	if not is_node_ready(): await  ready
-	self.pop = not self.pop
-	emit_signal("popped", self.pop)
 	pass # Replace with function body.
 
-
+func _on_button_toggled(button_pressed):
+	if not is_node_ready(): await  ready
+	#unclick toggled childs if unpressed
+	
+	if button_pressed:
+		player.play("popup")
+		for ch in get_children():
+			if ch is PopButton:
+				ch.pop = true
+		#self.pop_chids(button_pressed)
+	if not button_pressed:
+		player.stop()
+		for ch in get_children():
+			if ch is PopButton:
+				ch.pop = false
+				#cleanup toggles on hide 
+				if ch.toggle_mode == true:
+					ch.toggled = false
+	popped.emit(self.pop)
 
 func _on_node_2d_2_b_pressed():
 	for ch in $"main-cir/refusal/Marker2D".get_children():
@@ -64,6 +85,3 @@ func _on_node_2d_2_b_pop_hide():
 		if ch is PopButton:
 			ch.pop = false
 	pass # Replace with function body.
-
-
-

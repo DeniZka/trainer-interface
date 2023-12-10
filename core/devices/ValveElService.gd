@@ -30,24 +30,6 @@ const NOCOLOR_RGB = Color(1, 1, 1, 0)
 
 @export_category("Valve_El") 
 
-
-func printLabel(mainName, subName):
-	for child in get_children():
-		if child is Label:
-			child.text = mainName + "\n" + subName
-
-@export var main_name : String = "KBAXX":
-	set(val):
-		main_name = val
-		if not is_node_ready() : await ready
-		printLabel(val, sub_name)
-
-@export var sub_name : String = "AAXXX":
-	set(val):
-		if not is_node_ready() : await ready
-		sub_name = val
-		printLabel(main_name, val)
-
 @export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
 	set(val):
 		Rotate = val
@@ -59,7 +41,6 @@ func printLabel(mainName, subName):
 		elConn.rotation_degrees = val
 		elMotor.rotation_degrees = val
 		elMotorRefusal.rotation_degrees = val
-
 
 enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING, ST_OPENING, ST_CLOSING}
 @onready var valve_status : VLV_STATE = VLV_STATE.ST_UNKNOWN
@@ -123,30 +104,29 @@ enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING, ST_OPENING, ST_CL
 		return controlBuffer
 @export_group("")
 
-func _init():
-	requestd_signals = [
-		main_name+sub_name+"_YB01", # Открыть ДУ (ДУ - дистанционное управление) [0/1 boolean]
-		main_name+sub_name+"_YB02", #// Закрыть ДУ [0/1 boolean]
-		main_name+sub_name+"_YB03", #// Стоп ДУ [0/1 boolean]
-		main_name+sub_name+"_YB04", #// Подтвердить команду ДУ [0/1 boolean]
-		main_name+sub_name+"_mf_type", #// тип отказа [double]
-		main_name+sub_name+"_mf_xq01", #// Жесткость отказа [double]
-		main_name+sub_name+"_mf_xb01", #// Отказ введен [0/1 boolean]
-		main_name+sub_name+"_mf_yb01", #// Ввести отказ [0/1 boolean]
-		main_name+sub_name+"_mf_yb02", #// Удалить отказ [0/1 boolean][
-		main_name+sub_name+"_is_state", #СВБУ "Состояние сборный сигнал" [double] 
-		main_name+sub_name+"_is_alarm", #СВБУ "Авария сборный сигнал" [double]
-		main_name+sub_name+"_is_power" #СВБУ "Питание сборный сигнал" [double]
-	]
+func _ready():
+	super._ready()
+	update_requested_signals(
+		[
+			"YB01", # Открыть ДУ (ДУ - дистанционное управление) [0/1 boolean]
+			"YB02", #// Закрыть ДУ [0/1 boolean]
+			"YB03", #// Стоп ДУ [0/1 boolean]
+			"YB04", #// Подтвердить команду ДУ [0/1 boolean]
+			"mf_type", #// тип отказа [double]
+			"mf_xq01", #// Жесткость отказа [double]
+			"mf_xb01", #// Отказ введен [0/1 boolean]
+			"mf_yb01", #// Ввести отказ [0/1 boolean]
+			"mf_yb02", #// Удалить отказ [0/1 boolean][
+			"is_state", #СВБУ "Состояние сборный сигнал" [double] 
+			"is_alarm", #СВБУ "Авария сборный сигнал" [double]
+			"is_power" #СВБУ "Питание сборный сигнал" [double]
+		]
+	)
 	
-func set_exchange_values(in_signals: Dictionary) -> void:
-	pass
-	
-var to_be_sent : Dictionary = {}
-
 func _on_child_entered_tree(node):
 	if not is_node_ready() : await ready
-	printLabel(main_name, sub_name)
+	if node is Label:
+		printLabel(main_name, sub_name)
 
 func _on_refusal_b_pressed():
 	if not is_node_ready() : await ready
@@ -171,15 +151,6 @@ func _on_maincir_popped(state):
 		sprites.z_index = 0
 	pass # Replace with function body.
 
-#FIXME: REMOVE
-func _on_open_b_pressed():
-	accept.pop = true
-	accept.outline_color = OPEN_RGB
-	accept.text_color = OPEN_RGB
-	maincir.outline_color = OPEN_RGB
-	to_be_sent.clear()
-	to_be_sent[main_name+sub_name+"_YB01"] = true
-
 func set_exchange_data(in_signals: Dictionary) -> void:
 	super.set_exchange_data(in_signals)
 	#TODO: parse signals and set update self status
@@ -187,7 +158,7 @@ func set_exchange_data(in_signals: Dictionary) -> void:
 func _on_close_b_toggled(is_down):
 	if is_down and openb.toggled:
 		openb.toggled = false
-	send_signals({main_name+sub_name+"_YB02": is_down})
+	send_signal("YB02", is_down)
 	accept.pop = is_down
 	if is_down:
 		accept.outline_color = CLOSE_RGB
@@ -197,13 +168,11 @@ func _on_close_b_toggled(is_down):
 		accept.outline_color = NOCOLOR_RGB
 		accept.text_color = NOCOLOR_RGB
 		maincir.outline_color = NOCOLOR_RGB
-	#to_be_sent.clear()
-	#to_be_sent[main_name+sub_name+"_YB01"] = true
 
 func _on_open_b_toggled(is_down):
 	if is_down and closeb.toggled:
 		closeb.toggled = false
-	send_signals({main_name+sub_name+"_YB01": is_down})
+	send_signal("YB01", is_down)
 	accept.pop = is_down
 	if is_down:
 		accept.outline_color = OPEN_RGB
@@ -215,9 +184,9 @@ func _on_open_b_toggled(is_down):
 		maincir.outline_color = NOCOLOR_RGB
 
 func _on_accept_b_pressed():
-	var result : bool = await send_signals({main_name+sub_name+"_YB04": true}, true)
+	var result : bool = await send_signal("YB04", true, true)
 	if not result:
 		print("can't confirm due to timeout")
-	send_signals({main_name+sub_name+"_YB04": false})
+	send_signal("YB04", false)
 	openb.toggled = false
 	closeb.toggled = false
