@@ -8,6 +8,7 @@
 
 [node name="float_button" type="Node2D"]
 script = ExtResource("1_837di")
+toggle_mode = null
 
 [node name="button_place" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -23,7 +24,6 @@ roundness = 43.1
 smooth = 11.0
 
 [node name="Outline" parent="button_place" instance=ExtResource("5_grx8g")]
-modulate = Color(1, 1, 0.380392, 1)
 polygon = PackedVector2Array(40, 0, 39.7252, 3.8425, 38.9063, 7.60678, 37.5601, 11.2162, 35.7138, 14.5973, 33.4052, 17.6812, 30.6812, 20.4052, 27.5973, 22.7138, 24.2162, 24.5601, 20.6068, 25.9063, 16.8425, 26.7252, 13, 27, -13, 27, -16.8425, 26.7252, -20.6068, 25.9063, -24.2162, 24.5601, -27.5973, 22.7138, -30.6812, 20.4052, -33.4052, 17.6812, -35.7138, 14.5973, -37.5601, 11.2162, -38.9063, 7.60678, -39.7252, 3.8425, -40, 2.72874e-14, -40, 3.30655e-15, -39.7252, -3.8425, -38.9063, -7.60678, -37.5601, -11.2162, -35.7138, -14.5973, -33.4052, -17.6812, -30.6812, -20.4052, -27.5973, -22.7138, -24.2162, -24.5601, -20.6068, -25.9063, -16.8425, -26.7252, -13, -27, 13, -27, 16.8425, -26.7252, 20.6068, -25.9063, 24.2162, -24.5601, 27.5973, -22.7138, 30.6812, -20.4052, 33.4052, -17.6812, 35.7138, -14.5973, 37.5601, -11.2162, 38.9063, -7.60678, 39.7252, -3.8425, 40, -3.05939e-14)
 width = 80.0
 height = 54.0
@@ -64,4 +64,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="button_place/text/Button" to="." method="_on_button_pressed"]
+[connection signal="toggled" from="button_place/text/Button" to="." method="_on_button_toggled"]
 [connection signal="tree_exiting" from="anim" to="." method="_on_anim_tree_exiting"]

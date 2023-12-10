@@ -114,9 +114,6 @@ position = Vector2(448.294, 264.068)
 
 [node name="Valve" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(560, 216)
-main_name = "KBA60"
-sub_name = "AA802"
-Rotate = -90.0
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve"]
@@ -125,13 +122,11 @@ offset_top = -24.0
 offset_right = -40.0
 offset_bottom = 20.0
 theme = ExtResource("6_buief")
-text = "KBA60
-AA802"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve2" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(424, 464)
-main_name = "KBA21"
-sub_name = "AA001"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve2"]
@@ -140,13 +135,11 @@ offset_top = -30.424
 offset_right = -42.313
 offset_bottom = 13.576
 theme = ExtResource("6_buief")
-text = "KBA21
-AA001"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve3" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(520, 464)
-main_name = "KBA22"
-sub_name = "AA001"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve3"]
@@ -155,13 +148,11 @@ offset_top = -30.573
 offset_right = 92.348
 offset_bottom = 13.427
 theme = ExtResource("6_buief")
-text = "KBA22
-AA001"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve4" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(240, 520)
-main_name = "KBA10"
-sub_name = "AA101"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve4"]
@@ -170,14 +161,11 @@ offset_top = -70.086
 offset_right = 26.767
 offset_bottom = -26.086
 theme = ExtResource("6_buief")
-text = "KBA10
-AA101"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve5" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(392, 608)
-main_name = "KBA21"
-sub_name = "AA002"
-Rotate = -90.0
 valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve5"]
@@ -186,14 +174,11 @@ offset_top = -20.531
 offset_right = 78.66
 offset_bottom = 23.469
 theme = ExtResource("6_buief")
-text = "KBA21
-AA002"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve6" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(552, 608)
-main_name = "KBA22"
-sub_name = "AA002"
-Rotate = -90.0
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve6"]
@@ -202,13 +187,11 @@ offset_top = -20.531
 offset_right = 78.66
 offset_bottom = 23.469
 theme = ExtResource("6_buief")
-text = "KBA22
-AA002"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve7" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(696, 640)
-main_name = "KBA24"
-sub_name = "AA002"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve7"]
@@ -217,13 +200,11 @@ offset_top = 34.0
 offset_right = 24.5
 offset_bottom = 78.0
 theme = ExtResource("6_buief")
-text = "KBA24
-AA002"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve8" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(448, 944)
-main_name = "KBA25"
-sub_name = "AA002"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve8"]
@@ -232,13 +213,11 @@ offset_top = -79.9999
 offset_right = 24.0
 offset_bottom = -35.9999
 theme = ExtResource("6_buief")
-text = "KBA25
-AA002"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve9" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 520)
-main_name = "KBA31"
-sub_name = "AA101"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve9"]
@@ -247,13 +226,11 @@ offset_top = -65.5156
 offset_right = 25.2877
 offset_bottom = -21.5156
 theme = ExtResource("6_buief")
-text = "KBA31
-AA101"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve10" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 640)
-main_name = "KBA32"
-sub_name = "AA101"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve10"]
@@ -262,13 +239,11 @@ offset_top = 35.007
 offset_right = 23.4
 offset_bottom = 79.007
 theme = ExtResource("6_buief")
-text = "KBA32
-AA101"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve11" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 800)
-main_name = "KBA33"
-sub_name = "AA101"
 valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve11"]
@@ -277,14 +252,11 @@ offset_top = 35.007
 offset_right = 23.4
 offset_bottom = 79.007
 theme = ExtResource("6_buief")
-text = "KBA33
-AA101"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve12" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1416, 736)
-main_name = "KBA33"
-sub_name = "AA003"
-Rotate = -90.0
 valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve12"]
@@ -293,14 +265,11 @@ offset_top = -64.0
 offset_right = -5.99991
 offset_bottom = -20.0
 theme = ExtResource("6_buief")
-text = "KBA33
-AA003"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve13" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1416, 592)
-main_name = "KBA32"
-sub_name = "AA003"
-Rotate = -90.0
 valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve13"]
@@ -309,14 +278,11 @@ offset_top = -47.9999
 offset_right = -14.0002
 offset_bottom = -3.99992
 theme = ExtResource("6_buief")
-text = "KBA32
-AA003"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve14" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1416, 464)
-main_name = "KBA31"
-sub_name = "AA003"
-Rotate = -90.0
 valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve14"]
@@ -325,13 +291,11 @@ offset_top = -52.5711
 offset_right = -1.2659
 offset_bottom = -8.57111
 theme = ExtResource("6_buief")
-text = "KBA31
-AA003"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve15" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1584, 520)
-main_name = "KBA31"
-sub_name = "AA002"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve15"]
@@ -340,13 +304,11 @@ offset_top = 25.227
 offset_right = 23.3
 offset_bottom = 69.227
 theme = ExtResource("6_buief")
-text = "KBA31
-AA002"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve16" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1584, 640)
-main_name = "KBA32"
-sub_name = "AA002"
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve16"]
@@ -355,13 +317,11 @@ offset_top = 25.227
 offset_right = 23.3
 offset_bottom = 69.227
 theme = ExtResource("6_buief")
-text = "KBA32
-AA002"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve17" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1584, 800)
-main_name = "KBA33"
-sub_name = "AA002"
 valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve17"]
@@ -370,13 +330,11 @@ offset_top = 16.0
 offset_right = 26.0
 offset_bottom = 60.0
 theme = ExtResource("6_buief")
-text = "KBA33
-AA002"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve18" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1732.42, 720.265)
-main_name = "KBA40"
-sub_name = "AA001"
 valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve18"]
@@ -385,14 +343,11 @@ offset_top = 15.227
 offset_right = 26.3
 offset_bottom = 59.227
 theme = ExtResource("6_buief")
-text = "KBA40
-AA001"
+text = "KBAXX
+AAXXX"
 
 [node name="Valve19" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1808, 760)
-main_name = "KBA50"
-sub_name = "AA801"
-Rotate = -90.0
 valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve19"]
@@ -401,8 +356,8 @@ offset_top = -24.0
 offset_right = 66.0001
 offset_bottom = 20.0
 theme = ExtResource("6_buief")
-text = "KBA50
-AA801"
+text = "KBAXX
+AAXXX"
 
 [node name="ListChange" parent="." instance=ExtResource("5_51gqg")]
 position = Vector2(480, 88)
