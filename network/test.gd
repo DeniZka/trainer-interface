@@ -1,6 +1,10 @@
 extends Node
 
 @onready var dialog: FileDialog = $FileDialog as FileDialog
+@onready var rabbit_mq: RabbitMqClient = $RabbitMqClient as RabbitMqClient
+
+func _ready() -> void:
+	rabbit_mq.connect_to_server()
 
 func _on_file_selected(path: String) -> void:
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
