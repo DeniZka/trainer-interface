@@ -10,6 +10,7 @@
 
 [node name="KBA2" type="Node2D"]
 script = ExtResource("1_y5nju")
+frame_name = "02"
 
 [node name="background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -91,6 +92,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(448, 600)
 Rotate = -90.0
 valve_stat = 1
+main_name = "KBAXX"
+sub_name = "AAXXX"
 
 [node name="Label" type="Label" parent="Valve"]
 offset_left = -88.0
@@ -106,6 +109,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(848, 664)
 Rotate = -90.0
 valve_stat = 1
+main_name = "KBAXX"
+sub_name = "AAXXX"
 
 [node name="Label" type="Label" parent="Valve2"]
 offset_left = -80.0
@@ -121,6 +126,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1112, 664)
 Rotate = -90.0
 valve_stat = 1
+main_name = "KBAXX"
+sub_name = "AAXXX"
 
 [node name="Label" type="Label" parent="Valve3"]
 offset_left = 16.0
@@ -136,6 +143,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1360, 592)
 Rotate = -90.0
 valve_stat = 1
+main_name = "KBAXX"
+sub_name = "AAXXX"
 
 [node name="Label" type="Label" parent="Valve4"]
 offset_left = -80.0001
@@ -151,6 +160,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(1360, 480)
 Rotate = -90.0
 valve_stat = 1
+main_name = "KBAXX"
+sub_name = "AAXXX"
 
 [node name="Label" type="Label" parent="Valve5"]
 offset_left = -79.9998

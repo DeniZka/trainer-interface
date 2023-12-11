@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b42mykjenkxuf"]
+[gd_scene load_steps=2 format=3 uid="uid://b42mykjenkxuf"]
 
 [ext_resource type="Script" path="res://core/frames/frame_manager.gd" id="1_p4tlx"]
-[ext_resource type="PackedScene" uid="uid://cto4sj5d48pdi" path="res://core/frames/KBA1.tscn" id="2_qadt7"]
-[ext_resource type="PackedScene" uid="uid://bwf1jh8b3v07i" path="res://core/frames/KBA2.tscn" id="3_evput"]
 
 [node name="frame_manager" type="Node2D"]
 script = ExtResource("1_p4tlx")
@@ -36,13 +34,6 @@ mouse_default_cursor_shape = 2
 text = "КВА2"
 
 [node name="frames" type="Node2D" parent="."]
-
-[node name="kva_scene" parent="frames" instance=ExtResource("2_qadt7")]
-visible = false
-
-[node name="KBA2" parent="frames" instance=ExtResource("3_evput")]
-visible = false
-frame_name = "02"
 
 [node name="controls" type="Node2D" parent="."]
 
