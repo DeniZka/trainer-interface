@@ -4,7 +4,7 @@ extends Node
 @onready var rabbit_mq: RabbitMqClient = $RabbitMqClient as RabbitMqClient
 
 func _ready() -> void:
-	rabbit_mq.connect_to_server()
+	await rabbit_mq.initialize()
 
 func _on_file_selected(path: String) -> void:
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
