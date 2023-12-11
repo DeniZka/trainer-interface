@@ -146,10 +146,6 @@ func _on_maincir_popped(state):
 		sprites.z_index = 0
 	pass # Replace with function body.
 
-func set_exchange_data(in_signals: Dictionary) -> void:
-	super.set_exchange_data(in_signals)
-	#TODO: parse signals and set update self status
-
 func _on_close_b_toggled(is_down):
 	if is_down and openb.toggled:
 		openb.toggled = false

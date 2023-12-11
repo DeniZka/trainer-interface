@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://byiivddm860t5"]
+[gd_scene load_steps=14 format=3 uid="uid://byiivddm860t5"]
 
 [ext_resource type="Script" path="res://ui/login/login_form.gd" id="1_e3718"]
 [ext_resource type="Theme" uid="uid://e0ysmbexe776" path="res://ui/themes/login/login.tres" id="2_kk6xc"]
 [ext_resource type="Texture2D" uid="uid://cvc8k23m2vqba" path="res://icons/login/cut.jpg" id="3_6d6d1"]
+[ext_resource type="Shader" path="res://ui/utils/login_form.gdshader" id="3_dn6mh"]
+[ext_resource type="Texture2D" uid="uid://u1p5k6wtipri" path="res://icons/login/water.png" id="4_0twmj"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="4_yot21"]
 [ext_resource type="Texture2D" uid="uid://dqmcdls336et2" path="res://icons/animals/Bear_144.png" id="5_2eiru"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="5_smtpn"]
@@ -10,6 +12,13 @@
 [ext_resource type="Theme" uid="uid://d0csjqmvuy0cs" path="res://ui/themes/login/login_subtext.tres" id="7_uyly3"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="8_da6im"]
 [ext_resource type="Resource" uid="uid://2es7d7wdgpne" path="res://ui/themes/lines/login_form_colors.tres" id="9_1yk1w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05wfr"]
+shader = ExtResource("3_dn6mh")
+shader_parameter/distortion_intencity = 0.1
+shader_parameter/distortion_tiling = Vector2(1, 1)
+shader_parameter/distortion_offset_speed = Vector2(0.11, 0)
+shader_parameter/water = ExtResource("4_0twmj")
 
 [node name="Login Form" type="Control"]
 layout_mode = 3
@@ -43,6 +52,7 @@ custom_minimum_size = Vector2(1266, 0)
 layout_mode = 2
 
 [node name="Hubert-neufeld-gg1CwF4Qdlg-unsplash" type="Sprite2D" parent="Photo_Login/Photo"]
+material = SubResource("ShaderMaterial_05wfr")
 position = Vector2(629.602, 540.006)
 scale = Vector2(0.673647, 0.673647)
 texture = ExtResource("3_6d6d1")

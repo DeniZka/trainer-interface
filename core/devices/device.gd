@@ -80,17 +80,11 @@ func update_requested_signals(sigs: Array):
 	for sig in sigs:
 		requested_signals.append(main_name+sub_name+"_"+sig)
 
-#FIXME: remove
-func set_exchange_data(in_signals: Dictionary) -> void:
-	#check if searching for signal is actual
-	if _is_await_response and in_signals.has(_response["name"]):
-		if in_signals[_response["name"]] == _response["value"]: 
-			_await_interrupt.emit(true)
-
 func set_signal_values(in_sig: String, in_values: Array):
 	#check if searching for signal is actual
 	if _is_await_response and in_sig == _response["name"]:
-		if in_values == _response["value"]: 
+		if in_values == _response["value"]:
+			#FIXME: array and single 
 			_await_interrupt.emit(true)
 	#TODO: strip signal
 
