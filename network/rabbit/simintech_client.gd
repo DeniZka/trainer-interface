@@ -71,7 +71,7 @@ func _on_received(packet: STOMPPacket) -> void:
 	var content: Dictionary = JSON.parse_string(packet.body)
 	var response: SimintechResponse
 	
-	if content.has("cmd") and content["cmd"] == ReadSignalsSimintechCommand.new().type:
+	if content.has("cmd") and content["cmd"] == ReadSignalsSimintechCommand.type_name:
 		response = ReadSignalsSimintechResponse.create_from_json(content)
 		received_read_response.emit(response)
 	else:
