@@ -19,6 +19,6 @@ static func create_from_json(json: Dictionary) -> ReadSignalsSimintechResponse:
 	response.command_name = json["cmd"]
 	response.command_number = json["cmd_num"]
 	response.signal_names = json["sig_names_arr"]
-	response.signal_values = json["sig_vals_arr"]
+	response.signal_values = json["sig_vals_arr"]	
 	response.signal_types = json["sig_types_arr"]
 	return response
