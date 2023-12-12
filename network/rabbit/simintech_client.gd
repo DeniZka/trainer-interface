@@ -1,4 +1,4 @@
-class_name RabbitMqClient
+class_name SimintechClient
 extends Node
 
 const RABBIT_MQ_ADDRESS: String = "ws://192.168.100.157:15674/ws" 

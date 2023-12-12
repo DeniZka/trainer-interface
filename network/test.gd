@@ -1,10 +1,10 @@
 extends Node
 
 @onready var dialog: FileDialog = $FileDialog as FileDialog
-@onready var rabbit_mq: RabbitMqClient = $RabbitMqClient as RabbitMqClient
+@onready var simintech_client: SimintechClient = $RabbitMqClient as SimintechClient
 
 func _ready() -> void:
-	await rabbit_mq.initialize()
+	await simintech_client.initialize()
 
 func _on_file_selected(path: String) -> void:
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
