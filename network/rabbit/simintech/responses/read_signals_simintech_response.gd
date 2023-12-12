@@ -3,9 +3,14 @@ extends SimintechResponse
 
 var command_name: String
 var command_number: int
-var signal_names: Array[String]
+var signal_names: Array
 var signal_values: Array
-var signal_types: Array[String]
+var signal_types: Array
+
+func _to_string() -> String:
+	return "Read Signals Simintech Resposne: %s" % { "trans_id": trans_id, 
+	"reply": reply, "signal_names": signal_names, "signal_values": signal_values,
+	"signal_types": signal_types }
 
 static func create_from_json(json: Dictionary) -> ReadSignalsSimintechResponse:
 	var response = ReadSignalsSimintechResponse.new()
