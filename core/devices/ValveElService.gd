@@ -12,9 +12,6 @@ class_name ValveEl extends Device
 @onready var openb = $"main-cir/open"
 @onready var closeb = $"main-cir/close"
 @onready var elConn = $sprites/ValveConn
-@onready var powerBuffer : bool = false
-@onready var controlBuffer : bool = false
-#@onready var obj_name = {"mainname": "", "subname" : ""}
 @onready var player = $signal_play
 @onready var refusalButton : PopButton = $"main-cir/refusal"
 @onready var maincir = $"main-cir"
@@ -42,43 +39,39 @@ const NOCOLOR_RGB = Color(1, 1, 1, 0)
 		elMotor.rotation_degrees = val
 		elMotorRefusal.rotation_degrees = val
 
-enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING, ST_OPENING, ST_CLOSING}
-@onready var valve_status : VLV_STATE = VLV_STATE.ST_UNKNOWN
-@export_enum("неизвестно:0", "открыт:1", "закрыт:2", "в работе:3", "открывается:4", "закрывается:5") var valve_stat : int = VLV_STATE.ST_UNKNOWN: #same as VLV_STATE indexes
-	get:
-		if not is_node_ready(): await ready
-		return valve_status
+const valve_stat_map = {2:"открыт",3:"открывается",4:"закрыт",5:"закрывается",6:"в проме"}
+@export_enum("неизвестно", "открыт", "закрыт", "в проме", "открывается", "закрывается") var valve_stat : String = "неизвестно": #same as VLV_STATE indexes
 	set(val):
+		valve_stat = val
 		if not is_node_ready(): await ready
-		#default states
-		valve_status = val
 		elMotor.modulate = DEFAULT_RGB
 		valveLeft.modulate = DEFAULT_RGB
 		valveRight.modulate = DEFAULT_RGB
 		player.stop()
-		if val == VLV_STATE.ST_OPENED: #direct states
+		if val == "открыт": #direct states
 			valveLeft.modulate = OPEN_RGB
 			valveRight.modulate = OPEN_RGB
-		if val == VLV_STATE.ST_CLOSED:
+		if val == "закрыт":
 			valveLeft.modulate = CLOSE_RGB
 			valveRight.modulate = CLOSE_RGB
-		if val == VLV_STATE.ST_WORKING:
+		if val == "в проме":
 			valveRight.modulate = OPEN_RGB
 			valveLeft.modulate = CLOSE_RGB
-		if val == VLV_STATE.ST_OPENING:
+		if val == "открывается":
 			valveLeft.modulate = CLOSE_RGB
 			valveRight.modulate = DEFAULT_RGB
 			player.play("opening")
-		if val == VLV_STATE.ST_CLOSING:
+		if val == "закрывается":
 			valveLeft.modulate = DEFAULT_RGB
 			valveRight.modulate = OPEN_RGB
 			player.play("closing")
 
 @export_group("Refusal")
+const power_map = {2:false, 1:true}
 @export var power: bool = false:
 	set(val):
+		power = val
 		if not is_node_ready() : await ready
-		powerBuffer = val
 		if val:
 			elMotorRefusal.modulate = REFUSAL_RGB
 			valveLeftRefusal.modulate = REFUSAL_RGB
@@ -87,21 +80,16 @@ enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_WORKING, ST_OPENING, ST_CL
 			elMotorRefusal.modulate = NOCOLOR_RGB
 			valveLeftRefusal.modulate = NOCOLOR_RGB
 			valveRightRefusal.modulate = NOCOLOR_RGB
-	get:
-		if not is_node_ready() : await ready
-		return powerBuffer
 
+const control_map = {2:false, 1:true}
 @export var control: bool = false:
 	set(val):
+		control = val		
 		if not is_node_ready() : await ready
-		controlBuffer = val
 		if val:
 			elMotorRefusal.modulate = REFUSAL_RGB
 		else:
 			elMotorRefusal.modulate = NOCOLOR_RGB
-	get:
-		if not is_node_ready() : await ready
-		return controlBuffer
 @export_group("")
 
 func _ready():
@@ -119,7 +107,8 @@ func _ready():
 			"mf_yb02", #// Удалить отказ [0/1 boolean][
 			"is_state", #СВБУ "Состояние сборный сигнал" [double] 
 			"is_alarm", #СВБУ "Авария сборный сигнал" [double]
-			"is_power" #СВБУ "Питание сборный сигнал" [double]
+			"is_power", #СВБУ "Питание сборный сигнал" [double]
+			"mf_xb01" #  Отказ введен 0/1
 		]
 	)
 	
@@ -179,5 +168,19 @@ func _on_accept_b_pressed():
 	if not result:
 		print("can't confirm due to timeout")
 	send_signal("YB04", false)
+	#FIXME: test
+	#if openb.toggled:
+		#set_signal_values(get_full_name()+"_is_state", [3])
+	#if closeb.toggled:
+		#set_signal_values(get_full_name()+"_is_state", [5])
 	openb.toggled = false
 	closeb.toggled = false
+
+func update_device_state(sig: String, vals: Array):
+	match sig:
+		"is_state":
+			valve_stat = valve_stat_map[vals[0]]
+		"is_power":
+			power = power_map[vals[0]]
+		"is_alarm":
+			control = control_map[vals[0]]

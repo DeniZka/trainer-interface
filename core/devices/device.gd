@@ -10,9 +10,10 @@ var menu_active : bool = true:
 			_device_menu.enabled = val
 			
 var label : Label = null
+var full_name : String
 
 signal device_menu_popped(dev: Device, state: bool)
-signal name_chanded(dev: Device, prev_name: String) #4 update signals list
+signal name_changed(dev: Device, prev_name: String) #4 update signals list
 signal signals_emited(out_signals: Dictionary)
 signal _await_interrupt(ir_status: bool) #0-got correct signal 1 - timeout
 
@@ -25,7 +26,8 @@ func printLabel():
 	set(val):
 		var prev_name = main_name + sub_name
 		main_name = val
-		name_chanded.emit(self, prev_name)
+		full_name = main_name+sub_name
+		name_changed.emit(self, prev_name)
 		if not is_node_ready() : await ready
 		printLabel()
 
@@ -33,7 +35,8 @@ func printLabel():
 	set(val):
 		var prev_name = main_name + sub_name
 		sub_name = val
-		name_chanded.emit(self, prev_name)
+		full_name = main_name+sub_name		
+		name_changed.emit(self, prev_name)
 		if not is_node_ready() : await ready
 		printLabel()
 
@@ -55,11 +58,11 @@ func _ready():
 			break
 
 func get_full_name() -> String:
-	return main_name + sub_name
+	return full_name
 
 #use await send_signals(signals, true)  in case of await_confirm 
 func send_signal(sigName: String, sigVal: Variant, await_confirm : bool = false) -> bool:
-	var d : Dictionary = {main_name+sub_name+"_"+sigName: sigVal}
+	var d : Dictionary = {main_name+sub_name+"_"+sigName: [sigVal]}
 	signals_emited.emit(d)
 	var result : bool = true
 	if await_confirm:
@@ -78,8 +81,12 @@ func get_requested_signals() -> Array:
 func update_requested_signals(sigs: Array):
 	requested_signals = []
 	for sig in sigs:
-		requested_signals.append(main_name+sub_name+"_"+sig)
+		requested_signals.append(main_name+sub_name + "_" + sig)
 
+func update_device_state(sig: String, vals: Array): 
+	#virtual for children device
+	pass
+	
 func set_signal_values(in_sig: String, in_values: Array):
 	#check if searching for signal is actual
 	if _is_await_response and in_sig == _response["name"]:
@@ -87,6 +94,7 @@ func set_signal_values(in_sig: String, in_values: Array):
 			#FIXME: array and single 
 			_await_interrupt.emit(true)
 	#TODO: strip signal
+	update_device_state(in_sig.replace(get_full_name()+"_", ""), in_values)
 
 func _on_timer_timeout():
 	if _is_await_response: #check if timeout signal is actial

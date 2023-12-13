@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://2tybro456aau"]
+
+[ext_resource type="Script" path="res://core/frames/client_frame_manager.gd" id="1_san6l"]
+[ext_resource type="PackedScene" uid="uid://b42mykjenkxuf" path="res://core/frames/frame_manager.tscn" id="2_57c1x"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_san6l")
+
+[node name="frame_manager" parent="." instance=ExtResource("2_57c1x")]
+
+[node name="frame_manager2" parent="." instance=ExtResource("2_57c1x")]
+visible = false
+
+[node name="node_control" type="Node2D" parent="."]
+
+[node name="OptionButton" type="OptionButton" parent="node_control"]
+offset_left = 781.0
+offset_top = 26.0
+offset_right = 951.0
+offset_bottom = 63.0
+item_count = 2
+selected = 0
+popup/item_0/text = "Node1"
+popup/item_0/id = 0
+popup/item_1/text = "Node2"
+popup/item_1/id = 1
+
+[connection signal="item_selected" from="node_control/OptionButton" to="." method="_on_option_button_item_selected"]

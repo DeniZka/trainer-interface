@@ -114,7 +114,6 @@ position = Vector2(448.294, 264.068)
 [node name="Valve" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(560, 216)
 Rotate = -90.0
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve"]
 offset_left = -88.0
@@ -127,7 +126,6 @@ KBAXX"
 
 [node name="Valve2" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(424, 464)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve2"]
 offset_left = -90.313
@@ -140,7 +138,6 @@ KBAXX"
 
 [node name="Valve3" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(520, 464)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve3"]
 offset_left = 44.348
@@ -153,7 +150,6 @@ KBAXX"
 
 [node name="Valve4" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(240, 520)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve4"]
 offset_left = -21.233
@@ -167,7 +163,6 @@ KBAXX"
 [node name="Valve5" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(392, 608)
 Rotate = -90.0
-valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve5"]
 offset_left = 30.66
@@ -181,7 +176,6 @@ KBAXX"
 [node name="Valve6" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(552, 608)
 Rotate = -90.0
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve6"]
 offset_left = 30.66
@@ -194,7 +188,6 @@ KBAXX"
 
 [node name="Valve7" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(696, 640)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve7"]
 offset_left = -23.5
@@ -207,7 +200,6 @@ KBAXX"
 
 [node name="Valve8" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(448, 944)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve8"]
 offset_left = -24.0
@@ -220,7 +212,6 @@ KBAXX"
 
 [node name="Valve9" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 520)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve9"]
 offset_left = -24.7123
@@ -233,7 +224,6 @@ KBAXX"
 
 [node name="Valve10" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 640)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve10"]
 offset_left = -26.6
@@ -246,7 +236,6 @@ KBAXX"
 
 [node name="Valve11" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 800)
-valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve11"]
 offset_left = -26.6
@@ -260,7 +249,6 @@ KBAXX"
 [node name="Valve12" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1416, 736)
 Rotate = -90.0
-valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve12"]
 offset_left = -55.9999
@@ -274,7 +262,6 @@ KBAXX"
 [node name="Valve13" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1416, 592)
 Rotate = -90.0
-valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve13"]
 offset_left = -64.0002
@@ -288,7 +275,6 @@ KBAXX"
 [node name="Valve14" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1416, 464)
 Rotate = -90.0
-valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve14"]
 offset_left = -51.2659
@@ -301,7 +287,6 @@ KBAXX"
 
 [node name="Valve15" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1584, 520)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve15"]
 offset_left = -26.7
@@ -314,7 +299,6 @@ KBAXX"
 
 [node name="Valve16" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1584, 640)
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve16"]
 offset_left = -26.7
@@ -327,7 +311,6 @@ KBAXX"
 
 [node name="Valve17" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1584, 800)
-valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve17"]
 offset_left = -24.0
@@ -340,7 +323,6 @@ KBAXX"
 
 [node name="Valve18" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1732.42, 720.265)
-valve_stat = 2
 
 [node name="Label" type="Label" parent="Valve18"]
 offset_left = -23.7
@@ -354,7 +336,6 @@ KBAXX"
 [node name="Valve19" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1808, 760)
 Rotate = -90.0
-valve_stat = 1
 
 [node name="Label" type="Label" parent="Valve19"]
 offset_left = 16.0001

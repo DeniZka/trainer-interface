@@ -30,10 +30,12 @@ func _ready():
 		#and so on
 	})
 	print(JSON.stringify(jobjects))
+	#self.load()
 	
 func load():
 	#TODO: LOAD FRAME FILE
 	for ch in get_children():
+		if not ch.is_node_ready(): await ch.ready
 		if ch is ColorRect and ch.name == "background":
 			background = ch
 			background.gui_input.connect(_on_background_input)
@@ -42,7 +44,7 @@ func load():
 		if ch is Device and ch.got_device_menu():
 			device_added.emit(ch)
 			ch.device_menu_popped.connect(device_menu_popped)
-			ch.commands_prepared.connect(devs_cmd_prepared)
+			#ch.commands_prepared.connect(devs_cmd_prepared)
 			ch.name_changed.connect(dev_name_changed)
 			
 		if ch is FrameLink:
