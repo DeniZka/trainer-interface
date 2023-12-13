@@ -1,18 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://n5vj81dmeis5"]
+[gd_scene load_steps=15 format=3 uid="uid://n5vj81dmeis5"]
 
 [ext_resource type="Script" path="res://ui/windows/scenarios/scenario_menu.gd" id="1_jv8uc"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_tuaiw"]
-[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/Empty.tres" id="3_6y0qf"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="3_6y0qf"]
 [ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://ui/themes/right_menu/right_block_button.tres" id="4_qxmgc"]
-[ext_resource type="Texture2D" uid="uid://cbtj4jyyeporh" path="res://icons/Right_menu/Right_menu_scenarios/Scenario.png" id="5_aqsgt"]
-[ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://icons/Info/Load.png" id="6_j3bol"]
+[ext_resource type="Texture2D" uid="uid://cbtj4jyyeporh" path="res://icons/right_menu/Right_menu_scenarios/Scenario.png" id="5_aqsgt"]
+[ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://icons/info/Load.png" id="6_j3bol"]
 [ext_resource type="ButtonGroup" uid="uid://2ldf1dqeuahq" path="res://ui/themes/button_groups/connected_models.tres" id="7_sqpyb"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="7_y067d"]
 [ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="8_6k4sg"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_kc531"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="9_ehtb3"]
-[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/Right_menu/Close.png" id="10_agxms"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="10_agxms"]
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="11_o1x3t"]
+[ext_resource type="PackedScene" uid="uid://iyn3ysedu13f" path="res://core/files/file_uploader.tscn" id="14_uv12j"]
 
 [node name="Scenario Menu" type="Control"]
 layout_mode = 3
@@ -188,6 +189,18 @@ texture = ExtResource("5_aqsgt")
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 2
 theme = ExtResource("3_6y0qf")
+
+[node name="Loaded Filename" type="Label" parent="Right_menu/Main/Master_load/Space3"]
+unique_name_in_owner = true
+offset_left = 12.0004
+offset_top = 74.0
+offset_right = 116.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+vertical_alignment = 2
+clip_text = true
 
 [node name="Load" type="VBoxContainer" parent="Right_menu/Main/Master_load"]
 layout_mode = 2
@@ -639,6 +652,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("11_o1x3t")
 metadata/_edit_use_anchors_ = true
+
+[node name="File Uploader" parent="." instance=ExtResource("14_uv12j")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [connection signal="toggled" from="Right_menu/Main/Master_load/Master/Master" to="." method="_on_master_toggled"]
 [connection signal="focus_entered" from="Right_menu/Main/Scenario_name_placeholder/Scenario Name" to="Right_menu/Main/Scenario_name_placeholder/Scenario Name" method="_on_focus_entered"]
