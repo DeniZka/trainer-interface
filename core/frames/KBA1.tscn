@@ -114,6 +114,7 @@ position = Vector2(448.294, 264.068)
 [node name="Valve" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(560, 216)
 Rotate = -90.0
+main_name = "KBA01"
 
 [node name="Label" type="Label" parent="Valve"]
 offset_left = -88.0
@@ -121,8 +122,8 @@ offset_top = -24.0
 offset_right = -40.0
 offset_bottom = 20.0
 theme = ExtResource("6_buief")
-text = "KBAXX
-KBAXX"
+text = "KBA01
+AAXXX"
 
 [node name="Valve2" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(424, 464)

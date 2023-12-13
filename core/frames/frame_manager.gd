@@ -99,7 +99,8 @@ func set_signal_values(in_sigs: Dictionary):
 		else:
 			#TODO: FILTER UNCHANGED SIGNALS or uses it on DREW side
 			#update devices info
-			for dev in signals[in_s]["devs"]:
+			var devs = signals[in_s]
+			for dev in signals[in_s]:
 				dev.set_signal_values(in_s, in_sigs[in_s])
 
 func add_signals(dev: Device):
@@ -110,19 +111,19 @@ func add_signals(dev: Device):
 	var dsl : Array = dev.get_requested_signals()
 	for ds in dsl:
 		if signals.has(ds):
-			signals[ds]["devs"].append(dev)
+			signals[ds].append(dev)
 		else:
-			signals[ds] = { "devs": [dev], "vals": [0] }
+			signals[ds] =  [dev]
 	if not _silent:
 		request_signal_list_updated.emit()
 	
 func remove_signals(dev: Device):
 	var dsl : Array = dev.get_requested_signals()
-	for ds in dsl:
+	for ds in dsl: #FIXME: erasy on interaitve FIXME!!!!
 		if signals.has(ds):
 			#check another users of this signal
-			if signals[ds]["devs"].size() > 1: #remove only self
-				signals[ds]["devs"].erase(dev)
+			if signals[ds].size() > 1: #remove only self
+				signals[ds].erase(dev)
 			else: #remove full signal
 				signals.erase(ds)
 	if not _silent:
@@ -136,15 +137,15 @@ func rename_singals(dev: Device, prev_name: String):
 	for ds in dsl:
 		oldsl.append(ds.replace(new_name, prev_name))
 		if signals.has(ds):
-			signals[ds]["devs"].append(dev)
+			signals[ds].append(dev)
 		else:
-			signals[ds] = { "devs": [dev], "vals": [0] }
+			signals[ds] = [dev]
 	#remove from prevous signals
 	for ds in oldsl:
 		if signals.has(ds):
 			#check another users of this signal
-			if signals[ds]["devs"].size() > 1: #remove only self
-				signals[ds]["devs"].erase(dev)
+			if signals[ds].size() > 1: #remove only self
+				signals[ds].erase(dev)
 			else: #remove full signal
 				signals.erase(ds)
 	if not _silent:

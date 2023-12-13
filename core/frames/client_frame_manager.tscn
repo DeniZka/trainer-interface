@@ -7,17 +7,15 @@
 script = ExtResource("1_san6l")
 
 [node name="frame_manager" parent="." instance=ExtResource("2_57c1x")]
-
-[node name="frame_manager2" parent="." instance=ExtResource("2_57c1x")]
 visible = false
 
 [node name="node_control" type="Node2D" parent="."]
 
 [node name="OptionButton" type="OptionButton" parent="node_control"]
-offset_left = 781.0
-offset_top = 26.0
-offset_right = 951.0
-offset_bottom = 63.0
+offset_left = 1274.0
+offset_top = 27.0
+offset_right = 1444.0
+offset_bottom = 64.0
 item_count = 2
 selected = 0
 popup/item_0/text = "Node1"
@@ -25,4 +23,50 @@ popup/item_0/id = 0
 popup/item_1/text = "Node2"
 popup/item_1/id = 1
 
+[node name="ItemList" type="ItemList" parent="node_control"]
+offset_left = 824.0
+offset_top = 23.0
+offset_right = 1196.0
+offset_bottom = 97.0
+
+[node name="Connect" type="Button" parent="node_control"]
+offset_left = 215.0
+offset_top = 22.0
+offset_right = 332.0
+offset_bottom = 70.0
+text = "Connect"
+
+[node name="disconnect" type="Button" parent="node_control"]
+offset_left = 217.0
+offset_top = 78.0
+offset_right = 334.0
+offset_bottom = 126.0
+text = "Disconnect"
+
+[node name="srv_list" type="Button" parent="node_control"]
+offset_left = 343.0
+offset_top = 23.0
+offset_right = 464.0
+offset_bottom = 71.0
+text = "Get Server List"
+
+[node name="join" type="Button" parent="node_control"]
+offset_left = 477.0
+offset_top = 20.0
+offset_right = 598.0
+offset_bottom = 68.0
+text = "\"\""
+
+[node name="leave" type="Button" parent="node_control"]
+offset_left = 474.0
+offset_top = 74.0
+offset_right = 595.0
+offset_bottom = 122.0
+text = "Leave server"
+
 [connection signal="item_selected" from="node_control/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="node_control/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="node_control/disconnect" to="." method="_on_disconnect_pressed"]
+[connection signal="pressed" from="node_control/srv_list" to="." method="_on_srv_list_pressed"]
+[connection signal="pressed" from="node_control/join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="node_control/leave" to="." method="_on_leave_pressed"]

@@ -6,6 +6,7 @@ signal signals_values_received(signals: Dictionary)
 signal signal_list_requested()
 signal rights_updated(rights: Dictionary)
 signal server_list_updated(servers: Array)
+signal server_join_granted()
 
 #signals for backend
 signal server_list_requested(id: int)
@@ -61,8 +62,11 @@ func kick_peer():
 func server_shit_happens(shit_kind: int, shit_support: String):
 	#client handle error happen on server
 	print(shit_support)
-	pass
 
 @rpc
 func send_server_list(servers: Array):
 	server_list_updated.emit(servers)
+	
+@rpc
+func grant_join_server():
+	server_join_granted.emit()

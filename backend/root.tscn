@@ -4,3 +4,31 @@
 
 [node name="Root" type="Node"]
 script = ExtResource("1_jl7ch")
+
+[node name="users" type="RichTextLabel" parent="."]
+offset_left = 3.0
+offset_top = 88.0
+offset_right = 294.0
+offset_bottom = 1070.0
+text = "asdfasdfa"
+
+[node name="Label" type="Label" parent="users"]
+offset_left = -3.0
+offset_top = -88.0
+offset_right = 239.0
+offset_bottom = -5.0
+text = "USERS"
+
+[node name="signals" type="RichTextLabel" parent="."]
+offset_left = 353.0
+offset_top = 88.0
+offset_right = 1871.0
+offset_bottom = 1070.0
+text = "asdfadfa"
+
+[node name="Label" type="Label" parent="signals"]
+offset_left = -3.0
+offset_top = -88.0
+offset_right = 239.0
+offset_bottom = -5.0
+text = "USERS"

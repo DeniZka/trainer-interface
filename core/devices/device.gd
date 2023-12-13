@@ -47,7 +47,7 @@ var confirm_timeout : float = 1.0
 
 func _ready():
 	self.child_entered_tree.connect(label_entered_tree)
-	
+	full_name = main_name + sub_name #do not forget
 	_timer.timeout.connect(_on_timer_timeout)
 	add_child(_timer)
 	#get device menu
@@ -94,7 +94,8 @@ func set_signal_values(in_sig: String, in_values: Array):
 			#FIXME: array and single 
 			_await_interrupt.emit(true)
 	#TODO: strip signal
-	update_device_state(in_sig.replace(get_full_name()+"_", ""), in_values)
+	var rep_str = full_name + "_"
+	update_device_state(in_sig.replace(rep_str, ""), in_values)
 
 func _on_timer_timeout():
 	if _is_await_response: #check if timeout signal is actial
