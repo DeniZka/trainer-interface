@@ -41,6 +41,5 @@ func _on_desktop_file_selected(path: String) -> void:
 	var file: PackedByteArray = FileAccess.get_file_as_bytes(path)
 	var base64: String = Marshalls.raw_to_base64(file)
 	var file_name: String = path.get_file()
-	print('hop')
 	uploaded.emit(file_name, file_name.get_extension(), base64)
 	_close_desktop_file_manager()
