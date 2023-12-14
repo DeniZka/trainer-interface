@@ -61,7 +61,7 @@ func kick_peer():
 @rpc
 func server_shit_happens(shit_kind: int, shit_support: String):
 	#client handle error happen on server
-	print(shit_support)
+	Log.trace(shit_support + " " + str(shit_kind))
 
 @rpc
 func send_server_list(servers: Array):

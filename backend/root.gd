@@ -1,6 +1,7 @@
 extends Node
 
 @onready var peer : ENetMultiplayerPeer
+var sit_cli : SimintechJSONRPC
 var fe_peers : Array = [] #frontend peers
 var timer: Timer
 
@@ -24,11 +25,18 @@ var srvs : Dictionary = {  #{ "srvname":  {"signame": [peer1, peern]}}
 var peers_signals: Dictionary = {}
 
 func _ready():
+	#NOTE: interface updatetion timer
 	timer = Timer.new()
 	timer.one_shot = false
 	timer.timeout.connect(timer_timout)
 	add_child(timer)
 	timer.start(1.0)
+	
+	#sit client
+	sit_cli = SimintechJSONRPC.new()
+	await sit_cli.initialize()
+	sit_cli.write_db_signal_arr("DUMMY", {"asdf":500, "ffff":200})
+	
 	#create server
 	peer = ENetMultiplayerPeer.new()
 	peer.create_server(10508)
@@ -42,6 +50,9 @@ func _ready():
 	RPC.server_list_requested.connect(_on_server_list_requested)
 	#multiplayer.get_peers()
 	request_post_signals_into_server.connect(_ON_request_post_signals_into_server)
+
+func _process(delta):
+	sit_cli.poll()
 
 func send_signals_anyone_at(srv: String, sigs: Dictionary):
 	for cli in peers_server:

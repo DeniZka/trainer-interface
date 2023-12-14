@@ -13,6 +13,7 @@ offset_bottom = 1070.0
 text = "asdfasdfa"
 
 [node name="Label" type="Label" parent="users"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = -88.0
 offset_right = 239.0
@@ -27,6 +28,7 @@ offset_bottom = 1070.0
 text = "asdfadfa"
 
 [node name="Label" type="Label" parent="signals"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = -88.0
 offset_right = 239.0
