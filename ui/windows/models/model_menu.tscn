@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddoccrx3dp5ro"]
+[gd_scene load_steps=14 format=3 uid="uid://ddoccrx3dp5ro"]
 
 [ext_resource type="Script" path="res://ui/windows/models/model_menu.gd" id="1_4iq7h"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_f3ryd"]
-[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/Empty.tres" id="3_srdul"]
-[ext_resource type="Texture2D" uid="uid://5cgc26diyh17" path="res://icons/Right_menu/Right_menu_model/Model_icon_right_menu.png" id="4_40l8g"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="3_srdul"]
+[ext_resource type="Texture2D" uid="uid://5cgc26diyh17" path="res://icons/right_menu/Right_menu_model/Model_icon_right_menu.png" id="4_40l8g"]
 [ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://ui/themes/right_menu/right_block_button.tres" id="5_kiwe8"]
-[ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://icons/Info/Load.png" id="6_i8rt5"]
+[ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://icons/info/Load.png" id="6_i8rt5"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="7_8n8gm"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_aiwbo"]
-[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/Right_menu/Close.png" id="9_84ixl"]
+[ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="9_84ixl"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="9_llkmd"]
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="10_6grir"]
 [ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="10_glr6o"]
+[ext_resource type="PackedScene" uid="uid://iyn3ysedu13f" path="res://core/files/file_uploader.tscn" id="13_f1s7f"]
 
 [node name="Model Menu" type="Control"]
 layout_mode = 3
@@ -145,6 +146,19 @@ texture = ExtResource("4_40l8g")
 custom_minimum_size = Vector2(95, 0)
 layout_mode = 2
 theme = ExtResource("3_srdul")
+
+[node name="Loaded Filename" type="Label" parent="Right_menu/Main/Load/Space2"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 12.0004
+offset_top = 74.0
+offset_right = 116.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 2
+vertical_alignment = 2
+clip_text = true
 
 [node name="Load" type="VBoxContainer" parent="Right_menu/Main/Load"]
 layout_mode = 2
@@ -571,6 +585,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_6grir")
 metadata/_edit_use_anchors_ = true
+
+[node name="File Uploader" parent="." instance=ExtResource("13_f1s7f")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [connection signal="toggled" from="Right_menu/Main/Load/Load/Load/Load Button" to="." method="_on_load_toggled"]
 [connection signal="focus_entered" from="Right_menu/Main/Model_name_placeholder/Model Name" to="Right_menu/Main/Model_name_placeholder/Model Name" method="_on_focus_entered"]
