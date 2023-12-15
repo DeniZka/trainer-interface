@@ -9,6 +9,7 @@ signal server_list_updated(servers: Array)
 signal server_join_granted()
 
 #signals for backend
+signal create_server_requested(server_name: String, server_file: String)
 signal server_list_requested(id: int)
 signal join_server_requested(server_name: String, peer: int)
 signal leave_server_requested(peer: int)
@@ -40,6 +41,10 @@ func join_server(server_name: String):
 @rpc("any_peer")
 func leave_server():
 	leave_server_requested.emit(multiplayer.get_remote_sender_id())
+	
+@rpc("any_peer")
+func crete_server(server_name: String, file: String):
+	create_server_requested.emit(server_name, file)
 
 #BE functions.rpc()
 @rpc

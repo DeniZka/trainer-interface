@@ -1,14 +1,13 @@
 extends Node
 
 @onready var peer : ENetMultiplayerPeer
-var sit_cli : SimintechJSONRPC
 var fe_peers : Array = [] #frontend peers
 var timer: Timer
 
 #for STOMP request
 signal request_new_signal_list_from_server(server_name: String, sig_list: Array)
 signal request_post_signals_into_server(server_name: String, signals: Dictionary)
-
+@onready var sit_manager: SITManager = $SITManager
 #functions
 #process_incoming_signals(from_server: String, signals: Dictionary)
 
@@ -20,8 +19,6 @@ var srvs : Dictionary = {  #{ "srvname":  {"signame": [peer1, peern]}}
 	"DUMMY" : {  
 	}
 }
-
-#
 var peers_signals: Dictionary = {}
 
 func _ready():
@@ -32,10 +29,8 @@ func _ready():
 	add_child(timer)
 	timer.start(1.0)
 	
-	#sit client
-	sit_cli = SimintechJSONRPC.new()
-	await sit_cli.initialize()
-	sit_cli.write_db_signal_arr("DUMMY", {"asdf":500, "ffff":200})
+	await sit_manager.connect_to_server("ws://192.168.100.157:15674/ws")#"192.168.100.157:61613")
+	sit_manager.connect_to_hypervisor()
 	
 	#create server
 	peer = ENetMultiplayerPeer.new()
@@ -48,11 +43,9 @@ func _ready():
 	RPC.request_signal_list_updated.connect(_on_request_signal_list_updated)
 	RPC.signal_values_offered.connect(_on_signal_values_offered)
 	RPC.server_list_requested.connect(_on_server_list_requested)
+	RPC.create_server_requested.connect(_on_server_create)
 	#multiplayer.get_peers()
 	request_post_signals_into_server.connect(_ON_request_post_signals_into_server)
-
-func _process(delta):
-	sit_cli.poll()
 
 func send_signals_anyone_at(srv: String, sigs: Dictionary):
 	for cli in peers_server:
@@ -72,6 +65,10 @@ func _ON_request_post_signals_into_server(srv: String, signals: Dictionary):
 func timer_timout():
 	$users.text = JSON.stringify(peers_server,"\t")
 	$signals.text = JSON.stringify(srvs, "\t")
+	
+func _on_server_create(server_name: String, file: String):
+	sit_manager.create_server(server_name, file)
+	pass
 
 func _on_peer_connected(id: int):
 	print("New frontend connected: ", id)
