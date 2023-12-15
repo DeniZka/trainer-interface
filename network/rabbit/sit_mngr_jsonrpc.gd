@@ -3,7 +3,7 @@ extends Node
 
 var stomp : STOMPClient = STOMP.over_websockets() #tcp()
 #const RABBIT_MQ_ADDRESS: String = "ws://192.168.100.157:15674/ws" 
-@onready var hypervisor : SITJSONRPC = SITJSONRPC.new("server", SITJSONRPC.EXCH_TOPIC, "asdf")
+@onready var hypervisor : SITJSONRPC = SITJSONRPC.new("Hello", SITJSONRPC.EXCH_TOPIC, "")
 @onready var servers : Array = []
 
 func _exit_tree():
@@ -38,8 +38,9 @@ func connect_to_server(address: String = "192.168.100.157:61613") -> void:
 	#subscribe hypervisor
 
 func connect_to_hypervisor():
-	stomp.listen(hypervisor.get_path(), hypervisor.get_listen_function())	
-	stomp.send(hypervisor.get_subscribe_packet())
+	#stomp.listen(hypervisor.get_path(), hypervisor.get_listen_function())	
+	stomp.received.connect(_on_received)
+	#stomp.send(hypervisor.get_subscribe_packet()) #gives error
 	stomp.send(hypervisor.get_server_list())
 
 
