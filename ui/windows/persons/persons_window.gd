@@ -28,10 +28,7 @@ func close() -> void:
 
 func _on_persons_updated() -> void:
 	var response: HTTPResponse = await persons_api.all()
-	var persons: Array[Person]
-	for person_json in response.content:
-		persons.append(Person.create_from_json(person_json))
-	
+	var persons: Array[Person] = Person.create_from_response(response)
 	table.clear()
 	table.add_array(persons)
 	Log.debug("Обновил отображение пользователей в таблице")

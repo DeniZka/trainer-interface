@@ -41,6 +41,15 @@ func roles_to_string() -> String:
 			line += ", "
 	return line
 
+static func create_from_response(response: HTTPResponse) -> Array[Person]:
+	var result: Array[Person]
+	if response.content is Array:
+		for person_line in response.content:
+			result.append(Person.create_from_json(person_line))
+	else:
+		result.append(Person.create_from_json(response.content))
+	return result
+
 static func create_from_json(json: Dictionary) -> Person:
 	var person: Person = Person.new()
 	person.id = json["person_id"]

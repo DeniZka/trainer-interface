@@ -27,6 +27,21 @@ func serialize() -> Dictionary:
 	
 	return base
 
+static func take_ids_from(roles: Array[PersonRole]) -> Array[int]:
+	var ids: Array[int]
+	for role in roles:
+		ids.append(role.id)
+	return ids
+
+static func create_from_response(response: HTTPResponse) -> Array[PersonRole]:
+	var result: Array[PersonRole]
+	if response.content is Array:
+		for role_line in response.content:
+			result.append(create_from_json(role_line))
+	else:
+		result.append(create_from_response(response.content))
+	return result
+
 static func create_from_json(json: Dictionary) -> PersonRole:
 	var role: PersonRole = PersonRole.new()
 	role.id = json["role_id"]

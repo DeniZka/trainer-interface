@@ -48,19 +48,14 @@ func close() -> void:
 	_clear_view()
 
 func _load_roles(person: Person) -> void:
-	var respones: HTTPResponse = await roles_api.all()
-	var roles: Array[PersonRole]
-	for role_json in respones.content:
-		roles.append(PersonRole.create_from_json(role_json))
+	var response: HTTPResponse = await roles_api.all()
+	var roles: Array[PersonRole] = PersonRole.create_from_response(response)
 	
 	menu_roles.clear()
 	menu_roles.append_array(roles)
 	
 	if person != null:
-		var role_ids: Array[int]
-		for role in person.roles:
-			role_ids.append(role.id)
-		menu_roles.select(role_ids)
+		menu_roles.select(PersonRole.take_ids_from(roles))
 
 func _update_view(person: Person) -> void:
 	if person == null:

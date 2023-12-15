@@ -14,9 +14,7 @@ func _ready() -> void:
 
 func _on_roles_updated() -> void:
 	var response: HTTPResponse = await roles_api.all()
-	var roles: Array[PersonRole]
-	for role_json in response.content:
-		roles.append(PersonRole.create_from_json(role_json))
+	var roles: Array[PersonRole] = PersonRole.create_from_response(response)
 	table.clear()
 	table.add_array(roles)
 
