@@ -192,6 +192,7 @@ theme = ExtResource("3_6y0qf")
 
 [node name="Loaded Filename" type="Label" parent="Right_menu/Main/Master_load/Space3"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 12.0004
 offset_top = 74.0
 offset_right = 116.0

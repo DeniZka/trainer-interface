@@ -18,10 +18,13 @@ signal closed()
 @onready var menu_roles: MenuRolesSelector = %"Menu Roles Selector" as MenuRolesSelector
 
 var updated_person: Person
-var persons: PersonsService
+var roles_api: JSONApi
+var persons_api: JSONApi
 
 func _ready() -> void:
-	persons = Services.persons
+	roles_api = Api.roles
+	persons_api = Api.persons
+	
 	save_button.pressed.connect(_on_save_button_pressed)
 	delete_button.pressed.connect(_on_delete_button_pressed)
 	cancel_button.pressed.connect(_on_close_button_pressed)
@@ -30,9 +33,9 @@ func _ready() -> void:
 func _on_save_button_pressed() -> void:
 	var person = _create_user_from_settings()
 	if person.id == 0:
-		persons.add(person)
+		persons_api.create(person.serialize())
 	else:
-		persons.update(person)
+		persons_api.update(person.id, person.serialize())
 
 func open(person: Person) -> void:
 	updated_person = person
@@ -45,12 +48,19 @@ func close() -> void:
 	_clear_view()
 
 func _load_roles(person: Person) -> void:
-	var roles = await Api.roles.get_roles(1, 25)
+	var respones: HTTPResponse = await roles_api.all()
+	var roles: Array[PersonRole]
+	for role_json in respones.content:
+		roles.append(PersonRole.create_from_json(role_json))
+	
 	menu_roles.clear()
 	menu_roles.append_array(roles)
 	
 	if person != null:
-		menu_roles.select(person.role_ids)
+		var role_ids: Array[int]
+		for role in person.roles:
+			role_ids.append(role.id)
+		menu_roles.select(role_ids)
 
 func _update_view(person: Person) -> void:
 	if person == null:
@@ -72,7 +82,7 @@ func _on_delete_button_pressed() -> void:
 	closed.emit()
 	
 	if updated_person != null:
-		persons.delete(updated_person)
+		persons_api.delete(updated_person.id)
 
 func _on_close_button_pressed() -> void:
 	closed.emit()
@@ -88,6 +98,7 @@ func _create_user_from_settings() -> Person:
 	person.password = password_edit.text
 	person.locked = lock_button.button_pressed
 	
-	for role in menu_roles.selected_roles:
-		person.role_ids.append(role.id)
+	for selected_role in menu_roles.selected_roles:
+		person.roles.append(selected_role)
+	
 	return person

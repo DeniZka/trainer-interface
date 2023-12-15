@@ -6,8 +6,8 @@ const TIMEOUT_IN_SECONDS: float = 1.0
 var url: String = "https://192.168.100.105:8000"
 var http: HTTPRequest
 
-var persons: PersonsApiService
-var roles: RolesApiService
+var persons: JSONApi
+var roles: JSONApi
 var models: ModelsApiService
 var saves: SavesApiService
 var scenarios: ScenariosApiService
@@ -26,8 +26,9 @@ func create_http_request(timeout: float) -> HTTPRequest:
 
 func initialize_api(url: String, http: HTTPRequest) -> void:
 	var http_service: HTTPService = HTTPService.new(http)
-	self.persons = PersonsApiService.new(url, http_service)
-	self.roles = RolesApiService.new(url, http_service)
+	self.persons = JSONApi.new("http://localhost:3000/persons", http_service)
+	self.roles = JSONApi.new("http://localhost:3000/roles", http_service)
+	#self.roles = RolesApiService.new(url, http_service)
 	self.models = ModelsApiService.new(url, http_service)
 	self.saves = SavesApiService.new(url, http_service)
 	self.scenarios = ScenariosApiService.new(url, http_service)

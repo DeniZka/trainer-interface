@@ -6,25 +6,27 @@ signal opened_menu(role: PersonRole)
 @onready var search_bar: SearchBar = %"Search Bar" as SearchBar
 @onready var table: RolesTable = %"Roles Table" as RolesTable
 
-var roles: RolesService
+var roles_api: JSONApi
 
 func _ready() -> void:
-	roles = Services.roles as RolesService
+	roles_api = Api.roles
 	search_bar.add_button_pressed.connect(_on_add_button_pressed)
-	roles.updated.connect(_on_roles_updated)
-
-func add(role: PersonRole) -> void:
-	table.add_role(role)
 
 func _on_roles_updated() -> void:
+	var response: HTTPResponse = await roles_api.all()
+	var roles: Array[PersonRole]
+	for role_json in response.content:
+		roles.append(PersonRole.create_from_json(role_json))
 	table.clear()
-	table.add_array(roles.get_cached_roles())
+	table.add_array(roles)
 
 func open() -> void:
 	super.open()
-	await roles.refresh(1, 25)
+	roles_api.updated.connect(_on_roles_updated)
+	_on_roles_updated()
 
 func close() -> void:
+	roles_api.updated.disconnect(_on_roles_updated)
 	super.close()
 
 func _on_add_button_pressed() -> void:
