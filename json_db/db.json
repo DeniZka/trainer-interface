@@ -1,172 +1,174 @@
 {
   "persons": [
-    {
-      "person_id": 0,
-      "avatar_id": 0,
-      "locked": false,
-      "login": "Ivan88",
-      "password": "ivan123",
-      "full_name": "Иванов Иван Иванович",
-      "roles": [
-        {
-          "role_id": 1,
-          "name": "Администратор"
-        }
-      ],
-      "id": 0
-    },
-    {
-      "id": 1,
-      "person_id": 1,
-      "avatar_id": 0,
-      "locked": false,
-      "full_name": "Алексеев Алексей Алексеевич",
-      "password": "qwerty",
-      "login": "Lexa17",
-      "roles": [
-        {
-          "role_id": 1,
-          "name": "Студент"
-        }
-      ]
-    },
-    {
-      "person_id": 2,
-      "avatar_id": 0,
-      "locked": false,
-      "login": "eew",
-      "password": "qweasd",
-      "full_name": "test",
-      "roles": [
-        {
-          "role_id": 0,
-          "name": "Студент"
-        },
-        {
-          "role_id": 1,
-          "name": "Администратор"
-        }
-      ],
-      "id": 2
-    }
+	{
+	  "person_id": 0,
+	  "avatar_id": 0,
+	  "locked": false,
+	  "login": "Ivan88",
+	  "password": "ivan123",
+	  "full_name": "Иванов Иван Иванович",
+	  "roles": [
+		{
+		  "role_id": 1,
+		  "name": "Администратор"
+		}
+	  ],
+	  "id": 0
+	},
+	{
+	  "id": 1,
+	  "person_id": 1,
+	  "avatar_id": 0,
+	  "locked": false,
+	  "full_name": "Алексеев Алексей Алексеевич",
+	  "password": "qwerty",
+	  "login": "Lexa17",
+	  "roles": [
+		{
+		  "role_id": 1,
+		  "name": "Студент"
+		}
+	  ]
+	},
+	{
+	  "person_id": 2,
+	  "avatar_id": 0,
+	  "locked": false,
+	  "login": "eew",
+	  "password": "qweasd",
+	  "full_name": "test",
+	  "roles": [
+		{
+		  "role_id": 0,
+		  "name": "Студент"
+		},
+		{
+		  "role_id": 1,
+		  "name": "Администратор"
+		}
+	  ],
+	  "id": 2
+	}
   ],
   "roles": [
-    {
-      "role_id": 0,
-      "name": "Студент",
-      "rights": [
-        "Кадр №1"
-      ]
-    },
-    {
-      "role_id": 1,
-      "name": "Администратор",
-      "rights": [
-        "Полный доступ"
-      ]
-    }
+	{
+	  "id": 0,
+	  "role_id": 0,
+	  "name": "Студент",
+	  "rights": [
+		"Кадр №1"
+	  ]
+	},
+	{
+	  "id": 1,
+	  "role_id": 1,
+	  "name": "Администратор",
+	  "rights": [
+		"Полный доступ"
+	  ]
+	}
   ],
   "models": [
-    {
-      "id": 0,
-      "name": "Безымянная модель",
-      "checksum": "0",
-      "author": "Иванов Иван Иванович (Ivan88)",
-      "created_at": "00:00:00"
-    },
-    {
-      "id": 1,
-      "name": "Именная модель №1",
-      "checksum": "0",
-      "author": "Алексеев Алексей Алексеевич (Lexa17)",
-      "created_at": "00:00:00"
-    }
+	{
+	  "id": 0,
+	  "name": "Безымянная модель",
+	  "checksum": "0",
+	  "author": "Иванов Иван Иванович (Ivan88)",
+	  "created_at": "00:00:00"
+	},
+	{
+	  "id": 1,
+	  "name": "Именная модель №1",
+	  "checksum": "0",
+	  "author": "Алексеев Алексей Алексеевич (Lexa17)",
+	  "created_at": "00:00:00"
+	}
   ],
   "saves": [
-    {
-      "id": 0,
-      "name": "Тест ошибок",
-      "model": "Безымянная модель (id: 0)",
-      "author": "Иванов Иван Иванович (Ivan88)",
-      "created_at": "00:00:00"
-    },
-    {
-      "id": 1,
-      "name": "Другой тест ошибок",
-      "model": "Безымянная модель (id: 0)",
-      "author": "Иванов Иван Иванович (Ivan88)",
-      "created_at": "00:00:00"
-    }
+	{
+	  "id": 0,
+	  "name": "Тест ошибок",
+	  "model": "Безымянная модель (id: 0)",
+	  "author": "Иванов Иван Иванович (Ivan88)",
+	  "created_at": "00:00:00"
+	},
+	{
+	  "id": 1,
+	  "name": "Другой тест ошибок",
+	  "model": "Безымянная модель (id: 0)",
+	  "author": "Иванов Иван Иванович (Ivan88)",
+	  "created_at": "00:00:00"
+	}
   ],
   "screens": [
-    {
-      "id": 0,
-      "name": "Кадр №1",
-      "model": "Безымянная модель (id: 0)",
-      "available_roles": [
-        "Студент",
-        "Администратор"
-      ],
-      "available_persons": "-",
-      "author": "Иванов Иван Иванович",
-      "created_at": "00:00:00"
-    },
-    {
-      "id": 1,
-      "name": "Кадр №2",
-      "model": "Безымянная модель (id: 0)",
-      "available_roles": [
-        "Администратор"
-      ],
-      "available_persons": "-",
-      "author": "Иванов Иван Иванович",
-      "created_at": "00:00:00"
-    }
+	{
+	  "id": 0,
+	  "name": "Кадр №1",
+	  "model": "Безымянная модель (id: 0)",
+	  "available_roles": [
+		"Студент",
+		"Администратор"
+	  ],
+	  "available_persons": "-",
+	  "author": "Иванов Иван Иванович",
+	  "created_at": "00:00:00"
+	},
+	{
+	  "id": 1,
+	  "name": "Кадр №2",
+	  "model": "Безымянная модель (id: 0)",
+	  "available_roles": [
+		"Администратор"
+	  ],
+	  "available_persons": "-",
+	  "author": "Иванов Иван Иванович",
+	  "created_at": "00:00:00"
+	}
   ],
   "scenarios": [
-    {
-      "id": 0,
-      "name": "Стандартный сценарий",
-      "model": "Безымянная модель (id: 0)",
-      "author": "Иванов Иван Иванович",
-      "created_at": "00:00:00"
-    },
-    {
-      "id": 1,
-      "name": "Сложный сценарий",
-      "model": "Безымянная модель (id: 0)",
-      "author": "Иванов Иван Иванович",
-      "created_at": "00:00:00"
-    }
+	{
+	  "id": 0,
+	  "name": "Стандартный сценарий",
+	  "model": "Безымянная модель (id: 0)",
+	  "author": "Иванов Иван Иванович",
+	  "created_at": "00:00:00"
+	},
+	{
+	  "id": 1,
+	  "name": "Сложный сценарий",
+	  "model": "Безымянная модель (id: 0)",
+	  "author": "Иванов Иван Иванович",
+	  "created_at": "00:00:00"
+	}
   ],
   "servers": [
-    {
-      "id": 0,
-      "name": "Лучший сервер",
-      "model": "Безымянная модель (id: 0)",
-      "available_roles": [
-        "Студент",
-        "Администратор"
-      ],
-      "available_persons": [
-        "Алексеев Алексей Алексеевич"
-      ],
-      "author": "Иванов Иван Иванович",
-      "created_at": "00:00:00"
-    },
-    {
-      "id": 1,
-      "name": "Другой лучший сервер",
-      "model": "Безымянная модель (id: 0)",
-      "available_roles": [
-        "Студент",
-        "Администратор"
-      ],
-      "available_persons": [
-        "Алексеев Алексей Алексеевич"
-      ],
-      "author": "Иванов Иван Иванович",
-      "created_at": "00:00:00"
-    }
+	{
+	  "id": 0,
+	  "name": "Лучший сервер",
+	  "model": "Безымянная модель (id: 0)",
+	  "available_roles": [
+		"Студент",
+		"Администратор"
+	  ],
+	  "available_persons": [
+		"Алексеев Алексей Алексеевич"
+	  ],
+	  "author": "Иванов Иван Иванович",
+	  "created_at": "00:00:00"
+	},
+	{
+	  "id": 1,
+	  "name": "Другой лучший сервер",
+	  "model": "Безымянная модель (id: 0)",
+	  "available_roles": [
+		"Студент",
+		"Администратор"
+	  ],
+	  "available_persons": [
+		"Алексеев Алексей Алексеевич"
+	  ],
+	  "author": "Иванов Иван Иванович",
+	  "created_at": "00:00:00"
+	}
   ]
 }
