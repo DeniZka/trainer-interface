@@ -32,7 +32,7 @@ func _ready() -> void:
 
 func _on_save_button_pressed() -> void:
 	var person = _create_user_from_settings()
-	if person.id == 0:
+	if updated_person == null:
 		persons_api.create(person.serialize())
 	else:
 		persons_api.update(person.id, person.serialize())

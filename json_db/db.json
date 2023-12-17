@@ -1,23 +1,23 @@
 {
   "persons": [
     {
-      "id": 0,
       "person_id": 0,
       "avatar_id": 0,
       "locked": false,
-      "full_name": "Иванов Иван Иванович",
-      "password": "ivan123",
       "login": "Ivan88",
+      "password": "ivan123",
+      "full_name": "Иванов Иван Иванович",
       "roles": [
         {
-          "role_id": 0,
+          "role_id": 1,
           "name": "Администратор"
         }
-      ]
+      ],
+      "id": 0
     },
     {
       "id": 1,
-      "person_id": 0,
+      "person_id": 1,
       "avatar_id": 0,
       "locked": false,
       "full_name": "Алексеев Алексей Алексеевич",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "person_id": 0,
+      "person_id": 2,
       "avatar_id": 0,
       "locked": false,
       "login": "eew",

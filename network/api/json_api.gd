@@ -31,11 +31,11 @@ func create(data: Dictionary) -> HTTPResponse:
 
 func update(id: int, data: Dictionary) -> HTTPResponse:
 	var json = JSON.stringify(data, "", false)
-	var response: HTTPResponse = await http.send_raw(url, ["Content-Type: application/json"], HTTPClient.METHOD_PUT, json.to_utf8_buffer())
+	var response: HTTPResponse = await http.send_raw(url + "/" + str(id), ["Content-Type: application/json"], HTTPClient.METHOD_PUT, json.to_utf8_buffer())
 	updated.emit()
 	return response.parse_as_json()
 
 func delete(id: int) -> HTTPResponse:
-	var response: HTTPResponse = await http.send_delete(url)
+	var response: HTTPResponse = await http.send_delete(url + "/" + str(id))
 	updated.emit()
 	return response.parse_as_json()
