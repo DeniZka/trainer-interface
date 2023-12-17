@@ -19,11 +19,11 @@ func serialize() -> Dictionary:
 		"name": name,
 	}
 	
-	if overlay_id == "":
-		base["overlay_id"] = null
+	#if overlay_id == "":
+	#	base["overlay_id"] = null
 	
-	for right in rights.keys():
-		base[right] = rights[right]
+	#for right in rights.keys():
+	#	base[right] = rights[right]
 	
 	return base
 

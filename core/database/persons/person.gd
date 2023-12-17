@@ -19,6 +19,11 @@ func _roles_to_string() -> String:
 	return line
 
 func serialize(with_id: bool = true) -> Dictionary:
+	var serialized_roles: Array[Dictionary]
+	
+	for role in roles:
+		serialized_roles.append(role.serialize())
+	
 	return {
 		"person_id": id,
 		"avatar_id": avatar_id,
@@ -26,7 +31,7 @@ func serialize(with_id: bool = true) -> Dictionary:
 		"login": login,
 		"password": password,
 		"full_name": full_name,
-		#"roles": roles
+		"roles": serialized_roles
 #		"role_ids": role_ids
 	}
 
@@ -46,7 +51,7 @@ static func create_from_response(response: HTTPResponse) -> Array[Person]:
 	if response.content is Array:
 		for person_line in response.content:
 			result.append(Person.create_from_json(person_line))
-	else:
+	elif response.content != null:
 		result.append(Person.create_from_json(response.content))
 	return result
 

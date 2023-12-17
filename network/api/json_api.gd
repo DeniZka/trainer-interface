@@ -25,13 +25,13 @@ func get_by_id(id: int) -> HTTPResponse:
 
 func create(data: Dictionary) -> HTTPResponse:
 	var json = JSON.stringify(data, "", false)
-	var response: HTTPResponse = await http.send_raw(url, [], HTTPClient.METHOD_POST, json.to_utf8_buffer())
+	var response: HTTPResponse = await http.send_raw(url, ["Content-Type: application/json"], HTTPClient.METHOD_POST, json.to_utf8_buffer())
 	updated.emit()
 	return response.parse_as_json()
 
 func update(id: int, data: Dictionary) -> HTTPResponse:
 	var json = JSON.stringify(data, "", false)
-	var response: HTTPResponse = await http.send_raw(url, [], HTTPClient.METHOD_PUT, json.to_utf8_buffer())
+	var response: HTTPResponse = await http.send_raw(url, ["Content-Type: application/json"], HTTPClient.METHOD_PUT, json.to_utf8_buffer())
 	updated.emit()
 	return response.parse_as_json()
 
