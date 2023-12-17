@@ -11,7 +11,7 @@ const LAN_PASS = "105Admin105"
 const DRWE_LOGIN_PASS = "guest1"
 
 const SERVER_PORT = 10508
-const POLL_TIMEOUT = 0.1 #s
+const POLL_TIMEOUT = 0.05 #s
 const AMQP_ADDRESS : String = SERV_DREW
 const AMQP_WEB_ADDRESS : String = SERV_WEB_LAN
 const AMQP_HOST : String = "/"
@@ -28,18 +28,17 @@ const HYPERVISOR_CHECK_TIMEOUT = 60.0
 var is_sit_connected : bool = false
 
 #for STOMP request
-signal request_new_signal_list_from_server(server_name: String, sig_list: Array)
 signal request_post_signals_into_server(server_name: String, signals: Dictionary)
 #@onready var sit_manager : SITManager
 var hypervisor: SITTranciever
 #var servers : Array[SITManager] = []
 
 
-
+#Links to the hypervisor or servers
 var servers_link : Dictionary = {}  # {"server_name": SITTranciever}f 
-
+#users peer ids  with them servers and usernames
 var peers_server = {}  # {id: {"server": server_name, "user": user_name} }
-
+#server with them signals
 var srvs : Dictionary = {  #{ "srvname":  {"signame": [peer1, peern]}}
 	"DUMMY" : {}
 }
@@ -246,17 +245,7 @@ func _on_update_signal_received(server_name: String, signals: Dictionary):
 func send_signals_anyone_at(srv: String, sigs: Dictionary):
 	for cli in peers_server:
 		if peers_server[cli]["server"] == srv:
-			RPC.set_fe_peer_signal_values.rpc_id(cli, sigs)	
-
-#testing loopback model react immitation
-func _ON_request_post_signals_into_server(srv: String, signals: Dictionary):
-	for k in signals:
-		if "_YB01" in k and signals[k][0] == true:
-			var stat = k.replace("_YB01", "_is_state")
-			send_signals_anyone_at(srv, {stat: [3]})
-		if "_YB02" in k and signals[k][0] == true:
-			var stat = k.replace("_YB02", "_is_state")
-			send_signals_anyone_at(srv, {stat: [5]})
+			RPC.set_fe_peer_signal_values.rpc_id(cli, sigs)
 
 #multiplayer callback
 func _on_peer_connected(id: int):
@@ -341,7 +330,7 @@ func _on_request_signal_list_updated(sig_list: Array, id: int, op: int):
 	
 	clean_need_update = cleanup_signals(srv_name)
 	if clean_need_update or add_need_update:
-		request_new_signal_list_from_server.emit(srv_name, srv_sigs.keys())
+		(servers_link[srv_name] as SITTranciever).set_signal_list(srv_sigs)
 		
 	var add = ""
 	if clean_need_update:
@@ -352,11 +341,21 @@ func _on_request_signal_list_updated(sig_list: Array, id: int, op: int):
 		add = "nothing needed"
 	print("Peer ", id, " updats signals: ", add)
 	
+#testing loopback model react immitation
+func _ON_request_post_signals_into_server(srv: String, signals: Dictionary):
+	for k in signals:
+		if "_YB01" in k and signals[k][0] == true:
+			var stat = k.replace("_YB01", "_is_state")
+			send_signals_anyone_at(srv, {stat: [3]})
+		if "_YB02" in k and signals[k][0] == true:
+			var stat = k.replace("_YB02", "_is_state")
+			send_signals_anyone_at(srv, {stat: [5]})
+	
 func _on_signal_values_offered(signals: Dictionary, id: int):
 	var srv_name = peers_server[id]["server"]
 	print("Peer ", id, " wants to do something nasty on ", srv_name)
 	servers_link[srv_name].set_signals(signals)
-	request_post_signals_into_server.emit(srv_name, signals)
+	#request_post_signals_into_server.emit(srv_name, signals)     #FIXME: local loop
 
 func process_incoming_signals(from_server: String, signals: Dictionary):
 	print("Server ", from_server, "bring good news")
@@ -379,11 +378,7 @@ func _on_user_cursor(pos: Vector2, id: int):
 		#	continue 
 		if peers_server[peer]["server"] == server_name: #on the save server
 			RPC.user_status.rpc(user_name, pos)
-			
 	
 func _on_button_pressed():
 	_on_server_create("hello", "asdfasdfasfd")
 	pass # Replace with function body.
-
-
-

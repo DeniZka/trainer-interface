@@ -1,6 +1,6 @@
 extends Node
 
-const USER_NAME = "DeniZka"
+const NAMES_PARTS = ["va", "bla", "do", "hu", "tai", "chu", "pe", "gi"]
 
 #FIXME: replace nodes frame managers with real client nodes
 @onready var nodes = [$frame_manager, $frame_manager2]
@@ -12,6 +12,8 @@ var cli_signals : Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize_username()
+	
 	peer = ENetMultiplayerPeer.new()
 
 	multiplayer.connected_to_server.connect(connected_to_server)
@@ -31,6 +33,12 @@ func _ready():
 		#var node_sl : Array = n.get_request_signal_list()
 		#for node_s in node_sl:
 			#cli_signals
+func randomize_username():
+	var name : String = ""
+	randomize()
+	for i in range(4):
+		name = name + NAMES_PARTS[randi() % NAMES_PARTS.size()]
+	$node_control/Username.text = name
 
 func _on_disconnected():
 	print("disconnected")
@@ -72,16 +80,6 @@ func _on_user_leaved(user_name: String):
 	cursors.erase(cur)
 	cur.queue_free()
 			
-
-#dummy stuff
-func _on_option_button_item_selected(index):
-	for i in range(nodes.size()):
-		if i == index:
-			nodes[i].visible = true
-		else:
-			nodes[i].visible = false
-	pass # Replace with function body.
-
 
 func _on_connect_pressed():
 	var err = peer.create_client("127.0.0.1", 10508)
@@ -126,5 +124,5 @@ func _on_cursor_send_timeout():
 func _on_cursor_updated(user_name: String, pos: Vector2):
 	for cur in cursors:
 		if cur.user == user_name:
-			cur.update_cursor(user_name, pos)
+			cur.update_cursor(pos)
 	#$Cursor.update_cursor(user_name, pos)

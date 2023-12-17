@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6up6nhjdrmdq"]
 
 [ext_resource type="Script" path="res://core/frames/cursor.gd" id="1_0agg3"]
-[ext_resource type="Texture2D" uid="uid://dcepl2u4gyti6" path="res://icons/cursor/cursor.png" id="1_aia6y"]
+[ext_resource type="Texture2D" uid="uid://d4nsbg8lj244i" path="res://icons/cursor/cursor.png" id="1_aia6y"]
 
 [node name="Cursor" type="Node2D"]
 script = ExtResource("1_0agg3")

@@ -7,8 +7,12 @@ var tween : Tween = null
 	set(val):
 		user = val
 		$Label.text = val
+		
+func _ready():
+	randomize()
+	self.modulate = Color(randf(), randf(), randf(), 1.0)
 
-func update_cursor(user_name: String, pos: Vector2):
+func update_cursor(pos: Vector2):
 	if tween:
 		tween.kill()
 	tween = get_tree().create_tween()
