@@ -28,3 +28,12 @@ static func create_from_json(json: Dictionary) -> Model:
 	model.author = json["author"]
 	model.created_at = json["created_at"]
 	return model
+
+static func create_from_response(response: HTTPResponse) -> Array[Model]:
+	var result: Array[Model]
+	if response.content is Array:
+		for person_line in response.content:
+			result.append(Model.create_from_json(person_line))
+	elif response.content != null:
+		result.append(Model.create_from_json(response.content))
+	return result
