@@ -13,7 +13,7 @@ func is_timeout_error() -> bool:
 	return result == HTTPRequest.RESULT_TIMEOUT
 
 func is_success() -> bool:
-	return status_code == HTTPClient.RESPONSE_OK
+	return status_code / 200 == 1
 
 func is_error() -> bool:
 	return !is_success()
