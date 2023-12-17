@@ -23,6 +23,7 @@ func _ready():
 	RPC.signal_list_requested.connect(send_signal_list)
 	RPC.signals_values_received.connect(update_signal_values)
 	RPC.server_join_granted.connect(_on_joined)
+	RPC.server_join_rejected.connect(_on_rejected)
 	RPC.user_joined_anounced.connect(_on_user_joined)
 	RPC.user_leaved_anounced.connect(_on_user_leaved)
 	RPC.users_status_updated.connect(_on_cursor_updated)
@@ -42,6 +43,7 @@ func randomize_username():
 
 func _on_disconnected():
 	print("disconnected")
+	$node_control/login_buttons.visible = false
 	$frame_manager.visible = false
 
 func _on_signal_ready():
@@ -49,6 +51,7 @@ func _on_signal_ready():
 	RPC.offer_signals_values.rpc(sigs)
 	
 func connected_to_server():
+	$node_control/login_buttons.visible = true
 	print("Connnected")
 	
 func con_failed():
@@ -62,6 +65,11 @@ func _on_joined(user_list: Array):
 		cur.user = user
 		cursors.append(cur)
 	$frame_manager.visible = true
+	$node_control/login_buttons/join.visible = false
+	$node_control/login_buttons/leave.visible = true
+	
+func _on_rejected(reason: String):
+	Log.trace("Join was rejected caouse of: %s" % reason)
 	
 func _on_user_joined(user_name : String):
 	Log.trace("Jointed: %s" % user_name)
@@ -91,15 +99,17 @@ func _on_connect_pressed():
 
 func _on_srv_list_pressed():
 	RPC.get_server_list.rpc()
+	$node_control/login_buttons/join.visible = true
+	$node_control/login_buttons/leave.visible = false
 
 func new_server_list(srvs: Array):
 	print("Recevied servers: ", srvs)
-	$node_control/join.text = srvs[0]
+	$node_control/login_buttons/join.text = srvs[0]
 
 
 func _on_join_pressed():
 	print("try to join")
-	RPC.join_server.rpc($node_control/join.text, $node_control/Username.text)
+	RPC.join_server.rpc($node_control/login_buttons/join.text, $node_control/Username.text)
 	
 func send_signal_list():
 	#get node signal list from frame managers
@@ -126,3 +136,17 @@ func _on_cursor_updated(user_name: String, pos: Vector2):
 		if cur.user == user_name:
 			cur.update_cursor(pos)
 	#$Cursor.update_cursor(user_name, pos)
+
+
+func _on_connection_timer_timeout():
+	if multiplayer.get_peers().is_empty(): #connected
+		$node_control/Connect.visible = true
+		$node_control/disconnect.visible = false
+		$node_control/login_buttons.visible = false
+		$node_control/login_buttons/join.visible = true
+		$node_control/login_buttons/leave.visible = false
+	else:
+		$node_control/login_buttons.visible = true
+		$node_control/Connect.visible = false
+		$node_control/disconnect.visible = true
+		

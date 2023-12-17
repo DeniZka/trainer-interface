@@ -7,6 +7,7 @@ signal signal_list_requested()
 signal rights_updated(rights: Dictionary)
 signal server_list_updated(servers: Array)
 signal server_join_granted(users_names: Array)
+signal server_join_rejected(reason: String)
 signal sit_connection_status_received(status)
 signal kick_requested(reaseon: String) #kick target player when server is down. Require leave_server()
 signal hypervisor_down_anounced()
@@ -119,6 +120,10 @@ func send_server_list(servers: Array):
 @rpc
 func grant_join_server(users_online: Array):
 	server_join_granted.emit(users_online)
+	
+@rpc
+func reject_join_server(reason: String):
+	server_join_rejected.emit(reason)
 	
 @rpc
 func sit_connection_status(status: bool):

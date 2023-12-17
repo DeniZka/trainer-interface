@@ -271,6 +271,12 @@ func _on_peer_disconnected(id: int):
 	
 func _on_join_server_requested(server_name: String, user_name: String, id: int):
 	#FIXME: check exists
+	if not server_name in srvs: #FIXME: change in links?
+		RPC.reject_join_server.rpc_id(id, "Server %s is absent" % server_name)
+		return
+	#Check already connected
+	if peers_server[id]["server"] == server_name:
+		RPC.reject_join_server.rpc_id(id, "Already on server")
 	#TODO: Check user ID access rights
 	var already_users = []
 	for peer in peers_server:
@@ -330,7 +336,8 @@ func _on_request_signal_list_updated(sig_list: Array, id: int, op: int):
 	
 	clean_need_update = cleanup_signals(srv_name)
 	if clean_need_update or add_need_update:
-		(servers_link[srv_name] as SITTranciever).set_signal_list(srv_sigs)
+		if srv_name in servers_link:    #FIXME: remove 
+			(servers_link[srv_name] as SITTranciever).set_signal_list(srv_sigs)
 		
 	var add = ""
 	if clean_need_update:
