@@ -6,15 +6,17 @@ signal signals_values_received(signals: Dictionary)
 signal signal_list_requested()
 signal rights_updated(rights: Dictionary)
 signal server_list_updated(servers: Array)
-signal server_join_granted()
+signal server_join_granted(users_names: Array)
 signal sit_connection_status_received(status)
 signal kick_requested(reaseon: String) #kick target player when server is down. Require leave_server()
 signal hypervisor_down_anounced()
 signal server_creation_anounced(server_name: String)
 signal server_down_anounced(server_name: String) #when server is realy down
 signal server_unavailable_anounced(server_name: String) #before server is down
-signal server_status_anounced(server_name: String, status: Array[bool])
+signal server_status_anounced(server_name: String, status: Array)
 signal users_status_updated(user_name: String, pos: Vector2) #on the same server user joined {"Name": cursor }
+signal user_joined_anounced(user_name: String)
+signal user_leaved_anounced(user_name : String)
 
 
 #signals for backend
@@ -42,8 +44,8 @@ func get_server_list():
 	server_list_requested.emit(multiplayer.get_remote_sender_id())
 
 @rpc("any_peer")
-func join_server(server_name: String):
-	join_server_requested.emit(server_name, multiplayer.get_remote_sender_id())
+func join_server(server_name: String, user_name: String):
+	join_server_requested.emit(server_name, user_name, multiplayer.get_remote_sender_id())
 	
 @rpc("any_peer")
 func leave_server():
@@ -111,12 +113,12 @@ func server_shit_happens(shit_kind: int, shit_support: String):
 	Log.trace(shit_support + " " + str(shit_kind))
 
 @rpc
-func send_server_list(servers: Array[String]):
+func send_server_list(servers: Array):
 	server_list_updated.emit(servers)
 	
 @rpc
-func grant_join_server():
-	server_join_granted.emit()
+func grant_join_server(users_online: Array):
+	server_join_granted.emit(users_online)
 	
 @rpc
 func sit_connection_status(status: bool):
@@ -139,9 +141,17 @@ func server_unavailable(server_name: String):
 	server_unavailable_anounced.emit(server_name)
 	
 @rpc
-func server_status(server_name: String, status: Array[bool]):
+func server_status(server_name: String, status: Array):
 	server_status_anounced.emit(server_name, status)
 	
 @rpc
 func user_status(user_name: String, pos: Vector2):
 	users_status_updated.emit(user_name, pos)
+	
+@rpc
+func user_joined(user_name: String):
+	user_joined_anounced.emit(user_name)
+	
+@rpc
+func user_leaved(user_name: String):
+	user_leaved_anounced.emit(user_name)

@@ -1,7 +1,10 @@
 extends Node
 
+const USER_NAME = "DeniZka"
+
 #FIXME: replace nodes frame managers with real client nodes
 @onready var nodes = [$frame_manager, $frame_manager2]
+var cursors : Array[UserCursor] = []
 
 var cli_signals : Dictionary = {}
 
@@ -18,6 +21,9 @@ func _ready():
 	RPC.signal_list_requested.connect(send_signal_list)
 	RPC.signals_values_received.connect(update_signal_values)
 	RPC.server_join_granted.connect(_on_joined)
+	RPC.user_joined_anounced.connect(_on_user_joined)
+	RPC.user_leaved_anounced.connect(_on_user_leaved)
+	RPC.users_status_updated.connect(_on_cursor_updated)
 	$frame_manager.outgoing_signals_ready.connect(_on_signal_ready)
 	
 	#for n in nodes:
@@ -40,8 +46,32 @@ func connected_to_server():
 func con_failed():
 	print("failed")
 	
-func _on_joined():
+func _on_joined(user_list: Array):
+	for user in user_list:
+		Log.trace("On sever: %s" % user)
+		var cur : UserCursor = load("res://core/frames/cursor.tscn").instantiate()
+		$node_control.add_child(cur)
+		cur.user = user
+		cursors.append(cur)
 	$frame_manager.visible = true
+	
+func _on_user_joined(user_name : String):
+	Log.trace("Jointed: %s" % user_name)
+	var cur : UserCursor = load("res://core/frames/cursor.tscn").instantiate()
+	$node_control.add_child(cur)
+	cur.user = user_name
+	cursors.append(cur)
+
+func _on_user_leaved(user_name: String):
+	Log.trace("Leaved: %s" % user_name)
+	var cur : UserCursor = null
+	for i in range(cursors.size()):
+		if cursors[i].user == user_name:
+			cur = cursors[i]
+			break
+	cursors.erase(cur)
+	cur.queue_free()
+			
 
 #dummy stuff
 func _on_option_button_item_selected(index):
@@ -71,7 +101,7 @@ func new_server_list(srvs: Array):
 
 func _on_join_pressed():
 	print("try to join")
-	RPC.join_server.rpc($node_control/join.text)
+	RPC.join_server.rpc($node_control/join.text, $node_control/Username.text)
 	
 func send_signal_list():
 	#get node signal list from frame managers
@@ -87,4 +117,14 @@ func _on_disconnect_pressed():
 
 func _on_leave_pressed():
 	RPC.leave_server.rpc()
-	$frame_manager.visble = false
+	$frame_manager.visible = false
+
+func _on_cursor_send_timeout():
+	RPC.cursor_position.rpc(get_viewport().get_mouse_position())
+	pass # Replace with function body.
+	
+func _on_cursor_updated(user_name: String, pos: Vector2):
+	for cur in cursors:
+		if cur.user == user_name:
+			cur.update_cursor(user_name, pos)
+	#$Cursor.update_cursor(user_name, pos)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bikffy583s5yp"]
+[gd_scene load_steps=2 format=3 uid="uid://bikffy583s5yp"]
 
 [ext_resource type="Script" path="res://backend/root.gd" id="1_jl7ch"]
-[ext_resource type="Script" path="res://network/rabbit/sit_mngr_jsonrpc.gd" id="2_kdrsd"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_jl7ch")
@@ -44,9 +43,6 @@ offset_top = 88.0
 offset_right = 1871.0
 offset_bottom = 1070.0
 text = "asdfadfa"
-
-[node name="SITManager" type="Node" parent="."]
-script = ExtResource("2_kdrsd")
 
 [node name="Connection_checker" type="Timer" parent="."]
 one_shot = true

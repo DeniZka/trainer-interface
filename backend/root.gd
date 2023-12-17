@@ -36,7 +36,7 @@ var hypervisor: SITTranciever
 
 
 
-var servers_link : Dictionary = {}  #for SITTranciever
+var servers_link : Dictionary = {}  # {"server_name": SITTranciever}f 
 
 var peers_server = {}  # {id: {"server": server_name, "user": user_name} }
 
@@ -182,9 +182,10 @@ func _on_server_list_requested(id: int):
 	server_list_reply_to_id = id
 	hypervisor.get_server_list() #UPDATE server list
 	#FIXME: wait for HV response?
+	RPC.send_server_list.rpc(srvs.keys())
 
 #from hypervisor
-func _on_server_list(servers: Array[String]):
+func _on_server_list(servers: Array):
 	#TODO: compare with actual list
 	#decide what to do add or remove
 	Log.trace("Sending server list to: %d" % server_list_reply_to_id)
@@ -281,15 +282,22 @@ func _on_peer_disconnected(id: int):
 	
 func _on_join_server_requested(server_name: String, user_name: String, id: int):
 	#FIXME: check exists
-	print("Peer ", id, " joins ", server_name)
+	#TODO: Check user ID access rights
+	var already_users = []
+	for peer in peers_server:
+		if peers_server[peer]["server"] == server_name:
+			already_users.append(peers_server[peer]["user"])
+			RPC.user_joined.rpc_id(peer, user_name) #inform already users new join
+	RPC.grant_join_server.rpc_id(id, already_users)
+
+	Log.trace("Peer %d joins %s" % [id, server_name])
 	peers_server[id]["server"] = server_name
 	peers_server[id]["user"] = user_name
-	#TODO: Check user ID access rights
-	RPC.grant_join_server.rpc_id(id)
-	RPC.get_fe_peer_signal_list.rpc_id(id)
-	
+
+	RPC.get_signals_list.rpc_id(id)  #FIXME:   fix it <-----------------------
 	
 func _on_leave_server_requested(id: int):
+	var leaved_user = peers_server[id]["user"]
 	var srv_name = peers_server[id]["server"]
 	var srv_sigs = srvs[srv_name]
 	print("Peer ", id, " leaves ", srv_name)
@@ -297,6 +305,11 @@ func _on_leave_server_requested(id: int):
 		srv_sigs[ps].erase(id)
 	cleanup_signals(srv_name)
 	peers_server[id]["server"] = ""
+	peers_server[id]["user"] = ""
+	 #anounce leave every on same server
+	for peer in peers_server:
+		if peers_server[peer]["server"] == srv_name:
+			RPC.user_leaved.rpc_id(peer, leaved_user)
 
 #removes useless signals
 func cleanup_signals(srver_name: String) -> bool: #true - need too update

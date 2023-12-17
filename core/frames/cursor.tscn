@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6up6nhjdrmdq"]
+
+[ext_resource type="Script" path="res://core/frames/cursor.gd" id="1_0agg3"]
+[ext_resource type="Texture2D" uid="uid://dcepl2u4gyti6" path="res://icons/cursor/cursor.png" id="1_aia6y"]
+
+[node name="Cursor" type="Node2D"]
+script = ExtResource("1_0agg3")
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.11156, 0.11156)
+texture = ExtResource("1_aia6y")
+offset = Vector2(116.125, 129.13)
+region_enabled = true
+region_rect = Rect2(42.5, 17, 288, 289)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 30.0
+offset_top = 3.0
+offset_right = 117.0
+offset_bottom = 26.0
+text = "User_name"
+
+[node name="Timer" type="Timer" parent="."]

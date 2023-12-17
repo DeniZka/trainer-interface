@@ -11,14 +11,16 @@ func _exit_tree():
 	for s in servers:
 		s.free()
 	servers = []
-	hypervisor.free()
+	if hypervisor:
+		hypervisor.free()
 
 func disconnect_from_server():
 	#FIXME: check stomp is connnected if !stomp.is_:
 	#	return
 	for s in servers:
 		stomp.send(s.get_unsubscribe_packet())
-	stomp.send(hypervisor.get_unsubscribe_packet())
+	if hypervisor:
+		stomp.send(hypervisor.get_unsubscribe_packet())
 
 func connect_to_server(address: String = "192.168.100.157:61613") -> void:
 	Log.debug("Подключение к серверу RabbitMQ: %s" % address)
