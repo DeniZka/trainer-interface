@@ -126,6 +126,8 @@ func _on_disconnect_pressed():
 func _on_leave_pressed():
 	RPC.leave_server.rpc()
 	$frame_manager.visible = false
+	$node_control/login_buttons/join.visible = true
+	$node_control/login_buttons/leave.visible = false
 
 func _on_cursor_send_timeout():
 	RPC.cursor_position.rpc(get_viewport().get_mouse_position())

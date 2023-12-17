@@ -294,7 +294,7 @@ func _on_join_server_requested(server_name: String, user_name: String, id: int):
 func _on_leave_server_requested(id: int):
 	var leaved_user = peers_server[id]["user"]
 	var srv_name = peers_server[id]["server"]
-	var srv_sigs = srvs[srv_name]
+	var srv_sigs = srvs[srv_name]   #FIXME:
 	print("Peer ", id, " leaves ", srv_name)
 	for ps in srv_sigs:
 		srv_sigs[ps].erase(id)

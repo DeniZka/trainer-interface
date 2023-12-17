@@ -51,6 +51,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="join" type="Button" parent="node_control/login_buttons"]
+layout_mode = 0
 offset_left = 421.0
 offset_top = 64.0
 offset_right = 542.0
@@ -59,6 +60,7 @@ text = "\"\""
 
 [node name="leave" type="Button" parent="node_control/login_buttons"]
 visible = false
+layout_mode = 0
 offset_left = 419.0
 offset_top = 63.0
 offset_right = 540.0
