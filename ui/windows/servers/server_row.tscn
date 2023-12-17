@@ -1,12 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://3gvrw6jx42hh"]
+[gd_scene load_steps=8 format=3 uid="uid://3gvrw6jx42hh"]
 
 [ext_resource type="Script" path="res://ui/windows/servers/server_row.gd" id="1_vxarg"]
 [ext_resource type="Theme" uid="uid://bxar4fpj82boj" path="res://ui/themes/info/buttons_and_icons.tres" id="2_lodnb"]
 [ext_resource type="Theme" uid="uid://b3rhwjl7yw6lu" path="res://ui/themes/info/info_main.tres" id="3_g3f3y"]
-[ext_resource type="Theme" uid="uid://dq7gtnuof4q8k" path="res://ui/themes/info/select.tres" id="4_q063t"]
-[ext_resource type="ButtonGroup" uid="uid://bkmxktu7xgxg5" path="res://ui/themes/button_groups/select_edit_delete_main_info.tres" id="5_yl1aw"]
-[ext_resource type="Theme" uid="uid://b7jfgghuhmc83" path="res://ui/themes/info/edit.tres" id="6_ucdxe"]
-[ext_resource type="Theme" uid="uid://27rafffnngdm" path="res://ui/themes/info/delete.tres" id="7_08ocy"]
+[ext_resource type="PackedScene" uid="uid://ys335vcr3hb8" path="res://ui/components/rows/row_control_buttons.tscn" id="4_2dwbo"]
 [ext_resource type="Theme" uid="uid://j3yy82x32yij" path="res://ui/themes/info/for_icons_and_state.tres" id="8_0vfmn"]
 [ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://icons/animals/Orca_62.png" id="9_wt01q"]
 [ext_resource type="Theme" uid="uid://caxgx0sdeuepx" path="res://ui/themes/info/id.tres" id="10_0lgef"]
@@ -41,30 +38,9 @@ custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 theme = ExtResource("3_g3f3y")
 
-[node name="For_buttons" type="VBoxContainer" parent="Buttons_and_icons"]
-custom_minimum_size = Vector2(20, 0)
+[node name="Row Control Buttons" parent="Buttons_and_icons" instance=ExtResource("4_2dwbo")]
+unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("3_g3f3y")
-alignment = 2
-
-[node name="Select" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("4_q063t")
-button_group = ExtResource("5_yl1aw")
-
-[node name="Edit" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-theme = ExtResource("6_ucdxe")
-button_group = ExtResource("5_yl1aw")
-
-[node name="Delete" type="CheckButton" parent="Buttons_and_icons/For_buttons"]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 2
-theme = ExtResource("7_08ocy")
-button_group = ExtResource("5_yl1aw")
 
 [node name="For_icons_and_state" type="VBoxContainer" parent="Buttons_and_icons"]
 layout_mode = 2

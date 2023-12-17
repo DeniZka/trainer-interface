@@ -12,6 +12,7 @@ var models: JSONApi
 var saves: JSONApi
 var scenarios: JSONApi
 var screens: JSONApi
+var servers: JSONApi
 
 func _ready() -> void:
 	http = create_http_request(TIMEOUT_IN_SECONDS)
@@ -33,3 +34,4 @@ func initialize_api(url: String, http: HTTPRequest) -> void:
 	self.saves = JSONApi.new(base_url + "saves", http_service)
 	self.scenarios = JSONApi.new(base_url + "scenarios", http_service)
 	self.screens = JSONApi.new(base_url + "screens", http_service)
+	self.servers = JSONApi.new(base_url + "servers", http_service)

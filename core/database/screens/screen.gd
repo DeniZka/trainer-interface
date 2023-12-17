@@ -21,16 +21,10 @@ func serialize() -> Dictionary:
 	}
 
 func available_roles_to_string() -> String:
-	var result: String
-	for role in available_roles:
-		result += role + ", "
-	return result
+	return ArrayUtils.from_array_to_string(available_roles)
 
 func available_persons_to_string() -> String:
-	var result: String
-	for person in available_persons:
-		result += person + ", "
-	return result
+	return ArrayUtils.from_array_to_string(available_persons)
 
 static func create_from_json(json: Dictionary) -> Screen:
 	var screen: Screen = Screen.new()
