@@ -11,7 +11,7 @@ func _on_update_data() -> void:
 	table.add_array(models)
 
 func _on_row_edited(row: ModelRow) -> void:
-	opened_menu.emit(row.role)
+	opened_menu.emit(row.model)
 
 func _on_row_deleted(row: ModelRow) -> void:
-	var response = await api.delete(row.role.id)
+	var response = await api.delete(row.model.id)

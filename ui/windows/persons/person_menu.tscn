@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cnvus38vai81p"]
+[gd_scene load_steps=15 format=3 uid="uid://cnvus38vai81p"]
 
 [ext_resource type="Script" path="res://ui/windows/persons/person_menu.gd" id="1_n1hsb"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_gocva"]
@@ -10,9 +10,8 @@
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_wxayy"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="9_ruod5"]
 [ext_resource type="Script" path="res://ui/components/menu/menu_roles_selector.gd" id="10_m4fcw"]
-[ext_resource type="ButtonGroup" uid="uid://cmunyg4h8107m" path="res://ui/themes/button_groups/save_cancel_delete_right.tres" id="10_n018k"]
-[ext_resource type="Theme" uid="uid://c7lw0hs4y1ef2" path="res://ui/themes/right_menu/right_delete.tres" id="11_6m7n0"]
 [ext_resource type="PackedScene" uid="uid://bgp1lhjsskqud" path="res://ui/components/menu/select_line_button.tscn" id="11_7gfgp"]
+[ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="12_42yyl"]
 [ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="12_dl3n2"]
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="13_vhdue"]
 
@@ -565,117 +564,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_m7cnv")
 
-[node name="Save_Cancel_Delete" type="HBoxContainer" parent="Right_menu/Main"]
-custom_minimum_size = Vector2(0, 45)
-layout_mode = 2
-theme = ExtResource("2_gocva")
-
-[node name="Space" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
-custom_minimum_size = Vector2(23, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Save Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
+[node name="Menu Buttom Control" parent="Right_menu/Main" instance=ExtResource("12_42yyl")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 46)
 layout_mode = 2
-theme = ExtResource("2_gocva")
-toggle_mode = true
-button_group = ExtResource("10_n018k")
-text = "Сохранить"
-
-[node name="H_Save" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Save Button"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -36.0
-offset_top = 22.0
-offset_right = -10.0
-offset_bottom = 24.0
-theme = ExtResource("2_gocva")
-color = Color(0.54902, 0.576471, 0.603922, 1)
-
-[node name="V_Save" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Save Button"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -34.0
-offset_top = 24.0
-offset_right = 21.0
-offset_bottom = 26.0
-rotation = 1.5708
-theme = ExtResource("2_gocva")
-color = Color(0.54902, 0.576471, 0.603922, 1)
-
-[node name="Space2" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
-custom_minimum_size = Vector2(57, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_m7cnv")
-
-[node name="Cancel Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 46)
-layout_mode = 2
-theme = ExtResource("2_gocva")
-toggle_mode = true
-button_group = ExtResource("10_n018k")
-text = "Отменить"
-
-[node name="H_Cancel" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Cancel Button"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -36.0
-offset_top = 22.0
-offset_right = -10.0
-offset_bottom = 24.0
-theme = ExtResource("2_gocva")
-color = Color(0.54902, 0.576471, 0.603922, 1)
-
-[node name="V_Cancel" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Cancel Button"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -34.0
-offset_top = 24.0
-offset_right = 21.0
-offset_bottom = 26.0
-rotation = 1.5708
-theme = ExtResource("2_gocva")
-color = Color(0.54902, 0.576471, 0.603922, 1)
-
-[node name="Space3" type="Panel" parent="Right_menu/Main/Save_Cancel_Delete"]
-custom_minimum_size = Vector2(57, 0)
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("3_m7cnv")
-
-[node name="Delete Button" type="Button" parent="Right_menu/Main/Save_Cancel_Delete"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 46)
-layout_mode = 2
-theme = ExtResource("11_6m7n0")
-toggle_mode = true
-button_group = ExtResource("10_n018k")
-text = "Удалить"
-
-[node name="H_Delete" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Delete Button"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -36.0
-offset_top = 22.0
-offset_right = -10.0
-offset_bottom = 24.0
-theme = ExtResource("11_6m7n0")
-color = Color(0.619608, 0.498039, 0.498039, 1)
-
-[node name="V_Delete" type="ColorRect" parent="Right_menu/Main/Save_Cancel_Delete/Delete Button"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 0
-offset_left = -34.0
-offset_top = 24.0
-offset_right = 21.0
-offset_bottom = 26.0
-rotation = 1.5708
-theme = ExtResource("11_6m7n0")
-color = Color(0.619608, 0.498039, 0.498039, 1)
 
 [node name="Space11" type="Panel" parent="Right_menu/Main"]
 custom_minimum_size = Vector2(0, 33)
