@@ -45,8 +45,12 @@ func server_control(action: String):
 	var packet: String = JSON.stringify(make_request("server_control", action, 0))
 	send.emit( STOMPPacket.to(send_path).with_message(packet) )
 	
-func set_signal_list(signals: Dictionary):
+func set_signal_list(signals: Array[String]):
 	var packet: String = JSON.stringify(make_request("set_signal_list", signals, 0))
+	send.emit( STOMPPacket.to(send_path).with_message(packet) )
+	
+func set_signals(signals: Dictionary):
+	var packet: String = JSON.stringify(make_request("set_signals", signals, 0))
 	send.emit( STOMPPacket.to(send_path).with_message(packet) )
 
 ##hypervisor responses

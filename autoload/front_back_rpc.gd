@@ -8,37 +8,35 @@ signal rights_updated(rights: Dictionary)
 signal server_list_updated(servers: Array)
 signal server_join_granted()
 signal sit_connection_status_received(status)
-signal sit_connection_requested(method: int)
 signal kick_requested(reaseon: String) #kick target player when server is down. Require leave_server()
 signal hypervisor_down_anounced()
 signal server_creation_anounced(server_name: String)
 signal server_down_anounced(server_name: String) #when server is realy down
 signal server_unavailable_anounced(server_name: String) #before server is down
+signal server_status_anounced(server_name: String, status: Array[bool])
+signal users_status_updated(user_name: String, pos: Vector2) #on the same server user joined {"Name": cursor }
+
 
 #signals for backend
-signal sit_connection_status_requested()
-signal create_server_requested(server_name: String, server_file: String)
-signal kill_server_requested(server_name: String)
 signal server_list_requested(id: int)
-signal join_server_requested(server_name: String, peer: int)
+signal join_server_requested(server_name: String, user_name: String,  peer: int)
 signal leave_server_requested(peer: int)
 signal request_signal_list_updated(signal_list: Array, peer: int, operaion: int)
 signal signal_values_offered(signals: Dictionary, peer: int)
+signal cursor_position_updated(pos: Vector2, peer: int)
 
+signal create_server_requested(server_name: String, server_file: String)
+signal kill_server_requested(server_name: String)
+signal server_control_requested(server_name: String, action: String)
+signal sit_connection_requested(method: int)
+signal sit_connection_status_requested()
 
 #functions for FE and BE
 enum {SLOP_UPDATE, SLOP_NEW, SLOP_CLEAR}
 
 
 #FE functions.rpc()
-@rpc("any_peer")
-func update_request_signal_list(signal_list: Array, op: int = SLOP_UPDATE):
-	request_signal_list_updated.emit(signal_list, multiplayer.get_remote_sender_id(), op)
-	
-@rpc("any_peer")
-func offer_signals_values(signals: Dictionary):
-	signal_values_offered.emit(signals, multiplayer.get_remote_sender_id())
-
+#player functions
 @rpc("any_peer")
 func get_server_list():
 	server_list_requested.emit(multiplayer.get_remote_sender_id())
@@ -50,6 +48,20 @@ func join_server(server_name: String):
 @rpc("any_peer")
 func leave_server():
 	leave_server_requested.emit(multiplayer.get_remote_sender_id())
+
+@rpc("any_peer")
+func update_request_signal_list(signal_list: Array, op: int = SLOP_UPDATE):
+	request_signal_list_updated.emit(signal_list, multiplayer.get_remote_sender_id(), op)
+	
+@rpc("any_peer")
+func offer_signals_values(signals: Dictionary):
+	signal_values_offered.emit(signals, multiplayer.get_remote_sender_id())
+	
+@rpc("any_peer")
+func cursor_position(pos: Vector2):
+	cursor_position_updated.emit(pos, multiplayer.get_remote_sender_id())
+
+#Odmin functions
 	
 @rpc("any_peer")
 func crete_server(server_name: String, file: String):
@@ -60,13 +72,21 @@ func kill_server(server_name: String):
 	kill_server_requested.emit(server_name)
 	
 @rpc("any_peer")
-func get_sit_connection_status():
-	sit_connection_status_requested.emit()
+func server_control(server_name: String, action: String):
+	server_control_requested.emit(server_name, action)
 	
 enum{CONNECTION_TCP, CONNECTION_WEB}
 @rpc("any_peer")
 func sit_connect(method: int):
 	sit_connection_requested.emit()
+	
+@rpc("any_peer")
+func get_sit_connection_status():
+	sit_connection_status_requested.emit()
+	
+
+	
+
 
 #BE functions.rpc()
 @rpc
@@ -117,3 +137,11 @@ func server_id_down(server_name: String):
 @rpc
 func server_unavailable(server_name: String):
 	server_unavailable_anounced.emit(server_name)
+	
+@rpc
+func server_status(server_name: String, status: Array[bool]):
+	server_status_anounced.emit(server_name, status)
+	
+@rpc
+func user_status(user_name: String, pos: Vector2):
+	users_status_updated.emit(user_name, pos)

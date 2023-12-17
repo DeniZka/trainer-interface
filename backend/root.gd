@@ -38,7 +38,7 @@ var hypervisor: SITTranciever
 
 var servers_link : Dictionary = {}  #for SITTranciever
 
-var peers_server = {}  #id: "server_name"
+var peers_server = {}  # {id: {"server": server_name, "user": user_name} }
 
 var srvs : Dictionary = {  #{ "srvname":  {"signame": [peer1, peern]}}
 	"DUMMY" : {}
@@ -72,15 +72,19 @@ func begin_serve():
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+	RPC.server_list_requested.connect(_on_server_list_requested)
 	RPC.join_server_requested.connect(_on_join_server_requested)
 	RPC.leave_server_requested.connect(_on_leave_server_requested)
 	RPC.request_signal_list_updated.connect(_on_request_signal_list_updated)
 	RPC.signal_values_offered.connect(_on_signal_values_offered)
-	RPC.server_list_requested.connect(_on_server_list_requested)
+	RPC.cursor_position_updated.connect(_on_user_cursor)
+	
 	RPC.create_server_requested.connect(_on_server_create)
 	RPC.kill_server_requested.connect(_on_kill_server)
+	RPC.server_control_requested.connect(_on_server_control)
 	RPC.sit_connection_status_requested.connect(_on_sit_connection_status)
 	RPC.sit_connection_requested.connect(_on_sit_connect)
+	
 	#multiplayer.get_peers()
 	request_post_signals_into_server.connect(_ON_request_post_signals_into_server)
 	
@@ -218,7 +222,7 @@ func _on_kill_server(server_name: String):
 	hypervisor.kill_server(server_name)
 	#first kick users
 	for id in peers_server:
-		if peers_server[id] == server_name:
+		if peers_server[id]["server"] == server_name:
 			RPC.kick_peer.rpc_id(id, "Server is down")
 	RPC.server_unavailable.rpc(server_name)
 	
@@ -235,12 +239,12 @@ func _on_server_down(server_name: String):
 	
 func _on_update_signal_received(server_name: String, signals: Dictionary):
 	for id in peers_server:
-		if peers_server[id] == server_name:
+		if peers_server[id]["server"] == server_name:
 			RPC.set_signal_values.rpc_id(id, signals)
 
 func send_signals_anyone_at(srv: String, sigs: Dictionary):
 	for cli in peers_server:
-		if peers_server[cli] == srv:
+		if peers_server[cli]["server"] == srv:
 			RPC.set_fe_peer_signal_values.rpc_id(cli, sigs)	
 
 #testing loopback model react immitation
@@ -253,39 +257,46 @@ func _ON_request_post_signals_into_server(srv: String, signals: Dictionary):
 			var stat = k.replace("_YB02", "_is_state")
 			send_signals_anyone_at(srv, {stat: [5]})
 
+#multiplayer callback
 func _on_peer_connected(id: int):
 	print("New frontend connected: ", id)
 	var pl = multiplayer.get_peers()
-	peers_server[id] = "" #register peer in list
+	peers_server[id] = {
+		"server" : "",
+		"user" : "",
+		"cursor" : Vector2.ZERO
+	}
 	print("Peer count: ", pl.size())
 	pass
 	
 func _on_peer_disconnected(id: int):
 	print("Some frontend disconnected: ", id)
 	var pl = multiplayer.get_peers()
-	var sn = peers_server[id]
+	var sn = peers_server[id]["server"]
 	if sn != "": #if disconnected without leave server
 		_on_leave_server_requested(id)
 	peers_server.erase(id)
-	print("Peer count: ", pl.size())	
+	Log.trace("Peer count: %d" % pl.size())	
 	pass
 	
-func _on_join_server_requested(server_name: String, id: int):
+func _on_join_server_requested(server_name: String, user_name: String, id: int):
 	#FIXME: check exists
 	print("Peer ", id, " joins ", server_name)
-	peers_server[id] = server_name
+	peers_server[id]["server"] = server_name
+	peers_server[id]["user"] = user_name
+	#TODO: Check user ID access rights
 	RPC.grant_join_server.rpc_id(id)
 	RPC.get_fe_peer_signal_list.rpc_id(id)
 	
 	
 func _on_leave_server_requested(id: int):
-	var srv_name = peers_server[id]
+	var srv_name = peers_server[id]["server"]
 	var srv_sigs = srvs[srv_name]
 	print("Peer ", id, " leaves ", srv_name)
 	for ps in srv_sigs:
 		srv_sigs[ps].erase(id)
 	cleanup_signals(srv_name)
-	peers_server[id] = ""
+	peers_server[id]["server"] = ""
 
 #removes useless signals
 func cleanup_signals(srver_name: String) -> bool: #true - need too update
@@ -297,14 +308,13 @@ func cleanup_signals(srver_name: String) -> bool: #true - need too update
 			srv_sigs.erase(k)
 			result = true
 	return result
-	
 
 func _on_request_signal_list_updated(sig_list: Array, id: int, op: int):
 	#FIXME: check
 	#add new owner of signal
 	var add_need_update = false
 	var clean_need_update = false
-	var srv_name = peers_server[id]
+	var srv_name = peers_server[id]["server"]
 	var srv_sigs = srvs[srv_name]
 	#cleanup id from every sig_info
 	for ps in srv_sigs: 
@@ -330,18 +340,34 @@ func _on_request_signal_list_updated(sig_list: Array, id: int, op: int):
 	print("Peer ", id, " updats signals: ", add)
 	
 func _on_signal_values_offered(signals: Dictionary, id: int):
-	var srv_name = peers_server[id]
+	var srv_name = peers_server[id]["server"]
 	print("Peer ", id, " wants to do something nasty on ", srv_name)
+	servers_link[srv_name].set_signals(signals)
 	request_post_signals_into_server.emit(srv_name, signals)
 
 func process_incoming_signals(from_server: String, signals: Dictionary):
 	print("Server ", from_server, "bring good news")
 	for id in peers_server:
-		if peers_server[id] == from_server:
+		if peers_server[id]["server"] == from_server:
 			#TODO: cleanup peer list?
 			print("..transfer updates to ", id)
 			RPC.set_fe_peer_signal_values.rpc_id(id, signals)
+
+func _on_server_control(server_name: String, action: String):
+	(servers_link[server_name] as SITTranciever).server_control(action)
+	
+func _on_user_cursor(pos: Vector2, id: int):
+	peers_server[id]["cursor"] = pos
+	var server_name = peers_server[id]["server"]
+	var user_name = peers_server[id]["user"]
+	#anounce for another user of this server
+	for peer in peers_server:
+		#if peer == id: #skip self
+		#	continue 
+		if peers_server[peer]["server"] == server_name: #on the save server
+			RPC.user_status.rpc(user_name, pos)
 			
+	
 func _on_button_pressed():
 	_on_server_create("hello", "asdfasdfasfd")
 	pass # Replace with function body.
