@@ -8,10 +8,10 @@ var http: HTTPRequest
 
 var persons: JSONApi
 var roles: JSONApi
-var models: ModelsApiService
-var saves: SavesApiService
-var scenarios: ScenariosApiService
-var screens: ScreensApiService
+var models: JSONApi
+var saves: JSONApi
+var scenarios: JSONApi
+var screens: JSONApi
 
 func _ready() -> void:
 	http = create_http_request(TIMEOUT_IN_SECONDS)
@@ -25,11 +25,11 @@ func create_http_request(timeout: float) -> HTTPRequest:
 	return request
 
 func initialize_api(url: String, http: HTTPRequest) -> void:
+	const base_url: String = "http://localhost:3000/"
 	var http_service: HTTPService = HTTPService.new(http)
-	self.persons = JSONApi.new("http://localhost:3000/persons", http_service)
-	self.roles = JSONApi.new("http://localhost:3000/roles", http_service)
-	#self.roles = RolesApiService.new(url, http_service)
-	self.models = ModelsApiService.new(url, http_service)
-	self.saves = SavesApiService.new(url, http_service)
-	self.scenarios = ScenariosApiService.new(url, http_service)
-	self.screens = ScreensApiService.new(url, http_service)
+	self.persons = JSONApi.new(base_url + "persons", http_service)
+	self.roles = JSONApi.new(base_url + "roles", http_service)
+	self.models = JSONApi.new(base_url + "models", http_service)
+	self.saves = JSONApi.new(base_url + "saves", http_service)
+	self.scenarios = JSONApi.new(base_url + "scenarios", http_service)
+	self.screens = JSONApi.new(base_url + "screens", http_service)
