@@ -37,13 +37,13 @@ func _on_clear_view() -> void:
 	pass
 
 func _on_save_button_pressed() -> void:
-	var base_data = _create_from_menu()
-	var serialized: Dictionary = base_data.serialize()
+	var serialized: Dictionary =  _create_from_menu().serialize()
 	
 	if data != null:
-		api.update(base_data.id, serialized)
+		api.update(data.id, serialized)
 	else:
 		api.create(serialized)
+	close()
 
 func _create_from_menu():
 	pass

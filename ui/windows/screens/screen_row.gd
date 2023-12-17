@@ -1,7 +1,7 @@
 class_name ScreenRow
 extends BaseRow
 
-var screen: Screen
+var data: Screen
 
 func align_column_width(iconColumn: Control, nameColumn: Control, modelColumn: Control, allowedRolesColumn: Control,
 		allowerdAuthorsColumn: Control, authorColumn: Control, dateColumn: Control):
@@ -14,15 +14,15 @@ func align_column_width(iconColumn: Control, nameColumn: Control, modelColumn: C
 	$Split0/Split1/Split2/Split3/Split4/Split5/Load_date.custom_minimum_size.x = dateColumn.size.x
 
 func construct(data: Screen) -> void:
-	screen = data
-	%Id.set_text(data.id)
-	%Icon.set_button_icon(load(data.icon_path))
+	self.data = data
+	%Id.set_text("ID: %s" % data.id)
+	#%Icon.set_button_icon(load(data.icon_path))
 	%Name.set_text(data.name)
-	%"Connected Model".set_text(data.connected_model)
-	%"Allowed Roles".set_text(data.allowed_roles)
-	%"Allowed Users".set_text(data.allowed_users)
+	%"Connected Model".set_text(data.model)
+	%"Allowed Roles".set_text(data.available_roles_to_string())
+	%"Allowed Users".set_text(data.available_persons_to_string())
 	%Author.set_text(data.author)
-	%Date.set_text(data.upload_at)
+	%Date.set_text(data.created_at)
 
 func paint_background(color: Color) -> void:
 	$Background.color = color

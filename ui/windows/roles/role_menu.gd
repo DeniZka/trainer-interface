@@ -9,8 +9,9 @@ func _on_ready() -> void:
 func _on_update_view(data: PersonRole) -> void:
 	if data != null:
 		rolename_edit.text = data.name
-	else:
-		rolename_edit.text = ""
+
+func _on_clear_view() -> void:
+	rolename_edit.text = ""
 
 func _create_from_menu() -> PersonRole:
 	var role: PersonRole = PersonRole.new()
