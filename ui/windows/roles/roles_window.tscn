@@ -11,6 +11,6 @@ script = ExtResource("1_8u45n")
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Roles Table" parent="." instance=ExtResource("3_repme")]
+[node name="Table" parent="." instance=ExtResource("3_repme")]
 unique_name_in_owner = true
 layout_mode = 2

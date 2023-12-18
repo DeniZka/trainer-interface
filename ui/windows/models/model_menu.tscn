@@ -550,7 +550,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_srdul")
 
-[node name="Menu Buttom Control Row" parent="Right_menu/Main" instance=ExtResource("10_glr6o")]
+[node name="Menu Buttom Control" parent="Right_menu/Main" instance=ExtResource("10_glr6o")]
 unique_name_in_owner = true
 layout_mode = 2
 

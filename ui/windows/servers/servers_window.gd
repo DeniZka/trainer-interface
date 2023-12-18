@@ -1,13 +1,17 @@
 class_name ServersWindow
 extends BaseWindow
 
-signal opened_menu(tag: String)
+func _on_initialize() -> void:
+	api = Api.servers
 
-@onready var search_bar: SearchBar = %"Search Bar" as SearchBar
-@onready var table: ServersTable = %"Servers Table" as ServersTable
+func _on_update_data() -> void:
+	var response: HTTPResponse = await api.all()
+	var servers: Array[Server] = Server.create_from_response(response)
+	table.clear()
+	table.add_array(servers)
 
-func _ready() -> void:
-	search_bar.add_button_pressed.connect(_on_add_button_pressed)
+func _on_row_edited(row: ServerRow) -> void:
+	opened_menu.emit(row.data)
 
-func _on_add_button_pressed() -> void:
-	opened_menu.emit(WindowId.Servers)
+func _on_row_deleted(row: ServerRow) -> void:
+	var response = await api.delete(row.data.id)

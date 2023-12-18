@@ -11,6 +11,6 @@ script = ExtResource("1_pbs82")
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Scenarios Table" parent="." instance=ExtResource("2_gil81")]
+[node name="Table" parent="." instance=ExtResource("2_gil81")]
 unique_name_in_owner = true
 layout_mode = 2

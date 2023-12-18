@@ -11,6 +11,6 @@ script = ExtResource("1_uac0s")
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Screens Table" parent="." instance=ExtResource("3_3wh51")]
+[node name="Table" parent="." instance=ExtResource("3_3wh51")]
 unique_name_in_owner = true
 layout_mode = 2

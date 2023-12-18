@@ -1,31 +1,17 @@
 class_name RolesWindow
 extends BaseWindow
 
-signal opened_menu(role: PersonRole)
+func _on_initialize() -> void:
+	api = Api.roles
 
-@onready var search_bar: SearchBar = %"Search Bar" as SearchBar
-@onready var table: RolesTable = %"Roles Table" as RolesTable
-
-var roles: RolesService
-
-func _ready() -> void:
-	roles = Services.roles as RolesService
-	search_bar.add_button_pressed.connect(_on_add_button_pressed)
-	roles.updated.connect(_on_roles_updated)
-
-func add(role: PersonRole) -> void:
-	table.add_role(role)
-
-func _on_roles_updated() -> void:
+func _on_update_data() -> void:
+	var response: HTTPResponse = await api.all()
+	var roles: Array[PersonRole] = PersonRole.create_from_response(response)
 	table.clear()
-	table.add_array(roles.get_cached_roles())
+	table.add_array(roles)
 
-func open() -> void:
-	super.open()
-	await roles.refresh(1, 25)
+func _on_row_edited(row: RoleRow) -> void:
+	opened_menu.emit(row.role)
 
-func close() -> void:
-	super.close()
-
-func _on_add_button_pressed() -> void:
-	opened_menu.emit(null)
+func _on_row_deleted(row: RoleRow) -> void:
+	var response = await api.delete(row.role.id)

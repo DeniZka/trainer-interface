@@ -14,8 +14,8 @@ func align_column_width(iconColumn: Control, nameColumn: Control, checksumColumn
 func construct(data: Model) -> void:
 	model = data
 	#%Icon.set_button_icon(load(data.iconPath))
-	%Id.set_text(data.id)
-	%Author.set_text(data.author_id)
+	%Id.set_text(str(data.id))
+	%Author.set_text(data.author)
 	%Name.set_text(data.name)
 	#%Checksum.set_text()
 	%Date.set_text(data.created_at)

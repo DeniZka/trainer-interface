@@ -1,7 +1,7 @@
 class_name RestartRow
 extends BaseRow
 
-var save: Save
+var data: Save
 
 func align_column_width(iconColumn: Control, nameColumn: Control, modelColumn: Control, 
 		authorColumn: Control, dateColumn: Control):
@@ -12,12 +12,12 @@ func align_column_width(iconColumn: Control, nameColumn: Control, modelColumn: C
 	$Split0/Split1/Split2/Split3/Load_date.custom_minimum_size.x = dateColumn.size.x
 
 func construct(data: Save) -> void:
-	save = data
+	self.data = data
 	#%Icon.set_button_icon(load(data.iconPath))
-	%Id.set_text(data.id)
+	%Id.set_text("ID: %s" % data.id)
 	%Name.set_text(data.name)
-	%"Connected Model Name".set_text(data.model_id)
-	%Author.set_text(data.author_id)
+	%"Connected Model Name".set_text(data.model)
+	%Author.set_text(data.author)
 	%Date.set_text(data.created_at)
 
 func paint_background(color: Color) -> void:

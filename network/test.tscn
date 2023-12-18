@@ -1,20 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqy0x3qlt1fqc"]
+[gd_scene load_steps=4 format=3 uid="uid://dqy0x3qlt1fqc"]
 
 [ext_resource type="Script" path="res://network/test.gd" id="1_dkaoy"]
 [ext_resource type="Script" path="res://network/rabbit/simintech_client.gd" id="2_mvf46"]
+[ext_resource type="PackedScene" uid="uid://iyn3ysedu13f" path="res://core/files/file_uploader.tscn" id="2_o16br"]
 
 [node name="Test" type="Node"]
 script = ExtResource("1_dkaoy")
 
-[node name="FileDialog" type="FileDialog" parent="."]
-title = "Open a File"
-position = Vector2i(44, 55)
-size = Vector2i(1000, 1000)
-ok_button_text = "Открыть"
-file_mode = 0
-access = 2
-filters = PackedStringArray("zip")
-show_hidden_files = true
+[node name="File Uploader" parent="." instance=ExtResource("2_o16br")]
 
 [node name="RabbitMqClient" type="Node" parent="."]
 script = ExtResource("2_mvf46")
@@ -34,3 +27,5 @@ offset_right = 1515.0
 offset_bottom = 814.0
 theme_override_font_sizes/font_size = 50
 text = "Write"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

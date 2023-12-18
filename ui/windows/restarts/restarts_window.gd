@@ -1,13 +1,17 @@
 class_name RestartsWindow
 extends BaseWindow
 
-signal opened_menu(tag: String)
+func _on_initialize() -> void:
+	api = Api.saves
 
-@onready var search_bar: SearchBar = %"Search Bar" as SearchBar
-@onready var table: RestartsTable = %"Restarts Table" as RestartsTable
+func _on_update_data() -> void:
+	var response: HTTPResponse = await api.all()
+	var persons: Array[Save] = Save.create_from_response(response)
+	table.clear()
+	table.add_array(persons)
 
-func _ready() -> void:
-	search_bar.add_button_pressed.connect(_on_add_button_pressed)
+func _on_row_edited(row: RestartRow) -> void:
+	opened_menu.emit(row.data)
 
-func _on_add_button_pressed() -> void:
-	opened_menu.emit(WindowId.Restarts)
+func _on_row_deleted(row: RestartRow) -> void:
+	var response = await api.delete(row.data.id)

@@ -1,19 +1,17 @@
 class_name ModelsWindow
 extends BaseWindow
 
-signal opened_menu(tag: String)
+func _on_initialize() -> void:
+	api = Api.models
 
-@onready var search_bar: SearchBar = %"Search Bar" as SearchBar
-@onready var table: ModelsTable = %"Models Table" as ModelsTable
+func _on_update_data() -> void:
+	var response: HTTPResponse = await api.all()
+	var models: Array[Model] = Model.create_from_response(response)
+	table.clear()
+	table.add_array(models)
 
-func _ready() -> void:
-	search_bar.add_button_pressed.connect(_on_add_button_pressed)
+func _on_row_edited(row: ModelRow) -> void:
+	opened_menu.emit(row.model)
 
-func open() -> void:
-	super.open()
-
-func close() -> void:
-	super.close()
-
-func _on_add_button_pressed() -> void:
-	opened_menu.emit(WindowId.Models)
+func _on_row_deleted(row: ModelRow) -> void:
+	var response = await api.delete(row.model.id)

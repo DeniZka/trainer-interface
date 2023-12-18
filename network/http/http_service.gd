@@ -27,8 +27,7 @@ func send(url: String, method: HTTPClient.Method, headers: PackedStringArray = [
 	return await send_raw(url, headers, method, [])
 
 func send_raw(url: String, headers: PackedStringArray, method: HTTPClient.Method, body: PackedByteArray) -> HTTPResponse:
-	var response = await _send_exchange(url, headers, method, body)
-	return response.parse_as_json()
+	return await _send_exchange(url, headers, method, body)
 
 func download_file(url: String) -> HTTPResponse:
 	return await _send_exchange(url, [], HTTPClient.METHOD_GET, [])
