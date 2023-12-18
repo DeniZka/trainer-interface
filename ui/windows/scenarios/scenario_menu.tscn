@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="8_6k4sg"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_kc531"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="9_ehtb3"]
-[ext_resource type="Script" path="res://ui/components/menu/menu_roles_selector.gd" id="10_6hg4d"]
 [ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="10_agxms"]
+[ext_resource type="Script" path="res://ui/components/menu/menu_items_selector.gd" id="10_hky0y"]
 [ext_resource type="PackedScene" uid="uid://bgp1lhjsskqud" path="res://ui/components/menu/select_line_button.tscn" id="11_dlgnn"]
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="11_o1x3t"]
 [ext_resource type="PackedScene" uid="uid://iyn3ysedu13f" path="res://core/files/file_uploader.tscn" id="14_uv12j"]
@@ -403,7 +403,7 @@ color = Color(0.54902, 0.576471, 0.603922, 1)
 unique_name_in_owner = true
 custom_minimum_size = Vector2(525, 100)
 layout_mode = 2
-script = ExtResource("10_6hg4d")
+script = ExtResource("10_hky0y")
 container = NodePath("For_ident/Models")
 line_template = ExtResource("11_dlgnn")
 

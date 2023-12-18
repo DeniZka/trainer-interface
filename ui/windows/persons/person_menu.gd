@@ -5,7 +5,7 @@ extends BaseMenu
 @onready var username_edit: LineEdit = %"Name Edit" as LineEdit
 @onready var login_edit: LineEdit = %"Login Edit" as LineEdit
 @onready var password_edit: LineEdit = %"Password Edit" as LineEdit
-@onready var menu_roles: MenuRolesSelector = %"Menu Roles Selector" as MenuRolesSelector
+@onready var menu_roles: MenuItemsSelector = %"Menu Roles Selector" as MenuItemsSelector
 
 var roles: JSONApi
 

@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="7_pk2bf"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_wxayy"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="9_ruod5"]
-[ext_resource type="Script" path="res://ui/components/menu/menu_roles_selector.gd" id="10_m4fcw"]
+[ext_resource type="Script" path="res://ui/components/menu/menu_items_selector.gd" id="10_m4fcw"]
 [ext_resource type="PackedScene" uid="uid://bgp1lhjsskqud" path="res://ui/components/menu/select_line_button.tscn" id="11_7gfgp"]
 [ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="12_42yyl"]
 [ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="12_dl3n2"]

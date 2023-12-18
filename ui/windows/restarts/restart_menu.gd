@@ -7,6 +7,8 @@ extends BaseMenu
 @onready var author_edit: LineEdit = %Author as LineEdit
 @onready var upload_date_edit: LineEdit = %"Upload Date" as LineEdit
 
+@onready var models_selector: MenuItemsSelector = %"Models Selector" as MenuItemsSelector
+
 @onready var uploaded_filename: Label = %"Loaded Filename" as Label
 @onready var file_uploader: FileUploader = %"File Uploader" as FileUploader
 

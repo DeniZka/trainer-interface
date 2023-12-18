@@ -6,7 +6,7 @@ extends BaseMenu
 @onready var scenario_name_edit: LineEdit = %"Scenario Name" as LineEdit
 @onready var author_edit: LineEdit = %Author as LineEdit
 @onready var upload_date_edit: LineEdit = %"Upload Date" as LineEdit
-@onready var models_selector: MenuRolesSelector = %"Models Selector" as MenuRolesSelector
+@onready var models_selector: MenuItemsSelector = %"Models Selector" as MenuItemsSelector
 
 @onready var loaded_filename: Label = %"Loaded Filename" as Label
 @onready var file_uploader: FileUploader = %"File Uploader" as FileUploader

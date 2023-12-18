@@ -1,4 +1,4 @@
-class_name MenuRolesSelector
+class_name MenuItemsSelector
 extends Control
 
 @export var container: Control

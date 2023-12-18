@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cae61kmxhnqec"]
+[gd_scene load_steps=16 format=3 uid="uid://cae61kmxhnqec"]
 
 [ext_resource type="Script" path="res://ui/windows/restarts/restart_menu.gd" id="1_5ba6p"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_lmmnt"]
@@ -7,12 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dth3un1xwn770" path="res://icons/right_menu/Right_menu_restart/Restart_icon_right_menu.png" id="5_nt2pj"]
 [ext_resource type="Texture2D" uid="uid://dkul5tf0y120f" path="res://icons/info/Load.png" id="6_1xyn2"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="7_7jdrs"]
-[ext_resource type="ButtonGroup" uid="uid://2ldf1dqeuahq" path="res://ui/themes/button_groups/connected_models.tres" id="7_fl7an"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="8_6csju"]
 [ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="8_flyaf"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="8_opds0"]
+[ext_resource type="Script" path="res://ui/components/menu/menu_items_selector.gd" id="10_26di4"]
 [ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="10_fcar1"]
 [ext_resource type="Theme" uid="uid://vc1tuyx0v5cj" path="res://ui/themes/right_menu/shadow.tres" id="11_atlu0"]
+[ext_resource type="PackedScene" uid="uid://bgp1lhjsskqud" path="res://ui/components/menu/select_line_button.tscn" id="11_n1veg"]
 [ext_resource type="PackedScene" uid="uid://iyn3ysedu13f" path="res://core/files/file_uploader.tscn" id="14_3osf8"]
 
 [node name="Restart Menu" type="Control"]
@@ -398,56 +399,25 @@ offset_bottom = -8.0
 theme = ExtResource("2_lmmnt")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="Scroll" type="ScrollContainer" parent="Right_menu/Main/Connected_model_placeholder"]
+[node name="Models Selector" type="ScrollContainer" parent="Right_menu/Main/Connected_model_placeholder" node_paths=PackedStringArray("container")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(525, 100)
 layout_mode = 2
+script = ExtResource("10_26di4")
+container = NodePath("For_ident/Models")
+line_template = ExtResource("11_n1veg")
 
-[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Connected_model_placeholder/Scroll"]
+[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Connected_model_placeholder/Models Selector"]
 layout_mode = 2
 
-[node name="Space" type="Panel" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident"]
+[node name="Space" type="Panel" parent="Right_menu/Main/Connected_model_placeholder/Models Selector/For_ident"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme = ExtResource("3_qp8m7")
 
-[node name="Models" type="VBoxContainer" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident"]
+[node name="Models" type="VBoxContainer" parent="Right_menu/Main/Connected_model_placeholder/Models Selector/For_ident"]
 layout_mode = 2
 theme = ExtResource("2_lmmnt")
-
-[node name="Model1" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models"]
-custom_minimum_size = Vector2(84, 30)
-layout_mode = 2
-theme = ExtResource("2_lmmnt")
-keep_pressed_outside = true
-button_group = ExtResource("7_fl7an")
-text = "Модель 1"
-
-[node name="Model2" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models"]
-custom_minimum_size = Vector2(153, 30)
-layout_mode = 2
-theme = ExtResource("2_lmmnt")
-keep_pressed_outside = true
-button_group = ExtResource("7_fl7an")
-text = "Модель 2
-"
-
-[node name="Model3" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_lmmnt")
-keep_pressed_outside = true
-button_group = ExtResource("7_fl7an")
-text = "Модель 3
-"
-
-[node name="Model4" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_lmmnt")
-keep_pressed_outside = true
-button_group = ExtResource("7_fl7an")
-text = "Модель 4
-"
 
 [node name="Space6" type="Panel" parent="Right_menu/Main"]
 custom_minimum_size = Vector2(0, 12)
@@ -665,14 +635,6 @@ layout_mode = 1
 [connection signal="toggled" from="Right_menu/Main/Load_Master/Load/Load/Load Button" to="." method="_on_load_toggled"]
 [connection signal="focus_entered" from="Right_menu/Main/Restart_name_placeholder/Name" to="Right_menu/Main/Restart_name_placeholder/Name" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Right_menu/Main/Restart_name_placeholder/Name" to="Right_menu/Main/Restart_name_placeholder/Name" method="_on_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model1" to="." method="_on_model_1_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model1" to="." method="_on_model_1_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model2" to="." method="_on_model_2_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model2" to="." method="_on_model_2_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model3" to="." method="_on_model_3_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model3" to="." method="_on_model_3_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model4" to="." method="_on_model_4_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder/Scroll/For_ident/Models/Model4" to="." method="_on_model_4_focus_exited"]
 [connection signal="focus_entered" from="Right_menu/Main/Author_placeholder/Author" to="Right_menu/Main/Author_placeholder/Author" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Right_menu/Main/Author_placeholder/Author" to="Right_menu/Main/Author_placeholder/Author" method="_on_focus_exited"]
 [connection signal="focus_entered" from="Right_menu/Main/Load_date_placeholder/Upload Date" to="Right_menu/Main/Load_date_placeholder/Upload Date" method="_on_focus_entered"]
