@@ -50,4 +50,5 @@ func _on_navigation_button_pressed(tag: String) -> void:
 		current = windows[tag]
 		current.open()
 	else:
+		current = null
 		Log.fatal("Окно \"%s\" не обнаружено в списке окон WindowsManager" % tag)
