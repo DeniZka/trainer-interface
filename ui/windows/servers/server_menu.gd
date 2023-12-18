@@ -70,17 +70,20 @@ func _load_and_apply_persons(data: Server) -> void:
 	persons_selector.select(selected_person)
 
 func _create_from_menu() -> Server:
-	var scenario = Server.new()
-	scenario.name = name_edit.text
-	scenario.author = author_edit.text
-	scenario.created_at = upload_date_edit.text
+	var server = Server.new()
+	server.name = name_edit.text
+	server.author = author_edit.text
+	server.created_at = upload_date_edit.text
 	for selected_item in models_selector.selected_lines.values():
-		scenario.model = selected_item
+		server.model = selected_item
 	for selected_role in roles_selector.selected_lines.values():
-		scenario.available_roles.append(selected_role)
+		server.available_roles.append(selected_role)
 	for selected_person in persons_selector.selected_lines.values():
-		scenario.available_persons.append(selected_person)
-	return scenario
+		server.available_persons.append(selected_person)
+	
+	## TODO: create server on backend
+	
+	return server
 
 func _on_clear_view() -> void:
 	name_edit.text = ""
