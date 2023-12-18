@@ -14,13 +14,16 @@ func clear() -> void:
 	for child in container.get_children():
 		child.free()
 	visible_lines.clear()
-	var first = line_menu.menu_items[0]
-	line_menu.menu_items.clear()
-	line_menu.menu_items.append(first)
+	
+	if line_menu != null:
+		var first = line_menu.menu_items[0]
+		line_menu.menu_items.clear()
+		line_menu.menu_items.append(first)
 
 func append(item_id: int, description: String) -> void:
 	var instance = line_template.instantiate() as BaseButton
-	line_menu.add_item(instance)
+	if line_menu != null:
+		line_menu.add_item(instance)
 	instance.text = description
 	visible_lines[item_id] = instance
 	instance.toggled.connect(func(pressed: bool): _on_item_toggled(item_id, description, pressed))
