@@ -85,8 +85,9 @@ func _on_user_leaved(user_name: String):
 		if cursors[i].user == user_name:
 			cur = cursors[i]
 			break
-	cursors.erase(cur)
-	cur.queue_free()
+	if cur : 
+		cursors.erase(cur)
+		cur.queue_free()
 			
 
 func _on_connect_pressed():
@@ -104,7 +105,8 @@ func _on_srv_list_pressed():
 
 func new_server_list(srvs: Array):
 	print("Recevied servers: ", srvs)
-	$node_control/login_buttons/join.text = srvs[0]
+	if srvs.size() > 0:
+		$node_control/login_buttons/join.text = srvs[0]
 
 
 func _on_join_pressed():
