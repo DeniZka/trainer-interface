@@ -49,7 +49,7 @@ var stomp : STOMPClient = null
 ###main part---------------------------------------------------------------------------------
 func _ready():
 	begin_serve()   #FIRST give clients passability to interact server
-	_on_sit_connect(RPC.CONNECTION_TCP)  #SECOND connect to AMQP
+	_on_user_sit_connect(RPC.CONNECTION_TCP)  #SECOND connect to AMQP
 	$UI_update.start(1.0) #interface view internal status
 
 var poll_timer = 0
@@ -71,25 +71,25 @@ func begin_serve():
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
-	RPC.server_list_requested.connect(_on_server_list_requested)
-	RPC.join_server_requested.connect(_on_join_server_requested)
-	RPC.leave_server_requested.connect(_on_leave_server_requested)
-	RPC.request_signal_list_updated.connect(_on_request_signal_list_updated)
-	RPC.signal_values_offered.connect(_on_signal_values_offered)
+	RPC.server_list_requested.connect(_on_user_server_list_requested)
+	RPC.join_server_requested.connect(_on_user_join_server_requested)
+	RPC.leave_server_requested.connect(_on_user_leave_server_requested)
+	RPC.request_signal_list_updated.connect(_on_user_request_signal_list_updated)
+	RPC.signal_values_offered.connect(_on_user_signal_values_offered)
 	RPC.cursor_position_updated.connect(_on_user_cursor)
 	
-	RPC.create_server_requested.connect(_on_server_create)
-	RPC.kill_server_requested.connect(_on_kill_server)
-	RPC.server_control_requested.connect(_on_server_control)
-	RPC.sit_connection_status_requested.connect(_on_sit_connection_status)
-	RPC.sit_connection_requested.connect(_on_sit_connect)
+	RPC.create_server_requested.connect(_on_user_server_create)
+	RPC.kill_server_requested.connect(_on_user_kill_server)
+	RPC.server_control_requested.connect(_on_user_server_control)
+	RPC.sit_connection_status_requested.connect(_on_user_sit_connection_status)
+	RPC.sit_connection_requested.connect(_on_user_sit_connect)
 	
 	#multiplayer.get_peers()
 	request_post_signals_into_server.connect(_ON_request_post_signals_into_server)
 	
 ###Connection part---------------------------------------------------------------------------------
 	
-func _on_sit_connect(method: int):
+func _on_user_sit_connect(method: int):
 	if is_sit_connected:
 		return
 	if method == RPC.CONNECTION_TCP:
@@ -137,7 +137,7 @@ func _on_connection_checker_timeout():
 	Log.debug("STOMP connection timeout")
 	connection_result.emit(false)
 	
-func _on_sit_connection_status():
+func _on_user_sit_connection_status():
 	RPC.sit_connection_status.rpc(is_sit_connected)
 	
 ###AMQP interaction part --------------------------------------------------------------------------
@@ -159,16 +159,16 @@ func unhandle_link(connection: SITTranciever):
 func create_server_link(server_name: String) -> SITTranciever:
 	var sc : SITTranciever = SITTranciever.new(SERVERS_SEND_PATH + server_name, SERVER_SUBSCRIBE_PATH + server_name)
 	handle_link(sc)
-	sc.update_signals_received.connect(_on_update_signal_received)
+	sc.update_signals_received.connect(_on_server_update_signal_received)
 	#TODO: all connections
 	return sc
 	
 func create_hv_link() -> SITTranciever:
 	var sc : SITTranciever = SITTranciever.new(HYPERVISOR_SEND_PATH, HYPERVISOR_SUBSCRIBE_PATH)
-	sc.server_up_received.connect(_on_server_up)
-	sc.server_down_received.connect(_on_server_down)
-	sc.server_list_received.connect(_on_server_list)
-	sc.hv_heartbeat_received.connect(_on_hv_heartbeat)
+	sc.server_up_received.connect(_on_hypervisor_server_up)
+	sc.server_down_received.connect(_on_hypervisor_server_down)
+	sc.server_list_received.connect(_on_hypervisor_server_list)
+	sc.hv_heartbeat_received.connect(_on_hypervisor_heartbeat)
 	#TODO: moar connections
 	handle_link(sc)
 	return sc
@@ -177,14 +177,14 @@ func create_hv_link() -> SITTranciever:
 
 #from client
 var server_list_reply_to_id : int = 0
-func _on_server_list_requested(id: int):
+func _on_user_server_list_requested(id: int):
 	server_list_reply_to_id = id
 	hypervisor.get_server_list() #UPDATE server list
 	#FIXME: wait for HV response?
 	RPC.send_server_list.rpc(srvs.keys())
 
 #from hypervisor
-func _on_server_list(servers: Array):
+func _on_hypervisor_server_list(servers: Array):
 	#TODO: compare with actual list
 	#decide what to do add or remove
 	Log.trace("Sending server list to: %d" % server_list_reply_to_id)
@@ -195,7 +195,7 @@ func _on_server_list(servers: Array):
 		RPC.send_server_list.rpc(servers)
 	
 #reset timer on heartbeat
-func _on_hv_heartbeat(message: String):
+func _on_hypervisor_heartbeat(message: String):
 	$Hypervisor_alive.start(HYPERVISOR_CHECK_TIMEOUT)
 	
 func _on_hypervisor_alive_timeout():
@@ -204,11 +204,11 @@ func _on_hypervisor_alive_timeout():
 	Log.trace("Warning! Hypervisor is not response")
 	
 #from client
-func _on_server_create(server_name: String, file: String):
+func _on_user_server_create(server_name: String, file: String):
 	hypervisor.create_server(server_name, file)
 	
 #from hypervisor
-func _on_server_up(server_name: String):
+func _on_hypervisor_server_up(server_name: String):
 	#charge new conversation with STOMP connection
 	servers_link[server_name] = create_server_link(server_name)
 	srvs[server_name] = {}
@@ -218,7 +218,7 @@ func _on_server_up(server_name: String):
 	hypervisor.get_server_list() 
 	
 #from client
-func _on_kill_server(server_name: String):
+func _on_user_kill_server(server_name: String):
 	hypervisor.kill_server(server_name)
 	#first kick users
 	for id in peers_server:
@@ -227,7 +227,7 @@ func _on_kill_server(server_name: String):
 	RPC.server_unavailable.rpc(server_name)
 	
 #from hypervisor
-func _on_server_down(server_name: String):
+func _on_hypervisor_server_down(server_name: String):
 	srvs.erase(server_name)
 	unhandle_link(servers_link[server_name])
 	servers_link[server_name].free()
@@ -237,7 +237,7 @@ func _on_server_down(server_name: String):
 	
 ##Server interaction part --------------------------------------------------------------------------
 	
-func _on_update_signal_received(server_name: String, signals: Dictionary):
+func _on_server_update_signal_received(server_name: String, signals: Dictionary):
 	for id in peers_server:
 		if peers_server[id]["server"] == server_name:
 			RPC.set_signal_values.rpc_id(id, signals)
@@ -264,12 +264,12 @@ func _on_peer_disconnected(id: int):
 	var pl = multiplayer.get_peers()
 	var sn = peers_server[id]["server"]
 	if sn != "": #if disconnected without leave server
-		_on_leave_server_requested(id)
+		_on_user_leave_server_requested(id)
 	peers_server.erase(id)
 	Log.trace("Peer count: %d" % pl.size())	
 	pass
 	
-func _on_join_server_requested(server_name: String, user_name: String, id: int):
+func _on_user_join_server_requested(server_name: String, user_name: String, id: int):
 	#FIXME: check exists
 	if not server_name in srvs: #FIXME: change in links?
 		RPC.reject_join_server.rpc_id(id, "Server %s is absent" % server_name)
@@ -291,7 +291,7 @@ func _on_join_server_requested(server_name: String, user_name: String, id: int):
 
 	RPC.get_signals_list.rpc_id(id)  #FIXME:   fix it <-----------------------
 	
-func _on_leave_server_requested(id: int):
+func _on_user_leave_server_requested(id: int):
 	var leaved_user = peers_server[id]["user"]
 	var srv_name = peers_server[id]["server"]
 	var srv_sigs = srvs[srv_name]   #FIXME:
@@ -317,7 +317,7 @@ func cleanup_signals(srver_name: String) -> bool: #true - need too update
 			result = true
 	return result
 
-func _on_request_signal_list_updated(sig_list: Array, id: int, op: int):
+func _on_user_request_signal_list_updated(sig_list: Array, id: int, op: int):
 	#FIXME: check
 	#add new owner of signal
 	var add_need_update = false
@@ -358,7 +358,7 @@ func _ON_request_post_signals_into_server(srv: String, signals: Dictionary):
 			var stat = k.replace("_YB02", "_is_state")
 			send_signals_anyone_at(srv, {stat: [5]})
 	
-func _on_signal_values_offered(signals: Dictionary, id: int):
+func _on_user_signal_values_offered(signals: Dictionary, id: int):
 	var srv_name = peers_server[id]["server"]
 	print("Peer ", id, " wants to do something nasty on ", srv_name)
 	servers_link[srv_name].set_signals(signals)
@@ -372,7 +372,7 @@ func process_incoming_signals(from_server: String, signals: Dictionary):
 			print("..transfer updates to ", id)
 			RPC.set_fe_peer_signal_values.rpc_id(id, signals)
 
-func _on_server_control(server_name: String, action: String):
+func _on_user_server_control(server_name: String, action: String):
 	(servers_link[server_name] as SITTranciever).server_control(action)
 	
 func _on_user_cursor(pos: Vector2, id: int):
@@ -387,5 +387,5 @@ func _on_user_cursor(pos: Vector2, id: int):
 			RPC.user_status.rpc(user_name, pos)
 	
 func _on_button_pressed():
-	_on_server_create("hello", "asdfasdfasfd")
+	_on_user_server_create("hello", "asdfasdfasfd")
 	pass # Replace with function body.
