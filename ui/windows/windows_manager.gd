@@ -13,8 +13,6 @@ extends Control
 
 @onready var menu_manager: MenuManager = $"Menu Manager" as MenuManager
 
-@onready var login_form: LoginForm = $"../Login Form" as LoginForm
-
 @onready var windows: Dictionary = {
 	WindowId.Persons	: persons_window,
 	WindowId.Roles		: roles_window,
