@@ -8,8 +8,6 @@ extends Control
 var visible_lines: Dictionary
 var selected_lines: Dictionary
 
-var multiple_choice: bool
-
 func clear() -> void:
 	for child in container.get_children():
 		child.free()
@@ -29,7 +27,7 @@ func append(item_id: int, description: String) -> void:
 	instance.toggled.connect(func(pressed: bool): _on_item_toggled(item_id, description, pressed))
 	container.add_child(instance)
 
-func _on_item_toggled(id: int, description: String, is_selected: bool) -> void:
+func _on_item_toggled(id: int, description: String, is_selected: bool) -> void:	
 	if is_selected:
 		selected_lines[id] = description
 	elif selected_lines.has(id):
