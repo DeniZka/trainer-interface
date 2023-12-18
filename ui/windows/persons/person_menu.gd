@@ -28,7 +28,8 @@ func _load_roles(person: Person) -> void:
 	var roles: Array[PersonRole] = PersonRole.create_from_response(response)
 	
 	menu_roles.clear()
-	menu_roles.append_array(roles)
+	for role in roles:
+		menu_roles.append(role.id, role.name)
 	
 	if person != null:
 		menu_roles.select(PersonRole.take_ids_from(person.roles))
@@ -51,7 +52,10 @@ func _create_from_menu() -> Person:
 	person.password = password_edit.text
 	person.locked = lock_button.button_pressed
 	
-	for selected_role in menu_roles.selected_roles:
-		person.roles.append(selected_role)
+	for selected_item_id in menu_roles.selected_lines:
+		var role = PersonRole.new()
+		role.id = selected_item_id
+		role.name = menu_roles.selected_lines[selected_item_id]
+		person.roles.append(role)
 	
 	return person
