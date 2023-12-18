@@ -4,19 +4,19 @@ extends Node
 var ui_update_timer: Timer
 
 const SERV_DREW = "46.138.251.6:55513" 
-const SERV_LAN = "192.168.100.157:12313"
-const SERV_WEB_LAN = "ws://192.168.100.157:123123/ws"
+const SERV_LAN = "192.168.100.157:61613"
+const SERV_WEB_LAN = "ws://192.168.100.157:15674/ws"
 const LAN_LOGIN = "admin"
 const LAN_PASS = "105Admin105"
 const DRWE_LOGIN_PASS = "guest1"
 
 const SERVER_PORT = 10508
 const POLL_TIMEOUT = 0.05 #s
-const AMQP_ADDRESS : String = SERV_DREW
+const AMQP_ADDRESS : String = SERV_LAN
 const AMQP_WEB_ADDRESS : String = SERV_WEB_LAN
 const AMQP_HOST : String = "/"
-const AMQP_LOGIN : String = DRWE_LOGIN_PASS
-const AMPQ_PASS : String = DRWE_LOGIN_PASS
+const AMQP_LOGIN : String = LAN_LOGIN
+const AMPQ_PASS : String = LAN_PASS
 const EXCHANGE_TYPE = "/exchange/"
 const SERVER_SEND_PATH : String      = EXCHANGE_TYPE + "server/"
 const SERVER_SUBSCRIBE_PATH : String = EXCHANGE_TYPE + "godot/"
@@ -35,13 +35,13 @@ var hypervisor: SITTranciever
 
 
 #Links to the hypervisor or servers
-var servers_link : Dictionary = {}  # {"server_name": SITTranciever}f 
+var servers_link : Dictionary = {"DUMMY": {"link": null, "signals":[]}}  # {"server_name": {"link": SITTranciever, "signals": ["sginal_name" ..]} } 
 #users peer ids  with them servers and usernames
 var peers_server = {}  # {id: {"server": server_name, "user": user_name} }
 #server with them signals
-var srvs : Dictionary = {  #{ "srvname":  {"signame": [peer1, peern]}}
-	"DUMMY" : {}
-}
+#var srvs : Dictionary = {  #{ "srvname":  {"signame": [peer1, peern]}}
+	#"DUMMY" : {}
+#}
 
 var peers_signals: Dictionary = {}
 var stomp : STOMPClient = null
@@ -62,8 +62,8 @@ func _process(delta):
 
 func _on_ui_update_timeout():
 	$users.text = JSON.stringify(peers_server,"\t")
-	$signals.text = JSON.stringify(srvs, "\t")
-	$links.text = JSON.stringify(servers_link, "\t")
+	$signals.text = JSON.stringify(servers_link, "\t")
+	#$links.text = JSON.stringify(srvs, "\t")
 	
 func begin_serve():
 	peer = ENetMultiplayerPeer.new()
@@ -105,12 +105,11 @@ func _on_user_sit_connect(method: int):
 	hypervisor = create_hv_link()
 	$Hypervisor_alive.start(HYPERVISOR_CHECK_TIMEOUT)
 	hypervisor.get_server_list()
-
-
+	
 signal connection_result(ok: bool) #one shot signal
 func connect_to_server(stomp: STOMPClient, address: String, host: String, login: String, password: String):
 	var error = stomp.connect_to_host(address)
-	if error != OK:
+	if error != OK: #FIXME: connection trouble
 		Log.error("Не удалось подключиться к RabbitMQ, код ошибки: %s" % error)
 		return false
 	await stomp.connection.connected
@@ -125,6 +124,10 @@ func connect_to_server(stomp: STOMPClient, address: String, host: String, login:
 func disconnect_from_server():
 	if stomp:
 		stomp.send_disconnection()
+
+func _on_amqp_connect_check_timeout():
+	Log.trace("Can't connect to AMQP") #TODO: 
+	connection_result.emit(false)
 	
 #one shot callback function on connection if not delayed
 func _on_connection_result(packet: STOMPPacket):
@@ -147,14 +150,11 @@ func handle_link(connection: SITTranciever):
 	#stomp.subscribe(connection.get_subscribe_path(), connection.get_id())
 	stomp.listen(connection.get_subscribe_path(), connection.get_listen_function())
 	connection.send.connect(stomp.send)
-	pass
 	
 func unhandle_link(connection: SITTranciever):
 	stomp.unsubscribe(connection.get_id())
 	stomp.unlisten(connection.get_recieve_path(), connection.get_listen_function())
 	connection.send.disconnect(stomp.send)
-	pass
-	
 	
 func create_server_link(server_name: String) -> SITTranciever:
 	var sc : SITTranciever = SITTranciever.new(SERVERS_SEND_PATH + server_name, SERVER_SUBSCRIBE_PATH + server_name)
@@ -181,7 +181,7 @@ func _on_user_server_list_requested(id: int):
 	server_list_reply_to_id = id
 	hypervisor.get_server_list() #UPDATE server list
 	#FIXME: wait for HV response?
-	RPC.send_server_list.rpc(srvs.keys())
+	RPC.send_server_list.rpc(servers_link.keys())
 
 #from hypervisor
 func _on_hypervisor_server_list(servers: Array):
@@ -211,7 +211,7 @@ func _on_user_server_create(server_name: String, file: String):
 func _on_hypervisor_server_up(server_name: String):
 	#charge new conversation with STOMP connection
 	servers_link[server_name] = create_server_link(server_name)
-	srvs[server_name] = {}
+	#srvs[server_name] = {}
 	#TODO: correct server list and send peer news
 	RPC.server_created.rpc(server_name)
 	#updatea server_list
@@ -228,7 +228,7 @@ func _on_user_kill_server(server_name: String):
 	
 #from hypervisor
 func _on_hypervisor_server_down(server_name: String):
-	srvs.erase(server_name)
+	#srvs.erase(server_name)
 	unhandle_link(servers_link[server_name])
 	servers_link[server_name].free()
 	servers_link.erase(server_name)
@@ -271,7 +271,7 @@ func _on_peer_disconnected(id: int):
 	
 func _on_user_join_server_requested(server_name: String, user_name: String, id: int):
 	#FIXME: check exists
-	if not server_name in srvs: #FIXME: change in links?
+	if not server_name in servers_link: #FIXME: change in links?
 		RPC.reject_join_server.rpc_id(id, "Server %s is absent" % server_name)
 		return
 	#Check already connected
@@ -294,11 +294,11 @@ func _on_user_join_server_requested(server_name: String, user_name: String, id: 
 func _on_user_leave_server_requested(id: int):
 	var leaved_user = peers_server[id]["user"]
 	var srv_name = peers_server[id]["server"]
-	var srv_sigs = srvs[srv_name]   #FIXME:
-	print("Peer ", id, " leaves ", srv_name)
-	for ps in srv_sigs:
-		srv_sigs[ps].erase(id)
-	cleanup_signals(srv_name)
+	#var srv_sigs = srvs[srv_name]["signals"]   #FIXME:
+	#print("Peer ", id, " leaves ", srv_name)
+	#for ps in srv_sigs:
+	#	srv_sigs[ps].erase(id)
+	#cleanup_signals(srv_name)
 	peers_server[id]["server"] = ""
 	peers_server[id]["user"] = ""
 	 #anounce leave every on same server
@@ -307,15 +307,15 @@ func _on_user_leave_server_requested(id: int):
 			RPC.user_leaved.rpc_id(peer, leaved_user)
 
 #removes useless signals
-func cleanup_signals(srver_name: String) -> bool: #true - need too update
-	var result : bool = false
-	var srv_sigs = srvs[srver_name]
-	var keys = srv_sigs.keys() #for clean clearing
-	for k in keys:
-		if srv_sigs[k].is_empty():
-			srv_sigs.erase(k)
-			result = true
-	return result
+#func cleanup_signals(srver_name: String) -> bool: #true - need too update
+	#var result : bool = false
+	#var srv_sigs = srvs[srver_name]
+	#var keys = srv_sigs.keys() #for clean clearing
+	#for k in keys:
+		#if srv_sigs[k].is_empty():
+			#srv_sigs.erase(k)
+			#result = true
+	#return result
 
 func _on_user_request_signal_list_updated(sig_list: Array, id: int, op: int):
 	#FIXME: check
@@ -323,21 +323,23 @@ func _on_user_request_signal_list_updated(sig_list: Array, id: int, op: int):
 	var add_need_update = false
 	var clean_need_update = false
 	var srv_name = peers_server[id]["server"]
-	var srv_sigs = srvs[srv_name]
+	var srv_sigs = servers_link[srv_name]["signals"]
 	#cleanup id from every sig_info
-	for ps in srv_sigs: 
-		srv_sigs[ps].erase(id) #remove if was applied
+	#for ps in srv_sigs: 
+		#srv_sigs[ps].erase(id) #remove if was applied
 	for sig in sig_list:
-		if sig in srv_sigs:
-			srv_sigs[sig].append(id)
-		else:
-			srv_sigs[sig] = [id]
+		if not sig in srv_sigs:
+			srv_sigs.append(sig)
+			#srv_sigs[sig] = [id]
 			add_need_update = true
+		#else:
+			#srv_sigs[sig].append(id)
 	
-	clean_need_update = cleanup_signals(srv_name)
+	#clean_need_update = cleanup_signals(srv_name)
 	if clean_need_update or add_need_update:
 		if srv_name in servers_link:    #FIXME: remove 
-			(servers_link[srv_name] as SITTranciever).set_signal_list(srv_sigs)
+			if servers_link[srv_name]["link"]:  #TEMP
+				(servers_link[srv_name]["link"] as SITTranciever).set_signal_list(srv_sigs)
 		
 	var add = ""
 	if clean_need_update:

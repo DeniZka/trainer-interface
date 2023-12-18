@@ -44,6 +44,9 @@ offset_right = 1871.0
 offset_bottom = 1070.0
 text = "asdfadfa"
 
+[node name="AMQP_connect_check" type="Timer" parent="."]
+one_shot = true
+
 [node name="Connection_checker" type="Timer" parent="."]
 one_shot = true
 
@@ -57,6 +60,7 @@ offset_top = 5.0
 offset_right = 154.0
 offset_bottom = 34.0
 
+[connection signal="timeout" from="AMQP_connect_check" to="." method="_on_amqp_connect_check_timeout"]
 [connection signal="timeout" from="Connection_checker" to="." method="_on_connection_checker_timeout"]
 [connection signal="timeout" from="Hypervisor_alive" to="." method="_on_hypervisor_alive_timeout"]
 [connection signal="timeout" from="UI_update" to="." method="_on_ui_update_timeout"]
