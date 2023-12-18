@@ -138,7 +138,7 @@ func server_created(server_name: String):
 	server_creation_anounced.emit(server_name)
 	
 @rpc
-func server_id_down(server_name: String):
+func server_killed(server_name: String):
 	server_down_anounced.emit(server_name)
 	
 @rpc

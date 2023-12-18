@@ -49,7 +49,7 @@ func _process(delta):
 
 func _on_ui_update_timeout():
 	$users.text = JSON.stringify(hypervisor.get_peers(),"\t")
-	#$signals.text = JSON.stringify(servers_link, "\t")
+	$signals.text = JSON.stringify(hypervisor.get_servers_statistic(), "\t")
 	$links.text = JSON.stringify(hypervisor.get_servers(), "\t")
 	
 func begin_serve():
@@ -78,9 +78,13 @@ func _on_user_sit_connect(method: int):
 	if not is_sit_connected:
 		RPC.sit_connection_status.rpc(is_sit_connected)
 		return
-	hypervisor = create_hv_link()
+		
+	hypervisor = SITHypervisor.new(stomp)
+	hypervisor.hv_heartbeat_received.connect(_on_hypervisor_heartbeat)
 	$Hypervisor_alive.start(HYPERVISOR_CHECK_TIMEOUT)
-	hypervisor.get_server_list()
+	#hypervisor.get_server_list()
+	
+	hypervisor.server_up("DUMMY")
 	
 signal connection_result(ok: bool) #one shot signal
 func connect_to_server(stomp: STOMPClient, address: String, host: String, login: String, password: String):
@@ -120,14 +124,8 @@ func _on_user_sit_connection_status():
 	#TODO: stomp.is_connected
 	RPC.sit_connection_status.rpc(is_sit_connected)
 	
-func create_hv_link() -> SITTranciever:
-	var sc : SITHypervisor = SITHypervisor.new(stomp)
-	sc.hv_heartbeat_received.connect(_on_hypervisor_heartbeat)
-	#TODO: moar connections
-	return sc
-
 #reset timer on heartbeat
-func _on_hypervisor_heartbeat(message: String):
+func _on_hypervisor_heartbeat(_message: String):
 	$Hypervisor_alive.start(HYPERVISOR_CHECK_TIMEOUT)
 	
 func _on_hypervisor_alive_timeout():
@@ -162,4 +160,13 @@ func _on_peer_disconnected(id: int):
 			#send_signals_anyone_at(srv, {stat: [5]})
 	
 func _on_button_pressed():
-	hypervisor.create_server("Hello", "fileBLOBDATA>>>")
+	hypervisor.process_string(
+		JSON.stringify(
+			{"jsonrpc":"2.0", "method":"server_up","params":$LineEdit.text}
+		)
+	)
+	#hypervisor.server_up($LineEdit.text)
+
+func _on_button_2_pressed():
+	hypervisor.server_down($LineEdit.text)
+	pass # Replace with function body.

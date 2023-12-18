@@ -20,6 +20,12 @@ func _init(stomp: STOMPClient):
 	RPC.create_server_requested.connect(_on_user_server_create)
 	RPC.kill_server_requested.connect(_on_user_kill_server)
 	
+func get_servers_statistic():
+	var d : Dictionary = {}
+	for s in servers:
+		d[s] = servers[s].get_statistics()
+	return d
+	
 func get_peers():
 	return peers
 	
@@ -29,41 +35,46 @@ func peer_connected(id: int):
 func peer_disconnected(id: int):
 	if peers[id] != "":
 		servers[peers[id]].user_is_suddenly_disconnected(id)
+	peers.erase(id)
 		
 func _on_user_joined(server_name: String, id: int):
 	peers[id] = server_name
 	
-func _on_user_leave(server_name: String, id: int):
+func _on_user_leave(_server_name: String, id: int):
 	peers[id] = ""
 	
 func get_servers():
 	return servers.keys()
 
 var server_list_reply_to_id : int = 0
-func create_server(server_name: String, file: String):
-	var packet: String = JSON.stringify(make_request("create_server", [server_name, file], 0))
-	send.emit( STOMPPacket.to(send_path).with_message(packet) )
-
-func kill_server(server_name: String):
-	var packet: String = JSON.stringify(make_request("kill_server", server_name, 0))
-	send.emit( STOMPPacket.to(send_path).with_message(packet) )
-	
-func get_server_list():
+func _on_user_server_list_requested(id: int):
+	server_list_reply_to_id = id
 	var packet: String = JSON.stringify(make_request("get_server_list", null, 0))
-	send.emit( STOMPPacket.to(send_path).with_message(packet) )
-
+	send( STOMPPacket.to(send_path).with_message(packet) )
+	#FIXME: wait for HV response?
+	
+func _on_user_server_create(server_name: String, file: String):
+	var packet: String = JSON.stringify(make_request("create_server", [server_name, file], 0))
+	send( STOMPPacket.to(send_path).with_message(packet) )
+	
+func _on_user_kill_server(server_name: String):
+	#first kick users
+	servers[server_name].drop_users()
+	var packet: String = JSON.stringify(make_request("kill_server", server_name, 0))
+	send( STOMPPacket.to(send_path).with_message(packet) )
 
 ###JSON MAGIC
 ##hypervisor responses
 func server_up(server_name: String):
 	#charge new conversation with STOMP connection
 	var srv : SITServer = SITServer.new(server_name, stomp)
+	srv.user_is_joined.connect(_on_user_joined)
+	srv.user_is_leaved.connect(_on_user_leave)
 	servers[server_name] = srv
 	#TODO: all connections
 	#TODO: correct server list and send peer news
 	RPC.server_created.rpc(server_name)
 	#updatea server_list
-	get_server_list() 
 	server_up_received.emit(server_name)
 	
 func server_down(server_name: String):
@@ -71,8 +82,7 @@ func server_down(server_name: String):
 	if server_name in servers:
 		servers[server_name].free()
 		servers.erase(server_name)
-	get_server_list()
-	RPC.server_down.rpc(server_name)
+	RPC.server_killed.rpc(server_name)
 	server_down_received.emit(server_name)
 
 func server_list(srv_list: Array):
@@ -88,18 +98,3 @@ func server_list(srv_list: Array):
 	
 func hv_heartbeat(message: String):
 	hv_heartbeat_received.emit(message)
-
-func _on_user_server_list_requested(id: int):
-	server_list_reply_to_id = id
-	get_server_list() #UPDATE server list
-	#FIXME: wait for HV response?
-	RPC.send_server_list.rpc(servers.keys())
-	
-func _on_user_server_create(server_name: String, file: String):
-	create_server(server_name, file)
-	
-func _on_user_kill_server(server_name: String):
-	kill_server(server_name)
-	#first kick users
-	servers[server_name].drop_users()
-	#TODO: remove server

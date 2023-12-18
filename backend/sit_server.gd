@@ -12,6 +12,9 @@ var signals : Dictionary = {} #"signal_name": [userid0, userid1, ..]
 # server interact signals
 signal server_state_received(server_name: String)
 signal update_signals_received(server_name: String, signals: Dictionary)
+
+signal user_is_joined(server_name: String, id: int)
+signal user_is_leaved(server_name: String, id: int)
 enum{SRV_STATUS_UNAVAILABLE, SRV_STATUS_AVAILABLE}
 var status := SRV_STATUS_UNAVAILABLE
 
@@ -26,9 +29,15 @@ func _init(server_name: String, stomp: STOMPClient):
 	RPC.signal_values_offered.connect(_on_user_signal_values_offered)
 	RPC.cursor_position_updated.connect(_on_user_cursor)
 	
-func free():
-	drop_users()
-	super.free()
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		drop_users()
+		
+func get_statistics() -> Array:
+	var unames : Array = []
+	for u in users:
+		unames.append(users[u]["name"])
+	return [unames, signals.keys()]
 	
 func drop_users():
 	for uid in users:
@@ -38,15 +47,15 @@ func drop_users():
 #available: play, stop, pause, step, init
 func server_control(action: String):
 	var packet: String = JSON.stringify(make_request("server_control", action, 0))
-	send.emit( STOMPPacket.to(send_path).with_message(packet) )
+	send( STOMPPacket.to(send_path).with_message(packet) )
 	
 func set_signal_list():
 	var packet: String = JSON.stringify(make_request("set_signal_list", signals, 0))
-	send.emit( STOMPPacket.to(send_path).with_message(packet) )
+	send( STOMPPacket.to(send_path).with_message(packet) )
 	
 func set_signals(signals: Dictionary):
 	var packet: String = JSON.stringify(make_request("set_signals", signals, 0))
-	send.emit( STOMPPacket.to(send_path).with_message(packet) )
+	send( STOMPPacket.to(send_path).with_message(packet) )
 
 
 ##JSON_CALLBACKS
@@ -78,7 +87,7 @@ func _on_user_join_server_requested(server_name: String, user_name: String, id: 
 		"cursor" : Vector2.ZERO
 	}
 	Log.trace("User %s joins %s" % [user_name, self.name])
-
+	user_is_joined.emit(self.name, id)
 	#request signal list
 	RPC.get_signals_list.rpc_id(id)  #FIXME:   fix it <-----------------------
 	
@@ -95,6 +104,7 @@ func _on_user_leave_server_requested(id: int):
 	for ps in signals: #cleanup id from every sig_info
 		signals[ps].erase(id) #remove if was applied
 	cleanup_signals()
+	user_is_leaved.emit(self.name, id)
 	Log.trace("User %s leave %s" % [leaving_user, self.name] )
 	
 #removes useless signals
@@ -107,7 +117,7 @@ func cleanup_signals() -> bool: #true - need too update
 			result = true
 	return result
 
-func _on_user_request_signal_list_updated(sig_list: Array, id: int, op: int):
+func _on_user_request_signal_list_updated(sig_list: Array, id: int, _op: int):
 	if not id in users:
 		return
 	users[id]["signals"] = sig_list
@@ -145,6 +155,8 @@ func _on_user_signal_values_offered(signals: Dictionary, id: int):
 	#request_post_signals_into_server.emit(srv_name, signals)     #FIXME: local loop
 	
 func _on_user_cursor(pos: Vector2, id: int):
+	if not id in users:
+		return
 	users[id]["cursor"] = pos
 	for uid in users:
 		if uid != id: #for all on the same server

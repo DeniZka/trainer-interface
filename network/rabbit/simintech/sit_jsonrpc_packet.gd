@@ -1,8 +1,7 @@
 class_name SITTranciever
 extends JSONRPC
 
-signal send(packet: STOMPPacket)
-signal listen()
+#signal send(packet: STOMPPacket)
 
 #var _reply: bool = false
 #const _reply_to: String = "/temp-queue/"
@@ -20,16 +19,20 @@ func _init(send_path: String, subscribe_path: String, stomp: STOMPClient):
 	stomp.listen(get_subscribe_path(), get_listen_function())
 	stomp.send(get_subscribe_packet())
 
-func free():
-	stomp.unsubscribe(get_id())
-	stomp.unlisten(get_subscribe_path(), get_listen_function())
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		stomp.send(get_unsubscribe_packet())
+		stomp.unlisten(get_subscribe_path(), get_listen_function())
+	
+func send(packet : STOMPPacket):
+	stomp.send(packet)
 	
 #magic JSONRPC function
 func execute(sp: STOMPPacket):
 	process_string(sp.body)
 	
 func get_subscribe_packet() -> STOMPPacket:
-	var sp : STOMPPacket = STOMPPacket.subscribe(subscribe_path, str(get_instance_id()))
+	var sp : STOMPPacket = STOMPPacket.subscribe(subscribe_path, get_id())
 	return sp.add_header("x-queue-name", "godot-" + queue_name)
 
 func get_unsubscribe_packet():
