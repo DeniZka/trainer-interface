@@ -10,6 +10,12 @@ extends BaseMenu
 @onready var roles_selector: MenuItemsSelector = %"Roles Selector" as MenuItemsSelector
 @onready var persons_selector: MenuItemsSelector = %"Persons Selector" as MenuItemsSelector
 
+@onready var initialization_button: Button = %"Inizialization Button" as Button
+@onready var play_button: Button = %"Play Button" as Button
+@onready var step_button: Button = %"Step Button" as Button
+@onready var pause_button: Button = %"Pause Button" as Button
+@onready var stop_button: Button = %"Stop Button" as Button
+
 var models: JSONApi
 var persons: JSONApi
 var roles: JSONApi
