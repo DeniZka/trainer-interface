@@ -14,6 +14,7 @@ extends BaseMenu
 var models: JSONApi
 
 func _on_ready() -> void:
+	api = Api.scenarios
 	models = Api.models
 	load_button.pressed.connect(_on_load_button_pressed)
 	file_uploader.uploaded.connect(_on_file_uploaded)
@@ -35,7 +36,15 @@ func _load_and_apply_models(data: Scenario) -> void:
 		models_selector.append(m.id, m.name)
 		if data.model == m.name:
 			models_selector.select([m.id])
-	
+
+func _create_from_menu() -> Scenario:
+	var scenario = Scenario.new()
+	scenario.name = scenario_name_edit.text
+	scenario.author = author_edit.text
+	scenario.created_at = upload_date_edit.text
+	for selected_item in models_selector.selected_lines.values():
+		scenario.model = selected_item
+	return scenario
 
 func _on_clear_view() -> void:
 	scenario_name_edit.text = ""
