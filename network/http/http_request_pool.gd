@@ -9,16 +9,13 @@ func _init(timeout: float) -> void:
 
 func pop() -> HTTPRequest:
 	if pool.size() > 0:
-		var result: HTTPRequest = pool[0]
-		pool.remove_at(0)
-		return result
-
-	return _create_http_request(timeout)
+		return pool.pop_back()
+	return _create_http_request()
 
 func push(request: HTTPRequest) -> void:
-	pool.append(request)
+	pool.push_back(request)
 
-func _create_http_request(timeout: float) -> HTTPRequest:
+func _create_http_request() -> HTTPRequest:
 	var request = HTTPRequest.new()
 	request.set_tls_options(TLSOptions.client_unsafe())
 	request.timeout = timeout
