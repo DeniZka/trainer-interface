@@ -511,7 +511,6 @@ theme = ExtResource("1_scg07")
 theme_override_font_sizes/font_size = 28
 text = "Серверы"
 script = ExtResource("6_6xnlt")
-tag = null
 vertical_lines = [NodePath("ServersV")]
 horizontal_lines = [NodePath("ServersH")]
 

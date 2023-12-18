@@ -1,12 +1,10 @@
 class_name HTTPService
 extends RefCounted
 
-var http: HTTPRequest
-var response_awaiter: HTTPResponseAwaiter
+var pool: HTTPRequestPool
 
-func _init(http: HTTPRequest) -> void:
-	self.http = http
-	self.response_awaiter = HTTPResponseAwaiter.new()
+func _init(pool: HTTPRequestPool) -> void:
+	self.pool = pool
 
 func send_get(url: String, headers: PackedStringArray = []) -> HTTPResponse:
 	return await send(url, HTTPClient.METHOD_GET)
@@ -35,25 +33,23 @@ func download_file(url: String) -> HTTPResponse:
 func upload_file(url: String, file_name: String, file_type: String, file_base64: String) -> HTTPResponse:
 	const endpoint_argument_name: String = "model_file"
 	var form: FormData = FormData.with_file(endpoint_argument_name, file_name, file_type, file_base64)
-	return await http.send_raw(url, form.headers, HTTPClient.METHOD_POST, form.body)
+	return null
+	#return await http.send_raw(url, form.headers, HTTPClient.METHOD_POST, form.body)
 
 func _send_exchange(url: String, headers: PackedStringArray, method: HTTPClient.Method, body: PackedByteArray) -> HTTPResponse:
 	Log.trace("Установка соединения с сервером, %s" % url)
-	var error = http.request_raw(url, headers, method, body)
-	if error != OK:
-		_not_connection_log(url, error)
-		return HTTPResponse.error()
-	var response = await response_awaiter.await_response(http)
+	var response: HTTPResponse = await _exchange(url, headers, method, body)
 	Log.trace("Окончание обмена информацией с сервером, %s" % url)
-	
 	if not response.is_success():
 		Log.error("Не валидный ответ с сервера: %s" % response.parse_as_json())
-	
 	return response
 
-func _cancel_previous_request() -> void:
-	http.request_completed.emit(0, 0, [], null)
-	http.cancel_request()
-
-func _not_connection_log(url: String, error: int) -> void:
-	Log.error("Не удалось установить соединение с сервером (%s). Код ошибки: %s" % [url, error])
+func _exchange(url: String, headers: PackedStringArray, method: HTTPClient.Method, body: PackedByteArray) -> HTTPResponse:
+	var http: HTTPRequest = pool.pop()
+	var error = http.request_raw(url, headers, method, body)
+	if error != OK:
+		Log.error("Не удалось установить соединение с сервером (%s). Код ошибки: %s" % [url, error])
+		return HTTPResponse.error()
+	var raw = await http.request_completed
+	pool.push(http)
+	return HTTPResponse.valid(raw[0], raw[1], raw[2], raw[3])

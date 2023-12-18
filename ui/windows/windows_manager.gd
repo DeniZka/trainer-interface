@@ -33,7 +33,16 @@ func _ready() -> void:
 	
 	navigation_bar.button_pressed.connect(_on_navigation_button_pressed)
 
+func _update_server_list_on_navigation_bar() -> void:
+	var servers: JSONApi = Api.servers
+	var response: HTTPResponse = await servers.all()
+	var servers_data = Server.create_from_response(response)
+	navigation_bar.clear_servers()
+	for data in servers_data:
+		navigation_bar.add_server(data.name)
+
 func _on_navigation_button_pressed(tag: String) -> void:
+	_update_server_list_on_navigation_bar()
 	if current != null:
 		current.close()
 	
