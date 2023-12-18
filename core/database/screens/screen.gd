@@ -15,8 +15,8 @@ func serialize() -> Dictionary:
 		"name": name,
 		"author": author,
 		"model": model,
-		"available_roles": available_roles,
-		"available_persons": available_persons,
+		"roles_allowed": available_roles,
+		"persons_allowed": available_persons,
 		"created_at": created_at
 	}
 
@@ -36,8 +36,8 @@ static func create_from_json(json: Dictionary) -> Screen:
 	screen.name = json["name"]
 	screen.author = json["author"]
 	screen.model = json["model"]
-	screen.available_roles = json["available_roles"]
-	screen.available_persons = json["available_persons"]
+	screen.available_roles = json["roles_allowed"]
+	screen.available_persons = json["persons_allowed"]
 	screen.created_at = json["created_at"]
 	return screen
 

@@ -114,11 +114,11 @@
 	  "screen_id": 0,
 	  "name": "Кадр №1",
 	  "model": "Безымянная модель",
-	  "available_roles": [
+	  "roles_allowed": [
 		"Студент",
 		"Администратор"
 	  ],
-	  "available_persons": [],
+	  "persons_allowed": [],
 	  "author": "Иванов Иван Иванович",
 	  "created_at": "00:00:00"
 	},
@@ -127,10 +127,10 @@
 	  "screen_id": 1,
 	  "name": "Кадр №2",
 	  "model": "Безымянная модель",
-	  "available_roles": [
+	  "roles_allowed": [
 		"Администратор"
 	  ],
-	  "available_persons": [],
+	  "persons_allowed": [],
 	  "author": "Иванов Иван Иванович",
 	  "created_at": "00:00:00"
 	}
@@ -159,11 +159,11 @@
 	  "server_id": 0,
 	  "name": "Лучший сервер",
 	  "model": "Безымянная модель",
-	  "available_roles": [
+	  "roles_allowed": [
 		"Студент",
 		"Администратор"
 	  ],
-	  "available_persons": [
+	  "persons_allowed": [
 		"Алексеев Алексей Алексеевич"
 	  ],
 	  "author": "Иванов Иван Иванович",
@@ -174,11 +174,11 @@
 	  "server_id": 1,
 	  "name": "Другой лучший сервер",
 	  "model": "Безымянная модель",
-	  "available_roles": [
+	  "roles_allowed": [
 		"Студент",
 		"Администратор"
 	  ],
-	  "available_persons": [
+	  "persons_allowed": [
 		"Алексеев Алексей Алексеевич"
 	  ],
 	  "author": "Иванов Иван Иванович",
