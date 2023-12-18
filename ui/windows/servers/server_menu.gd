@@ -21,12 +21,10 @@ func _on_ready() -> void:
 	roles = Api.roles
 
 func _on_update_view(data: Server) -> void:
-	if data == null:
-		return
-	
-	name_edit.text = data.name
-	author_edit.text = data.author
-	upload_date_edit.text = data.created_at
+	if data != null:
+		name_edit.text = data.name
+		author_edit.text = data.author
+		upload_date_edit.text = data.created_at
 	await _load_and_apply_models(data)
 	await _load_and_apply_roles(data)
 	await _load_and_apply_persons(data)
@@ -37,7 +35,7 @@ func _load_and_apply_models(data: Server) -> void:
 	
 	for m in all_models:
 		models_selector.append(m.id, m.name)
-		if data.model == m.name:
+		if data != null && data.model == m.name:
 			models_selector.select([m.id])
 
 func _load_and_apply_roles(data: Server) -> void:
@@ -47,7 +45,7 @@ func _load_and_apply_roles(data: Server) -> void:
 	var selected_roles: Array[int]
 	for role in all_roles:
 		roles_selector.append(role.id, role.name)
-		if data.available_roles.has(role.name):
+		if data != null && data.available_roles.has(role.name):
 			selected_roles.append(role.id)
 	roles_selector.select(selected_roles)
 
@@ -58,7 +56,7 @@ func _load_and_apply_persons(data: Server) -> void:
 	var selected_person: Array[int]
 	for p in all_persons:
 		persons_selector.append(p.id, p.full_name)
-		if data.available_persons.has(p.full_name):
+		if data != null && data.available_persons.has(p.full_name):
 			selected_person.append(p.id)
 	persons_selector.select(selected_person)
 

@@ -20,12 +20,10 @@ func _on_ready() -> void:
 	file_uploader.uploaded.connect(_on_file_uploaded)
 
 func _on_update_view(data: Scenario) -> void:
-	if data == null:
-		return
-	
-	scenario_name_edit.text = data.name
-	author_edit.text = data.author
-	upload_date_edit.text = data.created_at
+	if data != null:
+		scenario_name_edit.text = data.name
+		author_edit.text = data.author
+		upload_date_edit.text = data.created_at
 	await _load_and_apply_models(data)
 
 func _load_and_apply_models(data: Scenario) -> void:
@@ -34,7 +32,7 @@ func _load_and_apply_models(data: Scenario) -> void:
 	
 	for m in all_models:
 		models_selector.append(m.id, m.name)
-		if data.model == m.name:
+		if data != null && data.model == m.name:
 			models_selector.select([m.id])
 
 func _create_from_menu() -> Scenario:

@@ -1,7 +1,7 @@
 class_name WindowsManager
 extends Control
 
-@onready var navigation_bar: LineMenuGroup = $"Windows Content/Navigation Left Bar" as LineMenuGroup
+@onready var navigation_bar: LeftBar = $"Windows Content/Navigation Left Bar" as LineMenuGroup
 
 @onready var persons_window: PersonsWindow = $"Windows Content/Persons Window" as PersonsWindow
 @onready var roles_window: RolesWindow = $"Windows Content/Roles Window" as RolesWindow
@@ -12,6 +12,8 @@ extends Control
 @onready var servers_window: ServersWindow = $"Windows Content/Servers Window" as ServersWindow
 
 @onready var menu_manager: MenuManager = $"Menu Manager" as MenuManager
+
+@onready var login_form: LoginForm = $"../Login Form" as LoginForm
 
 @onready var windows: Dictionary = {
 	WindowId.Persons	: persons_window,

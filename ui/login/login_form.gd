@@ -13,7 +13,7 @@ var persons: JSONApi
 func _ready() -> void:
 	persons = Api.persons
 	enter_button.pressed.connect(_on_enter_pressed)
-	invalid_message.hide()
+	_clear_form()
 
 func _on_enter_pressed() -> void:
 	var response: HTTPResponse = await persons.all()
@@ -24,7 +24,12 @@ func _on_enter_pressed() -> void:
 		_notify_invalid_login_or_password()
 	else:
 		authorized.emit(person)
-		visible = false
+		_clear_form()
+
+func _clear_form() -> void:
+	invalid_message.hide()
+	login_line.text = ""
+	password_line.text = ""
 
 func _notify_invalid_login_or_password() -> void:
 	invalid_message.show()

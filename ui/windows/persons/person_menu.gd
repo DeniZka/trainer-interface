@@ -14,13 +14,12 @@ func _on_ready() -> void:
 	roles = Api.roles
 
 func _on_update_view(person: Person) -> void:
-	if person == null:
-		return
+	if person != null:
+		username_edit.text = person.full_name
+		login_edit.text = person.login
+		password_edit.text = person.password
+		lock_button.button_pressed = person.locked
 	
-	username_edit.text = person.full_name
-	login_edit.text = person.login
-	password_edit.text = person.password
-	lock_button.button_pressed = person.locked
 	await _load_roles(person)
 
 func _load_roles(person: Person) -> void:

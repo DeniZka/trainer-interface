@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b05tt7kf1ent0"]
+
+[ext_resource type="Script" path="res://ui/auth/authorizated_windows_manager.gd" id="1_78q2y"]
+[ext_resource type="PackedScene" uid="uid://b7x5p85fcidtb" path="res://ui/windows/windows_manager.tscn" id="2_gohli"]
+[ext_resource type="PackedScene" uid="uid://byiivddm860t5" path="res://ui/login/login_form.tscn" id="2_tn5ov"]
+
+[node name="Authorizated Windows Manager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_78q2y")
+
+[node name="Windows Manager" parent="." instance=ExtResource("2_gohli")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Login Form" parent="." instance=ExtResource("2_tn5ov")]
+unique_name_in_owner = true
+layout_mode = 1
