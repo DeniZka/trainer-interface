@@ -21,6 +21,7 @@ func _ready() -> void:
 func create_http_request(timeout: float) -> HTTPRequest:
 	var request = HTTPRequest.new()
 	request.set_tls_options(TLSOptions.client_unsafe())
+	request.use_threads = true
 	request.timeout = timeout
 	add_child(request)
 	return request
