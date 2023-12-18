@@ -31,6 +31,9 @@ func _on_update_view(data: Server) -> void:
 		name_edit.text = data.name
 		author_edit.text = data.author
 		upload_date_edit.text = data.created_at
+		_show_controls()
+	else:
+		_hide_controls()
 	await _load_and_apply_models(data)
 	await _load_and_apply_roles(data)
 	await _load_and_apply_persons(data)
@@ -86,3 +89,17 @@ func _on_clear_view() -> void:
 	models_selector.clear()
 	persons_selector.clear()
 	roles_selector.clear()
+
+func _hide_controls() -> void:
+	initialization_button.hide()
+	play_button.hide()
+	step_button.hide()
+	pause_button.hide()
+	stop_button.hide()
+
+func _show_controls() -> void:
+	initialization_button.show()
+	play_button.show()
+	step_button.show()
+	pause_button.show()
+	stop_button.show()
