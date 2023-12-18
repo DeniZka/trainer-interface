@@ -25,4 +25,5 @@ theme = ExtResource("1_2yry4")
 layout_mode = 1
 
 [node name="Login Form" parent="." instance=ExtResource("3_5k6fq")]
+visible = false
 layout_mode = 1
