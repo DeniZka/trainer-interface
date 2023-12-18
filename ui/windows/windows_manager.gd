@@ -32,6 +32,7 @@ func _ready() -> void:
 		windows[window_id].opened_menu.connect(func(data): menu_manager.open(window_id, data))
 	
 	navigation_bar.button_pressed.connect(_on_navigation_button_pressed)
+	_update_server_list_on_navigation_bar()
 
 func _update_server_list_on_navigation_bar() -> void:
 	var servers: JSONApi = Api.servers
@@ -42,7 +43,6 @@ func _update_server_list_on_navigation_bar() -> void:
 		navigation_bar.add_server(data.name)
 
 func _on_navigation_button_pressed(tag: String) -> void:
-	_update_server_list_on_navigation_bar()
 	if current != null:
 		current.close()
 	

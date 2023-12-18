@@ -28,6 +28,7 @@ offset_bottom = 1080.0
 theme = ExtResource("1_scg07")
 script = ExtResource("2_ed8jb")
 server_template = ExtResource("3_vbqad")
+button_group = ExtResource("7_7idfv")
 menus = [NodePath("Back"), NodePath("Back/MainV/Servers Menu")]
 metadata/_edit_horizontal_guides_ = [640.186]
 metadata/_edit_vertical_guides_ = [340.12]

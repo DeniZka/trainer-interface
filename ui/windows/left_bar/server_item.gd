@@ -9,5 +9,9 @@ var server_name: String :
 		$"Server Button/Label".text = value
 		get_line_item().tag = server_name
 
+func set_button_group(group: ButtonGroup) -> void:
+	var button: Button = $"Server Button" as Button
+	button.button_group = group
+
 func get_line_item() -> LineItem:
 	return $"Server Button" as LineItem

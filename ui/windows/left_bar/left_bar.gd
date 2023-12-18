@@ -4,6 +4,7 @@ extends LineMenuGroup
 signal logout()
 
 @export var server_template: PackedScene
+@export var button_group: ButtonGroup
 
 @onready var login_label: Label = %Login as Label
 @onready var logout_button: Button = %"Log Out" as Button
@@ -21,6 +22,7 @@ func set_person(person: Person) -> void:
 func add_server(server_name: String) -> void:
 	var instance = server_template.instantiate() as ServerItem
 	instance.server_name = server_name
+	instance.set_button_group(button_group)
 	server_line_menu.add_item(instance.get_line_item())
 	server_line_menu.menu_items.append(instance.get_line_item())
 	server_container.add_child(instance)
