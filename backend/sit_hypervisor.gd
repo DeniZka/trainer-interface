@@ -52,6 +52,7 @@ func _on_user_server_list_requested(id: int):
 	var packet: String = JSON.stringify(make_request("get_server_list", null, 0))
 	send( STOMPPacket.to(send_path).with_message(packet) )
 	#FIXME: wait for HV response?
+	RPC.send_server_list.rpc_id(id, servers.keys())
 	
 func _on_user_server_create(server_name: String, file: String):
 	var packet: String = JSON.stringify(make_request("create_server", [server_name, file], 0))
@@ -82,6 +83,9 @@ func server_down(server_name: String):
 	if server_name in servers:
 		servers[server_name].free()
 		servers.erase(server_name)
+	for peer in peers: #reset peers 
+		if peers[peer] == server_name:
+			peers[peer] = ""
 	RPC.server_killed.rpc(server_name)
 	server_down_received.emit(server_name)
 

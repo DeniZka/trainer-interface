@@ -72,6 +72,8 @@ func update_signals(signals: Dictionary):
 
 ##USERS_CALLBACKS
 func _on_user_join_server_requested(server_name: String, user_name: String, id: int):
+	if self.name != server_name:
+		return
 	#Check already connected
 	if self.name == server_name and id in users:
 		RPC.reject_join_server.rpc_id(id, "Already on server")
