@@ -34,6 +34,7 @@ func _on_server_join_granted(user_list: Array) -> void:
 
 func _on_server_join_refected(reason: String) -> void:
 	Log.info("Не удалось присоединиться к серверу. Причина: %s" % reason)
+	login_form.show()
 
 func _on_server_selected(server_name: String) -> void:
 	RPC.join_server.rpc(server_name, authorized_person.login)
