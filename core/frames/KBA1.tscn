@@ -213,6 +213,7 @@ KBAXX"
 
 [node name="Valve9" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 520)
+valve_stat = "открыт"
 
 [node name="Label" type="Label" parent="Valve9"]
 offset_left = -24.7123
@@ -225,6 +226,7 @@ KBAXX"
 
 [node name="Valve10" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 640)
+valve_stat = "открывается"
 
 [node name="Label" type="Label" parent="Valve10"]
 offset_left = -26.6
@@ -237,6 +239,7 @@ KBAXX"
 
 [node name="Valve11" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1160, 800)
+valve_stat = "закрывается"
 
 [node name="Label" type="Label" parent="Valve11"]
 offset_left = -26.6
@@ -368,6 +371,7 @@ text = "
 
 [node name="ValveRegul2" parent="." instance=ExtResource("6_h32ox")]
 position = Vector2(1712, 400)
+valve_stat = 1
 Rotate = -90.0
 
 [node name="Label" type="Label" parent="ValveRegul2"]
@@ -598,6 +602,8 @@ meaning_color = Color(0, 0, 0, 1)
 
 [node name="ValveRegul3" parent="." instance=ExtResource("6_h32ox")]
 position = Vector2(1808, 400)
+valve_stat = 3
+vlv_mode = 1
 Rotate = -90.0
 
 [node name="Label" type="Label" parent="ValveRegul3"]
@@ -611,8 +617,6 @@ text = "
 
 [node name="ValveCheck" parent="." instance=ExtResource("19_b0mp3")]
 position = Vector2(168, 656)
-Rotate = -90.0
-valve_stat = 1
 sub_name = "KBAXX"
 
 [node name="Label" type="Label" parent="ValveCheck"]
@@ -626,8 +630,6 @@ KBAXX"
 
 [node name="ValveCheck2" parent="." instance=ExtResource("19_b0mp3")]
 position = Vector2(784, 640)
-Rotate = 180.0
-valve_stat = 1
 sub_name = "KBAXX"
 
 [node name="Label" type="Label" parent="ValveCheck2"]
@@ -641,8 +643,6 @@ KBAXX"
 
 [node name="ValveCheck3" parent="." instance=ExtResource("19_b0mp3")]
 position = Vector2(832, 760)
-Rotate = -90.0
-valve_stat = 2
 sub_name = "KBAXX"
 
 [node name="Label" type="Label" parent="ValveCheck3"]
@@ -656,8 +656,6 @@ KBAXX"
 
 [node name="ValveCheck4" parent="." instance=ExtResource("19_b0mp3")]
 position = Vector2(912, 760)
-Rotate = -90.0
-valve_stat = 2
 sub_name = "KBAXX"
 
 [node name="Label" type="Label" parent="ValveCheck4"]
