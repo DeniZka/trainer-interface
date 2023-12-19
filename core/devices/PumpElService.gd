@@ -4,7 +4,6 @@ class_name PumpEl extends Device
 @onready var sprites = $sprites
 @onready var pump = $sprites/Ellipse
 @onready var elDrive = $sprites/ElDrive
-@onready var refusalBuffer : bool = false
 
 const CLOSE_RGB = Color(0, 0.9176470588235294, 0) 
 const OPEN_RGB = Color(1, 0.5803921568627451, 0.1568627450980392) 
@@ -16,23 +15,17 @@ const REFUSAL_RGB = Color(0.7568627450980392, 0, 0.7568627450980392)
 
 @export_category("Pump") 
 
-@export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
-	get:
-		if not is_node_ready(): await ready
-		return elDrive.rotation_degrees
+@export_range(-180.0, 180.0, 90.0, "degrees") var rotate: float = 0.0:
 	set(val):
+		rotate = val
 		if not is_node_ready(): await ready
 		elDrive.rotation_degrees = val
 
 enum PUMP_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED} 
-@onready var pump_status : PUMP_STATE = PUMP_STATE.ST_UNKNOWN
 @export_enum("неизвестно:0", "включен:1", "выключен:2") var pmp_state : int = PUMP_STATE.ST_UNKNOWN: 
-	get:
-		if not is_node_ready(): await ready
-		return pump_status
 	set(val):
+		pmp_state = val
 		if not is_node_ready(): await ready
-		pump_status = val
 		pump.modulate = DEFAULT_RGB
 		elDrive.modulate = BLACK_RGB
 		if val == PUMP_STATE.ST_OPENED: 
@@ -46,15 +39,12 @@ enum PUMP_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED}
 
 @export var refusal: bool = false:
 	set(val):
+		refusal = val
 		if not is_node_ready() : await ready
-		refusalBuffer = val
 		if val:
 			elDrive.modulate = REFUSAL_RGB
 		else:
 			elDrive.modulate = BLACK_RGB
-	get:
-		if not is_node_ready() : await ready
-		return refusalBuffer
 
 func _on_maincir_popped(state):
 	if state :

@@ -12,25 +12,19 @@ const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.937254901960
 
 @export_category("ValveCheck") 
 
-@export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
-	get:
-		if not is_node_ready(): await ready
-		return valveLeft.rotation_degrees
+@export_range(-180.0, 180.0, 90.0, "degrees") var rotate: float = 0.0:
 	set(val):
+		rotate = val
 		if not is_node_ready(): await ready
 		valveLeft.rotation_degrees = val
 		valveRight.rotation_degrees = val
 #
 
 enum VLV_STATE  {ST_UNKNOWN, ST_OPENED, ST_CLOSED, ST_OPENEDCLOSED} 
-@onready var valve_status : VLV_STATE = VLV_STATE.ST_UNKNOWN
 @export_enum("неизвестно:0", "открыт:1", "закрыт:2", "открыт/закрыт:3") var valve_stat : int = VLV_STATE.ST_UNKNOWN: 
-	get:
-		if not is_node_ready(): await ready
-		return valve_status
 	set(val):
+		valve_stat = val
 		if not is_node_ready(): await ready
-		valve_status = val
 		valveLeft.modulate = DEFAULT_RGB
 		valveRight.modulate = DEFAULT_RGB
 		if val == VLV_STATE.ST_OPENED: 

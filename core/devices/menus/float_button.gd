@@ -39,15 +39,15 @@ func pop_childs(pop_state):
 
 @export var text: String = "test":
 	set(val):
-		if not is_node_ready(): await ready
 		text = val
+		if not is_node_ready(): await ready
 		textButton.text = val
 
 var self_popup_anim_name : String = "popup"
 @export var pop : bool = false:
 	set(val):
-		if not is_node_ready(): await ready
 		pop = val
+		if not is_node_ready(): await ready
 		#search for attached Marker
 		for child in get_children():
 			if child is Marker2D: #using it as a target pointer
@@ -71,21 +71,21 @@ var self_popup_anim_name : String = "popup"
 
 @export var text_color : Color = Color(1,1,1,1):
 	set(val):
-		if not is_node_ready(): await ready
 		text_color = val
+		if not is_node_ready(): await ready
 		textColor.modulate = val
 
 @export var main_color : Color = Color(1,1,1,1):
 	set(val):
-		if not is_node_ready(): await ready
 		main_color = val
+		if not is_node_ready(): await ready
 		backLayer.modulate = val
 		overlay.modulate = val
 
 @export var outline_color : Color = Color(1,1,1,1):
 	set(val):
-		if not is_node_ready(): await ready
 		outline_color = val
+		if not is_node_ready(): await ready
 		outline.modulate = val
 
 @export var outline_width : float = 2:

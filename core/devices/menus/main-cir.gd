@@ -18,29 +18,27 @@ func pop_chids(pop_state):
 
 @export var pop: bool = false:
 	set(val):
+		pop = val
 		if not is_node_ready(): await ready
 		button.button_pressed = val
-	get:
-		if not is_node_ready(): await ready
-		return button.button_pressed
 		
 @export var enabled: bool = true:
 	set(val):
-		if not is_node_ready(): await ready
 		enabled = val
+		if not is_node_ready(): await ready
 		button.visible = val
 
 @export var main_color : Color = Color(1,1,1,1):
 	set(val):
-		if not is_node_ready(): await ready
 		main_color = val
+		if not is_node_ready(): await ready
 		mainBG.modulate = val
 		mainTop.modulate = val
 
 @export var outline_color : Color = Color(1,1,1,1):
 	set(val):
-		if not is_node_ready(): await ready
 		outline_color = val
+		if not is_node_ready(): await ready
 		outline.modulate = val
 
 func _on_button_pressed():
@@ -64,7 +62,7 @@ func _on_button_toggled(button_pressed):
 				#cleanup toggles on hide 
 				if ch.toggle_mode == true:
 					ch.toggled = false
-	popped.emit(self.pop)
+	popped.emit(button_pressed)
 
 func _on_node_2d_2_b_pressed():
 	for ch in $"main-cir/refusal/Marker2D".get_children():
