@@ -1,6 +1,9 @@
 extends Node
 
-@onready var peer : ENetMultiplayerPeer
+@onready var crt = preload("res://certificates/X509_Certificate.crt")
+@onready var key = preload("res://certificates/X509_Key.key")
+
+@onready var peer : WebSocketMultiplayerPeer
 var ui_update_timer: Timer
 
 const SERV_DREW = "46.138.251.6:55513" 
@@ -56,8 +59,8 @@ func _on_ui_update_timeout():
 	$links.text = JSON.stringify(models_servers, "\t")
 	
 func begin_serve():
-	peer = ENetMultiplayerPeer.new()
-	peer.create_server(SERVER_PORT)
+	peer = WebSocketMultiplayerPeer.new()
+	peer.create_server(SERVER_PORT, "*", TLSOptions.server(key, crt))
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)

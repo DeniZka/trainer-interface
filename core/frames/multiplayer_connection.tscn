@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2drrbvekusq6"]
+
+[ext_resource type="Script" path="res://core/frames/multiplayer_connection.gd" id="1_x6gmu"]
+
+[node name="Multiplayer Connection" type="Node"]
+script = ExtResource("1_x6gmu")
+
+[node name="ConnectionTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true

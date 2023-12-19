@@ -40,7 +40,6 @@ signal model_list_requested()
 #functions for FE and BE
 enum {SLOP_UPDATE, SLOP_NEW, SLOP_CLEAR}
 
-
 #FE functions.rpc()
 #player functions
 @rpc("any_peer")

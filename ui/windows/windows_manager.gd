@@ -1,6 +1,9 @@
 class_name WindowsManager
 extends Control
 
+signal server_requested()
+signal server_selected(server_name: String)
+
 @onready var navigation_bar: LeftBar = $"Windows Content/Navigation Left Bar" as LineMenuGroup
 
 @onready var persons_window: PersonsWindow = $"Windows Content/Persons Window" as PersonsWindow
@@ -30,17 +33,16 @@ func _ready() -> void:
 		windows[window_id].opened_menu.connect(func(data): menu_manager.open(window_id, data))
 	
 	navigation_bar.button_pressed.connect(_on_navigation_button_pressed)
-	_update_server_list_on_navigation_bar()
+	navigation_bar.server_selected.connect(func(server_name: String): server_selected.emit(server_name))
 
-func _update_server_list_on_navigation_bar() -> void:
-	var servers: JSONApi = Api.servers
-	var response: HTTPResponse = await servers.all()
-	var servers_data = Server.create_from_response(response)
+func update_servers(servers: Array) -> void:
 	navigation_bar.clear_servers()
-	for data in servers_data:
-		navigation_bar.add_server(data.name)
+	for data in servers:
+		navigation_bar.add_server(data)
 
 func _on_navigation_button_pressed(tag: String) -> void:
+	server_requested.emit()
+	
 	if current != null:
 		current.close()
 	

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvsthwkocmss8"]
+
+[ext_resource type="Script" path="res://core/frames/multiplayer_frames.gd" id="1_llb7h"]
+[ext_resource type="PackedScene" uid="uid://b42mykjenkxuf" path="res://core/frames/frame_manager.tscn" id="2_saeex"]
+
+[node name="Multiplayer Frames" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_llb7h")
+
+[node name="Frame Manager" parent="." instance=ExtResource("2_saeex")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Cursor_send" type="Timer" parent="."]
+autostart = true
+
+[node name="ConnectionTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true

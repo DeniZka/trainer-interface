@@ -1,0 +1,40 @@
+class_name MultiplayerConnection
+extends Node
+
+@onready var crt = preload("res://certificates/X509_Certificate.crt")
+@onready var key = preload("res://certificates/X509_Key.key")
+
+const DEFAULT_IP: String = "192.168.100.103"
+const DEFAULT_PORT: int = 10508
+
+var peer: WebSocketMultiplayerPeer
+
+func _ready() -> void:
+	peer = WebSocketMultiplayerPeer.new()	
+	multiplayer.connected_to_server.connect(_on_server_connected)
+	multiplayer.connection_failed.connect(_on_connection_failed)
+	multiplayer.server_disconnected.connect(_on_server_disconnected)
+
+func get_server_websocket_url() -> String:
+	return "wss://%s:%s" % [DEFAULT_IP, DEFAULT_PORT]
+
+func _on_server_connected() -> void:
+	Log.debug("Соединение установлено с %s" % get_server_websocket_url())
+
+func _on_connection_failed() -> void:
+	Log.error("Ошибка соединения! %s" % get_server_websocket_url())
+
+func _on_server_disconnected() -> void:
+	Log.debug("Отключение от %s" % get_server_websocket_url())
+
+func connect_to_server() -> void:
+	var server_ip: String = get_server_websocket_url()
+	var error: int = peer.create_client(server_ip, TLSOptions.client(crt))
+	Log.debug("Подключаюсь к серверу %s" % server_ip)
+	if error != OK:
+		Log.error("Не удалось подключиться к серверу. Код ошибки: %s" % error)
+	multiplayer.multiplayer_peer = peer
+
+func disconnect_from_server() -> void:
+	Log.debug("Отключаюсь от сервера %s" % get_server_websocket_url())
+	peer.close()
