@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwmd8h1svh7jq"]
+[gd_scene load_steps=19 format=3 uid="uid://cwmd8h1svh7jq"]
 
 [ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://ui/themes/left_menu/left_main.tres" id="1_scg07"]
-[ext_resource type="Script" path="res://ui/components/lines/line_menu_group.gd" id="2_x822k"]
+[ext_resource type="Script" path="res://ui/windows/left_bar/left_bar.gd" id="2_ed8jb"]
+[ext_resource type="PackedScene" uid="uid://tuktxvwe15aa" path="res://ui/windows/left_bar/server_item.tscn" id="3_vbqad"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="3_whnkn"]
 [ext_resource type="Resource" uid="uid://073bco0mefks" path="res://ui/themes/lines/left_menu_colors.tres" id="4_2blrh"]
 [ext_resource type="Texture2D" uid="uid://d3dcn5o464vtu" path="res://icons/left_menu/Logo.png" id="4_jl5o0"]
@@ -15,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://cxqigfijyfj76" path="res://icons/left_menu/Videoframe_icon_left_menu.png" id="12_dirfy"]
 [ext_resource type="Texture2D" uid="uid://dl684yhxqd6un" path="res://icons/left_menu/Scenario_icon_left_menu.png" id="13_c1tgd"]
 [ext_resource type="Texture2D" uid="uid://cr4e5b5x854my" path="res://icons/left_menu/ServerS_icon_left_menu.png" id="14_411cc"]
-[ext_resource type="Texture2D" uid="uid://cruhip4lopqgq" path="res://icons/left_menu/Server_icon_left_menu.png" id="15_jgvw3"]
-[ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://icons/animals/Orca_62.png" id="16_huipu"]
 [ext_resource type="Theme" uid="uid://n1wc11n0cx2r" path="res://ui/themes/left_menu/left_log_out_button.tres" id="17_vorxe"]
 [ext_resource type="Texture2D" uid="uid://dq4sf5jkliia4" path="res://icons/left_menu/Log_out.png" id="18_hjdb4"]
 
@@ -27,8 +26,10 @@ anchors_preset = 0
 offset_right = 385.0
 offset_bottom = 1080.0
 theme = ExtResource("1_scg07")
-script = ExtResource("2_x822k")
-menus = [NodePath("Back"), NodePath("Back/MainV/Servers_HBox")]
+script = ExtResource("2_ed8jb")
+server_template = ExtResource("3_vbqad")
+button_group = ExtResource("7_7idfv")
+menus = [NodePath("Back"), NodePath("Back/MainV/Servers Menu")]
 metadata/_edit_horizontal_guides_ = [640.186]
 metadata/_edit_vertical_guides_ = [340.12]
 
@@ -511,7 +512,6 @@ theme = ExtResource("1_scg07")
 theme_override_font_sizes/font_size = 28
 text = "Серверы"
 script = ExtResource("6_6xnlt")
-tag = null
 vertical_lines = [NodePath("ServersV")]
 horizontal_lines = [NodePath("ServersH")]
 
@@ -537,390 +537,24 @@ color = Color(0.4, 0.486275, 0.556863, 1)
 layout_mode = 2
 theme = ExtResource("6_rb0pa")
 
-[node name="Servers_HBox" type="HBoxContainer" parent="Back/MainV" node_paths=PackedStringArray("menu_items")]
+[node name="Servers Menu" type="HBoxContainer" parent="Back/MainV" node_paths=PackedStringArray("menu_items")]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_scg07")
 script = ExtResource("3_whnkn")
-menu_items = [NodePath("../Servers_name/Servers"), NodePath("Servers_ScrollBox/Servers/Server A/Server Button"), NodePath("Servers_ScrollBox/Servers/Server B/Server Button"), NodePath("Servers_ScrollBox/Servers/Server C/Server Button"), NodePath("Servers_ScrollBox/Servers/Server D/Server Button")]
+menu_items = [NodePath("../Servers_name/Servers")]
 colors = ExtResource("4_2blrh")
 
-[node name="Servers_ScrollBox" type="ScrollContainer" parent="Back/MainV/Servers_HBox"]
+[node name="Servers_ScrollBox" type="ScrollContainer" parent="Back/MainV/Servers Menu"]
 custom_minimum_size = Vector2(320, 350)
 layout_mode = 2
 theme = ExtResource("1_scg07")
 
-[node name="Servers" type="VBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox"]
+[node name="Servers" type="VBoxContainer" parent="Back/MainV/Servers Menu/Servers_ScrollBox"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 340)
 layout_mode = 2
 theme = ExtResource("1_scg07")
-
-[node name="Server A" type="HBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers"]
-layout_mode = 2
-theme = ExtResource("1_scg07")
-
-[node name="Space" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-theme = ExtResource("6_rb0pa")
-
-[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
-custom_minimum_size = Vector2(212, 100)
-layout_mode = 2
-theme = ExtResource("1_scg07")
-toggle_mode = true
-button_group = ExtResource("7_7idfv")
-icon = ExtResource("15_jgvw3")
-vertical_icon_alignment = 0
-script = ExtResource("6_6xnlt")
-tag = "ServerA"
-vertical_lines = [NodePath("Label/SerVV")]
-horizontal_lines = [NodePath("Label/SerVH")]
-
-[node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-layout_mode = 0
-offset_left = 32.0
-offset_right = 72.0
-offset_bottom = 21.0
-theme = ExtResource("1_scg07")
-text = "Сервер А
-"
-
-[node name="SerVH" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button/Label"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = 51.0
-offset_right = -42.0
-offset_bottom = 53.0
-theme = ExtResource("1_scg07")
-color = Color(0.4, 0.486275, 0.556863, 1)
-
-[node name="SerVV" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button/Label"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = -67.0
-offset_right = 60.0
-offset_bottom = -65.0
-rotation = 1.5708
-theme = ExtResource("1_scg07")
-color = Color(0.4, 0.486275, 0.556863, 1)
-
-[node name="Orca68" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-position = Vector2(161, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca67" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-position = Vector2(139, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca66" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-position = Vector2(117, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca65" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-position = Vector2(95, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca64" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-position = Vector2(73, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca63" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-position = Vector2(52, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca62" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-position = Vector2(32, 64)
-texture = ExtResource("16_huipu")
-
-[node name="State" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button"]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 0
-offset_left = 251.101
-offset_top = -1.60706
-offset_right = 275.101
-offset_bottom = 22.3929
-theme = ExtResource("6_rb0pa")
-disabled = true
-
-[node name="Space2" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A"]
-layout_mode = 2
-theme = ExtResource("6_rb0pa")
-
-[node name="Server B" type="HBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers"]
-layout_mode = 2
-theme = ExtResource("1_scg07")
-
-[node name="Space" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-theme = ExtResource("6_rb0pa")
-
-[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
-custom_minimum_size = Vector2(212, 100)
-layout_mode = 2
-theme = ExtResource("1_scg07")
-toggle_mode = true
-button_group = ExtResource("7_7idfv")
-icon = ExtResource("15_jgvw3")
-vertical_icon_alignment = 0
-script = ExtResource("6_6xnlt")
-tag = "ServerA"
-vertical_lines = [NodePath("Label/SerVV")]
-horizontal_lines = [NodePath("Label/SerVH")]
-
-[node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-layout_mode = 0
-offset_left = 32.0
-offset_right = 72.0
-offset_bottom = 21.0
-theme = ExtResource("1_scg07")
-text = "Сервер Б
-"
-
-[node name="SerVH" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button/Label"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = 51.0
-offset_right = -42.0
-offset_bottom = 53.0
-theme = ExtResource("1_scg07")
-color = Color(0.4, 0.486275, 0.556863, 1)
-
-[node name="SerVV" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button/Label"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = -67.0
-offset_right = 60.0
-offset_bottom = -65.0
-rotation = 1.5708
-theme = ExtResource("1_scg07")
-color = Color(0.4, 0.486275, 0.556863, 1)
-
-[node name="Orca68" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-position = Vector2(161, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca67" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-position = Vector2(139, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca66" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-position = Vector2(117, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca65" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-position = Vector2(95, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca64" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-position = Vector2(73, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca63" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-position = Vector2(52, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca62" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-position = Vector2(32, 64)
-texture = ExtResource("16_huipu")
-
-[node name="State" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button"]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 0
-offset_left = 251.101
-offset_top = -1.60706
-offset_right = 275.101
-offset_bottom = 22.3929
-theme = ExtResource("6_rb0pa")
-disabled = true
-
-[node name="Space2" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B"]
-layout_mode = 2
-theme = ExtResource("6_rb0pa")
-
-[node name="Server C" type="HBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers"]
-layout_mode = 2
-theme = ExtResource("1_scg07")
-
-[node name="Space" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-theme = ExtResource("6_rb0pa")
-
-[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
-custom_minimum_size = Vector2(212, 100)
-layout_mode = 2
-theme = ExtResource("1_scg07")
-toggle_mode = true
-button_group = ExtResource("7_7idfv")
-icon = ExtResource("15_jgvw3")
-vertical_icon_alignment = 0
-script = ExtResource("6_6xnlt")
-tag = "ServerA"
-vertical_lines = [NodePath("Label/SerVV")]
-horizontal_lines = [NodePath("Label/SerVH")]
-
-[node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-layout_mode = 0
-offset_left = 32.0
-offset_right = 72.0
-offset_bottom = 21.0
-theme = ExtResource("1_scg07")
-text = "Сервер В
-"
-
-[node name="SerVH" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button/Label"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = 51.0
-offset_right = -42.0
-offset_bottom = 53.0
-theme = ExtResource("1_scg07")
-color = Color(0.4, 0.486275, 0.556863, 1)
-
-[node name="SerVV" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button/Label"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = -67.0
-offset_right = 60.0
-offset_bottom = -65.0
-rotation = 1.5708
-theme = ExtResource("1_scg07")
-color = Color(0.4, 0.486275, 0.556863, 1)
-
-[node name="Orca68" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-position = Vector2(161, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca67" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-position = Vector2(139, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca66" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-position = Vector2(117, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca65" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-position = Vector2(95, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca64" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-position = Vector2(73, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca63" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-position = Vector2(52, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca62" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-position = Vector2(32, 64)
-texture = ExtResource("16_huipu")
-
-[node name="State" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button"]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 0
-offset_left = 251.101
-offset_top = -1.60706
-offset_right = 275.101
-offset_bottom = 22.3929
-theme = ExtResource("6_rb0pa")
-disabled = true
-
-[node name="Space2" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C"]
-layout_mode = 2
-theme = ExtResource("6_rb0pa")
-
-[node name="Server D" type="HBoxContainer" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers"]
-layout_mode = 2
-theme = ExtResource("1_scg07")
-
-[node name="Space" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D"]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-theme = ExtResource("6_rb0pa")
-
-[node name="Server Button" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
-custom_minimum_size = Vector2(212, 100)
-layout_mode = 2
-theme = ExtResource("1_scg07")
-toggle_mode = true
-button_group = ExtResource("7_7idfv")
-icon = ExtResource("15_jgvw3")
-vertical_icon_alignment = 0
-script = ExtResource("6_6xnlt")
-tag = "ServerA"
-vertical_lines = [NodePath("Label/SerVV")]
-horizontal_lines = [NodePath("Label/SerVH")]
-
-[node name="Label" type="Label" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-layout_mode = 0
-offset_left = 32.0
-offset_right = 72.0
-offset_bottom = 21.0
-theme = ExtResource("1_scg07")
-text = "Сервер Г
-"
-
-[node name="SerVH" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button/Label"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = 51.0
-offset_right = -42.0
-offset_bottom = 53.0
-theme = ExtResource("1_scg07")
-color = Color(0.4, 0.486275, 0.556863, 1)
-
-[node name="SerVV" type="ColorRect" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button/Label"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = -67.0
-offset_right = 60.0
-offset_bottom = -65.0
-rotation = 1.5708
-theme = ExtResource("1_scg07")
-color = Color(0.4, 0.486275, 0.556863, 1)
-
-[node name="Orca68" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-position = Vector2(161, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca67" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-position = Vector2(139, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca66" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-position = Vector2(117, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca65" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-position = Vector2(95, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca64" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-position = Vector2(73, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca63" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-position = Vector2(52, 64)
-texture = ExtResource("16_huipu")
-
-[node name="Orca62" type="Sprite2D" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-position = Vector2(32, 64)
-texture = ExtResource("16_huipu")
-
-[node name="State" type="Button" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button"]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 0
-offset_left = 251.101
-offset_top = -1.60706
-offset_right = 275.101
-offset_bottom = 22.3929
-theme = ExtResource("6_rb0pa")
-disabled = true
-
-[node name="Space2" type="Panel" parent="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D"]
-layout_mode = 2
-theme = ExtResource("6_rb0pa")
 
 [node name="Space" type="Panel" parent="Back/MainV"]
 custom_minimum_size = Vector2(0, 40)
@@ -949,6 +583,7 @@ icon = ExtResource("8_oopkr")
 alignment = 0
 
 [node name="Login" type="Label" parent="Back/MainV/Panel_for_login/Login"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 33.0
 offset_top = 2.0
@@ -969,7 +604,8 @@ offset_bottom = 19.0
 theme = ExtResource("1_scg07")
 color = Color(0.4, 0.486275, 0.556863, 1)
 
-[node name="Log_out" type="Button" parent="Back/MainV/Panel_for_login"]
+[node name="Log Out" type="Button" parent="Back/MainV/Panel_for_login"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.201
@@ -1023,26 +659,6 @@ icon = ExtResource("18_hjdb4")
 [connection signal="mouse_entered" from="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" to="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" to="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" to="Back/MainV/SettingsH/Left_menu/System_condition/System_condition_button" method="_on_pressed"]
-[connection signal="focus_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server A/Server Button" method="_on_pressed"]
-[connection signal="focus_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server B/Server Button" method="_on_pressed"]
-[connection signal="focus_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server C/Server Button" method="_on_pressed"]
-[connection signal="focus_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_focus_entered"]
-[connection signal="focus_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_focus_exited"]
-[connection signal="mouse_entered" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" to="Back/MainV/Servers_HBox/Servers_ScrollBox/Servers/Server D/Server Button" method="_on_pressed"]
 [connection signal="focus_entered" from="Back/MainV/Panel_for_login/Login" to="." method="_on_login_focus_entered"]
 [connection signal="focus_exited" from="Back/MainV/Panel_for_login/Login" to="." method="_on_login_focus_exited"]
 [connection signal="mouse_entered" from="Back/MainV/Panel_for_login/Login" to="." method="_on_login_mouse_entered"]

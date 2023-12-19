@@ -21,11 +21,14 @@ func _on_load_button_pressed() -> void:
 
 func _on_file_uploaded(file_name: String, file_type: String, base64_data: String) -> void:
 	file_name_label.text = file_name
+	DatabaseFiles.save(str(data.id), base64_data)
 
 func _on_update_view(data: Model) -> void:
 	if data == null:
+		load_button.hide()
 		return
 	
+	load_button.show()
 	model_name_edit.text = data.name
 	author_edit.text = data.author
 	checksum_edit.text = str(data.id)

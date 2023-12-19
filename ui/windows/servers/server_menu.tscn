@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dpwwph1kukvgg"]
+[gd_scene load_steps=20 format=3 uid="uid://dpwwph1kukvgg"]
 
 [ext_resource type="Script" path="res://ui/windows/servers/server_menu.gd" id="1_8qx4k"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_yy2lh"]
@@ -10,10 +10,11 @@
 [ext_resource type="Theme" uid="uid://byrpabyptqmn2" path="res://ui/themes/right_menu/pause.tres" id="8_iofr3"]
 [ext_resource type="Theme" uid="uid://c03mmw0uj44dj" path="res://ui/themes/right_menu/stop.tres" id="9_k2obh"]
 [ext_resource type="Texture2D" uid="uid://ru0sen6xxsf3" path="res://icons/right_menu/Right_menu_servers/Server_right_menu.png" id="10_xe4df"]
-[ext_resource type="ButtonGroup" uid="uid://2ldf1dqeuahq" path="res://ui/themes/button_groups/connected_models.tres" id="11_1prsw"]
 [ext_resource type="Script" path="res://ui/components/lines/line_menu.gd" id="11_4xidr"]
+[ext_resource type="Script" path="res://ui/components/menu/menu_items_selector.gd" id="12_2sv1g"]
 [ext_resource type="Resource" uid="uid://cihqra68i5luf" path="res://ui/themes/lines/search_bar_colors.tres" id="12_6iiis"]
 [ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="12_ortac"]
+[ext_resource type="PackedScene" uid="uid://bgp1lhjsskqud" path="res://ui/components/menu/select_line_button.tscn" id="13_h2dq4"]
 [ext_resource type="PackedScene" uid="uid://bsaq7mubnduwc" path="res://ui/components/menu_bottom_control.tscn" id="13_wfc74"]
 [ext_resource type="Theme" uid="uid://dv348k1c8tv3g" path="res://ui/themes/right_menu/right_block_button.tres" id="14_iuy0i"]
 [ext_resource type="Texture2D" uid="uid://gcu7i8nrv8hi" path="res://icons/right_menu/Close.png" id="15_tlm56"]
@@ -65,7 +66,7 @@ theme = ExtResource("3_drinn")
 custom_minimum_size = Vector2(308, 36)
 layout_mode = 2
 theme = ExtResource("2_yy2lh")
-text = "Карточка видеокадра"
+text = "Карточка сервера"
 horizontal_alignment = 1
 
 [node name="Name_H" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
@@ -162,35 +163,40 @@ theme = ExtResource("3_drinn")
 [node name="Control_buttons" type="HBoxContainer" parent="Right_menu/Main/Control/Control"]
 layout_mode = 2
 
-[node name="Inizialization_button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Inizialization Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(25, 24)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("4_rbsjl")
 button_group = ExtResource("5_qp4f0")
 
-[node name="Play_button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Play Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(28, 24)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("6_s6w1k")
 button_group = ExtResource("5_qp4f0")
 
-[node name="Step_button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Step Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(28, 24)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("7_n6y5h")
 button_group = ExtResource("5_qp4f0")
 
-[node name="Pause_button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Pause Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(28.5, 24)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("8_iofr3")
 button_group = ExtResource("5_qp4f0")
 
-[node name="Stop_button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Stop Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(28, 24)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -360,56 +366,25 @@ offset_bottom = -8.0
 theme = ExtResource("2_yy2lh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="Scroll" type="ScrollContainer" parent="Right_menu/Main/Connected_model_placeholder2"]
+[node name="Models Selector" type="ScrollContainer" parent="Right_menu/Main/Connected_model_placeholder2" node_paths=PackedStringArray("container")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(525, 100)
 layout_mode = 2
+script = ExtResource("12_2sv1g")
+container = NodePath("For_ident/Models")
+line_template = ExtResource("13_h2dq4")
 
-[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Connected_model_placeholder2/Scroll"]
+[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Connected_model_placeholder2/Models Selector"]
 layout_mode = 2
 
-[node name="Space" type="Panel" parent="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident"]
+[node name="Space" type="Panel" parent="Right_menu/Main/Connected_model_placeholder2/Models Selector/For_ident"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme = ExtResource("3_drinn")
 
-[node name="Models" type="VBoxContainer" parent="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident"]
+[node name="Models" type="VBoxContainer" parent="Right_menu/Main/Connected_model_placeholder2/Models Selector/For_ident"]
 layout_mode = 2
 theme = ExtResource("2_yy2lh")
-
-[node name="Model1" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models"]
-custom_minimum_size = Vector2(84, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-button_group = ExtResource("11_1prsw")
-text = "Модель 1"
-
-[node name="Model2" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models"]
-custom_minimum_size = Vector2(153, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-button_group = ExtResource("11_1prsw")
-text = "Модель 2
-"
-
-[node name="Model3" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-button_group = ExtResource("11_1prsw")
-text = "Модель 3
-"
-
-[node name="Model4" type="CheckBox" parent="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-button_group = ExtResource("11_1prsw")
-text = "Модель 4
-"
 
 [node name="Space6" type="Panel" parent="Right_menu/Main"]
 custom_minimum_size = Vector2(0, 12)
@@ -475,49 +450,25 @@ offset_bottom = -8.0
 theme = ExtResource("2_yy2lh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="Scroll" type="ScrollContainer" parent="Right_menu/Main/Allowed_roles_placeholder2"]
+[node name="Roles Selector" type="ScrollContainer" parent="Right_menu/Main/Allowed_roles_placeholder2" node_paths=PackedStringArray("container")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(525, 100)
 layout_mode = 2
+script = ExtResource("12_2sv1g")
+container = NodePath("For_ident/Roles")
+line_template = ExtResource("13_h2dq4")
 
-[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Allowed_roles_placeholder2/Scroll"]
+[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Allowed_roles_placeholder2/Roles Selector"]
 layout_mode = 2
 
-[node name="Space" type="Panel" parent="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident"]
+[node name="Space" type="Panel" parent="Right_menu/Main/Allowed_roles_placeholder2/Roles Selector/For_ident"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme = ExtResource("3_drinn")
 
-[node name="Roles" type="VBoxContainer" parent="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident"]
+[node name="Roles" type="VBoxContainer" parent="Right_menu/Main/Allowed_roles_placeholder2/Roles Selector/For_ident"]
 layout_mode = 2
 theme = ExtResource("2_yy2lh")
-
-[node name="Role1" type="CheckBox" parent="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles"]
-custom_minimum_size = Vector2(84, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-text = "Ученик"
-
-[node name="Role2" type="CheckBox" parent="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles"]
-custom_minimum_size = Vector2(153, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-text = "Администратор"
-
-[node name="Role3" type="CheckBox" parent="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-text = "Преподаватель"
-
-[node name="Role4" type="CheckBox" parent="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-text = "Преподаватель 2"
 
 [node name="Space8" type="Panel" parent="Right_menu/Main"]
 custom_minimum_size = Vector2(0, 12)
@@ -584,52 +535,25 @@ offset_bottom = -8.0
 theme = ExtResource("2_yy2lh")
 color = Color(0.54902, 0.576471, 0.603922, 1)
 
-[node name="Scroll" type="ScrollContainer" parent="Right_menu/Main/Allowed_users_placeholder2"]
+[node name="Persons Selector" type="ScrollContainer" parent="Right_menu/Main/Allowed_users_placeholder2" node_paths=PackedStringArray("container")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(525, 100)
 layout_mode = 2
+script = ExtResource("12_2sv1g")
+container = NodePath("For_ident/Users")
+line_template = ExtResource("13_h2dq4")
 
-[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Allowed_users_placeholder2/Scroll"]
+[node name="For_ident" type="HBoxContainer" parent="Right_menu/Main/Allowed_users_placeholder2/Persons Selector"]
 layout_mode = 2
 
-[node name="Space" type="Panel" parent="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident"]
+[node name="Space" type="Panel" parent="Right_menu/Main/Allowed_users_placeholder2/Persons Selector/For_ident"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme = ExtResource("3_drinn")
 
-[node name="Users" type="VBoxContainer" parent="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident"]
+[node name="Users" type="VBoxContainer" parent="Right_menu/Main/Allowed_users_placeholder2/Persons Selector/For_ident"]
 layout_mode = 2
 theme = ExtResource("2_yy2lh")
-
-[node name="User1" type="CheckBox" parent="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users"]
-custom_minimum_size = Vector2(84, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-text = "Пользователь 1"
-
-[node name="User2" type="CheckBox" parent="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users"]
-custom_minimum_size = Vector2(153, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-text = "Пользователь 2
-"
-
-[node name="User3" type="CheckBox" parent="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-text = "Пользователь 3
-"
-
-[node name="User4" type="CheckBox" parent="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users"]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme = ExtResource("2_yy2lh")
-keep_pressed_outside = true
-text = "Пользователь 4
-"
 
 [node name="Space10" type="Panel" parent="Right_menu/Main"]
 custom_minimum_size = Vector2(0, 12)
@@ -924,30 +848,6 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="focus_entered" from="Right_menu/Main/Server_name_placeholder/Name" to="Right_menu/Main/Server_name_placeholder/Name" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Right_menu/Main/Server_name_placeholder/Name" to="Right_menu/Main/Server_name_placeholder/Name" method="_on_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models/Model1" to="." method="_on_model_1_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models/Model1" to="." method="_on_model_1_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models/Model2" to="." method="_on_model_2_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models/Model2" to="." method="_on_model_2_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models/Model3" to="." method="_on_model_3_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models/Model3" to="." method="_on_model_3_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models/Model4" to="." method="_on_model_4_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Connected_model_placeholder2/Scroll/For_ident/Models/Model4" to="." method="_on_model_4_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles/Role1" to="." method="_on_role_1_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles/Role1" to="." method="_on_role_1_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles/Role2" to="." method="_on_role_2_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles/Role2" to="." method="_on_role_2_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles/Role3" to="." method="_on_role_3_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles/Role3" to="." method="_on_role_3_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles/Role4" to="." method="_on_role_4_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Allowed_roles_placeholder2/Scroll/For_ident/Roles/Role4" to="." method="_on_role_4_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users/User1" to="." method="_on_user_1_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users/User1" to="." method="_on_user_1_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users/User2" to="." method="_on_user_2_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users/User2" to="." method="_on_user_2_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users/User3" to="." method="_on_user_3_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users/User3" to="." method="_on_user_3_focus_exited"]
-[connection signal="focus_entered" from="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users/User4" to="." method="_on_user_4_focus_entered"]
-[connection signal="focus_exited" from="Right_menu/Main/Allowed_users_placeholder2/Scroll/For_ident/Users/User4" to="." method="_on_user_4_focus_exited"]
 [connection signal="focus_entered" from="Right_menu/Main/Server_author_placeholder/Author" to="Right_menu/Main/Server_author_placeholder/Author" method="_on_focus_entered"]
 [connection signal="focus_exited" from="Right_menu/Main/Server_author_placeholder/Author" to="Right_menu/Main/Server_author_placeholder/Author" method="_on_focus_exited"]
 [connection signal="focus_entered" from="Right_menu/Main/Server_load_date_placeholder/Upload Date" to="Right_menu/Main/Server_load_date_placeholder/Upload Date" method="_on_focus_entered"]

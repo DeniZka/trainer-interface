@@ -1,7 +1,7 @@
 class_name WindowsManager
 extends Control
 
-@onready var navigation_bar: LineMenuGroup = $"Windows Content/Navigation Left Bar" as LineMenuGroup
+@onready var navigation_bar: LeftBar = $"Windows Content/Navigation Left Bar" as LineMenuGroup
 
 @onready var persons_window: PersonsWindow = $"Windows Content/Persons Window" as PersonsWindow
 @onready var roles_window: RolesWindow = $"Windows Content/Roles Window" as RolesWindow
@@ -30,6 +30,15 @@ func _ready() -> void:
 		windows[window_id].opened_menu.connect(func(data): menu_manager.open(window_id, data))
 	
 	navigation_bar.button_pressed.connect(_on_navigation_button_pressed)
+	_update_server_list_on_navigation_bar()
+
+func _update_server_list_on_navigation_bar() -> void:
+	var servers: JSONApi = Api.servers
+	var response: HTTPResponse = await servers.all()
+	var servers_data = Server.create_from_response(response)
+	navigation_bar.clear_servers()
+	for data in servers_data:
+		navigation_bar.add_server(data.name)
 
 func _on_navigation_button_pressed(tag: String) -> void:
 	if current != null:
@@ -39,4 +48,5 @@ func _on_navigation_button_pressed(tag: String) -> void:
 		current = windows[tag]
 		current.open()
 	else:
+		current = null
 		Log.fatal("Окно \"%s\" не обнаружено в списке окон WindowsManager" % tag)

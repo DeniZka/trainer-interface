@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0pcrvlfc80fh"]
+
+[ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="1_uaqba"]
+[ext_resource type="ButtonGroup" uid="uid://2ldf1dqeuahq" path="res://ui/themes/button_groups/connected_models.tres" id="2_phcg0"]
+
+[node name="Model1" type="CheckBox"]
+custom_minimum_size = Vector2(84, 30)
+theme = ExtResource("1_uaqba")
+keep_pressed_outside = true
+button_group = ExtResource("2_phcg0")
+text = "Модель 1"

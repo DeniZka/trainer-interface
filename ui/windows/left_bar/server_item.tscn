@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://tuktxvwe15aa"]
+
+[ext_resource type="Theme" uid="uid://dxu2ci1r7b072" path="res://ui/themes/left_menu/left_main.tres" id="1_cs3hm"]
+[ext_resource type="Script" path="res://ui/windows/left_bar/server_item.gd" id="2_tbv2o"]
+[ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="2_vyb72"]
+[ext_resource type="ButtonGroup" uid="uid://du6n17rmehtbj" path="res://ui/themes/button_groups/settings_left_menu.tres" id="3_464ok"]
+[ext_resource type="Texture2D" uid="uid://cruhip4lopqgq" path="res://icons/left_menu/Server_icon_left_menu.png" id="4_4bjug"]
+[ext_resource type="Script" path="res://ui/components/lines/line_item.gd" id="5_ri53m"]
+[ext_resource type="Texture2D" uid="uid://bhmcbts7071op" path="res://icons/animals/Orca_62.png" id="6_civtc"]
+
+[node name="Server Item" type="HBoxContainer"]
+theme = ExtResource("1_cs3hm")
+script = ExtResource("2_tbv2o")
+
+[node name="Space" type="Panel" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme = ExtResource("2_vyb72")
+
+[node name="Server Button" type="Button" parent="." node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
+custom_minimum_size = Vector2(212, 100)
+layout_mode = 2
+theme = ExtResource("1_cs3hm")
+toggle_mode = true
+button_group = ExtResource("3_464ok")
+icon = ExtResource("4_4bjug")
+vertical_icon_alignment = 0
+script = ExtResource("5_ri53m")
+tag = "ServerA"
+vertical_lines = [NodePath("Label/SerVV")]
+horizontal_lines = [NodePath("Label/SerVH")]
+
+[node name="Label" type="Label" parent="Server Button"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 72.0
+offset_bottom = 21.0
+theme = ExtResource("1_cs3hm")
+text = "Сервер А
+"
+
+[node name="SerVH" type="ColorRect" parent="Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 51.0
+offset_right = -42.0
+offset_bottom = 53.0
+theme = ExtResource("1_cs3hm")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="SerVV" type="ColorRect" parent="Server Button/Label"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = -67.0
+offset_right = 60.0
+offset_bottom = -65.0
+rotation = 1.5708
+theme = ExtResource("1_cs3hm")
+color = Color(0.4, 0.486275, 0.556863, 1)
+
+[node name="Orca68" type="Sprite2D" parent="Server Button"]
+visible = false
+position = Vector2(161, 64)
+texture = ExtResource("6_civtc")
+
+[node name="Orca67" type="Sprite2D" parent="Server Button"]
+visible = false
+position = Vector2(139, 64)
+texture = ExtResource("6_civtc")
+
+[node name="Orca66" type="Sprite2D" parent="Server Button"]
+visible = false
+position = Vector2(117, 64)
+texture = ExtResource("6_civtc")
+
+[node name="Orca65" type="Sprite2D" parent="Server Button"]
+visible = false
+position = Vector2(95, 64)
+texture = ExtResource("6_civtc")
+
+[node name="Orca64" type="Sprite2D" parent="Server Button"]
+visible = false
+position = Vector2(73, 64)
+texture = ExtResource("6_civtc")
+
+[node name="Orca63" type="Sprite2D" parent="Server Button"]
+visible = false
+position = Vector2(52, 64)
+texture = ExtResource("6_civtc")
+
+[node name="Orca62" type="Sprite2D" parent="Server Button"]
+position = Vector2(32, 64)
+texture = ExtResource("6_civtc")
+
+[node name="State" type="Button" parent="Server Button"]
+visible = false
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 251.101
+offset_top = -1.60706
+offset_right = 275.101
+offset_bottom = 22.3929
+theme = ExtResource("2_vyb72")
+disabled = true
+
+[node name="Space2" type="Panel" parent="."]
+layout_mode = 2
+theme = ExtResource("2_vyb72")
+
+[connection signal="focus_entered" from="Server Button" to="Server Button" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Server Button" to="Server Button" method="_on_focus_exited"]
+[connection signal="mouse_entered" from="Server Button" to="Server Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Server Button" to="Server Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Server Button" to="Server Button" method="_on_pressed"]

@@ -4,7 +4,7 @@ extends Node
 const TIMEOUT_IN_SECONDS: float = 1.0
 
 var url: String = "https://192.168.100.105:8000"
-var http: HTTPRequest
+var pool: HTTPRequestPool
 
 var persons: JSONApi
 var roles: JSONApi
@@ -15,19 +15,17 @@ var screens: JSONApi
 var servers: JSONApi
 
 func _ready() -> void:
-	http = create_http_request(TIMEOUT_IN_SECONDS)
-	initialize_api(url, http)
+	pool = create_http_request_pool(TIMEOUT_IN_SECONDS)
+	initialize_api(url, pool)
 
-func create_http_request(timeout: float) -> HTTPRequest:
-	var request = HTTPRequest.new()
-	request.set_tls_options(TLSOptions.client_unsafe())
-	request.timeout = timeout
-	add_child(request)
-	return request
+func create_http_request_pool(timeout: float) -> HTTPRequestPool:
+	var pool = HTTPRequestPool.new(timeout)
+	add_child(pool)
+	return pool
 
-func initialize_api(url: String, http: HTTPRequest) -> void:
+func initialize_api(url: String, pool: HTTPRequestPool) -> void:
 	const base_url: String = "http://localhost:3000/"
-	var http_service: HTTPService = HTTPService.new(http)
+	var http_service: HTTPService = HTTPService.new(pool)
 	self.persons = JSONApi.new(base_url + "persons", http_service)
 	self.roles = JSONApi.new(base_url + "roles", http_service)
 	self.models = JSONApi.new(base_url + "models", http_service)

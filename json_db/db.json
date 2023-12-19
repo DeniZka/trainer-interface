@@ -92,12 +92,12 @@
   ],
   "saves": [
 	{
-	  "id": 0,
 	  "save_id": 0,
 	  "name": "Тест ошибок",
-	  "model": "Безымянная модель",
 	  "author": "Иванов Иван Иванович",
-	  "created_at": "00:00:00"
+	  "model": "Безымянная модель",
+	  "created_at": "00:00:00",
+	  "id": 0
 	},
 	{
 	  "id": 1,
@@ -113,12 +113,12 @@
 	  "id": 0,
 	  "screen_id": 0,
 	  "name": "Кадр №1",
-	  "model": "Безымянная модель (id: 0)",
-	  "available_roles": [
+	  "model": "Безымянная модель",
+	  "roles_allowed": [
 		"Студент",
 		"Администратор"
 	  ],
-	  "available_persons": [],
+	  "persons_allowed": [],
 	  "author": "Иванов Иван Иванович",
 	  "created_at": "00:00:00"
 	},
@@ -126,29 +126,29 @@
 	  "id": 1,
 	  "screen_id": 1,
 	  "name": "Кадр №2",
-	  "model": "Безымянная модель (id: 0)",
-	  "available_roles": [
+	  "model": "Безымянная модель",
+	  "roles_allowed": [
 		"Администратор"
 	  ],
-	  "available_persons": [],
+	  "persons_allowed": [],
 	  "author": "Иванов Иван Иванович",
 	  "created_at": "00:00:00"
 	}
   ],
   "scenarios": [
 	{
-	  "id": 0,
 	  "scenario_id": 0,
 	  "name": "Стандартный сценарий",
-	  "model": "Безымянная модель (id: 0)",
 	  "author": "Иванов Иван Иванович",
-	  "created_at": "00:00:00"
+	  "model": "Безымянная модель",
+	  "created_at": "00:00:00",
+	  "id": 0
 	},
 	{
 	  "id": 1,
 	  "scenario_id": 1,
 	  "name": "Сложный сценарий",
-	  "model": "Безымянная модель (id: 0)",
+	  "model": "Безымянная модель",
 	  "author": "Иванов Иван Иванович",
 	  "created_at": "00:00:00"
 	}
@@ -158,12 +158,12 @@
 	  "id": 0,
 	  "server_id": 0,
 	  "name": "Лучший сервер",
-	  "model": "Безымянная модель (id: 0)",
-	  "available_roles": [
+	  "model": "Безымянная модель",
+	  "roles_allowed": [
 		"Студент",
 		"Администратор"
 	  ],
-	  "available_persons": [
+	  "persons_allowed": [
 		"Алексеев Алексей Алексеевич"
 	  ],
 	  "author": "Иванов Иван Иванович",
@@ -173,12 +173,12 @@
 	  "id": 1,
 	  "server_id": 1,
 	  "name": "Другой лучший сервер",
-	  "model": "Безымянная модель (id: 0)",
-	  "available_roles": [
+	  "model": "Безымянная модель",
+	  "roles_allowed": [
 		"Студент",
 		"Администратор"
 	  ],
-	  "available_persons": [
+	  "persons_allowed": [
 		"Алексеев Алексей Алексеевич"
 	  ],
 	  "author": "Иванов Иван Иванович",

@@ -13,6 +13,9 @@ func _ready() -> void:
 	for item in menu_items:
 		add_item(item)
 
+func erase_nulls() -> void:
+	menu_items = menu_items.filter(func(item): return item != null)
+
 func add_item(item: LineItem) -> void:
 	item.item_focus_entered.connect(_on_item_focus_entered)
 	item.item_focus_exited.connect(_on_item_focus_exited)
