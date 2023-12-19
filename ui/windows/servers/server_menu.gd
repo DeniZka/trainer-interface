@@ -82,6 +82,7 @@ func _create_from_menu() -> Server:
 		server.available_persons.append(selected_person)
 	
 	## TODO: create server on backend
+	RPC.crete_server.rpc(server.name, server.model)
 	
 	return server
 

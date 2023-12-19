@@ -20,7 +20,9 @@ func _on_load_button_pressed() -> void:
 	file_uploaded.open()
 
 func _on_file_uploaded(file_name: String, file_type: String, base64_data: String) -> void:
+	var model: Model = data
 	file_name_label.text = file_name
+	RPC.upload_model.rpc(model.name, base64_data)
 
 func _on_update_view(data: Model) -> void:
 	if data == null:
