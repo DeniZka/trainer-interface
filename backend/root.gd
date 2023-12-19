@@ -26,6 +26,8 @@ signal request_post_signals_into_server(server_name: String, signals: Dictionary
 #@onready var sit_manager : SITManager
 var hypervisor: SITHypervisor
 #var servers : Array[SITManager] = []
+var models: Dictionary = {} #"name": base64
+var models_servers : Dictionary = {} #"name": [server_name, ..]
 
 
 var stomp : STOMPClient = null
@@ -35,6 +37,7 @@ func _ready():
 	begin_serve()   #FIRST give clients passability to interact server
 	_on_user_sit_connect(RPC.CONNECTION_TCP)  #SECOND connect to AMQP
 	$UI_update.start(1.0) #interface view internal status
+
 	
 func _exit_tree():
 	hypervisor.free()
@@ -50,7 +53,7 @@ func _process(delta):
 func _on_ui_update_timeout():
 	$users.text = JSON.stringify(hypervisor.get_peers(),"\t")
 	$signals.text = JSON.stringify(hypervisor.get_servers_statistic(), "\t")
-	$links.text = JSON.stringify(hypervisor.get_servers(), "\t")
+	$links.text = JSON.stringify(models_servers, "\t")
 	
 func begin_serve():
 	peer = ENetMultiplayerPeer.new()
@@ -60,6 +63,13 @@ func begin_serve():
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	RPC.sit_connection_status_requested.connect(_on_user_sit_connection_status)
 	RPC.sit_connection_requested.connect(_on_user_sit_connect)
+	
+	RPC.server_list_requested.connect(_on_user_server_list_requested)
+	RPC.create_server_requested.connect(_on_user_server_create)
+	RPC.kill_server_requested.connect(_on_user_kill_server)
+	
+	RPC.model_list_requested.connect(_on_user_model_list_requested)
+	RPC.upload_model_requested.connect(_on_user_upload_model)
 	
 	#multiplayer.get_peers()
 	#request_post_signals_into_server.connect(_ON_request_post_signals_into_server)
@@ -85,6 +95,7 @@ func _on_user_sit_connect(method: int):
 	#hypervisor.get_server_list()
 	
 	hypervisor.server_up("DUMMY")
+	hypervisor.server_up_received.connect(_on_hypervisor_server_up)
 	
 signal connection_result(ok: bool) #one shot signal
 func connect_to_server(stomp: STOMPClient, address: String, host: String, login: String, password: String):
@@ -133,6 +144,16 @@ func _on_hypervisor_alive_timeout():
 	RPC.hypervisor_down.rpc()
 	Log.trace("Warning! Hypervisor is not response")
 	
+func _on_hypervisor_server_up(server_name: String):
+	for model in models_servers:
+		if models_servers[model] == server_name:
+			models_servers[model] = models_servers[model] + " [UP]"
+			
+func _on_hypervisor_server_down(server_name: String):
+	for model in models_servers:
+		if server_name in models_servers[model].keys():
+			models_servers[model][server_name] = "UP"	
+	
 #func send_signals_anyone_at(srv: String, sigs: Dictionary):
 	#for server in servers:
 		#if server.name == srv:
@@ -148,6 +169,26 @@ func _on_peer_disconnected(id: int):
 	Log.trace("Some frontend disconnected:  %d" % id)
 	hypervisor.peer_disconnected(id)
 	#Log.trace("Peer count: %d" % pl.size())	
+	
+func _on_user_server_list_requested(id: int):
+	hypervisor.get_server_list(id)
+	pass
+	
+func _on_user_server_create(server_name: String, model_name: String):
+	#TODO: get model file
+	hypervisor.create_server(server_name, models[model_name])
+	models_servers[model_name] = {server_name: "down"}
+	
+func _on_user_kill_server(server_name: String):
+	hypervisor.kill_Server(server_name)
+	
+func _on_user_model_list_requested(id: int):
+	RPC.send_model_list.rpc_id(id, models.keys())
+	
+func _on_user_upload_model(model_name: String, base64_file: String, id: int):
+	models[model_name] = base64_file
+	models_servers[model_name] = []
+	RPC.send_model_list.rpc_id(id, models.keys())
 	
 ##testing loopback model react immitation
 #func _ON_request_post_signals_into_server(srv: String, signals: Dictionary):

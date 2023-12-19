@@ -22,7 +22,7 @@ offset_left = 9.0
 offset_top = 561.0
 offset_right = 251.0
 offset_bottom = 644.0
-text = "LINKS"
+text = "Models"
 
 [node name="links" type="RichTextLabel" parent="."]
 offset_left = 12.0

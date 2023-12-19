@@ -18,6 +18,7 @@ signal server_status_anounced(server_name: String, status: Array)
 signal users_status_updated(user_name: String, pos: Vector2) #on the same server user joined {"Name": cursor }
 signal user_joined_anounced(user_name: String)
 signal user_leaved_anounced(user_name : String)
+signal model_list_received(models: Array)
 
 
 #signals for backend
@@ -28,11 +29,13 @@ signal request_signal_list_updated(signal_list: Array, peer: int, operaion: int)
 signal signal_values_offered(signals: Dictionary, peer: int)
 signal cursor_position_updated(pos: Vector2, peer: int)
 
-signal create_server_requested(server_name: String, server_file: String)
+signal create_server_requested(server_name: String, model_name: String)
 signal kill_server_requested(server_name: String)
 signal server_control_requested(server_name: String, action: String)
 signal sit_connection_requested(method: int)
 signal sit_connection_status_requested()
+signal upload_model_requested(model_name: String, base64_file: String)
+signal model_list_requested()
 
 #functions for FE and BE
 enum {SLOP_UPDATE, SLOP_NEW, SLOP_CLEAR}
@@ -67,8 +70,8 @@ func cursor_position(pos: Vector2):
 #Odmin functions
 	
 @rpc("any_peer")
-func crete_server(server_name: String, file: String):
-	create_server_requested.emit(server_name, file)
+func crete_server(server_name: String, model_name: String):
+	create_server_requested.emit(server_name, model_name)
 
 @rpc("any_peer")
 func kill_server(server_name: String):
@@ -87,7 +90,13 @@ func sit_connect(method: int):
 func get_sit_connection_status():
 	sit_connection_status_requested.emit()
 	
+@rpc("any_peer")
+func upload_model(model_name: String, base64_file: String):
+	upload_model_requested.emit(model_name, base64_file, multiplayer.get_remote_sender_id())
 
+@rpc("any_peer")
+func get_model_list():
+	model_list_requested.emit(multiplayer.get_remote_sender_id())
 	
 
 
@@ -160,3 +169,7 @@ func user_joined(user_name: String):
 @rpc
 func user_leaved(user_name: String):
 	user_leaved_anounced.emit(user_name)
+
+@rpc
+func send_model_list(models: Array):
+	model_list_received.emit(models)
