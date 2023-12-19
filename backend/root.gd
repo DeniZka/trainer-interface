@@ -146,13 +146,13 @@ func _on_hypervisor_alive_timeout():
 	
 func _on_hypervisor_server_up(server_name: String):
 	for model in models_servers:
-		if models_servers[model] == server_name:
-			models_servers[model] = models_servers[model] + " [UP]"
+		if server_name in models_servers[model]:
+			models_servers[model][server_name] = "UP"
 			
 func _on_hypervisor_server_down(server_name: String):
 	for model in models_servers:
 		if server_name in models_servers[model].keys():
-			models_servers[model][server_name] = "UP"	
+			models_servers[model][server_name] = "DOWN"	
 	
 #func send_signals_anyone_at(srv: String, sigs: Dictionary):
 	#for server in servers:
@@ -177,17 +177,21 @@ func _on_user_server_list_requested(id: int):
 func _on_user_server_create(server_name: String, model_name: String):
 	#TODO: get model file
 	hypervisor.create_server(server_name, models[model_name])
-	models_servers[model_name] = {server_name: "down"}
+	models_servers[model_name].merge({server_name: "DOWN"})
 	
 func _on_user_kill_server(server_name: String):
-	hypervisor.kill_Server(server_name)
+	hypervisor.kill_server(server_name)
+	for model in models_servers:
+		if server_name in models_servers[model]:
+			models_servers[model].erase(server_name)
+			break
 	
 func _on_user_model_list_requested(id: int):
 	RPC.send_model_list.rpc_id(id, models.keys())
 	
 func _on_user_upload_model(model_name: String, base64_file: String, id: int):
 	models[model_name] = base64_file
-	models_servers[model_name] = []
+	models_servers[model_name] = {}
 	RPC.send_model_list.rpc_id(id, models.keys())
 	
 ##testing loopback model react immitation
@@ -201,13 +205,24 @@ func _on_user_upload_model(model_name: String, base64_file: String, id: int):
 			#send_signals_anyone_at(srv, {stat: [5]})
 	
 func _on_button_pressed():
+	#request
+	_on_user_server_create($LEServerName.text, $OBModelList.get_item_text($OBModelList.selected))
+	#response
 	hypervisor.process_string(
 		JSON.stringify(
-			{"jsonrpc":"2.0", "method":"server_up","params":$LineEdit.text}
+			{"jsonrpc":"2.0", "method":"server_up","params":$LEServerName.text}
 		)
 	)
 	#hypervisor.server_up($LineEdit.text)
 
 func _on_button_2_pressed():
-	hypervisor.server_down($LineEdit.text)
-	pass # Replace with function body.
+	#request
+	_on_user_kill_server($LEServerName.text)
+	#response
+	hypervisor.server_down($LEServerName.text)
+
+func _on_b_create_model_pressed():
+	_on_user_upload_model($LEModelName.text, "hello world", 0)
+	$OBModelList.clear()
+	for model_name in models:
+		$OBModelList.add_item(model_name)

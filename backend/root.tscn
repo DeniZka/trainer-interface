@@ -40,7 +40,7 @@ text = "SIGNALS"
 [node name="signals" type="RichTextLabel" parent="."]
 offset_left = 353.0
 offset_top = 88.0
-offset_right = 1871.0
+offset_right = 1726.0
 offset_bottom = 1070.0
 text = "asdfadfa"
 
@@ -54,30 +54,54 @@ one_shot = true
 
 [node name="UI_update" type="Timer" parent="."]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 35.0
-offset_top = 46.0
-offset_right = 161.0
-offset_bottom = 79.0
+[node name="BCreateServer" type="Button" parent="."]
+offset_left = 1751.0
+offset_top = 271.0
+offset_right = 1877.0
+offset_bottom = 304.0
 text = "create"
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 170.0
-offset_top = 46.0
-offset_right = 296.0
-offset_bottom = 79.0
+[node name="BKillServer" type="Button" parent="."]
+offset_left = 1753.0
+offset_top = 312.0
+offset_right = 1879.0
+offset_bottom = 345.0
 text = "kill server"
 
-[node name="LineEdit" type="LineEdit" parent="."]
-offset_left = 79.0
-offset_top = 6.0
-offset_right = 211.0
-offset_bottom = 37.0
+[node name="LEServerName" type="LineEdit" parent="."]
+offset_left = 1752.0
+offset_top = 187.0
+offset_right = 1884.0
+offset_bottom = 218.0
 text = "server_name"
+
+[node name="BCreateModel" type="Button" parent="."]
+offset_left = 1753.0
+offset_top = 61.0
+offset_right = 1879.0
+offset_bottom = 94.0
+text = "create"
+
+[node name="LEModelName" type="LineEdit" parent="."]
+offset_left = 1752.0
+offset_top = 18.0
+offset_right = 1884.0
+offset_bottom = 49.0
+text = "model_name"
+
+[node name="OBModelList" type="OptionButton" parent="."]
+anchors_preset = -1
+anchor_right = 0.071
+anchor_bottom = 0.019
+offset_left = 1754.0
+offset_top = 223.0
+offset_right = 1748.68
+offset_bottom = 232.48
 
 [connection signal="timeout" from="AMQP_connect_check" to="." method="_on_amqp_connect_check_timeout"]
 [connection signal="timeout" from="Connection_checker" to="." method="_on_connection_checker_timeout"]
 [connection signal="timeout" from="Hypervisor_alive" to="." method="_on_hypervisor_alive_timeout"]
 [connection signal="timeout" from="UI_update" to="." method="_on_ui_update_timeout"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="BCreateServer" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="BKillServer" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="BCreateModel" to="." method="_on_b_create_model_pressed"]
