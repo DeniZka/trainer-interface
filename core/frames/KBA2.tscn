@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://core/frames/frame.gd" id="1_y5nju"]
 [ext_resource type="PackedScene" uid="uid://bbd7wvu4waya2" path="res://core/devices/NodeBlue.tscn" id="2_7urny"]
 [ext_resource type="PackedScene" uid="uid://i1gy4pljl145" path="res://core/devices/ValveRegul.tscn" id="3_2wsit"]
-[ext_resource type="Theme" uid="uid://cs4bkw5nffd1u" path="res://Themes/For_scheme_elements/For_elements.tres" id="4_33kpl"]
+[ext_resource type="Theme" uid="uid://cs4bkw5nffd1u" path="res://core/devices/themes/For_scheme_elements/For_elements.tres" id="4_33kpl"]
 [ext_resource type="PackedScene" uid="uid://bvvmavom2oouc" path="res://core/devices/ValveEl.tscn" id="4_qoqdb"]
 [ext_resource type="PackedScene" uid="uid://0vjytkiid28w" path="res://core/devices/ListChange.tscn" id="5_1702m"]
 [ext_resource type="PackedScene" uid="uid://deibof6jekfnt" path="res://core/devices/ValveCheck.tscn" id="7_xg1kg"]

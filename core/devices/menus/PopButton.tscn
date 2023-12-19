@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://ds5viwncwvcci"]
 
 [ext_resource type="Script" path="res://core/devices/menus/float_button.gd" id="1_837di"]
+[ext_resource type="AnimationLibrary" uid="uid://c87dq8x5mrjc3" path="res://core/devices/themes/For_scheme_elements/Menus/play.tres" id="4_qr2pm"]
+[ext_resource type="AnimationLibrary" uid="uid://c3yrcnjatpn0r" path="res://core/devices/themes/For_scheme_elements/Menus/play_tmp.tres" id="5_47onv"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="5_d2v5n"]
 [ext_resource type="PackedScene" uid="uid://dhcydj5r2vwp8" path="res://core/primitives/pill.tscn" id="5_grx8g"]
-[ext_resource type="AnimationLibrary" uid="uid://c87dq8x5mrjc3" path="res://Themes/For_scheme_elements/Menus/play.tres" id="5_pe42d"]
-[ext_resource type="AnimationLibrary" uid="uid://c3yrcnjatpn0r" path="res://Themes/For_scheme_elements/Menus/play_tmp.tres" id="6_1qswr"]
 
 [node name="float_button" type="Node2D"]
 script = ExtResource("1_837di")
@@ -58,8 +58,8 @@ position = Vector2(61, -68)
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": ExtResource("5_pe42d"),
-"temp": ExtResource("6_1qswr")
+"": ExtResource("4_qr2pm"),
+"temp": ExtResource("5_47onv")
 }
 
 [connection signal="pressed" from="button_place/text/Button" to="." method="_on_button_pressed"]
