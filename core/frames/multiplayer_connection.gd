@@ -1,6 +1,8 @@
 class_name MultiplayerConnection
 extends Node
 
+signal changed(new_state: int)
+
 @onready var crt = preload("res://certificates/X509_Certificate.crt")
 @onready var key = preload("res://certificates/X509_Key.key")
 
@@ -9,8 +11,20 @@ const DEFAULT_PORT: int = 10508
 
 var peer: WebSocketMultiplayerPeer
 
+var state: ConnectionState = ConnectionState.Unknown :
+	set(value):
+		state = value
+		changed.emit(value)
+
+enum ConnectionState {
+	Unknown = 0,
+	Connected = 1,
+	Failed = 2,
+	Disconnected = 3
+}
+
 func _ready() -> void:
-	peer = WebSocketMultiplayerPeer.new()	
+	peer = WebSocketMultiplayerPeer.new()
 	multiplayer.connected_to_server.connect(_on_server_connected)
 	multiplayer.connection_failed.connect(_on_connection_failed)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
@@ -20,12 +34,15 @@ func get_server_websocket_url() -> String:
 
 func _on_server_connected() -> void:
 	Log.debug("Соединение установлено с %s" % get_server_websocket_url())
+	state = ConnectionState.Connected
 
 func _on_connection_failed() -> void:
 	Log.error("Ошибка соединения! %s" % get_server_websocket_url())
+	state = ConnectionState.Failed
 
 func _on_server_disconnected() -> void:
 	Log.debug("Отключение от %s" % get_server_websocket_url())
+	state = ConnectionState.Disconnected
 
 func connect_to_server() -> void:
 	var server_ip: String = get_server_websocket_url()
@@ -37,4 +54,5 @@ func connect_to_server() -> void:
 
 func disconnect_from_server() -> void:
 	Log.debug("Отключаюсь от сервера %s" % get_server_websocket_url())
+	state = ConnectionState.Disconnected
 	peer.close()
