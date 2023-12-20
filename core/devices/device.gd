@@ -14,7 +14,7 @@ var full_name : String
 
 signal device_menu_popped(dev: Device, state: bool)
 signal name_changed(dev: Device, prev_name: String) #4 update signals list
-#signal signals_emited(out_signals: Dictionary)
+signal signals_emited(out_signals: Dictionary)
 signal _await_interrupt(ir_status: bool) #0-got correct signal 1 - timeout
 
 func printLabel():
@@ -62,8 +62,7 @@ func get_full_name() -> String:
 
 #use await send_signals(signals, true)  in case of await_confirm 
 func send_signal(sigName: String, sigVal: Variant, await_confirm : bool = false) -> bool:
-	#var d : Dictionary = {main_name+sub_name+"_"+sigName: [sigVal]}
-	#signals_emited.emit(d)
+	signals_emited.emit({main_name+sub_name+"_"+sigName: [sigVal]})
 	var result : bool = true
 	if await_confirm:
 		_response["name"] = main_name+sub_name+"_"+sigName #FIXME .duolicate() ???
