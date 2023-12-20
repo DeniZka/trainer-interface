@@ -92,7 +92,7 @@ func set_signal_values(in_sig: String, in_values: Array):
 	if _is_await_response and in_sig == _response["name"]:
 		var same_as_await : bool = true
 		for i in range(in_values.size()):
-			if in_values[i] != _response["values"][i]:
+			if int(in_values[i]) != int(_response["values"][i]): #FIXME Latter incoming is a float(and looks lika int) & have bool
 				same_as_await = false #FIXME: array and single 
 		if same_as_await:
 			_await_interrupt.emit(true)

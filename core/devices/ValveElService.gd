@@ -39,7 +39,7 @@ const NOCOLOR_RGB = Color(1, 1, 1, 0)
 		elMotor.rotation_degrees = val
 		elMotorRefusal.rotation_degrees = val
 
-const valve_stat_map = {2:"открыт",3:"открывается",4:"закрыт",5:"закрывается",6:"в проме"}
+const valve_stat_map = {0:"неизвестно", 2:"открыт",3:"открывается",4:"закрыт",5:"закрывается",6:"в проме"}
 @export_enum("неизвестно", "открыт", "закрыт", "в проме", "открывается", "закрывается") var valve_stat : String = "неизвестно": #same as VLV_STATE indexes
 	set(val):
 		valve_stat = val

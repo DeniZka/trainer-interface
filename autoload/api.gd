@@ -24,7 +24,7 @@ func create_http_request_pool(timeout: float) -> HTTPRequestPool:
 	return pool
 
 func initialize_api(url: String, pool: HTTPRequestPool) -> void:
-	const base_url: String = "http://localhost:3000/"
+	const base_url: String = "http://127.0.0.1:3000/"
 	var http_service: HTTPService = HTTPService.new(pool)
 	self.persons = JSONApi.new(base_url + "persons", http_service)
 	self.roles = JSONApi.new(base_url + "roles", http_service)

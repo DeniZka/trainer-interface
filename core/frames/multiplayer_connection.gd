@@ -6,7 +6,7 @@ signal changed(new_state: int)
 @onready var crt = preload("res://certificates/X509_Certificate.crt")
 @onready var key = preload("res://certificates/X509_Key.key")
 
-const DEFAULT_IP: String = "192.168.100.103"
+const DEFAULT_IP: String = "127.0.0.1"#"192.168.100.103"
 const DEFAULT_PORT: int = 10508
 
 var peer: ENetMultiplayerPeer
