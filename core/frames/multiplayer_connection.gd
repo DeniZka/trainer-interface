@@ -9,7 +9,7 @@ signal changed(new_state: int)
 const DEFAULT_IP: String = "192.168.100.103"
 const DEFAULT_PORT: int = 10508
 
-var peer: WebSocketMultiplayerPeer
+var peer: ENetMultiplayerPeer
 
 var state: ConnectionState = ConnectionState.Unknown :
 	set(value):
@@ -24,11 +24,9 @@ enum ConnectionState {
 }
 
 func _ready() -> void:
-	peer = WebSocketMultiplayerPeer.new()
-	print(peer.outbound_buffer_size)
-	peer.inbound_buffer_size = 6553500
-	peer.outbound_buffer_size = 6553500
-	print(peer.outbound_buffer_size)
+	peer = ENetMultiplayerPeer.new()
+	#peer.inbound_buffer_size = 6553500
+	#peer.outbound_buffer_size = 6553500
 	multiplayer.connected_to_server.connect(_on_server_connected)
 	multiplayer.connection_failed.connect(_on_connection_failed)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
@@ -49,9 +47,10 @@ func _on_server_disconnected() -> void:
 	state = ConnectionState.Disconnected
 
 func connect_to_server() -> void:
-	var server_ip: String = get_server_websocket_url()
-	var error: int = peer.create_client(server_ip, TLSOptions.client(crt))
-	Log.debug("Подключаюсь к серверу %s" % server_ip)
+	#var server_ip: String = get_server_websocket_url()
+	#var error: int = peer.create_client(server_ip, TLSOptions.client(crt))
+	var error: int = peer.create_client(DEFAULT_IP, DEFAULT_PORT)
+	#Log.debug("Подключаюсь к серверу %s" % server_ip)
 	if error != OK:
 		Log.error("Не удалось подключиться к серверу. Код ошибки: %s" % error)
 	multiplayer.multiplayer_peer = peer

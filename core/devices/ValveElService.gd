@@ -67,7 +67,7 @@ const valve_stat_map = {2:"открыт",3:"открывается",4:"закр�
 			player.play("closing")
 
 @export_group("Refusal")
-const power_map = {2:true, 1:true, 0:false}
+const power_map = {2:true, 1:false, 0:false}
 @export var power: bool = false:
 	set(val):
 		power = val
@@ -81,7 +81,7 @@ const power_map = {2:true, 1:true, 0:false}
 			valveLeftRefusal.modulate = NOCOLOR_RGB
 			valveRightRefusal.modulate = NOCOLOR_RGB
 
-const control_map = {2:true, 1:true, 0:false}
+const control_map = {2:false, 1:true, 0:false}
 @export var control: bool = false:
 	set(val):
 		control = val		
@@ -99,7 +99,7 @@ func _ready():
 			"YB01", # Открыть ДУ (ДУ - дистанционное управление) [0/1 boolean]
 			"YB02", #// Закрыть ДУ [0/1 boolean]
 			"YB03", #// Стоп ДУ [0/1 boolean]
-			"YB04", #// Подтвердить команду ДУ [0/1 boolean]
+			"YB92", #// Подтвердить команду ДУ [0/1 boolean]
 			"mf_type", #// тип отказа [double]
 			"mf_xq01", #// Жесткость отказа [double]
 			"mf_xb01", #// Отказ введен [0/1 boolean]
@@ -163,10 +163,10 @@ func _on_open_b_toggled(is_down):
 		maincir.outline_color = NOCOLOR_RGB
 
 func _on_accept_b_pressed():
-	var result : bool = await send_signal("YB04", [true], true)
+	var result : bool = await send_signal("YB92", [true], true)
 	if not result:
 		print("can't confirm due to timeout")
-	send_signal("YB04", [false])
+	send_signal("YB92", [false])
 	#FIXME: test
 	#if openb.toggled:
 		#set_signal_values(get_full_name()+"_is_state", [3])
