@@ -33,6 +33,7 @@ func _on_ready() -> void:
 	initialization_button.pressed.connect(func(): _on_server_control(SITCommand.Init))
 
 func _on_server_control(command: String) -> void:
+	Log.trace("Команда управления сервером: %s" % command)
 	RPC.server_control.rpc(data.name, command)
 
 func _on_update_view(data: Server) -> void:

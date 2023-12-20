@@ -21,6 +21,7 @@ extends Node2D
 
 signal exit_called() #emit when user wants to exit system
 signal commands_prepared(signals: Dictionary)
+signal outgoing_signals_ready()
 
 @onready var nframes = $frames
 @onready var dummy = $dummy_frame
@@ -152,8 +153,6 @@ func rename_singals(dev: Device, prev_name: String):
 		request_signal_list_updated.emit()
 		
 var outgoing_signals : Dictionary = {}
-
-signal outgoing_signals_ready()
 
 func device_signal_emited(sig: Dictionary):
 	var was_empty : bool = outgoing_signals.is_empty()
