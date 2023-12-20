@@ -137,7 +137,7 @@ func _on_maincir_popped(state):
 func _on_close_b_toggled(is_down):
 	if is_down and openb.toggled:
 		openb.toggled = false
-	send_signal("YB02", is_down)
+	send_signal("YB02", [is_down])
 	accept.pop = is_down
 	if is_down:
 		accept.outline_color = CLOSE_RGB
@@ -151,7 +151,7 @@ func _on_close_b_toggled(is_down):
 func _on_open_b_toggled(is_down):
 	if is_down and closeb.toggled:
 		closeb.toggled = false
-	send_signal("YB01", is_down)
+	send_signal("YB01", [is_down])
 	accept.pop = is_down
 	if is_down:
 		accept.outline_color = OPEN_RGB
@@ -166,7 +166,7 @@ func _on_accept_b_pressed():
 	var result : bool = await send_signal("YB04", true, true)
 	if not result:
 		print("can't confirm due to timeout")
-	send_signal("YB04", false)
+	send_signal("YB04", [false])
 	#FIXME: test
 	#if openb.toggled:
 		#set_signal_values(get_full_name()+"_is_state", [3])

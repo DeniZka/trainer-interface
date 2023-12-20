@@ -14,7 +14,7 @@ var full_name : String
 
 signal device_menu_popped(dev: Device, state: bool)
 signal name_changed(dev: Device, prev_name: String) #4 update signals list
-signal signals_emited(out_signals: Dictionary)
+#signal signals_emited(out_signals: Dictionary)
 signal _await_interrupt(ir_status: bool) #0-got correct signal 1 - timeout
 
 func printLabel():
@@ -41,7 +41,7 @@ func printLabel():
 		printLabel()
 
 var _is_await_response: bool = false
-var _response : Dictionary = {}
+var _response : Dictionary = {"name": "", "values": []}
 
 var confirm_timeout : float = 1.0
 
@@ -62,11 +62,12 @@ func get_full_name() -> String:
 
 #use await send_signals(signals, true)  in case of await_confirm 
 func send_signal(sigName: String, sigVal: Variant, await_confirm : bool = false) -> bool:
-	var d : Dictionary = {main_name+sub_name+"_"+sigName: [sigVal]}
-	signals_emited.emit(d)
+	#var d : Dictionary = {main_name+sub_name+"_"+sigName: [sigVal]}
+	#signals_emited.emit(d)
 	var result : bool = true
 	if await_confirm:
-		_response = d #FIXME .duolicate() ???
+		_response["name"] = main_name+sub_name+"_"+sigName #FIXME .duolicate() ???
+		_response["values"] = sigVal
 		_is_await_response = true
 		_timer.start(confirm_timeout)
 		result = await _await_interrupt
@@ -90,8 +91,11 @@ func update_device_state(sig: String, vals: Array):
 func set_signal_values(in_sig: String, in_values: Array):
 	#check if searching for signal is actual
 	if _is_await_response and in_sig == _response["name"]:
-		if in_values == _response["value"]:
-			#FIXME: array and single 
+		var same_as_await : bool = true
+		for i in range(in_values.size()):
+			if in_values[i] != _response["values"][i]:
+				same_as_await = false #FIXME: array and single 
+		if same_as_await:
 			_await_interrupt.emit(true)
 	#TODO: strip signal
 	var rep_str = full_name + "_"
