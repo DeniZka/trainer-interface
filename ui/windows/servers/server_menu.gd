@@ -25,6 +25,15 @@ func _on_ready() -> void:
 	models = Api.models
 	persons = Api.persons
 	roles = Api.roles
+	
+	play_button.pressed.connect(func(): _on_server_control(SITCommand.Play))
+	step_button.pressed.connect(func(): _on_server_control(SITCommand.Step))
+	pause_button.pressed.connect(func(): _on_server_control(SITCommand.Pause))
+	stop_button.pressed.connect(func(): _on_server_control(SITCommand.Stop))
+	initialization_button.pressed.connect(func(): _on_server_control(SITCommand.Init))
+
+func _on_server_control(command: String) -> void:
+	RPC.server_control.rpc(data.name, command)
 
 func _on_update_view(data: Server) -> void:
 	if data != null:
