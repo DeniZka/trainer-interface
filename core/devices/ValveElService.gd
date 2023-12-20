@@ -178,8 +178,8 @@ func _on_accept_b_pressed():
 func update_device_state(sig: String, vals: Array):
 	match sig:
 		"is_state":
-			valve_stat = valve_stat_map[vals[0]]
+			valve_stat = valve_stat_map[int(vals[0])]
 		"is_power":
-			power = power_map[vals[0]]
+			power = power_map[int(vals[0])]
 		"is_alarm":
-			control = control_map[vals[0]]
+			control = control_map[int(vals[0])]

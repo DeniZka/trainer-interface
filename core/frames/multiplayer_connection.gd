@@ -25,6 +25,10 @@ enum ConnectionState {
 
 func _ready() -> void:
 	peer = WebSocketMultiplayerPeer.new()
+	print(peer.outbound_buffer_size)
+	peer.inbound_buffer_size = 6553500
+	peer.outbound_buffer_size = 6553500
+	print(peer.outbound_buffer_size)
 	multiplayer.connected_to_server.connect(_on_server_connected)
 	multiplayer.connection_failed.connect(_on_connection_failed)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)

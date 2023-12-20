@@ -60,6 +60,8 @@ func _on_ui_update_timeout():
 	
 func begin_serve():
 	peer = WebSocketMultiplayerPeer.new()
+	peer.inbound_buffer_size = 6553500
+	peer.outbound_buffer_size = 6553500
 	peer.create_server(SERVER_PORT, "*", TLSOptions.server(key, crt))
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(_on_peer_connected)

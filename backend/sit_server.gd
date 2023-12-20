@@ -106,7 +106,7 @@ func user_signal_list(sig_list: Array, id: int, _op: int):
 			
 	update_due_clean = cleanup_signals()
 	if update_due_added or update_due_clean:
-		var packet: String = JSON.stringify(make_request("set_signal_list", signals, 0))
+		var packet: String = JSON.stringify(make_request("set_signal_list", signals.keys(), 0))
 		send( STOMPPacket.to(send_path).with_message(packet) )
 		
 	var add = ""
