@@ -97,10 +97,10 @@ func _on_user_sit_connect(method: int):
 	hypervisor = SITHypervisor.new(stomp)
 	hypervisor.hv_heartbeat_received.connect(_on_hypervisor_heartbeat)
 	$Hypervisor_alive.start(HYPERVISOR_CHECK_TIMEOUT)
-	#hypervisor.get_server_list()
 	
 	hypervisor.server_up("DUMMY")
 	hypervisor.server_up_received.connect(_on_hypervisor_server_up)
+	hypervisor.get_server_list(0)
 	
 signal connection_result(ok: bool) #one shot signal
 func connect_to_server(stomp: STOMPClient, address: String, host: String, login: String, password: String):

@@ -21,6 +21,7 @@ func _init(stomp: STOMPClient):
 	RPC.server_control_requested.connect(_on_user_server_control)
 	RPC.cursor_position_updated.connect(_on_user_cursor)
 	RPC.request_signal_list_updated.connect(_on_user_request_signal_list_updated)
+	RPC.signal_values_offered.connect(_on_user_signal_values_offered)
 	
 func get_servers_statistic():
 	var d : Dictionary = {}
@@ -85,6 +86,10 @@ func server_down(server_name: String):
 
 func server_list(srv_list: Array):
 	#TODO: compare with actual list
+	for server in srv_list:
+		if not server in servers:
+			server_up(server) #turn back servers in list
+			
 	#decide what to do add or remove
 	Log.trace("Sending server list to: %d" % server_list_reply_to_id)
 	if server_list_reply_to_id:
