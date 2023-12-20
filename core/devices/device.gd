@@ -61,8 +61,8 @@ func get_full_name() -> String:
 	return full_name
 
 #use await send_signals(signals, true)  in case of await_confirm 
-func send_signal(sigName: String, sigVal: Variant, await_confirm : bool = false) -> bool:
-	signals_emited.emit({main_name+sub_name+"_"+sigName: [sigVal]})
+func send_signal(sigName: String, sigVal: Array, await_confirm : bool = false) -> bool:
+	signals_emited.emit({main_name+sub_name+"_"+sigName: sigVal})
 	var result : bool = true
 	if await_confirm:
 		_response["name"] = main_name+sub_name+"_"+sigName #FIXME .duolicate() ???
