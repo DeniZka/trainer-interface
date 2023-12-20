@@ -25,6 +25,9 @@ const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.937254901960
 const REFUSAL_RGB = Color(0.7568627450980392, 0, 0.7568627450980392)
 const NOCOLOR_RGB = Color(1, 1, 1, 0)
 
+#singal of open/close
+var to_send_with_confirm : Dictionary = {}
+
 @export_category("Valve_El") 
 
 @export_range(-180.0, 180.0, 90.0, "degrees") var Rotate: float = 0.0:
@@ -39,8 +42,8 @@ const NOCOLOR_RGB = Color(1, 1, 1, 0)
 		elMotor.rotation_degrees = val
 		elMotorRefusal.rotation_degrees = val
 
-const valve_stat_map = {0:"неизвестно", 2:"открыт",3:"открывается",4:"закрыт",5:"закрывается",6:"в проме"}
-@export_enum("неизвестно", "открыт", "закрыт", "в проме", "открывается", "закрывается") var valve_stat : String = "неизвестно": #same as VLV_STATE indexes
+const valve_stat_map = {0:"неизвестно", 1:"отказ", 2:"открыт",3:"открывается",4:"закрыт",5:"закрывается",6:"в проме"}
+@export_enum("неизвестно", "отказ", "открыт", "закрыт", "в проме", "открывается", "закрывается") var valve_stat : String = "неизвестно": #same as VLV_STATE indexes
 	set(val):
 		valve_stat = val
 		if not is_node_ready(): await ready
@@ -51,6 +54,10 @@ const valve_stat_map = {0:"неизвестно", 2:"открыт",3:"откры
 		if val == "открыт": #direct states
 			valveLeft.modulate = OPEN_RGB
 			valveRight.modulate = OPEN_RGB
+		if val == "отказ":
+			valveLeft.modulate = REFUSAL_RGB
+			valveRight.modulate = REFUSAL_RGB
+			elMotor.modulate = REFUSAL_RGB 
 		if val == "закрыт":
 			valveLeft.modulate = CLOSE_RGB
 			valveRight.modulate = CLOSE_RGB
@@ -74,12 +81,8 @@ const power_map = {2:true, 1:false, 0:false}
 		if not is_node_ready() : await ready
 		if val:
 			elMotorRefusal.modulate = REFUSAL_RGB
-			valveLeftRefusal.modulate = REFUSAL_RGB
-			valveRightRefusal.modulate = REFUSAL_RGB
 		else:
 			elMotorRefusal.modulate = NOCOLOR_RGB
-			valveLeftRefusal.modulate = NOCOLOR_RGB
-			valveRightRefusal.modulate = NOCOLOR_RGB
 
 const control_map = {2:false, 1:true, 0:false}
 @export var control: bool = false:
@@ -134,12 +137,14 @@ func _on_maincir_popped(state):
 		sprites.z_index = 0
 	pass # Replace with function body.
 
+
 func _on_close_b_toggled(is_down):
 	if is_down and openb.toggled:
 		openb.toggled = false
-	send_signal("YB02", [is_down])
+	#send_signal("YB02", [is_down])
 	accept.pop = is_down
 	if is_down:
+		to_send_with_confirm = {"YB02": [is_down]}
 		accept.outline_color = CLOSE_RGB
 		accept.text_color = CLOSE_RGB
 		maincir.outline_color = CLOSE_RGB
@@ -151,9 +156,10 @@ func _on_close_b_toggled(is_down):
 func _on_open_b_toggled(is_down):
 	if is_down and closeb.toggled:
 		closeb.toggled = false
-	send_signal("YB01", [is_down])
+	#send_signal("YB01", [is_down])
 	accept.pop = is_down
 	if is_down:
+		to_send_with_confirm = {"YB01": [is_down]}
 		accept.outline_color = OPEN_RGB
 		accept.text_color = OPEN_RGB
 		maincir.outline_color = OPEN_RGB
@@ -163,10 +169,12 @@ func _on_open_b_toggled(is_down):
 		maincir.outline_color = NOCOLOR_RGB
 
 func _on_accept_b_pressed():
-	var result : bool = await send_signal("YB92", [true], true)
-	if not result:
-		print("can't confirm due to timeout")
-	send_signal("YB92", [false])
+	#var result : bool = await send_signal("YB92", [true], true)
+	#if not result:
+	#	print("can't confirm due to timeout")
+	to_send_with_confirm.merge({"YB92":[true]})
+	send_signals(to_send_with_confirm)
+	to_send_with_confirm = {}
 	#FIXME: test
 	#if openb.toggled:
 		#set_signal_values(get_full_name()+"_is_state", [3])

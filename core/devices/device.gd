@@ -73,6 +73,12 @@ func send_signal(sigName: String, sigVal: Array, await_confirm : bool = false) -
 		_is_await_response = false
 	return result
 	
+func send_signals(signals: Dictionary):
+	var out = {}
+	for s in signals:
+		out[main_name+sub_name+"_"+s] = signals[s]
+	signals_emited.emit(out)
+	
 var requested_signals = []  #setup this one in _init fuunc of child
 
 func get_requested_signals() -> Array:
