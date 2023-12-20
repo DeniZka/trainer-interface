@@ -133,5 +133,5 @@ func cursor_updated(pos: Vector2, id: int):
 
 #available: play, stop, pause, step, init
 func server_control(action: String):
-	var packet: String = JSON.stringify(make_request("server_control", action, 0))
+	var packet: String = JSON.stringify(make_request("server_control", [action], 0))
 	send( STOMPPacket.to(send_path).with_message(packet) )

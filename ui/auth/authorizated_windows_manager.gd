@@ -19,6 +19,7 @@ func _ready() -> void:
 	RPC.server_join_rejected.connect(_on_server_join_refected)
 
 func _on_person_authorized(person: Person) -> void:
+	UserProfile.authenticate(person)
 	authorized_person = person
 	windows_manager.navigation_bar.set_person(person)
 	multiplayer_connection.connect_to_server()
