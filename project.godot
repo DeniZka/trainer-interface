@@ -21,6 +21,7 @@ Api="*res://autoload/api.gd"
 Log="*res://autoload/log.gd"
 Services="*res://autoload/services.gd"
 RPC="*res://autoload/front_back_rpc.gd"
+UserProfile="*res://autoload/user_profile.gd"
 
 [display]
 
