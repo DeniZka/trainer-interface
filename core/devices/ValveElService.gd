@@ -11,18 +11,19 @@ class_name ValveEl extends Device
 @onready var accept = $accept
 @onready var openb = $"main-cir/open"
 @onready var closeb = $"main-cir/close"
+@onready var stopb = $"main-cir/stop"
 @onready var elConn = $sprites/ValveConn
 @onready var player = $signal_play
 @onready var refusalButton : PopButton = $"main-cir/refusal"
 @onready var maincir = $"main-cir"
 @onready var refpopchstate : bool = false
-
+var buttons = []
 
 const CLOSE_RGB = Color(0, 0.9176470588235294, 0) 
 const OPEN_RGB = Color(1, 0.5803921568627451, 0.1568627450980392) 
 const DARK_RGB = Color(0.8, 0.8, 0.8)
 const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.9372549019607843)
-const REFUSAL_RGB = Color(0.7568627450980392, 0, 0.7568627450980392)
+const REFUSAL_RGB = Color8(255, 20, 253)
 const NOCOLOR_RGB = Color(1, 1, 1, 0)
 
 #singal of open/close
@@ -97,6 +98,7 @@ const control_map = {2:false, 1:true, 0:false}
 
 func _ready():
 	super._ready()
+	buttons = [openb, closeb, stopb, refusalButton]
 	update_requested_signals(
 		[
 			"YB01", # Открыть ДУ (ДУ - дистанционное управление) [0/1 boolean]
@@ -114,21 +116,32 @@ func _ready():
 		]
 	)
 	
+
+	
 func _on_refusal_b_pressed():
-	if not is_node_ready() : await ready
-	refpopchstate = not refpopchstate
-	refusalButton.pop_childs(refpopchstate)
-	pass # Replace with function body.
+	#if not is_node_ready() : await ready
+	#refpopchstate = not refpopchstate
+	#refusalButton.pop_childs(refpopchstate)
+	pass
 
 func _on_refusal_b_pop_hide():
+	#if not is_node_ready() : await ready
+	#refpopchstate = false
+	#refusalButton.pop_childs(refpopchstate)
+	pass
+	
+func _on_refusal_b_toggled(is_down):
 	if not is_node_ready() : await ready
-	refpopchstate = false
-	refusalButton.pop_childs(refpopchstate)
+	if is_down:
+		everyone_outline(REFUSAL_RGB)
+		untuggle_others_except(refusalButton)
+	refusalButton.pop_childs(is_down)
 
 #popup ordering repair
 func _on_maincir_popped(state):
 	if state :
-		maincir.outline_color = NOCOLOR_RGB
+		everyone_outline(DARK_RGB)
+		#maincir.outline_color = NOCOLOR_RGB
 		z_index = 5
 		sprites.z_index = 5
 	else:
@@ -138,35 +151,64 @@ func _on_maincir_popped(state):
 	pass # Replace with function body.
 
 
+func untuggle_others_except(aliveb: PopButton):
+	for b in buttons:
+		if aliveb != b and b.toggled:
+			b.toggled = false
+			
+func everyone_outline(color: Color):
+	for b in buttons:
+		(b as PopButton).outline_color = color
+	maincir.outline_color = color
+	accept.outline_color = color
+
 func _on_close_b_toggled(is_down):
-	if is_down and openb.toggled:
-		openb.toggled = false
+	if is_down:
+		untuggle_others_except(closeb)
 	#send_signal("YB02", [is_down])
 	accept.pop = is_down
 	if is_down:
-		to_send_with_confirm = {"YB02": [is_down]}
-		accept.outline_color = CLOSE_RGB
-		accept.text_color = CLOSE_RGB
-		maincir.outline_color = CLOSE_RGB
-	else:
-		accept.outline_color = NOCOLOR_RGB
-		accept.text_color = NOCOLOR_RGB
-		maincir.outline_color = NOCOLOR_RGB
+		everyone_outline(CLOSE_RGB)
+		to_send_with_confirm = {"YB02": [true]}
+		#accept.outline_color = CLOSE_RGB
+		#accept.text_color = CLOSE_RGB
+		#maincir.outline_color = CLOSE_RGB
+	#else:
+		#accept.outline_color = NOCOLOR_RGB
+		#accept.text_color = NOCOLOR_RGB
+		#maincir.outline_color = NOCOLOR_RGB
 
 func _on_open_b_toggled(is_down):
-	if is_down and closeb.toggled:
-		closeb.toggled = false
+	if is_down:
+		untuggle_others_except(openb)
 	#send_signal("YB01", [is_down])
 	accept.pop = is_down
 	if is_down:
-		to_send_with_confirm = {"YB01": [is_down]}
-		accept.outline_color = OPEN_RGB
-		accept.text_color = OPEN_RGB
-		maincir.outline_color = OPEN_RGB
-	else:
-		accept.outline_color = NOCOLOR_RGB
-		accept.text_color = NOCOLOR_RGB
-		maincir.outline_color = NOCOLOR_RGB
+		everyone_outline(OPEN_RGB)
+		to_send_with_confirm = {"YB01": [true]}
+		#accept.outline_color = OPEN_RGB
+		#accept.text_color = OPEN_RGB
+		#maincir.outline_color = OPEN_RGB
+	#else:
+		#accept.outline_color = NOCOLOR_RGB
+		#accept.text_color = NOCOLOR_RGB
+		#maincir.outline_color = NOCOLOR_RGB
+	
+
+func _on_stop_b_toggled(is_down):
+	if is_down :
+		untuggle_others_except(stopb)
+	accept.pop = is_down
+	if is_down:
+		everyone_outline(DARK_RGB)
+		to_send_with_confirm = {"YB91": [true]}
+		#accept.outline_color = DARK_RGB
+		#accept.text_color = DARK_RGB
+		#maincir.outline_color = DARK_RGB
+	#else:
+		#accept.outline_color = NOCOLOR_RGB
+		#accept.text_color = NOCOLOR_RGB
+		#maincir.outline_color = NOCOLOR_RGB
 
 func _on_accept_b_pressed():
 	#var result : bool = await send_signal("YB92", [true], true)
@@ -176,12 +218,9 @@ func _on_accept_b_pressed():
 	send_signals(to_send_with_confirm)
 	to_send_with_confirm = {}
 	#FIXME: test
-	#if openb.toggled:
-		#set_signal_values(get_full_name()+"_is_state", [3])
-	#if closeb.toggled:
-		#set_signal_values(get_full_name()+"_is_state", [5])
 	openb.toggled = false
 	closeb.toggled = false
+	stopb.toggled = false
 
 func update_device_state(sig: String, vals: Array):
 	match sig:
@@ -191,3 +230,8 @@ func update_device_state(sig: String, vals: Array):
 			power = power_map[int(vals[0])]
 		"is_alarm":
 			control = control_map[int(vals[0])]
+
+
+
+
+

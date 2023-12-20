@@ -8,6 +8,8 @@
 
 [node name="float_button" type="Node2D"]
 script = ExtResource("1_837di")
+text = "testвы"
+text_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="button_place" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -38,19 +40,29 @@ roundness = 41.5
 smooth = 12.0
 
 [node name="text" type="Node2D" parent="button_place"]
+modulate = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [node name="Button" type="Button" parent="button_place/text"]
 visible = false
 z_index = 2
-offset_left = -30.0
-offset_top = -19.0
-offset_right = 31.0
-offset_bottom = 18.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = -18.5
+offset_right = 57.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(30, 19)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_d2v5n")
+text = "test
+"
 flat = true
 
 [node name="target_point" type="Node2D" parent="."]
