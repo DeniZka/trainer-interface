@@ -14,7 +14,7 @@ signal hypervisor_down_anounced()
 signal server_creation_anounced(server_name: String)
 signal server_down_anounced(server_name: String) #when server is realy down
 signal server_unavailable_anounced(server_name: String) #before server is down
-signal server_status_anounced(server_name: String, status: Dictionary)  #
+signal server_status_anounced(server_name: String, status: Dictionary)  # {"model_time": 0, "loaded": 1, "init": 0, "play": 0, "pause": 0, "stop": 1, "step": 0, "error": 0, "real_time": 1, "real_time_factor": 1 }
 signal users_status_updated(user_name: String, pos: Vector2) #on the same server user joined {"Name": cursor }
 signal user_joined_anounced(user_name: String)
 signal user_leaved_anounced(user_name : String)
