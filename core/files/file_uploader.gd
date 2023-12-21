@@ -16,17 +16,19 @@ func _ready() -> void:
 	else:
 		file_dialog.file_selected.connect(_on_desktop_file_selected)
 		file_dialog.close_requested.connect(_close_desktop_file_manager)
+		file_dialog.canceled.connect(_close_desktop_file_manager)
 
 func open(accept_files: String = "*") -> void:
 	if _is_web():
 		file_access.open(accept_files)
 	else:
-		_open_desktop_file_manager()
+		_open_desktop_file_manager(accept_files)
 
 func _is_web() -> bool:
 	return OS.get_name() == "Web"
 
-func _open_desktop_file_manager() -> void:
+func _open_desktop_file_manager(accept_files: String = "*") -> void:
+	file_dialog.add_filter(accept_files)
 	background_panel.show()
 	file_dialog.show()
 

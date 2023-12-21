@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://dpwwph1kukvgg"]
+[gd_scene load_steps=21 format=3 uid="uid://dpwwph1kukvgg"]
 
 [ext_resource type="Script" path="res://ui/windows/servers/server_menu.gd" id="1_8qx4k"]
 [ext_resource type="Theme" uid="uid://djuo54pavaq3o" path="res://ui/themes/right_menu/right_main.tres" id="2_yy2lh"]
 [ext_resource type="Theme" uid="uid://d3n6kqhglrbq2" path="res://ui/themes/empty/empty.tres" id="3_drinn"]
+[ext_resource type="Script" path="res://ui/windows/servers/server_control_bar.gd" id="4_k1j38"]
 [ext_resource type="Theme" uid="uid://itqlca07sghr" path="res://ui/themes/right_menu/inizialization.tres" id="4_rbsjl"]
 [ext_resource type="ButtonGroup" uid="uid://bbi110mar64cq" path="res://ui/themes/button_groups/control.tres" id="5_qp4f0"]
 [ext_resource type="Theme" uid="uid://dk7ugxckubp2g" path="res://ui/themes/right_menu/play.tres" id="6_s6w1k"]
@@ -160,10 +161,12 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 theme = ExtResource("3_drinn")
 
-[node name="Control_buttons" type="HBoxContainer" parent="Right_menu/Main/Control/Control"]
+[node name="Server Control Bar" type="HBoxContainer" parent="Right_menu/Main/Control/Control"]
+unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("4_k1j38")
 
-[node name="Inizialization Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Inizialization Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Server Control Bar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(25, 24)
 layout_mode = 2
@@ -171,7 +174,7 @@ size_flags_horizontal = 0
 theme = ExtResource("4_rbsjl")
 button_group = ExtResource("5_qp4f0")
 
-[node name="Play Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Play Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Server Control Bar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(28, 24)
 layout_mode = 2
@@ -179,7 +182,7 @@ size_flags_horizontal = 0
 theme = ExtResource("6_s6w1k")
 button_group = ExtResource("5_qp4f0")
 
-[node name="Step Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Step Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Server Control Bar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(28, 24)
 layout_mode = 2
@@ -187,7 +190,7 @@ size_flags_horizontal = 0
 theme = ExtResource("7_n6y5h")
 button_group = ExtResource("5_qp4f0")
 
-[node name="Pause Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Pause Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Server Control Bar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(28.5, 24)
 layout_mode = 2
@@ -195,7 +198,7 @@ size_flags_horizontal = 0
 theme = ExtResource("8_iofr3")
 button_group = ExtResource("5_qp4f0")
 
-[node name="Stop Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Control_buttons"]
+[node name="Stop Button" type="CheckButton" parent="Right_menu/Main/Control/Control/Server Control Bar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(28, 24)
 layout_mode = 2
