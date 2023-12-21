@@ -44,6 +44,7 @@ func _ready():
 	
 func _exit_tree():
 	hypervisor.free()
+	stomp.close()
 
 var poll_timer = 0
 func _process(delta):
@@ -100,7 +101,7 @@ func _on_user_sit_connect(method: int):
 	hypervisor.hv_heartbeat_received.connect(_on_hypervisor_heartbeat)
 	$Hypervisor_alive.start(HYPERVISOR_CHECK_TIMEOUT)
 	
-	hypervisor.server_up("DUMMY")
+	#hypervisor.server_up("DUMMY")
 	hypervisor.server_up_received.connect(_on_hypervisor_server_up)
 	hypervisor.get_server_list(0)
 	
