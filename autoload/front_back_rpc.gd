@@ -14,7 +14,7 @@ signal hypervisor_down_anounced()
 signal server_creation_anounced(server_name: String)
 signal server_down_anounced(server_name: String) #when server is realy down
 signal server_unavailable_anounced(server_name: String) #before server is down
-signal server_status_anounced(server_name: String, status: Array)
+signal server_status_anounced(server_name: String, status: Dictionary)  #
 signal users_status_updated(user_name: String, pos: Vector2) #on the same server user joined {"Name": cursor }
 signal user_joined_anounced(user_name: String)
 signal user_leaved_anounced(user_name : String)
@@ -154,7 +154,7 @@ func server_unavailable(server_name: String):
 	server_unavailable_anounced.emit(server_name)
 	
 @rpc
-func server_status(server_name: String, status: Array):
+func server_status(server_name: String, status: Dictionary):
 	server_status_anounced.emit(server_name, status)
 	
 @rpc

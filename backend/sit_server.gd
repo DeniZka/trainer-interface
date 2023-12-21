@@ -10,7 +10,7 @@ var users : Dictionary = {}  #{ "id": {"name: name, "cursor": Vec2, "signals": [
 var signals : Dictionary = {} #"signal_name": [userid0, userid1, ..]
 
 # server interact signals
-signal server_state_received(server_name: String)
+signal server_state_received(server_name: String, state: Dictionary)
 signal update_signals_received(server_name: String, signals: Dictionary)
 
 enum{SRV_STATUS_UNAVAILABLE, SRV_STATUS_AVAILABLE}
@@ -69,8 +69,11 @@ func leave_user(id: int) -> bool:
 	
 ##JSON_CALLBACKS
 ##server responses
-func server_state(state: Array):
-	RPC.server_status.rpc(self.name, state)
+func server_state(state: Dictionary):
+	print(state)
+	for id in users.keys():
+		RPC.server_status.rpc_id(id, self.name, state)
+	#RPC.server_status.rpc(self.name, state)
 	server_state_received.emit(self.name, state)
 
 func update_signals(signals: Dictionary):
@@ -78,7 +81,6 @@ func update_signals(signals: Dictionary):
 		RPC.set_signal_values.rpc_id(id, signals)
 	update_signals_received.emit(self.name, signals)
 	
-
 ##USERS_CALLBACKS
 #removes useless signals
 func cleanup_signals() -> bool: #true - need too update
