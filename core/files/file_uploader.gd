@@ -10,7 +10,6 @@ var file_access: FileAccessWeb
 @onready var background_panel: Control = $Panel as Control
 
 func _ready() -> void:
-	open(".zip")
 	if _is_web():
 		file_access = FileAccessWeb.new()
 		file_access.loaded.connect(_on_file_loaded)
