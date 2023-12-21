@@ -43,9 +43,15 @@ func pop_childs(pop_state):
 		if not is_node_ready(): await ready
 		textButton.text = val
 
+@export var disabled: bool = false
+
 var self_popup_anim_name : String = "popup"
 @export var pop : bool = false:
 	set(val):
+		if disabled:
+			return
+		if pop == val:
+			return
 		pop = val
 		if not is_node_ready(): await ready
 		#search for attached Marker

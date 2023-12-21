@@ -98,37 +98,22 @@ const control_map = {2:false, 1:true, 0:false}
 
 func _ready():
 	super._ready()
+	UserProfile.updated.connect(_on_new_profile)
+	if UserProfile.has_admin_role():
+		refusalButton.disabled = false
+		
 	buttons = [openb, closeb, stopb, refusalButton]
 	update_requested_signals(
 		[
-			"YB01", # Открыть ДУ (ДУ - дистанционное управление) [0/1 boolean]
-			"YB02", #// Закрыть ДУ [0/1 boolean]
-			"YB03", #// Стоп ДУ [0/1 boolean]
-			"YB92", #// Подтвердить команду ДУ [0/1 boolean]
-			"mf_type", #// тип отказа [double]
-			"mf_xq01", #// Жесткость отказа [double]
-			"mf_xb01", #// Отказ введен [0/1 boolean]
-			"mf_yb01", #// Ввести отказ [0/1 boolean]
-			"mf_yb02", #// Удалить отказ [0/1 boolean][
 			"is_state", #СВБУ "Состояние сборный сигнал" [double] 
 			"is_alarm", #СВБУ "Авария сборный сигнал" [double]
 			"is_power", #СВБУ "Питание сборный сигнал" [double]
 		]
 	)
 	
-
-	
-func _on_refusal_b_pressed():
-	#if not is_node_ready() : await ready
-	#refpopchstate = not refpopchstate
-	#refusalButton.pop_childs(refpopchstate)
-	pass
-
-func _on_refusal_b_pop_hide():
-	#if not is_node_ready() : await ready
-	#refpopchstate = false
-	#refusalButton.pop_childs(refpopchstate)
-	pass
+func _on_new_profile():
+	if not UserProfile.has_admin_role():
+		refusalButton.disabled = false
 	
 func _on_refusal_b_toggled(is_down):
 	if not is_node_ready() : await ready
@@ -170,13 +155,6 @@ func _on_close_b_toggled(is_down):
 	if is_down:
 		everyone_outline(CLOSE_RGB)
 		to_send_with_confirm = {"YB02": [true]}
-		#accept.outline_color = CLOSE_RGB
-		#accept.text_color = CLOSE_RGB
-		#maincir.outline_color = CLOSE_RGB
-	#else:
-		#accept.outline_color = NOCOLOR_RGB
-		#accept.text_color = NOCOLOR_RGB
-		#maincir.outline_color = NOCOLOR_RGB
 
 func _on_open_b_toggled(is_down):
 	if is_down:
@@ -186,14 +164,6 @@ func _on_open_b_toggled(is_down):
 	if is_down:
 		everyone_outline(OPEN_RGB)
 		to_send_with_confirm = {"YB01": [true]}
-		#accept.outline_color = OPEN_RGB
-		#accept.text_color = OPEN_RGB
-		#maincir.outline_color = OPEN_RGB
-	#else:
-		#accept.outline_color = NOCOLOR_RGB
-		#accept.text_color = NOCOLOR_RGB
-		#maincir.outline_color = NOCOLOR_RGB
-	
 
 func _on_stop_b_toggled(is_down):
 	if is_down :
@@ -202,18 +172,8 @@ func _on_stop_b_toggled(is_down):
 	if is_down:
 		everyone_outline(DARK_RGB)
 		to_send_with_confirm = {"YB91": [true]}
-		#accept.outline_color = DARK_RGB
-		#accept.text_color = DARK_RGB
-		#maincir.outline_color = DARK_RGB
-	#else:
-		#accept.outline_color = NOCOLOR_RGB
-		#accept.text_color = NOCOLOR_RGB
-		#maincir.outline_color = NOCOLOR_RGB
 
 func _on_accept_b_pressed():
-	#var result : bool = await send_signal("YB92", [true], true)
-	#if not result:
-	#	print("can't confirm due to timeout")
 	to_send_with_confirm.merge({"YB92":[true]})
 	send_signals(to_send_with_confirm)
 	to_send_with_confirm = {}

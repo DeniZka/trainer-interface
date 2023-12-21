@@ -13,33 +13,65 @@ sub_name = ""
 
 [node name="main-cir" parent="." instance=ExtResource("2_ixv4j")]
 main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="close" parent="main-cir" instance=ExtResource("3_y5gjt")]
-text = "Выкл."
+toggle_mode = true
+text = "Выключить"
 text_color = Color(0, 0.917647, 0, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
-outline_color = Color(0, 0.917647, 0, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
+size = Vector2(93.675, 54)
 
 [node name="Marker2D2" type="Marker2D" parent="main-cir/close"]
-position = Vector2(87, 75)
+visible = false
+position = Vector2(-104, 29)
 
 [node name="open" parent="main-cir" instance=ExtResource("3_y5gjt")]
-text = "Вкл."
+toggle_mode = true
+text = "Включить"
 text_color = Color(1, 0.580392, 0.156863, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
-outline_color = Color(1, 0.580392, 0.156863, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
+size = Vector2(85.095, 54)
 
 [node name="Marker2D2" type="Marker2D" parent="main-cir/open"]
-position = Vector2(-96, -50)
+visible = false
+position = Vector2(-46, -72)
 
 [node name="refusal" parent="main-cir" instance=ExtResource("3_y5gjt")]
+toggle_mode = true
 text = "Отказ"
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal"]
+visible = false
+position = Vector2(87, -51)
+
+[node name="power" parent="main-cir/refusal" instance=ExtResource("3_y5gjt")]
+position = Vector2(87.0277, -50.9853)
+text = "Питание"
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.313726, 0.992157, 1)
 
-[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal"]
-position = Vector2(87, -51)
+[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal/power"]
+visible = false
+position = Vector2(15.9723, 87.9853)
+
+[node name="control" parent="main-cir/refusal" instance=ExtResource("3_y5gjt")]
+position = Vector2(86.9877, -51.0145)
+text = "Управление"
+text_color = Color(1, 0.313726, 0.992157, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(1, 0.313726, 0.992157, 1)
+size = Vector2(110.855, 54)
+
+[node name="Marker2D" type="Marker2D" parent="main-cir/refusal/control"]
+visible = false
+position = Vector2(22.0123, 44.0145)
 
 [node name="sprites" type="Node2D" parent="."]
 
@@ -53,5 +85,20 @@ modulate = Color(0, 0, 0, 1)
 z_index = 1
 texture = ExtResource("2_ke5ip")
 
+[node name="accept" parent="." instance=ExtResource("3_y5gjt")]
+text = "ПРИНЯТЬ"
+text_color = Color(1, 1, 1, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
+size = Vector2(132.99, 63.685)
+
+[node name="Marker2D" type="Marker2D" parent="accept"]
+visible = false
+position = Vector2(1, 89)
+
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="popped" from="main-cir" to="." method="_on_maincir_popped"]
+[connection signal="b_toggled" from="main-cir/close" to="." method="_on_close_b_toggled"]
+[connection signal="b_toggled" from="main-cir/open" to="." method="_on_open_b_toggled"]
+[connection signal="b_toggled" from="main-cir/refusal" to="." method="_on_refusal_b_toggled"]
+[connection signal="b_pressed" from="accept" to="." method="_on_accept_b_pressed"]

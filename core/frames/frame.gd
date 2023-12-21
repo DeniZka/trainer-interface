@@ -41,9 +41,10 @@ func load():
 			background.gui_input.connect(_on_background_input)
 			
 		#FIXME: MANAGE TO LOAD
-		if ch is Device and ch.got_device_menu():
+		if ch is Device:
 			device_added.emit(ch)
-			ch.device_menu_popped.connect(device_menu_popped)
+			if ch.got_device_menu():
+				ch.device_menu_popped.connect(device_menu_popped)
 			#ch.commands_prepared.connect(devs_cmd_prepared)
 			ch.name_changed.connect(dev_name_changed)
 			

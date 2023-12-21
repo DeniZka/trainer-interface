@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cto4sj5d48pdi"]
+[gd_scene load_steps=18 format=3 uid="uid://cto4sj5d48pdi"]
 
 [ext_resource type="Script" path="res://core/frames/frame.gd" id="1_dh82r"]
 [ext_resource type="PackedScene" uid="uid://m1w4reapa4an" path="res://core/devices/Tank.tscn" id="2_roqwo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0vjytkiid28w" path="res://core/devices/ListChange.tscn" id="5_51gqg"]
 [ext_resource type="Theme" uid="uid://cs4bkw5nffd1u" path="res://core/devices/themes/For_scheme_elements/For_elements.tres" id="6_buief"]
 [ext_resource type="PackedScene" uid="uid://i1gy4pljl145" path="res://core/devices/ValveRegul.tscn" id="6_h32ox"]
+[ext_resource type="PackedScene" uid="uid://dayvy5fc6fw1i" path="res://core/devices/device_addon_info.tscn" id="8_2c8wl"]
 [ext_resource type="PackedScene" uid="uid://dkqihw2axr4ko" path="res://core/devices/PumpEl.tscn" id="8_o8my3"]
 [ext_resource type="PackedScene" uid="uid://0dus6aoagk6o" path="res://core/devices/Polygon.tscn" id="9_sfco6"]
 [ext_resource type="PackedScene" uid="uid://bfup5fvysffmc" path="res://core/devices/HeatExchanger.tscn" id="10_8ikhm"]
@@ -70,7 +71,7 @@ default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 [node name="MediumLine36" type="Line2D" parent="."]
 position = Vector2(2055.2, 927.132)
 rotation = 1.5708
-points = PackedVector2Array(8.86926, 351.2, 8.8689, 247.2, -575.131, 247.202, -575.131, 343.202, -415.131, 343.202, -415.131, 247.202)
+points = PackedVector2Array(8.86926, 351.2, 8.8689, 247.2, -520.239, 247.202, -575.131, 247.202, -575.131, 343.202, -415.131, 343.202, -415.131, 247.202)
 width = 2.0
 default_color = Color(0.0234375, 0.0234375, 0.988281, 1)
 
@@ -307,7 +308,7 @@ offset_right = 23.3
 offset_bottom = 69.227
 theme = ExtResource("6_buief")
 text = "KBAXX
-KBAXX"
+AAXXX"
 
 [node name="Valve16" parent="." instance=ExtResource("4_wmk10")]
 position = Vector2(1584, 640)
@@ -379,8 +380,9 @@ text = "
 
 [node name="ValveRegul2" parent="." instance=ExtResource("6_h32ox")]
 position = Vector2(1712, 400)
-valve_stat = 1
 Rotate = -90.0
+main_name = "KBA42"
+sub_name = "AA201"
 
 [node name="Label" type="Label" parent="ValveRegul2"]
 offset_left = -83.64
@@ -388,12 +390,23 @@ offset_top = -21.776
 offset_right = -33.64
 offset_bottom = 22.224
 theme = ExtResource("6_buief")
-text = "
-"
+text = "KBA42
+AA201"
+
+[node name="Info" parent="ValveRegul2" instance=ExtResource("8_2c8wl")]
+offset_left = -58.0
+offset_top = -53.0
+offset_right = -18.0
+offset_bottom = -30.0
+signal_name = "XQ01"
+prefix = ""
+suffix = "%"
 
 [node name="ElPump" parent="." instance=ExtResource("8_o8my3")]
 position = Vector2(1229.66, 520.533)
 pmp_state = 1
+main_name = "KBA31"
+sub_name = "AP001"
 
 [node name="Label" type="Label" parent="ElPump"]
 offset_left = -22.26
@@ -401,12 +414,14 @@ offset_top = -77.0652
 offset_right = 27.74
 offset_bottom = -33.0652
 theme = ExtResource("6_buief")
-text = "
-"
+text = "KBA31
+AP001"
 
 [node name="ElPump2" parent="." instance=ExtResource("8_o8my3")]
 position = Vector2(1232, 640)
 pmp_state = 1
+main_name = "KBA32"
+sub_name = "AP001"
 
 [node name="Label" type="Label" parent="ElPump2"]
 offset_left = -22.26
@@ -414,12 +429,14 @@ offset_top = -71.402
 offset_right = 27.74
 offset_bottom = -27.402
 theme = ExtResource("6_buief")
-text = "
-"
+text = "KBA32
+AP001"
 
 [node name="ElPump3" parent="." instance=ExtResource("8_o8my3")]
 position = Vector2(1230.26, 799.402)
 pmp_state = 2
+main_name = "KBA33"
+sub_name = "AP001"
 
 [node name="Label" type="Label" parent="ElPump3"]
 offset_left = -22.26
@@ -427,8 +444,8 @@ offset_top = -71.402
 offset_right = 27.74
 offset_bottom = -27.402
 theme = ExtResource("6_buief")
-text = "
-"
+text = "KBA33
+AP001"
 
 [node name="Polygon" parent="." instance=ExtResource("9_sfco6")]
 position = Vector2(152.849, 944.364)
@@ -610,21 +627,28 @@ meaning_color = Color(0, 0, 0, 1)
 
 [node name="ValveRegul3" parent="." instance=ExtResource("6_h32ox")]
 position = Vector2(1808, 400)
-valve_stat = 3
-vlv_mode = 1
 Rotate = -90.0
+main_name = "KBA41"
+sub_name = "AA201"
+
+[node name="Info" parent="ValveRegul3" instance=ExtResource("8_2c8wl")]
+offset_left = 19.0
+offset_top = -27.0
+offset_right = 77.0
+offset_bottom = -4.0
 
 [node name="Label" type="Label" parent="ValveRegul3"]
-offset_left = 24.0002
-offset_top = -24.0
-offset_right = 74.0002
-offset_bottom = 20.0
+offset_left = 21.0
+offset_top = 14.0
+offset_right = 71.0
+offset_bottom = 58.0
 theme = ExtResource("6_buief")
-text = "
-"
+text = "KBA41
+AA201"
 
 [node name="ValveCheck" parent="." instance=ExtResource("19_b0mp3")]
 position = Vector2(168, 656)
+rotate = -90.0
 sub_name = "KBAXX"
 
 [node name="Label" type="Label" parent="ValveCheck"]
@@ -651,7 +675,9 @@ KBAXX"
 
 [node name="ValveCheck3" parent="." instance=ExtResource("19_b0mp3")]
 position = Vector2(832, 760)
-sub_name = "KBAXX"
+rotate = -90.0
+main_name = "KBA25"
+sub_name = "AA601"
 
 [node name="Label" type="Label" parent="ValveCheck3"]
 offset_left = 7.99997
@@ -659,12 +685,14 @@ offset_top = -64.0
 offset_right = 56.0
 offset_bottom = -20.0
 theme = ExtResource("6_buief")
-text = "
-KBAXX"
+text = "KBA25
+AA601"
 
 [node name="ValveCheck4" parent="." instance=ExtResource("19_b0mp3")]
 position = Vector2(912, 760)
-sub_name = "KBAXX"
+rotate = -90.0
+main_name = "KBD40"
+sub_name = "AA601"
 
 [node name="Label" type="Label" parent="ValveCheck4"]
 offset_left = 16.0
@@ -672,8 +700,8 @@ offset_top = -64.0
 offset_right = 66.0
 offset_bottom = -20.0
 theme = ExtResource("6_buief")
-text = "
-KBAXX"
+text = "KBD40
+AA601"
 
 [node name="ValveCheck5" parent="." instance=ExtResource("19_b0mp3")]
 position = Vector2(1320, 800)

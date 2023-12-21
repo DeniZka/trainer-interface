@@ -54,7 +54,6 @@ _data = {
 
 [node name="ValveRegul" type="Node2D"]
 script = ExtResource("1_kw2eh")
-vlv_mode = 2
 main_name = ""
 sub_name = ""
 metadata/_edit_vertical_guides_ = [88.0]
@@ -90,78 +89,120 @@ texture = ExtResource("7_4pe16")
 offset = Vector2(0, -10)
 
 [node name="ValveElectricMotor" type="Sprite2D" parent="sprites"]
-modulate = Color(0, 0.917647, 0, 1)
+modulate = Color(0.937255, 0.937255, 0.937255, 1)
 z_index = 1
 texture = ExtResource("8_ah4tu")
 offset = Vector2(0, -10)
 
 [node name="ValveElectricMotorRefusal" type="Sprite2D" parent="sprites"]
-modulate = Color(0.756863, 0, 0.756863, 0)
+modulate = Color(1, 1, 1, 0)
 z_index = 1
 texture = ExtResource("8_ah4tu")
 offset = Vector2(0, -10)
 
 [node name="main-cir" parent="." instance=ExtResource("2_3re6d")]
 main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="close" parent="main-cir" instance=ExtResource("3_iwwmu")]
+toggle_mode = true
 text = "Закрыть"
 text_color = Color(0, 0.917647, 0, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
-outline_color = Color(0, 0.917647, 0, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
 
-[node name="Marker2D" type="Marker2D" parent="main-cir/close"]
-position = Vector2(87, 75)
-gizmo_extents = 2.0
+[node name="Marker2D2" type="Marker2D" parent="main-cir/close"]
+visible = false
+position = Vector2(-104, 29)
 
 [node name="open" parent="main-cir" instance=ExtResource("3_iwwmu")]
+toggle_mode = true
 text = "Открыть"
 text_color = Color(1, 0.580392, 0.156863, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
-outline_color = Color(1, 0.580392, 0.156863, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
 
-[node name="Marker2D" type="Marker2D" parent="main-cir/open"]
-position = Vector2(-96, -50)
-gizmo_extents = 2.0
+[node name="Marker2D2" type="Marker2D" parent="main-cir/open"]
+visible = false
+position = Vector2(-64, -73)
+
+[node name="AutoManual" parent="main-cir" instance=ExtResource("3_iwwmu")]
+toggle_mode = true
+text = "Авто/Руч"
+text_color = Color(0.784314, 0.784314, 0.784314, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/AutoManual"]
+visible = false
+position = Vector2(18, -86)
+
+[node name="stop" parent="main-cir" instance=ExtResource("3_iwwmu")]
+toggle_mode = true
+text = "Стоп"
+text_color = Color(0.784314, 0.784314, 0.784314, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="Marker2D2" type="Marker2D" parent="main-cir/stop"]
+visible = false
+position = Vector2(-97, -26)
 
 [node name="refusal" parent="main-cir" instance=ExtResource("3_iwwmu")]
+toggle_mode = true
 text = "Отказ"
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
-outline_color = Color(1, 0.313726, 0.992157, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
 
-[node name="Marker2D" type="Marker2D" parent="main-cir/refusal"]
+[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal"]
+visible = false
 position = Vector2(87, -51)
-gizmo_extents = 2.0
 
 [node name="power" parent="main-cir/refusal" instance=ExtResource("3_iwwmu")]
-position = Vector2(87, -51)
+position = Vector2(87.0277, -50.9853)
 text = "Питание"
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.313726, 0.992157, 1)
 
-[node name="Marker2D" type="Marker2D" parent="main-cir/refusal/power"]
-position = Vector2(49, -37)
-gizmo_extents = 2.0
+[node name="Marker2D2" type="Marker2D" parent="main-cir/refusal/power"]
+visible = false
+position = Vector2(15.9723, 87.9853)
 
 [node name="control" parent="main-cir/refusal" instance=ExtResource("3_iwwmu")]
-position = Vector2(87, -51)
-text = "Управл."
+position = Vector2(86.9877, -51.0145)
+text = "Управление"
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.313726, 0.992157, 1)
+size = Vector2(110.855, 54)
 
 [node name="Marker2D" type="Marker2D" parent="main-cir/refusal/control"]
-position = Vector2(49, 35)
-gizmo_extents = 2.0
+visible = false
+position = Vector2(22.0123, 44.0145)
 
 [node name="signal_play" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qfegg")
 }
 
+[node name="accept" parent="." instance=ExtResource("3_iwwmu")]
+text = "ПРИНЯТЬ"
+text_color = Color(1, 1, 1, 1)
+main_color = Color(0.2, 0.313726, 0.407843, 1)
+outline_color = Color(0.8, 0.8, 0.8, 1)
+size = Vector2(132.99, 63.685)
+
+[node name="Marker2D" type="Marker2D" parent="accept"]
+visible = false
+position = Vector2(1, 89)
+
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="popped" from="main-cir" to="." method="_on_maincir_popped"]
-[connection signal="b_pop_hide" from="main-cir/refusal" to="." method="_on_refusal_b_pop_hide"]
-[connection signal="b_pressed" from="main-cir/refusal" to="." method="_on_refusal_b_pressed"]
+[connection signal="b_toggled" from="main-cir/close" to="." method="_on_close_b_toggled"]
+[connection signal="b_toggled" from="main-cir/open" to="." method="_on_open_b_toggled"]
+[connection signal="b_pressed" from="main-cir/AutoManual" to="." method="_on_auto_manual_b_pressed"]
+[connection signal="b_toggled" from="main-cir/stop" to="." method="_on_stop_b_toggled"]
+[connection signal="b_toggled" from="main-cir/refusal" to="." method="_on_refusal_b_toggled"]
+[connection signal="b_pressed" from="accept" to="." method="_on_accept_b_pressed"]

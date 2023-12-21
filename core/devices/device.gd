@@ -17,10 +17,13 @@ signal name_changed(dev: Device, prev_name: String) #4 update signals list
 signal signals_emited(out_signals: Dictionary)
 signal _await_interrupt(ir_status: bool) #0-got correct signal 1 - timeout
 
+var addon_signals : Dictionary = {} #"signal_name": Addon
+
 func printLabel():
 	for child in get_children():
 		if child is Label:
-			child.text = main_name + "\n" + sub_name
+			if not child is DeviceAddonInfo:
+				child.text = main_name + "\n" + sub_name
 
 @export var main_name : String = "KBAXX":
 	set(val):
@@ -55,7 +58,8 @@ func _ready():
 		if ch is DeviceMenu:
 			_device_menu = ch
 			_device_menu.popped.connect(self_menu_popped)
-			break
+		if ch is DeviceAddonInfo:
+			addon_signals[full_name + "_" + ch.signal_name] = ch
 
 func get_full_name() -> String:
 	return full_name
@@ -88,6 +92,8 @@ func update_requested_signals(sigs: Array):
 	requested_signals = []
 	for sig in sigs:
 		requested_signals.append(main_name+sub_name + "_" + sig)
+	for sig in addon_signals: #addons read
+		requested_signals.append(sig)
 
 func update_device_state(sig: String, vals: Array): 
 	#virtual for children device
@@ -105,6 +111,11 @@ func set_signal_values(in_sig: String, in_values: Array):
 	#TODO: strip signal
 	var rep_str = full_name + "_"
 	update_device_state(in_sig.replace(rep_str, ""), in_values)
+	#addons checkout
+	if not addon_signals.is_empty():
+		if in_sig in addon_signals:
+			addon_signals[in_sig].process_signal(in_values)
+			
 
 func _on_timer_timeout():
 	if _is_await_response: #check if timeout signal is actial

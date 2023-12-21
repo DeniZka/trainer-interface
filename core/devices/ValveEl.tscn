@@ -60,6 +60,7 @@ main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="Marker2D2" type="Marker2D" parent="main-cir/close"]
+visible = false
 position = Vector2(-104, 29)
 
 [node name="open" parent="main-cir" instance=ExtResource("3_fy42o")]
@@ -70,6 +71,7 @@ main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="Marker2D2" type="Marker2D" parent="main-cir/open"]
+visible = false
 position = Vector2(-46, -72)
 
 [node name="stop" parent="main-cir" instance=ExtResource("3_fy42o")]
@@ -80,16 +82,19 @@ main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="Marker2D2" type="Marker2D" parent="main-cir/stop"]
+visible = false
 position = Vector2(-97, -26)
 
 [node name="refusal" parent="main-cir" instance=ExtResource("3_fy42o")]
 toggle_mode = true
 text = "Отказ"
+disabled = true
 text_color = Color(1, 0.313726, 0.992157, 1)
 main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="Marker2D2" type="Marker2D" parent="main-cir/refusal"]
+visible = false
 position = Vector2(87, -51)
 
 [node name="power" parent="main-cir/refusal" instance=ExtResource("3_fy42o")]
@@ -100,6 +105,7 @@ main_color = Color(0.2, 0.313726, 0.407843, 1)
 outline_color = Color(1, 0.313726, 0.992157, 1)
 
 [node name="Marker2D2" type="Marker2D" parent="main-cir/refusal/power"]
+visible = false
 position = Vector2(15.9723, 87.9853)
 
 [node name="control" parent="main-cir/refusal" instance=ExtResource("3_fy42o")]
@@ -111,6 +117,7 @@ outline_color = Color(1, 0.313726, 0.992157, 1)
 size = Vector2(110.855, 54)
 
 [node name="Marker2D" type="Marker2D" parent="main-cir/refusal/control"]
+visible = false
 position = Vector2(22.0123, 44.0145)
 
 [node name="sprites" type="Node2D" parent="."]
@@ -167,6 +174,7 @@ outline_color = Color(0.8, 0.8, 0.8, 1)
 size = Vector2(132.99, 63.685)
 
 [node name="Marker2D" type="Marker2D" parent="accept"]
+visible = false
 position = Vector2(1, 89)
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

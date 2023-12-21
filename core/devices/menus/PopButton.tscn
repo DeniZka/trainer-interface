@@ -61,8 +61,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme = ExtResource("5_d2v5n")
-text = "test
-"
+text = "testвы"
 flat = true
 
 [node name="target_point" type="Node2D" parent="."]

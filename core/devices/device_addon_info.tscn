@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dayvy5fc6fw1i"]
+
+[ext_resource type="Script" path="res://core/devices/device_addon_info.gd" id="1_opc25"]
+[ext_resource type="Theme" uid="uid://cs4bkw5nffd1u" path="res://core/devices/themes/For_scheme_elements/For_elements.tres" id="1_qwpl3"]
+
+[node name="Info" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_qwpl3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+script = ExtResource("1_opc25")
