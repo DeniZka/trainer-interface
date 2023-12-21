@@ -10,11 +10,7 @@ extends BaseMenu
 @onready var roles_selector: MenuItemsSelector = %"Roles Selector" as MenuItemsSelector
 @onready var persons_selector: MenuItemsSelector = %"Persons Selector" as MenuItemsSelector
 
-@onready var initialization_button: Button = %"Inizialization Button" as Button
-@onready var play_button: Button = %"Play Button" as Button
-@onready var step_button: Button = %"Step Button" as Button
-@onready var pause_button: Button = %"Pause Button" as Button
-@onready var stop_button: Button = %"Stop Button" as Button
+@onready var server_control_bar: ServerControlBar = %"Server Control Bar" as ServerControlBar
 
 var models: JSONApi
 var persons: JSONApi
@@ -25,12 +21,6 @@ func _on_ready() -> void:
 	models = Api.models
 	persons = Api.persons
 	roles = Api.roles
-	
-	play_button.pressed.connect(func(): _on_server_control(SITCommand.Play))
-	step_button.pressed.connect(func(): _on_server_control(SITCommand.Step))
-	pause_button.pressed.connect(func(): _on_server_control(SITCommand.Pause))
-	stop_button.pressed.connect(func(): _on_server_control(SITCommand.Stop))
-	initialization_button.pressed.connect(func(): _on_server_control(SITCommand.Init))
 
 func _on_server_control(command: String) -> void:
 	Log.trace("Команда управления сервером: %s" % command)
@@ -41,9 +31,9 @@ func _on_update_view(data: Server) -> void:
 		name_edit.text = data.name
 		author_edit.text = data.author
 		upload_date_edit.text = data.created_at
-		_show_controls()
+		server_control_bar.show()
 	else:
-		_hide_controls()
+		server_control_bar.hide()
 	await _load_and_apply_models(data)
 	await _load_and_apply_roles(data)
 	await _load_and_apply_persons(data)
@@ -103,17 +93,3 @@ func _on_clear_view() -> void:
 	models_selector.clear()
 	persons_selector.clear()
 	roles_selector.clear()
-
-func _hide_controls() -> void:
-	initialization_button.hide()
-	play_button.hide()
-	step_button.hide()
-	pause_button.hide()
-	stop_button.hide()
-
-func _show_controls() -> void:
-	initialization_button.show()
-	play_button.show()
-	step_button.show()
-	pause_button.show()
-	stop_button.show()
