@@ -64,6 +64,7 @@ func swap_frame_cb(frameName: String, linkName: String):
 			ch.flash_link(linkName)
 
 func _on_exit_pressed():
+	RPC.get_server_list()
 	for ch in nframes.get_children():
 		if ch is Frame:
 			ch.visible = false
@@ -94,6 +95,8 @@ func get_request_signal_list() -> Array:
 	
 func set_signal_values(in_sigs: Dictionary):
 	#parse incoming signals
+	if not in_sigs.is_empty():
+		Log.trace("got signals %s .." % in_sigs.keys()[0])
 	for in_s in in_sigs:
 		if not in_s in signals:
 			print_debug("ERROR: INCOMING SIGNAL", in_s, "NOT FOUND")

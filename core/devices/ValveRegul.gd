@@ -26,7 +26,7 @@ const DEFAULT_RGB = Color(0.9372549019607843, 0.9372549019607843, 0.937254901960
 const REFUSAL_RGB = Color(0.7568627450980392, 0, 0.7568627450980392)
 const NOCOLOR_RGB = Color(1, 1, 1, 0)
 var buttons = []
-var to_send_with_confirm = {}
+var signal_to_send_true = ""
 
 #export inspector variables
 @export_category("Valve_Regul") #create comfort category
@@ -157,7 +157,8 @@ func _on_close_b_toggled(is_down):
 	accept.pop = is_down
 	if is_down:
 		everyone_outline(CLOSE_RGB)
-		to_send_with_confirm = {"YB02": [true]}
+		signal_to_send_true = "YB02"
+		#to_send_with_confirm = {"YB02": [true]}
 
 
 func _on_open_b_toggled(is_down):
@@ -167,7 +168,7 @@ func _on_open_b_toggled(is_down):
 	accept.pop = is_down
 	if is_down:
 		everyone_outline(OPEN_RGB)
-		to_send_with_confirm = {"YB01": [true]}
+		signal_to_send_true = "YB01"
 
 
 func _on_stop_b_toggled(is_down):
@@ -176,7 +177,7 @@ func _on_stop_b_toggled(is_down):
 	accept.pop = is_down
 	if is_down:
 		everyone_outline(DARK_RGB)
-		to_send_with_confirm = {"YB91": [true]}
+		signal_to_send_true = "YB91"
 
 
 func _on_refusal_b_toggled(is_down):
@@ -186,19 +187,36 @@ func _on_refusal_b_toggled(is_down):
 		untuggle_others_except(refusalButton)
 	refusalButton.pop_childs(is_down)
 
+func _on_auto_manual_b_toggled(is_down):
+	if is_down :
+		untuggle_others_except(automanb)
+	accept.pop = is_down
+	if is_down:
+		everyone_outline(DARK_RGB)
+		signal_to_send_true = "YB23"
 
 func _on_accept_b_pressed():
 	#to_send_with_confirm.merge({"YB92":[true]})
-	send_signals(to_send_with_confirm)
-	to_send_with_confirm = {}
+	var result = await send_signal(signal_to_send_true, [true], true)
+	await get_tree().create_timer(1.0).timeout
+	send_signals({signal_to_send_true: [false]})
+	signal_to_send_true = ""
 	#FIXME: test
 	openb.toggled = false
 	closeb.toggled = false
 	stopb.toggled = false
+	automanb.toggled = false
 
 func _on_auto_manual_b_pressed():
-	untuggle_others_except(null)
-	send_signals({"YB23": [true]})
+	#untuggle_others_except(null)
+	##send_signals({"YB23": [true]})
+	#var result = await send_signal("YB23", [true], true)
+	##await get_tree().create_timer(0.5).timeout
+	##send_signal()
+	#send_signals({"YB23": [false]})
+	pass
+	
+
 	
 func update_device_state(sig: String, vals: Array):
 	match sig:
@@ -222,3 +240,6 @@ func update_device_state(sig: String, vals: Array):
 				openb.pop = false
 				closeb.disabled = true
 				openb.disabled = true
+
+
+
