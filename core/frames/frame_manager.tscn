@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b42mykjenkxuf"]
+[gd_scene load_steps=9 format=3 uid="uid://b42mykjenkxuf"]
 
 [ext_resource type="Script" path="res://core/frames/frame_manager.gd" id="1_p4tlx"]
+[ext_resource type="PackedScene" uid="uid://dhcydj5r2vwp8" path="res://core/primitives/pill.tscn" id="2_3hvom"]
+[ext_resource type="Theme" uid="uid://itqlca07sghr" path="res://ui/themes/right_menu/inizialization.tres" id="3_4rlpg"]
+[ext_resource type="ButtonGroup" uid="uid://bbi110mar64cq" path="res://ui/themes/button_groups/control.tres" id="4_p425v"]
+[ext_resource type="Theme" uid="uid://dk7ugxckubp2g" path="res://ui/themes/right_menu/play.tres" id="5_r5jbk"]
+[ext_resource type="Theme" uid="uid://cv5f0wuc8kagw" path="res://ui/themes/right_menu/step.tres" id="6_62agb"]
+[ext_resource type="Theme" uid="uid://byrpabyptqmn2" path="res://ui/themes/right_menu/pause.tres" id="7_6oxdp"]
+[ext_resource type="Theme" uid="uid://c03mmw0uj44dj" path="res://ui/themes/right_menu/stop.tres" id="8_8044q"]
 
 [node name="frame_manager" type="Node2D"]
 script = ExtResource("1_p4tlx")
@@ -44,6 +51,76 @@ offset_right = 126.0
 offset_bottom = 78.0
 text = "EXIT"
 
+[node name="pill2" parent="." instance=ExtResource("2_3hvom")]
+position = Vector2(1730, 1)
+color = Color(0.223529, 0.321569, 0.603922, 1)
+polygon = PackedVector2Array(160, 1.4, 159.334, 9.86311, 157.352, 18.1178, 154.103, 25.9609, 149.668, 33.1992, 144.154, 39.6545, 137.699, 45.1678, 130.461, 49.6035, 122.618, 52.8522, 114.363, 54.8339, 105.9, 55.5, -105.9, 55.5, -114.363, 54.8339, -122.618, 52.8522, -130.461, 49.6035, -137.699, 45.1678, -144.154, 39.6545, -149.668, 33.1992, -154.103, 25.9609, -157.352, 18.1178, -159.334, 9.86311, -160, 1.4, -160, -1.4, -159.334, -9.86311, -157.352, -18.1178, -154.103, -25.9609, -149.668, -33.1992, -144.154, -39.6545, -137.699, -45.1678, -130.461, -49.6035, -122.618, -52.8522, -114.363, -54.8339, -105.9, -55.5, 105.9, -55.5, 114.363, -54.8339, 122.618, -52.8522, 130.461, -49.6035, 137.699, -45.1678, 144.154, -39.6545, 149.668, -33.1992, 154.103, -25.9609, 157.352, -18.1178, 159.334, -9.86311, 160, -1.4)
+width = 320.0
+height = 111.0
+roundness = 54.1
+
+[node name="pill" parent="." instance=ExtResource("2_3hvom")]
+position = Vector2(1730, 1)
+polygon = PackedVector2Array(157.5, 0, 156.854, 8.21281, 154.93, 16.2234, 151.778, 23.8345, 147.473, 30.8587, 142.123, 37.1231, 135.859, 42.4734, 128.835, 46.7778, 121.223, 49.9305, 113.213, 51.8536, 105, 52.5, -105, 52.5, -113.213, 51.8536, -121.223, 49.9305, -128.835, 46.7778, -135.859, 42.4734, -142.123, 37.1231, -147.473, 30.8587, -151.778, 23.8345, -154.93, 16.2234, -156.854, 8.21281, -157.5, 6.4294e-15, -157.5, 6.4294e-15, -156.854, -8.21281, -154.93, -16.2234, -151.778, -23.8345, -147.473, -30.8587, -142.123, -37.1231, -135.859, -42.4734, -128.835, -46.7778, -121.223, -49.9305, -113.213, -51.8536, -105, -52.5, 105, -52.5, 113.213, -51.8536, 121.223, -49.9305, 128.835, -46.7778, 135.859, -42.4734, 142.123, -37.1231, 147.473, -30.8587, 151.778, -23.8345, 154.93, -16.2234, 156.854, -8.21281, 157.5, -1.28588e-14)
+width = 315.0
+height = 105.0
+roundness = 54.1
+
+[node name="Inizialization Button" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(25, 24)
+offset_left = 1640.0
+offset_top = 13.0
+offset_right = 1665.0
+offset_bottom = 37.0
+size_flags_horizontal = 0
+theme = ExtResource("3_4rlpg")
+button_group = ExtResource("4_p425v")
+
+[node name="Play Button" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(28, 24)
+offset_left = 1675.0
+offset_top = 14.0
+offset_right = 1703.0
+offset_bottom = 38.0
+size_flags_horizontal = 0
+theme = ExtResource("5_r5jbk")
+button_group = ExtResource("4_p425v")
+
+[node name="Step Button" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(28, 24)
+offset_left = 1717.0
+offset_top = 14.0
+offset_right = 1745.0
+offset_bottom = 38.0
+size_flags_horizontal = 0
+theme = ExtResource("6_62agb")
+button_group = ExtResource("4_p425v")
+
+[node name="Pause Button" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(28.5, 24)
+offset_left = 1798.0
+offset_top = 13.0
+offset_right = 1826.5
+offset_bottom = 37.0
+size_flags_horizontal = 0
+theme = ExtResource("7_6oxdp")
+button_group = ExtResource("4_p425v")
+
+[node name="Stop Button" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(28, 24)
+offset_left = 1756.0
+offset_top = 14.0
+offset_right = 1784.0
+offset_bottom = 38.0
+size_flags_horizontal = 0
+theme = ExtResource("8_8044q")
+button_group = ExtResource("4_p425v")
+
 [connection signal="pressed" from="dummy_frame/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="dummy_frame/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="controls/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Inizialization Button" to="." method="_on_inizialization_button_pressed"]
+[connection signal="pressed" from="Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Step Button" to="." method="_on_step_button_pressed"]
+[connection signal="pressed" from="Pause Button" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Stop Button" to="." method="_on_stop_button_pressed"]

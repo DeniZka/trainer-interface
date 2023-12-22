@@ -31,7 +31,7 @@ signal cursor_position_updated(pos: Vector2, peer: int)
 
 signal create_server_requested(server_name: String, model_name: String)
 signal kill_server_requested(server_name: String)
-signal server_control_requested(server_name: String, action: String)
+signal server_control_requested(peer: int, action: String, server_name: String)
 signal sit_connection_requested(method: int)
 signal sit_connection_status_requested()
 signal upload_model_requested(model_name: String, base64_file: String)
@@ -76,9 +76,9 @@ func crete_server(server_name: String, model_name: String):
 func kill_server(server_name: String):
 	kill_server_requested.emit(server_name)
 	
-@rpc("any_peer")
-func server_control(server_name: String, action: String):
-	server_control_requested.emit(server_name, action)
+@rpc("any_peer")  #server_name = "" -  for users that joins the server (play on frames)
+func server_control(action: String, server_name: String = ""):
+	server_control_requested.emit(multiplayer.get_remote_sender_id(), action, server_name)
 	
 enum{CONNECTION_TCP, CONNECTION_WEB}
 @rpc("any_peer")

@@ -121,8 +121,11 @@ func _on_user_leave_server_requested(id: int):
 	if servers[peers[id]].leave_user(id):
 		peers[id] = ""
 
-func _on_user_server_control(server_name: String, action: String):
-	if server_name in servers:
+func _on_user_server_control(id: int, action: String, server_name: String = ""):
+	if not server_name:
+		servers[peers[id]].server_control(action)
+		Log.trace("Action %s on server %s" % [action, server_name])
+	elif server_name in servers:
 		servers[server_name].server_control(action)
 		Log.trace("Server %s will be %s " % [server_name, action])
 	else:

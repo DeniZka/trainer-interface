@@ -166,3 +166,19 @@ func get_outgoing_signals() -> Dictionary:
 	outgoing_signals = {} #clean outgoing list 
 	return result
 	
+
+
+func _on_inizialization_button_pressed():
+	RPC.server_control.rpc(SITCommand.Init)
+
+func _on_play_button_pressed():
+	RPC.server_control.rpc(SITCommand.Play)
+
+func _on_step_button_pressed():
+	RPC.server_control.rpc(SITCommand.Step)
+
+func _on_pause_button_pressed():
+	RPC.server_control.rpc(SITCommand.Pause)
+
+func _on_stop_button_pressed():
+	RPC.server_control.rpc(SITCommand.Stop)

@@ -20,7 +20,7 @@ func _rpc_send_command(command: String) -> void:
 	if server_name == "":
 		return
 	
-	RPC.server_control.rpc(server_name, command)
+	RPC.server_control.rpc(command, server_name)
 
 func set_server(server_name: String) -> void:
 	self.server_name = server_name

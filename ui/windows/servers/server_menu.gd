@@ -31,6 +31,7 @@ func _on_update_view(data: Server) -> void:
 		name_edit.text = data.name
 		author_edit.text = data.author
 		upload_date_edit.text = data.created_at
+		server_control_bar.set_server(data.name)
 		server_control_bar.show()
 	else:
 		server_control_bar.hide()
