@@ -8,7 +8,7 @@ extends Control
 
 var authorized_person: Person
 
-func _ready() -> void:
+func _ready() -> void:	
 	login_form.authorized.connect(_on_person_authorized)
 	multiplayer_frames.closed.connect(_on_multiplyaer_frames_closed)
 	windows_manager.navigation_bar.logout.connect(_on_person_logout)

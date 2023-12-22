@@ -43,7 +43,9 @@ func _create_from_menu() -> Save:
 	save.created_at = upload_date_edit.text
 	for selected_item in models_selector.selected_lines.values():
 		save.model = selected_item
-	print(save.serialize())
+	for selected_item in models_selector.selected_lines.keys():
+		save.model_id = selected_item
+	save.author_id = UserProfile.person.id
 	return save
 
 func _on_clear_view() -> void:

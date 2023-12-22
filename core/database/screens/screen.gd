@@ -4,7 +4,9 @@ extends RefCounted
 var id: int
 var name: String
 var author: String
+var author_id: int
 var model: String
+var model_id: int
 var created_at: String
 var available_roles: Array
 var available_persons: Array
@@ -13,11 +15,11 @@ func serialize() -> Dictionary:
 	return {
 		"screen_id": id,
 		"name": name,
-		"author": author,
-		"model": model,
-		"roles_allowed": available_roles,
-		"persons_allowed": available_persons,
-		"created_at": created_at
+		"author_id": author_id,
+		"model_id": model_id,
+		#"roles_allowed": available_roles,
+		#"persons_allowed": available_persons,
+		#"created_at": created_at
 	}
 
 func available_roles_to_string() -> String:
@@ -36,8 +38,12 @@ static func create_from_json(json: Dictionary) -> Screen:
 	screen.name = json["name"]
 	screen.author = json["author"]
 	screen.model = json["model"]
-	screen.available_roles = json["roles_allowed"]
-	screen.available_persons = json["persons_allowed"]
+	
+	if json["roles_allowed"] != null:
+		screen.available_roles = json["roles_allowed"]
+	
+	if json["persons_allowed"] != null:
+		screen.available_persons = json["persons_allowed"]
 	screen.created_at = json["created_at"]
 	return screen
 

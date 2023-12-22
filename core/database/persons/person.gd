@@ -27,10 +27,10 @@ func serialize(with_id: bool = true) -> Dictionary:
 	return {
 		"person_id": id,
 		"avatar_id": avatar_id,
-		"locked": locked,
 		"login": login,
 		"password": password,
 		"full_name": full_name,
+		"locked": locked,
 		"roles": serialized_roles
 #		"role_ids": role_ids
 	}
@@ -57,6 +57,7 @@ static func create_from_response(response: HTTPResponse) -> Array[Person]:
 
 static func create_from_json(json: Dictionary) -> Person:
 	var person: Person = Person.new()
+	json = json["Person"]
 	person.id = json["person_id"]
 	
 	if json.has("id"):
@@ -65,7 +66,7 @@ static func create_from_json(json: Dictionary) -> Person:
 	person.login = json["login"]
 	person.password = json["password"]
 	person.full_name = json["full_name"]
-	person.locked = json["locked"]
+	#person.locked = json["locked"]
 	
 	for role_line in json["roles"]:
 		person.roles.append(PersonRole.create_from_json(role_line))

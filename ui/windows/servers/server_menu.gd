@@ -74,12 +74,14 @@ func _create_from_menu() -> Server:
 	server.name = name_edit.text
 	server.author = author_edit.text
 	server.created_at = upload_date_edit.text
-	for selected_item in models_selector.selected_lines.values():
-		server.model = selected_item
-	for selected_role in roles_selector.selected_lines.values():
-		server.available_roles.append(selected_role)
-	for selected_person in persons_selector.selected_lines.values():
-		server.available_persons.append(selected_person)
+	for selected_item in models_selector.selected_lines.keys():
+		server.model_id = selected_item
+	
+	server.author_id = UserProfile.person.id
+	#for selected_role in roles_selector.selected_lines.values():
+		#server.available_roles.append(selected_role)
+	#for selected_person in persons_selector.selected_lines.values():
+		#server.available_persons.append(selected_person)
 	
 	## TODO: create server on backend
 	RPC.crete_server.rpc(server.name, server.model)
