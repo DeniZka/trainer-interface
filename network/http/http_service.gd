@@ -33,7 +33,7 @@ func download_file(url: String) -> HTTPResponse:
 func upload_file(url: String, file_name: String, file_type: String, file_base64: String) -> HTTPResponse:
 	const endpoint_argument_name: String = "model_file"
 	var form: FormData = FormData.with_file(endpoint_argument_name, file_name, file_type, file_base64)
-	return await _send_exchange(url, form.headers, HTTPClient.METHOD_POST, form.body_as_raw())
+	return await _send_exchange(url, form.headers, HTTPClient.METHOD_POST, form.body_as_raw_with_file())
 
 func _send_exchange(url: String, headers: PackedStringArray, method: HTTPClient.Method, body: PackedByteArray) -> HTTPResponse:
 	Log.trace("Установка соединения с сервером, %s" % url)
