@@ -432,6 +432,22 @@ theme = ExtResource("6_buief")
 text = "KBA32
 AP001"
 
+[node name="Info" parent="ElPump2" instance=ExtResource("8_2c8wl")]
+offset_left = 1.0
+offset_top = 25.0
+offset_bottom = 44.0
+signal_name = "aW"
+prefix = ""
+suffix = "Квт"
+
+[node name="Info2" parent="ElPump2" instance=ExtResource("8_2c8wl")]
+offset_top = 44.0
+offset_right = 39.0
+offset_bottom = 63.0
+signal_name = "aV"
+prefix = ""
+suffix = "мм/с"
+
 [node name="ElPump3" parent="." instance=ExtResource("8_o8my3")]
 position = Vector2(1230.26, 799.402)
 pmp_state = 2
@@ -636,6 +652,9 @@ offset_left = 19.0
 offset_top = -27.0
 offset_right = 77.0
 offset_bottom = -4.0
+signal_name = "XQ01"
+prefix = ""
+suffix = "%"
 
 [node name="Label" type="Label" parent="ValveRegul3"]
 offset_left = 21.0

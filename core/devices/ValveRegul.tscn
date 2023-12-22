@@ -203,6 +203,7 @@ position = Vector2(1, 89)
 [connection signal="b_toggled" from="main-cir/close" to="." method="_on_close_b_toggled"]
 [connection signal="b_toggled" from="main-cir/open" to="." method="_on_open_b_toggled"]
 [connection signal="b_pressed" from="main-cir/AutoManual" to="." method="_on_auto_manual_b_pressed"]
+[connection signal="b_toggled" from="main-cir/AutoManual" to="." method="_on_auto_manual_b_toggled"]
 [connection signal="b_toggled" from="main-cir/stop" to="." method="_on_stop_b_toggled"]
 [connection signal="b_toggled" from="main-cir/refusal" to="." method="_on_refusal_b_toggled"]
 [connection signal="b_pressed" from="accept" to="." method="_on_accept_b_pressed"]
