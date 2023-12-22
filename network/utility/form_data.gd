@@ -47,6 +47,23 @@ func add_file(field_name: String, file_name: String, file_type: String, file_bas
 	content.append(FormDataItem.new([disposition, content_type], file_base64))
 	return self
 
+func body_as_raw_with_file() -> PackedByteArray:
+	var packed_body: PackedByteArray
+	var newline: PackedByteArray = ("\r\n").to_utf8_buffer()
+	
+	for item in content:
+		packed_body.append_array(("--%s" % BOUNDARY).to_utf8_buffer())
+		packed_body.append_array(newline)
+		for header in item.headers:
+			packed_body.append_array(header.to_utf8_buffer())
+			packed_body.append_array(newline)
+		packed_body.append_array(newline)
+		packed_body.append_array(Marshalls.base64_to_raw(item.content))
+		packed_body.append_array(newline)
+	packed_body.append_array(("--%s--" % BOUNDARY).to_utf8_buffer())
+	packed_body.append_array(newline)
+	return packed_body
+
 ## Convert all body content to string
 func body_as_string() -> String:
 	var packed_body: PackedStringArray

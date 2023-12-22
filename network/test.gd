@@ -16,15 +16,21 @@ var signals_values: Dictionary = { "test_0_a": 0.11, "test_0_b": 1.2,
 	"test_0_c": 2.231, "test_0_d": 3.342, "test_0_bool": true, "test_0_int": 5 }
 
 func _ready() -> void:
-	var http: HTTPService = HTTPService.new(Api.http)
-	var person_api: JSONApi = JSONApi.new("http://localhost:3000/persons", http)
-	var response: HTTPResponse = await person_api.all()
-	var persons: Array[Person]
-	for person_line in response.content:
-		persons.append(Person.create_from_json(person_line))
-	
-	print(persons)
+	file_uploader.uploaded.connect(_on_file_uploaded_test)
+	file_uploader.open()
 
+func _on_file_uploaded_test(file_name: String, file_type: String, file_base64: String) -> void:
+	const URL: String = "https://192.168.100.105:8000/models/1/file"
+	const FIELD_NAME: String = "model_file"
+	var raw: PackedByteArray = Marshalls.base64_to_raw(file_base64)
+	var data: FormData = FormData.with_file(FIELD_NAME, file_name, file_type, file_base64)
+	http.set_tls_options(TLSOptions.client_unsafe())
+	http.request_raw(URL, data.headers, HTTPClient.METHOD_POST, data.body_as_raw_with_file())
+	var response = await http.request_completed
+	var body: PackedByteArray = response[3]
+	print(response)
+	print(body.get_string_from_ascii())
+	
 func _on_file_uploaded(file_name: String, file_type: String, file_base64: String) -> void:
 	const URL: String = "https://192.168.100.105:8000/debug/test"
 	const FIELD_NAME: String = "test_file"
