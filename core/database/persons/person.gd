@@ -57,7 +57,7 @@ static func create_from_response(response: HTTPResponse) -> Array[Person]:
 
 static func create_from_json(json: Dictionary) -> Person:
 	var person: Person = Person.new()
-	json = json["Person"]
+	#json = json["Person"]
 	person.id = json["person_id"]
 	
 	if json.has("id"):

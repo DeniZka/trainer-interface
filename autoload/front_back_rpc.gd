@@ -29,7 +29,7 @@ signal request_signal_list_updated(signal_list: Array, peer: int, operaion: int)
 signal signal_values_offered(signals: Dictionary, peer: int)
 signal cursor_position_updated(pos: Vector2, peer: int)
 
-signal create_server_requested(server_name: String, model_name: String)
+signal create_server_requested(server_name: String, model_id: int)
 signal kill_server_requested(server_name: String)
 signal server_control_requested(peer: int, action: String, server_name: String)
 signal sit_connection_requested(method: int)
@@ -69,8 +69,8 @@ func cursor_position(pos: Vector2):
 #Odmin functions
 	
 @rpc("any_peer")
-func crete_server(server_name: String, model_name: String):
-	create_server_requested.emit(server_name, model_name)
+func crete_server(server_name: String, model_id: int):
+	create_server_requested.emit(server_name, model_id)
 
 @rpc("any_peer")
 func kill_server(server_name: String):

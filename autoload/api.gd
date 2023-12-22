@@ -1,7 +1,7 @@
 extends Node
 
 ## Timeout for http exchange
-const TIMEOUT_IN_SECONDS: float = 1.0
+const TIMEOUT_IN_SECONDS: float = 5.0
 
 var url: String = "https://192.168.100.105:8000"
 var pool: HTTPRequestPool
