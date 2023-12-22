@@ -20,7 +20,7 @@ const AMQP_WEB_ADDRESS : String = SERV_WEB_LAN
 const AMQP_HOST : String = "/"
 const AMQP_LOGIN : String = LAN_LOGIN
 const AMPQ_PASS : String = LAN_PASS
-const HYPERVISOR_CHECK_TIMEOUT = 60.0
+const HYPERVISOR_CHECK_TIMEOUT = 5.0
 
 var is_sit_connected : bool = false
 
@@ -34,12 +34,17 @@ var models_servers : Dictionary = {} #"name": [server_name, ..]
 
 
 var stomp : STOMPClient = null
+var api_models : JSONApi
 
 ###main part---------------------------------------------------------------------------------
 func _ready():
 	begin_serve()   #FIRST give clients passability to interact server
 	_on_user_sit_connect(RPC.CONNECTION_TCP)  #SECOND connect to AMQP
 	$UI_update.start(1.0) #interface view internal status
+	api_models = Api.models as JSONApi
+	var json = await api_models.all()
+	print(json)
+	
 
 	
 func _exit_tree():
@@ -145,19 +150,26 @@ func _on_user_sit_connection_status():
 	
 #reset timer on heartbeat
 func _on_hypervisor_heartbeat(_message: String):
+	$Hypervisor.modulate = Color(0,1,0)
+	$LHVStatus.text = "ON"
 	$Hypervisor_alive.start(HYPERVISOR_CHECK_TIMEOUT)
 	
 func _on_hypervisor_alive_timeout():
 	#TODO: clean????
+	if not is_node_ready(): await ready
+	$Hypervisor.modulate = Color(1,0,0)
+	$LHVStatus.text = "OFF"
 	RPC.hypervisor_down.rpc()
-	Log.trace("Warning! Hypervisor is not response")
+	#Log.trace("Warning! Hypervisor is not response")
 	
 func _on_hypervisor_server_up(server_name: String):
+	hypervisor.get_server_list(0)
 	for model in models_servers:
 		if server_name in models_servers[model]:
 			models_servers[model][server_name] = "UP"
 			
 func _on_hypervisor_server_down(server_name: String):
+	hypervisor.get_server_list(0)
 	for model in models_servers:
 		if server_name in models_servers[model].keys():
 			models_servers[model][server_name] = "DOWN"	
@@ -234,3 +246,12 @@ func _on_b_create_model_pressed():
 	$OBModelList.clear()
 	for model_name in models:
 		$OBModelList.add_item(model_name)
+
+
+func _on_server_list_timeout():
+	pass # Replace with function body.
+
+
+func _on_b_server_list_pressed():
+	hypervisor.get_server_list(0)
+	pass # Replace with function body.

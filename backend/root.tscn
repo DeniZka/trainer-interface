@@ -68,6 +68,13 @@ offset_right = 1879.0
 offset_bottom = 345.0
 text = "kill server"
 
+[node name="BServerList" type="Button" parent="."]
+offset_left = 1765.0
+offset_top = 444.0
+offset_right = 1891.0
+offset_bottom = 477.0
+text = "Get Server List"
+
 [node name="LEServerName" type="LineEdit" parent="."]
 offset_left = 1752.0
 offset_top = 187.0
@@ -98,10 +105,29 @@ offset_top = 223.0
 offset_right = 1748.68
 offset_bottom = 232.48
 
+[node name="ServerList" type="Timer" parent="."]
+autostart = true
+
+[node name="LHVStatus" type="Label" parent="."]
+offset_left = 1764.0
+offset_top = 413.0
+offset_right = 1923.0
+offset_bottom = 436.0
+text = "offline"
+
+[node name="Hypervisor" type="Label" parent="."]
+offset_left = 1762.0
+offset_top = 385.0
+offset_right = 1894.0
+offset_bottom = 408.0
+text = "Hypervisor"
+
 [connection signal="timeout" from="AMQP_connect_check" to="." method="_on_amqp_connect_check_timeout"]
 [connection signal="timeout" from="Connection_checker" to="." method="_on_connection_checker_timeout"]
 [connection signal="timeout" from="Hypervisor_alive" to="." method="_on_hypervisor_alive_timeout"]
 [connection signal="timeout" from="UI_update" to="." method="_on_ui_update_timeout"]
 [connection signal="pressed" from="BCreateServer" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="BKillServer" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="BServerList" to="." method="_on_b_server_list_pressed"]
 [connection signal="pressed" from="BCreateModel" to="." method="_on_b_create_model_pressed"]
+[connection signal="timeout" from="ServerList" to="." method="_on_server_list_timeout"]
