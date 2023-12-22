@@ -26,10 +26,9 @@ func add_server(server_name: String) -> void:
 	instance.set_button_group(button_group)
 	instance.get_line_item().item_pressed.connect(func(item: LineItem): server_selected.emit(item.tag))
 	server_line_menu.add_item(instance.get_line_item())
-	server_line_menu.menu_items.append(instance.get_line_item())
+	#server_line_menu.menu_items.append(instance.get_line_item())
 	server_container.add_child(instance)
 
 func clear_servers() -> void:
 	for child in server_container.get_children():
 		child.free()
-	server_line_menu.erase_nulls()

@@ -27,6 +27,7 @@ func close() -> void:
 	frame_manager.exit_called.disconnect(_on_exit_called)
 	RPC.signals_values_received.disconnect(_on_update_signal_values)
 	frame_manager.commands_prepared.disconnect(_on_commands_prepared)
+	frame_manager.outgoing_signals_ready.disconnect(_on_outgoing_signals_ready)
 	frame_manager.visible = false
 
 func _on_outgoing_signals_ready() -> void:
