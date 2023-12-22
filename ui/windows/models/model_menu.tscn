@@ -297,6 +297,7 @@ layout_mode = 2
 theme = ExtResource("3_srdul")
 
 [node name="Model_control_sum" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_f3ryd")
 
@@ -313,15 +314,18 @@ theme_override_font_sizes/font_size = 13
 text = "КОНТРОЛЬНАЯ СУММА"
 
 [node name="Space5" type="Panel" parent="Right_menu/Main"]
+visible = false
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("3_srdul")
 
 [node name="Model_control_sum_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_f3ryd")
 
 [node name="Space" type="Panel" parent="Right_menu/Main/Model_control_sum_placeholder" node_paths=PackedStringArray("menu_items")]
+visible = false
 custom_minimum_size = Vector2(58, 0)
 layout_mode = 2
 theme = ExtResource("3_srdul")
@@ -331,6 +335,7 @@ colors = ExtResource("8_aiwbo")
 
 [node name="Checksum" type="LineEdit" parent="Right_menu/Main/Model_control_sum_placeholder" node_paths=PackedStringArray("vertical_lines", "horizontal_lines")]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(112, 31)
 layout_mode = 2
 theme = ExtResource("2_f3ryd")
@@ -380,6 +385,7 @@ layout_mode = 2
 theme = ExtResource("3_srdul")
 
 [node name="Model_author" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_f3ryd")
 
@@ -396,11 +402,13 @@ theme_override_font_sizes/font_size = 13
 text = "ИМЯ АВТОРА"
 
 [node name="Space7" type="Panel" parent="Right_menu/Main"]
+visible = false
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("3_srdul")
 
 [node name="Model_author_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_f3ryd")
 
@@ -462,6 +470,7 @@ layout_mode = 2
 theme = ExtResource("3_srdul")
 
 [node name="Model_load_date" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_f3ryd")
 
@@ -478,11 +487,13 @@ theme_override_font_sizes/font_size = 13
 text = "ДАТА ЗАГРУЗКИ"
 
 [node name="Space9" type="Panel" parent="Right_menu/Main"]
+visible = false
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("3_srdul")
 
 [node name="Model_load_date_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_f3ryd")
 

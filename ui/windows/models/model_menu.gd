@@ -22,7 +22,7 @@ func _on_load_button_pressed() -> void:
 func _on_file_uploaded(file_name: String, file_type: String, base64_data: String) -> void:
 	var model: Model = data
 	file_name_label.text = file_name
-	RPC.upload_model.rpc(model.name, base64_data)
+	await api.upload_file(data.id, file_name, file_type, base64_data)
 
 func _on_update_view(data: Model) -> void:
 	if data == null:
@@ -46,4 +46,5 @@ func _create_from_menu() -> Model:
 	model.name = model_name_edit.text
 	model.created_at = upload_date_edit.text
 	model.author = author_edit.text
+	model.author_id = UserProfile.person.id
 	return model

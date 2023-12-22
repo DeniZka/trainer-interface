@@ -4,6 +4,7 @@ extends RefCounted
 var id: int
 var name: String
 var author: String
+var author_id: int
 var created_at: String
 
 func _to_string() -> String:
@@ -13,8 +14,7 @@ func serialize() -> Dictionary:
 	return {
 		"model_id": id,
 		"name": name,
-		"author": author,
-		"created_at": created_at
+		"author_id": author_id
 	}
 
 static func create_from_json(json: Dictionary) -> Model:

@@ -73,12 +73,13 @@ func _create_from_menu() -> Screen:
 	scenario.name = screen_name_edit.text
 	scenario.author = author_edit.text
 	scenario.created_at = upload_date_edit.text
-	for selected_item in models_selector.selected_lines.values():
-		scenario.model = selected_item
-	for selected_role in roles_selector.selected_lines.values():
-		scenario.available_roles.append(selected_role)
-	for selected_person in persons_selector.selected_lines.values():
-		scenario.available_persons.append(selected_person)
+	for selected_item in models_selector.selected_lines.keys():
+		scenario.model_id = selected_item
+	scenario.author_id = UserProfile.person.id
+	#for selected_role in roles_selector.selected_lines.values():
+		#scenario.available_roles.append(selected_role)
+	#for selected_person in persons_selector.selected_lines.values():
+		#scenario.available_persons.append(selected_person)
 	return scenario
 
 func _on_clear_view() -> void:

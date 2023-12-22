@@ -420,11 +420,13 @@ layout_mode = 2
 theme = ExtResource("2_lmmnt")
 
 [node name="Space6" type="Panel" parent="Right_menu/Main"]
+visible = false
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("3_qp8m7")
 
 [node name="Author" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_lmmnt")
 
@@ -441,11 +443,13 @@ theme_override_font_sizes/font_size = 13
 text = "АВТОР"
 
 [node name="Space7" type="Panel" parent="Right_menu/Main"]
+visible = false
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("3_qp8m7")
 
 [node name="Author_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_lmmnt")
 
@@ -508,6 +512,7 @@ layout_mode = 2
 theme = ExtResource("3_qp8m7")
 
 [node name="Load_date" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_lmmnt")
 
@@ -524,11 +529,13 @@ theme_override_font_sizes/font_size = 13
 text = "ДАТА ЗАГРУЗКИ"
 
 [node name="Space9" type="Panel" parent="Right_menu/Main"]
+visible = false
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 theme = ExtResource("3_qp8m7")
 
 [node name="Load_date_placeholder" type="HBoxContainer" parent="Right_menu/Main"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_lmmnt")
 
