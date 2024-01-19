@@ -62,7 +62,7 @@ theme = ExtResource("3_6y0qf")
 custom_minimum_size = Vector2(308, 36)
 layout_mode = 2
 theme = ExtResource("2_tuaiw")
-text = "Карточка рестарта"
+text = "Карточка сценария"
 horizontal_alignment = 1
 
 [node name="Name_H" type="ColorRect" parent="Right_menu/Main/Menu_name/Name"]
@@ -629,6 +629,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="File Uploader" parent="." instance=ExtResource("14_uv12j")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 
 [connection signal="toggled" from="Right_menu/Main/Master_load/Master/Master" to="." method="_on_master_toggled"]
