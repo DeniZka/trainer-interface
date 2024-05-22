@@ -6,8 +6,8 @@ signal changed(new_state: int)
 @onready var crt = preload("res://certificates/X509_Certificate.crt")
 @onready var key = preload("res://certificates/X509_Key.key")
 
-const DEFAULT_IP: String = "192.168.100.151"
-const DEFAULT_PORT: int = 10508
+var backend_ip: String
+var backend_port: int
 
 var peer: ENetMultiplayerPeer
 
@@ -24,6 +24,9 @@ enum ConnectionState {
 }
 
 func _ready() -> void:
+	backend_ip = GlobalConfig.get_backend_ip()
+	backend_port = GlobalConfig.get_backend_port()
+	
 	peer = ENetMultiplayerPeer.new()
 	#peer.inbound_buffer_size = 6553500
 	#peer.outbound_buffer_size = 6553500
@@ -32,7 +35,7 @@ func _ready() -> void:
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
 func get_server_websocket_url() -> String:
-	return "wss://%s:%s" % [DEFAULT_IP, DEFAULT_PORT]
+	return "wss://%s:%s" % [backend_ip, backend_port]
 
 func _on_server_connected() -> void:
 	Log.debug("Соединение установлено с %s" % get_server_websocket_url())
@@ -49,7 +52,7 @@ func _on_server_disconnected() -> void:
 func connect_to_server() -> void:
 	#var server_ip: String = get_server_websocket_url()
 	#var error: int = peer.create_client(server_ip, TLSOptions.client(crt))
-	var error: int = peer.create_client(DEFAULT_IP, DEFAULT_PORT)
+	var error: int = peer.create_client(backend_ip, backend_port)
 	#Log.debug("Подключаюсь к серверу %s" % server_ip)
 	if error != OK:
 		Log.error("Не удалось подключиться к серверу. Код ошибки: %s" % error)

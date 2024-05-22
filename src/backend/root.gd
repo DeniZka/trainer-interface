@@ -6,20 +6,16 @@ extends Node
 @onready var peer : ENetMultiplayerPeer
 var ui_update_timer: Timer
 
-const SERV_DREW = "46.138.251.6:55513" 
 const SERV_LAN = "192.168.100.157:61613"
-const SERV_WEB_LAN = "ws://192.168.100.157:15674/ws"
 const LAN_LOGIN = "admin"
 const LAN_PASS = "105Admin105"
-const DRWE_LOGIN_PASS = "guest1"
 
 const SERVER_PORT = 10508
 const POLL_TIMEOUT = 0.05 #s
-const AMQP_ADDRESS : String = SERV_LAN
-const AMQP_WEB_ADDRESS : String = SERV_WEB_LAN
+var AMQP_ADDRESS : String = SERV_LAN
 const AMQP_HOST : String = "/"
-const AMQP_LOGIN : String = LAN_LOGIN
-const AMPQ_PASS : String = LAN_PASS
+var AMQP_LOGIN : String = LAN_LOGIN
+var AMPQ_PASS : String = LAN_PASS
 const HYPERVISOR_CHECK_TIMEOUT = 5.0
 
 var is_sit_connected : bool = false
@@ -38,6 +34,10 @@ var api_models : JSONApi
 
 ###main part---------------------------------------------------------------------------------
 func _ready():
+	AMQP_ADDRESS = GlobalConfig.get_amqp_url()
+	AMQP_LOGIN = GlobalConfig.get_amqp_username()
+	AMPQ_PASS = GlobalConfig.get_amqp_password()
+	
 	begin_serve()   #FIRST give clients passability to interact server
 	_on_user_sit_connect(RPC.CONNECTION_TCP)  #SECOND connect to AMQP
 	$UI_update.start(1.0) #interface view internal status

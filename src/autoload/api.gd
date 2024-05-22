@@ -3,7 +3,6 @@ extends Node
 ## Timeout for http exchange
 const TIMEOUT_IN_SECONDS: float = 5.0
 
-var url: String = "https://192.168.100.105:8000"
 var pool: HTTPRequestPool
 
 var persons: JSONApi
@@ -15,16 +14,16 @@ var screens: JSONApi
 var servers: JSONApi
 
 func _ready() -> void:
+	var db_url = GlobalConfig.get_db_url()
 	pool = create_http_request_pool(TIMEOUT_IN_SECONDS)
-	initialize_api(url, pool)
+	initialize_api(db_url, pool)
 
 func create_http_request_pool(timeout: float) -> HTTPRequestPool:
 	var pool = HTTPRequestPool.new(timeout)
 	add_child(pool)
 	return pool
 
-func initialize_api(url: String, pool: HTTPRequestPool) -> void:
-	const base_url: String = "https://192.168.100.105:8000/"
+func initialize_api(base_url: String, pool: HTTPRequestPool) -> void:
 	var http_service: HTTPService = HTTPService.new(pool)
 	self.persons = JSONApi.new(base_url + "persons", http_service)
 	self.roles = JSONApi.new(base_url + "roles", http_service)

@@ -17,6 +17,7 @@ config/icon="res://icons/animals/Bear_144.png"
 
 [autoload]
 
+GlobalConfig="*res://autoload/global_config.gd"
 Api="*res://autoload/api.gd"
 Log="*res://autoload/log.gd"
 Services="*res://autoload/services.gd"
