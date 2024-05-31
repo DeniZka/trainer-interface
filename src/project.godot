@@ -38,3 +38,7 @@ limits/message_queue/max_size_mb=1000
 
 limits/packet_peer_stream/max_buffer_po2=4096
 limits/webrtc/max_channel_in_buffer_kb=4096
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
