@@ -1,5 +1,14 @@
 extends SceneTree
 
+# This scrip using for presetup config variables before start godot building system from command line.
+# It change parameters in config.cfg files from command line arguments.
+#
+# Example usage:
+# 	godot -s build_setup.gd ++ --db_ip=127.0.0.1 --db_port=3000
+#
+# "++" - delimiter for user arguments
+# see config.cfg file for check available settings parameters after "++"
+
 func _init() -> void:
 	var cmd_args: Dictionary = _cmd_arguments_to_dictionary()
 	_update_config_file_from(cmd_args)
